@@ -46,6 +46,39 @@ adder(2, 6);
 // > 8
 {% endhighlight %}
 
+{% highlight html %}
+<!-- HTML generated using hilite.me -->
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+    <div style="margin: 0; line-height: 125%">
+        <span style="color: #008800; font-weight: bold">print</span>
+        <span style="background-color: #fff0f0">&#39;hello world!&#39;</span>
+    </div>
+</div>
+{% endhighlight %}
+
+{% highlight css %}
+.drop-shadow {box-shadow: inset 0 0 15px 0px rgba(0, 0, 0, 0.3);}
+
+@neutral-color: #cacdd3;
+
+/*less test*/
+.bottom-links a {
+			background-color: #3f4850;
+			border: 1px solid #192025;
+			box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+			color: #c9cdcf;
+			text-shadow: 0 1px 0 #232a30;
+
+			&:hover {
+				background-color: #2a465c;
+				border: 1px solid #0f2231;
+				box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+				color: #c9cdcf;
+				text-shadow: 0 1px 0 #162938;
+			}
+		}
+{% endhighlight %}
+
 Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.
 
 ### Lists
