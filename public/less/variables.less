@@ -1,0 +1,125 @@
+// main: styles.less
+
+.opacity (@opacity) {
+	-webkit-opacity: 	@opacity;
+	-moz-opacity: 		@opacity;
+	opacity: 		@opacity;
+}
+
+.radius (@radius:10px) {
+    -moz-border-radius:@radius;
+    -webkit-border-radius:@radius;
+    border-radius:@radius;/* future proofing */
+    -khtml-border-radius:@radius; /* for old Konqueror browsers */
+}
+
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/*Add label in top-left corner desplaying current media query state.*/
+body {
+    &:after {
+    background: red;
+    font-family: sans-serif;
+    font-size:8px;
+    border-radius: 0 0 8px 0;
+    text-transform: uppercase;
+    color: white;
+    content: "undefined";
+    left: 0;
+    .opacity(1);
+    padding: .5em 1em;
+    position: fixed;
+    text-align: center;
+    top: 0;
+    z-index: 999;
+    //text-shadow: 1px 1px 3px rgba(0,0,0,.75);
+        
+    .overlay (@color,@title) {
+        background: fade(@color,50%);
+        content: @title;
+        text-shadow:
+            0px 0px 15px spin(darken(@color,40%),-25),
+            1px 1px 3px spin(darken(@color,20%),-25)
+        ;
+        box-shadow: 0px 0px 5px lighten(@color,20%);
+    }
+    @media @mobile {
+        .overlay(orange,"mobile");
+    }
+    @media @tablet {
+        .overlay(purple,"tablet");
+
+    }
+    @media @desktop {
+        .overlay(green,"desktop");
+    }
+    @media @desktop-xl {
+        .overlay(blue,"desktop-xl");
+    }
+  }
+}
+
+
+// Breakpoints
+// Source: http://blog.scur.pl/2012/06/variable-media-queries-less-css/
+@highdensity: ~"only screen and (-webkit-min-device-pixel-ratio: 1.5)",
+              ~"only screen and (min--moz-device-pixel-ratio: 1.5)",
+              ~"only screen and (-o-min-device-pixel-ratio: 3/2)",
+              ~"only screen and (min-device-pixel-ratio: 1.5)";
+@mobile:      ~"only screen and (max-width: 529px)";
+@tablet:      ~"only screen and (min-width: 530px) and (max-width: 768px)";
+@desktop:     ~"only screen and (min-width: 769px) and (max-width: 1128px)";
+@desktop-xl:  ~"only screen and (min-width: 1129px)";
+
+
+
+/*  THE GRID justifygrid.com  */
+@columns: 12;
+@column-width: 4em;
+@gutter-width: 1.2em;
+@support-old-ie: false;
+
+#grid() {
+  text-align: justify !important;
+  text-justify: distribute-all-lines;
+  font-size: 0 !important;
+  & > * {
+    text-align: left;
+    font-size: medium;
+  }
+  &:after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+  }
+  .cell() {
+    vertical-align: top;
+    display: inline-block;
+    width: 100%;
+  }
+  .span(@cols, @total: @columns) {
+    width: percentage((@column-width * @cols  + @gutter-width * (@cols  - 1)) /
+                      (@column-width * @total + @gutter-width * (@total - 1)));
+    margin-bottom: 1.9%;
+  }
+  .push(@cols, @total: @columns) {
+    left: percentage((@column-width + @gutter-width) * @cols /
+                     (@column-width * @total + @gutter-width * (@total - 1)));
+  }
+  .pull(@cols, @total: @columns) {
+    left: percentage((@column-width + @gutter-width) * -@cols /
+                     (@column-width * @total + @gutter-width * (@total - 1)));
+  }
+  .prepend(@cols, @total: @columns) {
+    margin-left: percentage((@column-width + @gutter-width) * @cols /
+                            (@column-width * @total + @gutter-width * (@total - 1)));
+  }
+  .append(@cols, @total: @columns) {
+    margin-right: percentage((@column-width + @gutter-width) * @cols /
+                             (@column-width * @total + @gutter-width * (@total - 1)));
+  }
+}

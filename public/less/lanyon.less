@@ -1,3 +1,5 @@
+// main: styles.less
+
 /*
  *  ___
  * /\_ \
@@ -35,10 +37,33 @@
  */
 
 /* Prevent scroll on narrow devices */
+
+@import (reference) "variables.less";
+
 html,
 body {
-  overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
+
+html {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+    
+    @media @desktop-xl {font-size: 14px}
+    @media @tablet {font-size: 10px}
+    @media @mobile {font-size: 10px}
+}
+
+body {
+  color: #515151;
+  background-color: #fff;
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+}
+
 
 html {
   font-family: "PT Serif", Georgia, "Times New Roman", serif;
@@ -73,9 +98,19 @@ h1, h2, h3, h4, h5, h6 {
  */
 
 .container {
-  max-width: 28rem;
+    //max-width: 38rem;
+    padding-left:  1rem;
+    padding-right: 1rem;
+    margin-left:  auto;
+    margin-right: auto;
+    width: 80%;
+    font-size: 1.5rem;
+
+    @media @tablet {width:80%;}
 }
-@media (min-width: 38em) {
+
+
+/*@media (min-width: 38em) {
   .container {
     max-width: 32rem;
   }
@@ -84,7 +119,7 @@ h1, h2, h3, h4, h5, h6 {
   .container {
     max-width: 38rem;
   }
-}
+}*/
 
 
 /*
