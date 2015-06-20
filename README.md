@@ -1,2 +1,2 @@
 # chase
-Personal website for Ch
+Personal website for Chase
