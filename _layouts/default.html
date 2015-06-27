@@ -1,37 +1,59 @@
 <!DOCTYPE html>
 <html lang="en-us">
 
-  {% include head.html %}
+{% include head.html %}
 
-  <body>
-    
-    {% include sidebar.html %}
-
+<body>
     <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
          content to avoid any CSS collisions with our real content. -->
-    <div class="wrap">
-     {%include header.html %}
-      <!--<div class="masthead">
-        <div class="container">
-          <h3 class="masthead-title">
-            <a href="{{ site.baseurl }}/" title="Home">{{ site.title }}</a>
-            <small>{{ site.tagline }}</small>
-          </h3>
+    <div class="stars">
+        <!-- scrolling stars in bg -->
+        <!--<div class="wrap">-->
+
+        <!--<div class="masthead">
+            <div class="container">
+              <h3 class="masthead-title">
+                <a href="{{ site.baseurl }}/" title="Home">{{ site.title }}</a>
+                <small>{{ site.tagline }}</small>
+              </h3>
+            </div>
+          </div>-->
+        <input type="checkbox" id="sidebar-toggler" name="" value="" checked />
+        
+        <label for="sidebar-toggler" class="toggle"><span id="hamburgler"><span></span></span>
+            </label>
+            
+        {% include sidebar.html %}
+            
+        {% include header.html %}
+
+        
+
+        <div class="wrap">
+           
+           
+
+            
+            
+            <div id="content">
+                <section class="container">
+                    {{ content }}
+                </section>
+            </div>
+
+            
         </div>
-      </div>-->
-      <div id="content">
-        <section class="container">
-            {{ content }}
-        </section>
-      </div>
-      {% include footer.html %}
+        <!-- wrap -->
+        {% include footer.html %}
+        <!--</div>-->
+
+        <!--<label for="sidebar-checkbox" class="sidebar-toggle"></label>-->
     </div>
 
-    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
-    
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="../js/jquery.nicescroll.min.js"></script>
     <script src="../js/functions.js"></script>
-     
-  </body>
+
+</body>
+
 </html>

@@ -1,4 +1,4 @@
-(function(document) {
+/*(function(document) {
     var toggle = document.querySelector('.sidebar-toggle');
     var sidebar = document.querySelector('#sidebar');
     var checkbox = document.querySelector('#sidebar-checkbox');
@@ -12,7 +12,7 @@
 
       checkbox.checked = false;
     }, false);
-})(document);
+})(document);*/
 
 $(document).ready(
 
@@ -23,8 +23,6 @@ $(document).ready(
   }
 
 );
-
-$("html").getNiceScroll().hide();
 
 $(function() {
   /* ADDED: make targets focusable */

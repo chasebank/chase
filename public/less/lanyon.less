@@ -1,4 +1,6 @@
 // main: styles.less
+@import (reference) "variables.less";
+
 /*
  *  ___
  * /\_ \
@@ -32,11 +34,8 @@
  */
 /* Prevent scroll on narrow devices */
 
-@import (reference) "variables.less";
 @image: '../img/stars-bg.gif';
 @repeat: top center repeat-x;
-@bgColor: #212b2d;
-@btmColor: #141f22;
 @colorStop: 714px;
 html {
     height: 100%
@@ -50,7 +49,7 @@ html,
 body {
     margin: 0;
     padding: 0;
-    background: @bgColor;
+    background: @baseBlue;
     /* Old browsers */
     
     font-size: 10px;
@@ -58,34 +57,35 @@ body {
 
 body {
     font-family: Sans-Serif;
-    background: @bgColor;
+    background: @baseBlue;
     /* Old browsers */
     
     background-image: url(@image);
-    background-image: -moz-linear-gradient(top, transparent @colorStop, transparent @colorStop, @bgColor @colorStop, @btmColor 100%), url(@image);
+    background-image: -moz-linear-gradient(top, transparent @colorStop, transparent @colorStop, @baseBlue @colorStop, @darkBlue 100%), url(@image);
     /* FF3.6+ */
     
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(@colorStop, transparent), color-stop(@colorStop, @bgColor), color-stop(100%, @btmColor)), url(@image);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(@colorStop, transparent), color-stop(@colorStop, @baseBlue), color-stop(100%, @darkBlue)), url(@image);
     /* Chrome,Safari4+ */
     
-    background-image: -webkit-linear-gradient(top, transparent @colorStop, @bgColor @colorStop, @btmColor 100%), url(@image);
+    background-image: -webkit-linear-gradient(top, transparent @colorStop, @baseBlue @colorStop, @darkBlue 100%), url(@image);
     /* Chrome10+,Safari5.1+ */
     
-    background-image: -o-linear-gradient(top, transparent @colorStop, @bgColor @colorStop, @btmColor 100%), url(@image);
+    background-image: -o-linear-gradient(top, transparent @colorStop, @baseBlue @colorStop, @darkBlue 100%), url(@image);
     /* Opera 11.10+ */
     
-    background-image: -ms-linear-gradient(top, transparent @colorStop, @bgColor @colorStop, @btmColor 100%), url(@image);
+    background-image: -ms-linear-gradient(top, transparent @colorStop, @baseBlue @colorStop, @darkBlue 100%), url(@image);
     /* IE10+ */
     
-    background-image: linear-gradient(to bottom, transparent @colorStop, @bgColor @colorStop, @btmColor 100%), url(@image);
+    background-image: linear-gradient(to bottom, transparent @colorStop, @baseBlue @colorStop, @darkBlue 100%), url(@image);
     /* W3C */
     
     background-position: top center;
     background-repeat: repeat-x;
     background-attachment: fixed;
+    font-size:1.2rem;
 }
 
-.wrap {
+.stars {
     background-image: url('../img/stars.png');
     position: relative;
     /* needed for footer positioning*/
@@ -101,10 +101,23 @@ body {
     
     min-height: 100%;
     /* real browsers */
+}
+
+/*.wrap {
+    background-image: url('../img/stars.png');
+    position: relative;
+    
+    margin: 0 auto;
+    
+    height: auto !important;
+    
+    height: 100%;
+    
+    min-height: 100%;
     
     overflow: hidden;
     div#logo {}
-}
+}*/
 
 header {
     @navHeight:3rem;
@@ -150,9 +163,13 @@ header {
         width:38%;
         height:90%;
         z-index:2;
-        background:rgba(255,0,0,.2);
         
-        @media @mobile,
+        @media @mobile {
+            margin-top:-3%;
+            width:38%;
+            height:90%;
+        }
+        
         @media @tablet {
             margin-top:-3%;
             width:38%;
@@ -193,7 +210,7 @@ header {
         }
     }/* nav-wrap */
     
-    ul.nav {
+    nav {
         position:relative;
         height:@navHeight;
         width:100%;
@@ -202,7 +219,7 @@ header {
         list-style:none;
         padding:0;
         text-align:center;
-        z-index: 1;
+        z-index: 2;
         background-image:linear-gradient(to right,
         transparent 0%,
         rgba(0,0,0,.45) 40%,
@@ -212,48 +229,16 @@ header {
         background-position: top center;
         background-attachment: fixed;
 
-      /*&:before {
-        position:absolute;
-        top:0;
-        display:block;
-        content:'';
-        width:100%;
-        height:@navHeight;
-        background-image: url('../img/stars-bg.gif');
-        background-position: top center;
-        background-attachment:fixed;
-        z-index:-1;
-      }*/
-
-      /*&:after {
-        content: "";
-        position: absolute;
-        top:-.5rem;
-        left:-3%;
-        right:-3%;
-        z-index:-1;
-        width: 103%;
-        height:@navHeight+1rem;
-        background-image:linear-gradient(to bottom,
-          rgba(0,0,0,.5) 0%,
-          rgba(0,200,255,.2) 100%);
-        box-shadow:
-          inset 0px 0px 5px 0px rgba(0,0,0,1),
-          0 0 6px 2px rgba(0, 0, 0, .3),
-          0 -2px 10px 0px rgba(0, 30, 50, .5);
-        -webkit-border-radius: 40%;
-        -moz-border-radius: 40%;
-        border-radius: 35%;
-      }*/
-
-      li {
+      a {
         display:inline-block;
         margin:0;
-        //padding:.2rem .2rem .4rem .2rem;
         font-family: 'Montserrat', sans-serif;
         font-weight:400;
         font-size:1.35rem;
         letter-spacing: .05rem;
+        text-decoration:none;
+        color:white;
+        text-transform:uppercase;
 
         &:after {
           position:relative;
@@ -272,13 +257,6 @@ header {
             content:"";
             margin:0;
           }
-        }
-
-        a {
-          display:inline-block;
-          text-decoration:none;
-          color:white;
-          text-transform:uppercase;
         }
       }/* li */
     }/* ul.nav */
@@ -326,17 +304,7 @@ section {
     }
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: "PT Sans", Helvetica, Arial, sans-serif;
-    font-weight: 400;
-    color: #313131;
-    letter-spacing: -.025rem;
-}
+
 /*
  * Wrapper
  *
@@ -429,122 +397,6 @@ h6 {
  */
 /* Style and "hide" the sidebar */
 
-.sidebar {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: -14rem;
-    width: 14rem;
-    visibility: hidden;
-    overflow-y: auto;
-    font-family: "PT Sans", Helvetica, Arial, sans-serif;
-    font-size: .875rem;
-    /* 15px */
-    
-    color: rgba(255, 255, 255, .6);
-    background-color: #202020;
-    -webkit-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out;
-}
-
-@media (min-width: 30em) {
-    .sidebar {
-        font-size: .75rem;
-        /* 14px */
-    }
-}
-/* Sidebar content */
-
-.sidebar a {
-    font-weight: normal;
-    color: #fff;
-}
-
-.sidebar-item {
-    padding: 1rem;
-}
-
-.sidebar-item p:last-child {
-    margin-bottom: 0;
-}
-/* Sidebar nav */
-
-.sidebar-nav {
-    border-bottom: 1px solid rgba(255, 255, 255, .1);
-}
-
-.sidebar-nav-item {
-    display: block;
-    padding: .5rem 1rem;
-    border-top: 1px solid rgba(255, 255, 255, .1);
-}
-
-.sidebar-nav-item.active,
-a.sidebar-nav-item:hover,
-a.sidebar-nav-item:focus {
-    text-decoration: none;
-    background-color: rgba(255, 255, 255, .1);
-    border-color: transparent;
-}
-
-@media (min-width: 48em) {
-    .sidebar-item {
-        padding: 1.5rem;
-    }
-    .sidebar-nav-item {
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
-    }
-}
-/* Hide the sidebar checkbox that we toggle with `.sidebar-toggle` */
-
-.sidebar-checkbox {
-    position: absolute;
-    opacity: 0;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-}
-/* Style the `label` that we use to target the `.sidebar-checkbox` */
-
-.sidebar-toggle {
-    position: absolute;
-    top: .8rem;
-    left: 1rem;
-    display: block;
-    padding: .25rem .75rem;
-    color: #505050;
-    background-color: #fff;
-    border-radius: .25rem;
-    cursor: pointer;
-}
-
-.sidebar-toggle:before {
-    display: inline-block;
-    width: 1rem;
-    height: .75rem;
-    content: "";
-    background-image: -webkit-linear-gradient(to bottom, #555, #555 20%, #fff 20%, #fff 40%, #555 40%, #555 60%, #fff 60%, #fff 80%, #555 80%, #555 100%);
-    background-image: -moz-linear-gradient(to bottom, #555, #555 20%, #fff 20%, #fff 40%, #555 40%, #555 60%, #fff 60%, #fff 80%, #555 80%, #555 100%);
-    background-image: -ms-linear-gradient(to bottom, #555, #555 20%, #fff 20%, #fff 40%, #555 40%, #555 60%, #fff 60%, #fff 80%, #555 80%, #555 100%);
-    background-image: linear-gradient(to bottom, #555, #555 20%, #fff 20%, #fff 40%, #555 40%, #555 60%, #fff 60%, #fff 80%, #555 80%, #555 100%);
-}
-
-.sidebar-toggle:active,
-#sidebar-checkbox:focus ~ .sidebar-toggle,
-#sidebar-checkbox:checked ~ .sidebar-toggle {
-    color: #fff;
-    background-color: #555;
-}
-
-.sidebar-toggle:active:before,
-#sidebar-checkbox:focus ~ .sidebar-toggle:before,
-#sidebar-checkbox:checked ~ .sidebar-toggle:before {
-    background-image: -webkit-linear-gradient(to bottom, #fff, #fff 20%, #555 20%, #555 40%, #fff 40%, #fff 60%, #555 60%, #555 80%, #fff 80%, #fff 100%);
-    background-image: -moz-linear-gradient(to bottom, #fff, #fff 20%, #555 20%, #555 40%, #fff 40%, #fff 60%, #555 60%, #555 80%, #fff 80%, #fff 100%);
-    background-image: -ms-linear-gradient(to bottom, #fff, #fff 20%, #555 20%, #555 40%, #fff 40%, #fff 60%, #555 60%, #555 80%, #fff 80%, #fff 100%);
-    background-image: linear-gradient(to bottom, #fff, #fff 20%, #555 20%, #555 40%, #fff 40%, #fff 60%, #555 60%, #555 80%, #fff 80%, #fff 100%);
-}
 
 @media (min-width: 30.1em) {
     .sidebar-toggle {
@@ -570,32 +422,9 @@ a.sidebar-nav-item:focus {
  * Read more about it at http://meyerweb.com/eric/thoughts/2011/09/12/.
  */
 
-.wrap,
-.sidebar,
-.sidebar-toggle {
-    -webkit-backface-visibility: hidden;
-    -ms-backface-visibility: hidden;
-    backface-visibility: hidden;
-}
 
-.wrap,
-.sidebar-toggle {
-    -webkit-transition: -webkit-transform .3s ease-in-out;
-    transition: transform .3s ease-in-out;
-}
 
-#sidebar-checkbox:checked + .sidebar {
-    z-index: 10;
-    visibility: visible;
-}
 
-#sidebar-checkbox:checked ~ .sidebar,
-#sidebar-checkbox:checked ~ .wrap,
-#sidebar-checkbox:checked ~ .sidebar-toggle {
-    -webkit-transform: translateX(14rem);
-    -ms-transform: translateX(14rem);
-    transform: translateX(14rem);
-}
 /*
  * Posts and pages
  *
@@ -623,7 +452,6 @@ a.sidebar-nav-item:focus {
 
 .post-date {
     display: block;
-    margin-top: -.5rem;
     margin-bottom: 1rem;
     color: #9a9a9a;
 }
@@ -645,7 +473,6 @@ a.sidebar-nav-item:focus {
 }
 
 .related-posts li small {
-    font-size: 75%;
     color: #999;
 }
 
@@ -709,163 +536,4 @@ a.pagination-item:hover {
         border-top-right-radius: 4px;
         border-bottom-right-radius: 4px;
     }
-}
-/*
- * Reverse layout
- *
- * Flip the orientation of the page by placing the `.sidebar` and sidebar toggle
- * on the right side.
- */
-
-.layout-reverse .sidebar {
-    left: auto;
-    right: -14rem;
-}
-
-.layout-reverse .sidebar-toggle {
-    left: auto;
-    right: 1rem;
-}
-
-.layout-reverse #sidebar-checkbox:checked ~ .sidebar,
-.layout-reverse #sidebar-checkbox:checked ~ .wrap,
-.layout-reverse #sidebar-checkbox:checked ~ .sidebar-toggle {
-    -webkit-transform: translateX(-14rem);
-    -ms-transform: translateX(-14rem);
-    transform: translateX(-14rem);
-}
-/*
- * Themes
- *
- * Apply custom color schemes by adding the appropriate class to the `body`.
- * Based on colors from Base16: http://chriskempson.github.io/base16/#default.
- */
-/* Red */
-
-.theme-base-08 .sidebar,
-.theme-base-08 .sidebar-toggle:active,
-.theme-base-08 #sidebar-checkbox:checked ~ .sidebar-toggle {
-    background-color: #ac4142;
-}
-
-.theme-base-08 .container a,
-.theme-base-08 .sidebar-toggle,
-.theme-base-08 .related-posts li a:hover {
-    color: #ac4142;
-}
-/* Orange */
-
-.theme-base-09 .sidebar,
-.theme-base-09 .sidebar-toggle:active,
-.theme-base-09 #sidebar-checkbox:checked ~ .sidebar-toggle {
-    background-color: #d28445;
-}
-
-.theme-base-09 .container a,
-.theme-base-09 .sidebar-toggle,
-.theme-base-09 .related-posts li a:hover {
-    color: #d28445;
-}
-/* Yellow */
-
-.theme-base-0a .sidebar,
-.theme-base-0a .sidebar-toggle:active,
-.theme-base-0a #sidebar-checkbox:checked ~ .sidebar-toggle {
-    background-color: #f4bf75;
-}
-
-.theme-base-0a .container a,
-.theme-base-0a .sidebar-toggle,
-.theme-base-0a .related-posts li a:hover {
-    color: #f4bf75;
-}
-/* Green */
-
-.theme-base-0b .sidebar,
-.theme-base-0b .sidebar-toggle:active,
-.theme-base-0b #sidebar-checkbox:checked ~ .sidebar-toggle {
-    background-color: #90a959;
-}
-
-.theme-base-0b .container a,
-.theme-base-0b .sidebar-toggle,
-.theme-base-0b .related-posts li a:hover {
-    color: #90a959;
-}
-/* Cyan */
-
-.theme-base-0c .sidebar,
-.theme-base-0c .sidebar-toggle:active,
-.theme-base-0c #sidebar-checkbox:checked ~ .sidebar-toggle {
-    background-color: #75b5aa;
-}
-
-.theme-base-0c .container a,
-.theme-base-0c .sidebar-toggle,
-.theme-base-0c .related-posts li a:hover {
-    color: #75b5aa;
-}
-/* Blue */
-
-.theme-base-0d .sidebar,
-.theme-base-0d .sidebar-toggle:active,
-.theme-base-0d #sidebar-checkbox:checked ~ .sidebar-toggle {
-    background-color: #6a9fb5;
-}
-
-.theme-base-0d .container a,
-.theme-base-0d .sidebar-toggle,
-.theme-base-0d .related-posts li a:hover {
-    color: #6a9fb5;
-}
-/* Magenta */
-
-.theme-base-0e .sidebar,
-.theme-base-0e .sidebar-toggle:active,
-.theme-base-0e #sidebar-checkbox:checked ~ .sidebar-toggle {
-    background-color: #aa759f;
-}
-
-.theme-base-0e .container a,
-.theme-base-0e .sidebar-toggle,
-.theme-base-0e .related-posts li a:hover {
-    color: #aa759f;
-}
-/* Brown */
-
-.theme-base-0f .sidebar,
-.theme-base-0f .sidebar-toggle:active,
-.theme-base-0f #sidebar-checkbox:checked ~ .sidebar-toggle {
-    background-color: #8f5536;
-}
-
-.theme-base-0f .container a,
-.theme-base-0f .sidebar-toggle,
-.theme-base-0f .related-posts li a:hover {
-    color: #8f5536;
-}
-/*
- * Overlay sidebar
- *
- * Make the sidebar content overlay the viewport content instead of pushing it
- * aside when toggled.
- */
-
-.sidebar-overlay #sidebar-checkbox:checked ~ .wrap {
-    -webkit-transform: translateX(0);
-    -ms-transform: translateX(0);
-    transform: translateX(0);
-}
-
-.sidebar-overlay #sidebar-checkbox:checked ~ .sidebar-toggle {
-    box-shadow: 0 0 0 .25rem #fff;
-}
-
-.sidebar-overlay #sidebar-checkbox:checked ~ .sidebar {
-    box-shadow: .25rem 0 .5rem rgba(0, 0, 0, .1);
-}
-/* Only one tweak for a reverse layout */
-
-.layout-reverse.sidebar-overlay #sidebar-checkbox:checked ~ .sidebar {
-    box-shadow: -.25rem 0 .5rem rgba(0, 0, 0, .1);
 }
