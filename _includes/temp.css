@@ -1,0 +1,52 @@
+.toggleOpen {
+    background:transparent;
+    box-shadow:
+    1px 1px 5px rgba(0,40,80,0),
+    1px 1px 8px rgba(20,80,120,0);
+    transform:translateX(@sidebarWidth - 40px) translateY(@toggleSize/2);
+    
+    #hamburgler { 
+        span {
+          background:transparent;
+          height:100%;
+          width:100%;
+          border-radius:50%;
+          border:(@hamburglerThickness*.8) solid @hamburglerIconColor;
+          -webkit-transform-style: preserve-3d;
+          -moz-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+
+          @angle:45deg;
+          @scale:.7;
+          &:before {
+            transform:translateY(200%) rotate(@angle) scale(@scale);
+          }
+          &:after {
+            transform:translateY(200%) rotate(-@angle) scale(@scale);
+          }
+        }
+    }
+}
+.toggleClosed {
+    transform:translateX(@toggleSize/2) translateY(@toggleSize/2);
+    
+    #hamburgler {
+        span {
+            // middle bar
+            background: @hamburglerIconColor;
+            height: @hamburglerThickness;
+            width: @hamburglerSize;
+            border-radius: @HamburglerRadius;
+            border: 0 solid transparent;
+
+            &:before {
+                // top bar
+                transform: translateY(-200%);
+            }
+            &:after {
+                // bottom bar
+                transform: translateY(200%);
+            }
+        }
+    }
+}

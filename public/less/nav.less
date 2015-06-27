@@ -1,0 +1,247 @@
+// main: styles.less
+@import (reference) "variables.less";
+
+
+.transition(@target:all,@duration:.7s,@ease:ease-in-out) {
+  transition:@target @duration @ease;
+}
+
+.wrap {
+  position:relative;
+}
+
+.content {
+  position:relative;
+  margin:0 auto;
+  width:80%;
+  .transition;
+}
+
+@toggleSize:4rem;
+.toggle {
+  background:crimson;
+  position:fixed;
+  width:@toggleSize;
+  height:@toggleSize;
+  transform:translateX(@toggleSize/2) translateY(@toggleSize/2);
+  z-index:999;
+  cursor:pointer;
+  box-shadow:
+    1px 1px 5px rgba(0,40,80,.2),
+    1px 1px 8px rgba(20,80,120,.2);
+  .transition;
+}
+
+@sidebarWidth:240px;
+@sidebarMargin:@toggleSize*2;
+.sidebar {
+  position:fixed;
+  top:0;
+  bottom:0;
+  transform:translateX(-@sidebarWidth - 10px);
+  width: @sidebarWidth;
+  padding:30px;
+  background:#333;
+  z-index:0;
+  box-shadow:
+    0px -5px 5px fade(@baseBlue,20%),
+    2px -5px 15px 5px fade(@darkBlue,20%);
+  .transition;
+    z-index:900;
+  
+  a {
+    display:block;
+    color:rgba(255,255,255,.8);
+    margin-bottom:16px;
+    text-decoration:none;
+    
+    &:hover {
+      color:rgba(255,255,255,1);
+    }
+  }  
+}
+
+@hamburglerSize:2.4rem;
+@HamburglerRadius:@hamburglerSize*.08;
+@hamburglerThickness:@hamburglerSize*.15;
+@hamburglerIconColor:white;
+@hamburglerTransition:all .4s ease-in-out;
+#hamburgler {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  margin:0 auto;
+  display:block;
+  width:@hamburglerSize;
+  height:@hamburglerSize;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  
+  span {// middle bar
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    display:block;
+    background:@hamburglerIconColor;
+    height:@hamburglerThickness;
+    width:@hamburglerSize;
+    border-radius:@HamburglerRadius;
+    margin:0 auto;
+    transition:@hamburglerTransition;
+    border:0 solid transparent;
+    
+    &:before,
+    &:after {
+      position: absolute;
+      content:'';
+      display: block;
+      background:@hamburglerIconColor;
+      height:@hamburglerThickness;
+      border-radius:@HamburglerRadius;
+      width:100%;
+      transition:@hamburglerTransition;
+    }
+    
+    &:before {// top bar
+      transform:translateY(-200%);
+    }
+    
+    &:after {// bottom bar
+      transform:translateY(200%);
+    }
+  }
+}
+
+.toggleOpen {
+    background:transparent;
+    box-shadow:
+    1px 1px 5px rgba(0,40,80,0),
+    1px 1px 8px rgba(20,80,120,0);
+    transform:translateX(@sidebarWidth - 40px) translateY(@toggleSize/2);
+    
+    #hamburgler { 
+        span {
+          background:transparent;
+          height:100%;
+          width:100%;
+          border-radius:50%;
+          border:(@hamburglerThickness*.8) solid @hamburglerIconColor;
+          -webkit-transform-style: preserve-3d;
+          -moz-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+
+          @angle:45deg;
+          @scale:.7;
+          &:before {
+            transform:translateY(200%) rotate(@angle) scale(@scale);
+          }
+          &:after {
+            transform:translateY(200%) rotate(-@angle) scale(@scale);
+          }
+        }
+    }
+}
+.toggleClosed {
+    background:crimson;
+    transform:translateX(@toggleSize/2) translateY(@toggleSize/2);
+    
+    #hamburgler {
+        span {
+            // middle bar
+            background: @hamburglerIconColor;
+            height: @hamburglerThickness;
+            width: @hamburglerSize;
+            border-radius: @HamburglerRadius;
+            border: 0 solid transparent;
+
+            &:before {
+                // top bar
+                transform: translateY(-200%);
+            }
+            &:after {
+                // bottom bar
+                transform: translateY(200%);
+            }
+        }
+    }
+}
+.sidebarOpen {
+    transform: translateX(0)
+}
+.sidebarClosed {
+    transform:translateX(-@sidebarWidth - 10px);
+}
+
+#sidebar-toggler {
+    display:none!important;
+
+
+    &:checked ~ .sidebar {
+        transform: translateX(0)
+
+    }
+
+    &:checked + .toggle {
+        background:transparent;
+        box-shadow:
+        1px 1px 5px rgba(0,40,80,0),
+        1px 1px 8px rgba(20,80,120,0);
+        transform:translateX(@sidebarWidth - 40px) translateY(@toggleSize/2);
+        // ISSUE - should be @sidebarWidth - (@toggleSize*1.5) but rems aren't working nested under :checked
+
+        #hamburgler { 
+            span {
+                background:transparent;
+                height:100%;
+                width:100%;
+                border-radius:50%;
+                border:(@hamburglerThickness*.8) solid @hamburglerIconColor;
+                -webkit-transform-style: preserve-3d;
+                -moz-transform-style: preserve-3d;
+                transform-style: preserve-3d;
+
+                @angle:45deg;
+                @scale:.7;
+                &:before {
+                    transform:translateY(200%) rotate(@angle) scale(@scale);
+                }
+                &:after {
+                    transform:translateY(200%) rotate(-@angle) scale(@scale);
+                }
+            }/* span */
+        }/* hamburgler */
+    }/* toggle */
+}/* toggler */
+
+body {
+    @media @desktop-xl {
+        #content {
+            width:80%;
+        }
+        
+        #sidebar-toggler {
+                & ~ header {
+                    .transition;
+                    transform:translateX(@sidebarWidth/2);
+                }
+                & ~ .wrap > #content {
+                    .transition;
+                    transform:translateX(@sidebarWidth/2);
+                }
+                & + .toggle {.toggleOpen;}
+                & ~ .sidebar {.sidebarOpen;}
+                &:checked{
+                    & ~ header {
+                        transform:translateX(0)
+                    }
+                    & ~ .wrap > #content {
+                        transform:translateX(0);
+                    }
+                    & + .toggle {.toggleClosed;}
+                    & ~ .sidebar {.sidebarClosed;}
+                }
+        }
+    }
+}
+
