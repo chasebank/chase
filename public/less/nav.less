@@ -44,6 +44,17 @@
             1px 1px 5px rgba(0,40,80,1),
             1px 1px 8px rgba(20,80,120,.4);
     }
+    
+    @media @tablet {
+        height:4rem;
+        -webkit-transform:translateX(@toggleSize/3) translateY(@toggleSize/4);
+        -ms-transform:translateX(@toggleSize/3) translateY(@toggleSize/4);
+        transform:translateX(@toggleSize/3) translateY(@toggleSize/4);
+        background:fade(@baseBlue,70%);
+        box-shadow:
+            1px 1px 5px rgba(0,40,80,1),
+            1px 1px 8px rgba(20,80,120,.4);
+    }
 }
 
 @sidebarWidth:240px;
@@ -207,11 +218,18 @@
         // ISSUE - should be @sidebarWidth - (@toggleSize*1.5) but rems aren't working nested under :checked
         
         @media @mobile {
-        height:3rem;
-        -webkit-transform:translateX(@sidebarWidth - 40px) translateY(@toggleSize/4);
-        -ms-transform:translateX(@sidebarWidth - 40px) translateY(@toggleSize/4);
-        transform:translateX(@sidebarWidth - 40px) translateY(@toggleSize/4);
-    }
+            height:3rem;
+            -webkit-transform:translateX(@sidebarWidth - 40px) translateY(@toggleSize/4);
+            -ms-transform:translateX(@sidebarWidth - 40px) translateY(@toggleSize/4);
+            transform:translateX(@sidebarWidth - 40px) translateY(@toggleSize/4);
+        }
+        
+        @media @tablet {
+            height:4rem;
+            -webkit-transform:translateX(@sidebarWidth - 40px) translateY(@toggleSize/4);
+            -ms-transform:translateX(@sidebarWidth - 40px) translateY(@toggleSize/4);
+            transform:translateX(@sidebarWidth - 40px) translateY(@toggleSize/4);
+        }
 
         #hamburgler { 
             span {
