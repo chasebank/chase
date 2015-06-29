@@ -18,17 +18,20 @@
 }
 
 @toggleSize:4rem;
+.toggleClosedStyle {
+    background:fade(@baseBlue,50%);
+    box-shadow:
+    1px 1px 5px rgba(0,40,80,.8),
+    1px 1px 8px rgba(20,80,120,.2);
+}
 .toggle {
-  background:crimson;
+  .toggleClosedStyle;
   position:fixed;
   width:@toggleSize;
   height:@toggleSize;
   transform:translateX(@toggleSize/2) translateY(@toggleSize/2);
   z-index:999;
   cursor:pointer;
-  box-shadow:
-    1px 1px 5px rgba(0,40,80,.2),
-    1px 1px 8px rgba(20,80,120,.2);
   .transition;
 }
 
@@ -143,7 +146,7 @@
     }
 }
 .toggleClosed {
-    background:crimson;
+    .toggleClosedStyle;
     transform:translateX(@toggleSize/2) translateY(@toggleSize/2);
     
     #hamburgler {
