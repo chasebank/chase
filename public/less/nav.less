@@ -29,7 +29,7 @@
   position:fixed;
   width:@toggleSize;
   height:@toggleSize;
-  transform:translateX(@toggleSize/2) translateY(@toggleSize/2);
+  -webkit-transform:translateX(@toggleSize/2) translateY(@toggleSize/2);  -ms-transform:translateX(@toggleSize/2) translateY(@toggleSize/2);  transform:translateX(@toggleSize/2) translateY(@toggleSize/2);
   z-index:999;
   cursor:pointer;
   .transition;
@@ -41,7 +41,7 @@
   position:fixed;
   top:0;
   bottom:0;
-  transform:translateX(-@sidebarWidth - 10px);
+  -webkit-transform:translateX(-@sidebarWidth - 10px);  -ms-transform:translateX(-@sidebarWidth - 10px);  transform:translateX(-@sidebarWidth - 10px);
   width: @sidebarWidth;
   padding:30px;
   background:#333;
@@ -72,7 +72,7 @@
 #hamburgler {
   position: relative;
   top: 50%;
-  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);  -ms-transform: translateY(-50%);  transform: translateY(-50%);
   margin:0 auto;
   display:block;
   width:@hamburglerSize;
@@ -84,7 +84,7 @@
   span {// middle bar
     position: relative;
     top: 50%;
-    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);    -ms-transform: translateY(-50%);    transform: translateY(-50%);
     display:block;
     background:@hamburglerIconColor;
     height:@hamburglerThickness;
@@ -107,11 +107,11 @@
     }
     
     &:before {// top bar
-      transform:translateY(-200%);
+      -webkit-transform:translateY(-200%);      -ms-transform:translateY(-200%);      transform:translateY(-200%);
     }
     
     &:after {// bottom bar
-      transform:translateY(200%);
+      -webkit-transform:translateY(200%);      -ms-transform:translateY(200%);      transform:translateY(200%);
     }
   }
 }
@@ -121,7 +121,7 @@
     box-shadow:
     1px 1px 5px rgba(0,40,80,0),
     1px 1px 8px rgba(20,80,120,0);
-    transform:translateX(@sidebarWidth - 40px) translateY(@toggleSize/2);
+    -webkit-transform:translateX(@sidebarWidth - 40px) translateY(@toggleSize/2);    -ms-transform:translateX(@sidebarWidth - 40px) translateY(@toggleSize/2);    transform:translateX(@sidebarWidth - 40px) translateY(@toggleSize/2);
     
     #hamburgler { 
         span {
@@ -137,17 +137,17 @@
           @angle:45deg;
           @scale:.7;
           &:before {
-            transform:translateY(200%) rotate(@angle) scale(@scale);
+            -webkit-transform:translateY(200%) rotate(@angle) scale(@scale);            -ms-transform:translateY(200%) rotate(@angle) scale(@scale);            transform:translateY(200%) rotate(@angle) scale(@scale);
           }
           &:after {
-            transform:translateY(200%) rotate(-@angle) scale(@scale);
+            -webkit-transform:translateY(200%) rotate(-@angle) scale(@scale);            -ms-transform:translateY(200%) rotate(-@angle) scale(@scale);            transform:translateY(200%) rotate(-@angle) scale(@scale);
           }
         }
     }
 }
 .toggleClosed {
     .toggleClosedStyle;
-    transform:translateX(@toggleSize/2) translateY(@toggleSize/2);
+    -webkit-transform:translateX(@toggleSize/2) translateY(@toggleSize/2);    -ms-transform:translateX(@toggleSize/2) translateY(@toggleSize/2);    transform:translateX(@toggleSize/2) translateY(@toggleSize/2);
     
     #hamburgler {
         span {
@@ -160,20 +160,20 @@
 
             &:before {
                 // top bar
-                transform: translateY(-200%);
+                -webkit-transform: translateY(-200%);                -ms-transform: translateY(-200%);                transform: translateY(-200%);
             }
             &:after {
                 // bottom bar
-                transform: translateY(200%);
+                -webkit-transform: translateY(200%);                -ms-transform: translateY(200%);                transform: translateY(200%);
             }
         }
     }
 }
 .sidebarOpen {
-    transform: translateX(0)
+    -webkit-transform: translateX(0);    -ms-transform: translateX(0);    transform: translateX(0)
 }
 .sidebarClosed {
-    transform:translateX(-@sidebarWidth - 10px);
+    -webkit-transform:translateX(-@sidebarWidth - 10px);    -ms-transform:translateX(-@sidebarWidth - 10px);    transform:translateX(-@sidebarWidth - 10px);
 }
 
 #sidebar-toggler {
@@ -181,7 +181,7 @@
 
 
     &:checked ~ .sidebar {
-        transform: translateX(0)
+        -webkit-transform: translateX(0);        -ms-transform: translateX(0);        transform: translateX(0)
 
     }
 
@@ -190,7 +190,7 @@
         box-shadow:
         1px 1px 5px rgba(0,40,80,0),
         1px 1px 8px rgba(20,80,120,0);
-        transform:translateX(@sidebarWidth - 40px) translateY(@toggleSize/2);
+        -webkit-transform:translateX(@sidebarWidth - 40px) translateY(@toggleSize/2);        -ms-transform:translateX(@sidebarWidth - 40px) translateY(@toggleSize/2);        transform:translateX(@sidebarWidth - 40px) translateY(@toggleSize/2);
         // ISSUE - should be @sidebarWidth - (@toggleSize*1.5) but rems aren't working nested under :checked
 
         #hamburgler { 
@@ -207,10 +207,10 @@
                 @angle:45deg;
                 @scale:.7;
                 &:before {
-                    transform:translateY(200%) rotate(@angle) scale(@scale);
+                    -webkit-transform:translateY(200%) rotate(@angle) scale(@scale);                    -ms-transform:translateY(200%) rotate(@angle) scale(@scale);                    transform:translateY(200%) rotate(@angle) scale(@scale);
                 }
                 &:after {
-                    transform:translateY(200%) rotate(-@angle) scale(@scale);
+                    -webkit-transform:translateY(200%) rotate(-@angle) scale(@scale);                    -ms-transform:translateY(200%) rotate(-@angle) scale(@scale);                    transform:translateY(200%) rotate(-@angle) scale(@scale);
                 }
             }/* span */
         }/* hamburgler */
@@ -226,20 +226,20 @@ body {
         #sidebar-toggler {
                 & ~ header {
                     .transition;
-                    transform:translateX(@sidebarWidth/2);
+                    -webkit-transform:translateX(@sidebarWidth/2);                    -ms-transform:translateX(@sidebarWidth/2);                    transform:translateX(@sidebarWidth/2);
                 }
                 & ~ .wrap > #content {
                     .transition;
-                    transform:translateX(@sidebarWidth/2);
+                    -webkit-transform:translateX(@sidebarWidth/2);                    -ms-transform:translateX(@sidebarWidth/2);                    transform:translateX(@sidebarWidth/2);
                 }
                 & + .toggle {.toggleOpen;}
                 & ~ .sidebar {.sidebarOpen;}
                 &:checked{
                     & ~ header {
-                        transform:translateX(0)
+                        -webkit-transform:translateX(0);                        -ms-transform:translateX(0);                        transform:translateX(0)
                     }
                     & ~ .wrap > #content {
-                        transform:translateX(0);
+                        -webkit-transform:translateX(0);                        -ms-transform:translateX(0);                        transform:translateX(0);
                     }
                     & + .toggle {.toggleClosed;}
                     & ~ .sidebar {.sidebarClosed;}
