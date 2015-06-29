@@ -33,6 +33,17 @@
   z-index:999;
   cursor:pointer;
   .transition;
+    
+    @media @mobile {
+        height:3rem;
+        -webkit-transform:translateX(@toggleSize/3) translateY(@toggleSize/4);
+        -ms-transform:translateX(@toggleSize/3) translateY(@toggleSize/4);
+        transform:translateX(@toggleSize/3) translateY(@toggleSize/4);
+        background:fade(@baseBlue,70%);
+        box-shadow:
+            1px 1px 5px rgba(0,40,80,1),
+            1px 1px 8px rgba(20,80,120,.4);
+    }
 }
 
 @sidebarWidth:240px;
@@ -137,10 +148,10 @@
           @angle:45deg;
           @scale:.7;
           &:before {
-            -webkit-transform:translateY(200%) rotate(@angle) scale(@scale);            -ms-transform:translateY(200%) rotate(@angle) scale(@scale);            transform:translateY(200%) rotate(@angle) scale(@scale);
+            -webkit-transform:translateY(200%) rotate(@angle) scale(@scale);-ms-transform:translateY(200%) rotate(@angle) scale(@scale);transform:translateY(200%) rotate(@angle) scale(@scale);
           }
           &:after {
-            -webkit-transform:translateY(200%) rotate(-@angle) scale(@scale);            -ms-transform:translateY(200%) rotate(-@angle) scale(@scale);            transform:translateY(200%) rotate(-@angle) scale(@scale);
+            -webkit-transform:translateY(200%) rotate(-@angle) scale(@scale);-ms-transform:translateY(200%) rotate(-@angle) scale(@scale);transform:translateY(200%) rotate(-@angle) scale(@scale);
           }
         }
     }
@@ -190,8 +201,17 @@
         box-shadow:
         1px 1px 5px rgba(0,40,80,0),
         1px 1px 8px rgba(20,80,120,0);
-        -webkit-transform:translateX(@sidebarWidth - 40px) translateY(@toggleSize/2);        -ms-transform:translateX(@sidebarWidth - 40px) translateY(@toggleSize/2);        transform:translateX(@sidebarWidth - 40px) translateY(@toggleSize/2);
+        -webkit-transform:translateX(@sidebarWidth - 40px) translateY(@toggleSize/2);
+        -ms-transform:translateX(@sidebarWidth - 40px) translateY(@toggleSize/2);
+        transform:translateX(@sidebarWidth - 40px) translateY(@toggleSize/2);
         // ISSUE - should be @sidebarWidth - (@toggleSize*1.5) but rems aren't working nested under :checked
+        
+        @media @mobile {
+        height:3rem;
+        -webkit-transform:translateX(@sidebarWidth - 40px) translateY(@toggleSize/4);
+        -ms-transform:translateX(@sidebarWidth - 40px) translateY(@toggleSize/4);
+        transform:translateX(@sidebarWidth - 40px) translateY(@toggleSize/4);
+    }
 
         #hamburgler { 
             span {
