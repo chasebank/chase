@@ -1,288 +1,326 @@
-// main: styles.less
+    // main: styles.less
 @import (reference) "variables.less";
-
-
-.transition(@target:all,@duration:.7s,@ease:ease-in-out) {
-  transition:@target @duration @ease;
+.transition(@target: all, @duration: .7s, @ease: ease-in-out) {
+    transition: @target @duration @ease;
 }
-
 .wrap {
-  position:relative;
+    position: relative;
 }
-
 .content {
-  position:relative;
-  margin:0 auto;
-  width:80%;
-  .transition;
+    position: relative;
+    margin: 0 auto;
+    width: 80%;
+    .transition;
 }
-
-@toggleSize:4rem;
+@toggleSize: 4rem;
 .toggleClosedStyle {
-    background:fade(@baseBlue,50%);
-    box-shadow:
-    1px 1px 5px rgba(0,40,80,.8),
-    1px 1px 8px rgba(20,80,120,.2);
+    background: fade(@baseBlue, 50%);
+    box-shadow: 1px 1px 5px rgba(0, 40, 80, .8), 1px 1px 8px rgba(20, 80, 120, .2);
 }
 .toggle {
-  .toggleClosedStyle;
-  position:fixed;
-  width:@toggleSize;
-  height:@toggleSize;
-  -webkit-transform:translateX(@toggleSize/2) translateY(@toggleSize/2);  -ms-transform:translateX(@toggleSize/2) translateY(@toggleSize/2);  transform:translateX(@toggleSize/2) translateY(@toggleSize/2);
-  z-index:999;
-  cursor:pointer;
-  .transition;
-    
+    .toggleClosedStyle;
+    position: fixed;
+    width: @toggleSize;
+    height: @toggleSize;
+    -webkit-transform: translateX(@toggleSize/2) translateY(@toggleSize/2);
+    -ms-transform: translateX(@toggleSize/2) translateY(@toggleSize/2);
+    transform: translateX(@toggleSize/2) translateY(@toggleSize/2);
+    z-index: 999;
+    cursor: pointer;
+    .transition;
     @media @mobile {
-        height:3rem;
-        -webkit-transform:translateX(@toggleSize/3) translateY(@toggleSize/4);
-        -ms-transform:translateX(@toggleSize/3) translateY(@toggleSize/4);
-        transform:translateX(@toggleSize/3) translateY(@toggleSize/4);
-        background:fade(@baseBlue,70%);
-        box-shadow:
-            1px 1px 5px rgba(0,40,80,1),
-            1px 1px 8px rgba(20,80,120,.4);
+        height: 3rem;
+        -webkit-transform: translateX(@toggleSize/3) translateY(@toggleSize/4);
+        -ms-transform: translateX(@toggleSize/3) translateY(@toggleSize/4);
+        transform: translateX(@toggleSize/3) translateY(@toggleSize/4);
+        background: fade(@baseBlue, 70%);
+        box-shadow: 1px 1px 5px rgba(0, 40, 80, 1), 1px 1px 8px rgba(20, 80, 120, .4);
     }
-    
     @media @tablet {
-        height:4rem;
-        -webkit-transform:translateX(@toggleSize/3) translateY(@toggleSize/4);
-        -ms-transform:translateX(@toggleSize/3) translateY(@toggleSize/4);
-        transform:translateX(@toggleSize/3) translateY(@toggleSize/4);
-        background:fade(@baseBlue,70%);
-        box-shadow:
-            1px 1px 5px rgba(0,40,80,1),
-            1px 1px 8px rgba(20,80,120,.4);
+        height: 4rem;
+        -webkit-transform: translateX(@toggleSize/3) translateY(@toggleSize/4);
+        -ms-transform: translateX(@toggleSize/3) translateY(@toggleSize/4);
+        transform: translateX(@toggleSize/3) translateY(@toggleSize/4);
+        background: fade(@baseBlue, 70%);
+        box-shadow: 1px 1px 5px rgba(0, 40, 80, 1), 1px 1px 8px rgba(20, 80, 120, .4);
     }
 }
-
-@sidebarWidth:240px;
-@sidebarMargin:@toggleSize*2;
+@sidebarWidth: 240px;
+@sidebarMargin: @toggleSize*2;
 .sidebar {
-  position:fixed;
-  top:0;
-  bottom:0;
-  -webkit-transform:translateX(-@sidebarWidth - 10px);  -ms-transform:translateX(-@sidebarWidth - 10px);  transform:translateX(-@sidebarWidth - 10px);
-  width: @sidebarWidth;
-  padding:30px;
-  background:#333;
-  z-index:0;
-  box-shadow:
-    0px -5px 5px fade(@baseBlue,20%),
-    2px -5px 15px 5px fade(@darkBlue,20%);
-  .transition;
-    z-index:900;
-  
-  a {
-    display:block;
-    color:rgba(255,255,255,.8);
-    margin-bottom:16px;
-    text-decoration:none;
-    
-    &:hover {
-      color:rgba(255,255,255,1);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    -webkit-transform: translateX(-@sidebarWidth - 10px);
+    -ms-transform: translateX(-@sidebarWidth - 10px);
+    transform: translateX(-@sidebarWidth - 10px);
+    width: @sidebarWidth;
+    padding: 30px;
+    background-image: linear-gradient( to bottom, fade(@darkBlue, 80%), transparent 80%);
+    z-index: 0;
+    box-shadow: 0px -5px 5px fade(@baseBlue, 20%), 2px -5px 15px 5px fade(@darkBlue, 20%);
+    .transition;
+    z-index: 900;
+        
+    &:before {
+        content: "";
+        opacity: 0.8;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index:-1;
+        //background: @baseBlue;
+        @image: '../img/stars-bg.gif';
+        @colorStop: 714px;
+        background-image: url(@image);
+        /*background-image: -moz-linear-gradient(top, transparent @colorStop, transparent @colorStop, @baseBlue @colorStop, transparent 100%), url(@image);
+        background-image: -webkit-gradient(linear, left top, left bottom, color-stop(@colorStop, transparent), color-stop(@colorStop, @baseBlue), color-stop(100%, transparent)), url(@image);
+        background-image: -webkit-linear-gradient(top, transparent @colorStop, @baseBlue @colorStop, transparent 100%), url(@image);
+        background-image: -o-linear-gradient(top, transparent @colorStop, @baseBlue @colorStop, transparent 100%), url(@image);
+        background-image: -ms-linear-gradient(top, transparent @colorStop, @baseBlue @colorStop, transparent 100%), url(@image);*/
+        background-image: linear-gradient(to bottom, fade(@darkBlue,50%) @colorStop, @baseBlue @colorStop, transparent 100%), url(@image);
+        background-position: top center;
+        background-repeat: repeat-x;
+        background-attachment: fixed;
     }
-  }  
-}
-
-@hamburglerSize:2.4rem;
-@HamburglerRadius:@hamburglerSize*.08;
-@hamburglerThickness:@hamburglerSize*.15;
-@hamburglerIconColor:white;
-@hamburglerTransition:all .4s ease-in-out;
-#hamburgler {
-  position: relative;
-  top: 50%;
-  -webkit-transform: translateY(-50%);  -ms-transform: translateY(-50%);  transform: translateY(-50%);
-  margin:0 auto;
-  display:block;
-  width:@hamburglerSize;
-  height:@hamburglerSize;
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-  
-  span {// middle bar
-    position: relative;
-    top: 50%;
-    -webkit-transform: translateY(-50%);    -ms-transform: translateY(-50%);    transform: translateY(-50%);
-    display:block;
-    background:@hamburglerIconColor;
-    height:@hamburglerThickness;
-    width:@hamburglerSize;
-    border-radius:@HamburglerRadius;
-    margin:0 auto;
-    transition:@hamburglerTransition;
-    border:0 solid transparent;
-    
-    &:before,
-    &:after {
-      position: absolute;
-      content:'';
-      display: block;
-      background:@hamburglerIconColor;
-      height:@hamburglerThickness;
-      border-radius:@HamburglerRadius;
-      width:100%;
-      transition:@hamburglerTransition;
-    }
-    
-    &:before {// top bar
-      -webkit-transform:translateY(-200%);      -ms-transform:translateY(-200%);      transform:translateY(-200%);
-    }
-    
-    &:after {// bottom bar
-      -webkit-transform:translateY(200%);      -ms-transform:translateY(200%);      transform:translateY(200%);
-    }
-  }
-}
-
-.toggleOpen {
-    background:transparent;
-    box-shadow:
-    1px 1px 5px rgba(0,40,80,0),
-    1px 1px 8px rgba(20,80,120,0);
-    -webkit-transform:translateX(@sidebarWidth - 40px) translateY(@toggleSize/2);    -ms-transform:translateX(@sidebarWidth - 40px) translateY(@toggleSize/2);    transform:translateX(@sidebarWidth - 40px) translateY(@toggleSize/2);
-    
-    #hamburgler { 
-        span {
-          background:transparent;
-          height:100%;
-          width:100%;
-          border-radius:50%;
-          border:(@hamburglerThickness*.8) solid @hamburglerIconColor;
-          -webkit-transform-style: preserve-3d;
-          -moz-transform-style: preserve-3d;
-          transform-style: preserve-3d;
-
-          @angle:45deg;
-          @scale:.7;
-          &:before {
-            -webkit-transform:translateY(200%) rotate(@angle) scale(@scale);-ms-transform:translateY(200%) rotate(@angle) scale(@scale);transform:translateY(200%) rotate(@angle) scale(@scale);
-          }
-          &:after {
-            -webkit-transform:translateY(200%) rotate(-@angle) scale(@scale);-ms-transform:translateY(200%) rotate(-@angle) scale(@scale);transform:translateY(200%) rotate(-@angle) scale(@scale);
-          }
+        
+        a {
+            display: block;
+            color: rgba(255, 255, 255, .8);
+            margin-bottom: 16px;
+            text-decoration: none;
+            &:hover {
+                color: rgba(255, 255, 255, 1);
+            }
         }
     }
-}
-.toggleClosed {
-    .toggleClosedStyle;
-    -webkit-transform:translateX(@toggleSize/2) translateY(@toggleSize/2);    -ms-transform:translateX(@toggleSize/2) translateY(@toggleSize/2);    transform:translateX(@toggleSize/2) translateY(@toggleSize/2);
-    
+    @hamburglerSize: 2.4rem;
+    @HamburglerRadius: @hamburglerSize*.08;
+    @hamburglerThickness: @hamburglerSize*.15;
+    @hamburglerIconColor: white;
+    @hamburglerTransition: all .4s ease-in-out;
     #hamburgler {
+        position: relative;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        margin: 0 auto;
+        display: block;
+        width: @hamburglerSize;
+        height: @hamburglerSize;
+        -webkit-transform-style: preserve-3d;
+        -moz-transform-style: preserve-3d;
+        transform-style: preserve-3d;
         span {
             // middle bar
+            position: relative;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+            display: block;
             background: @hamburglerIconColor;
             height: @hamburglerThickness;
             width: @hamburglerSize;
             border-radius: @HamburglerRadius;
+            margin: 0 auto;
+            transition: @hamburglerTransition;
             border: 0 solid transparent;
-
+            &:before,
+            &:after {
+                position: absolute;
+                content: '';
+                display: block;
+                background: @hamburglerIconColor;
+                height: @hamburglerThickness;
+                border-radius: @HamburglerRadius;
+                width: 100%;
+                transition: @hamburglerTransition;
+            }
             &:before {
                 // top bar
-                -webkit-transform: translateY(-200%);                -ms-transform: translateY(-200%);                transform: translateY(-200%);
+                -webkit-transform: translateY(-200%);
+                -ms-transform: translateY(-200%);
+                transform: translateY(-200%);
             }
             &:after {
                 // bottom bar
-                -webkit-transform: translateY(200%);                -ms-transform: translateY(200%);                transform: translateY(200%);
+                -webkit-transform: translateY(200%);
+                -ms-transform: translateY(200%);
+                transform: translateY(200%);
             }
         }
     }
-}
-.sidebarOpen {
-    -webkit-transform: translateX(0);    -ms-transform: translateX(0);    transform: translateX(0)
-}
-.sidebarClosed {
-    -webkit-transform:translateX(-@sidebarWidth - 10px);    -ms-transform:translateX(-@sidebarWidth - 10px);    transform:translateX(-@sidebarWidth - 10px);
-}
-
-#sidebar-toggler {
-    display:none!important;
-
-
-    &:checked ~ .sidebar {
-        -webkit-transform: translateX(0);        -ms-transform: translateX(0);        transform: translateX(0)
-
-    }
-
-    &:checked + .toggle {
-        background:transparent;
-        box-shadow:
-        1px 1px 5px rgba(0,40,80,0),
-        1px 1px 8px rgba(20,80,120,0);
-        -webkit-transform:translateX(@sidebarWidth - 40px) translateY(@toggleSize/2);
-        -ms-transform:translateX(@sidebarWidth - 40px) translateY(@toggleSize/2);
-        transform:translateX(@sidebarWidth - 40px) translateY(@toggleSize/2);
-        // ISSUE - should be @sidebarWidth - (@toggleSize*1.5) but rems aren't working nested under :checked
-        
-        @media @mobile {
-            height:3rem;
-            -webkit-transform:translateX(@sidebarWidth - 40px) translateY(@toggleSize/4);
-            -ms-transform:translateX(@sidebarWidth - 40px) translateY(@toggleSize/4);
-            transform:translateX(@sidebarWidth - 40px) translateY(@toggleSize/4);
-        }
-        
-        @media @tablet {
-            height:4rem;
-            -webkit-transform:translateX(@sidebarWidth - 40px) translateY(@toggleSize/4);
-            -ms-transform:translateX(@sidebarWidth - 40px) translateY(@toggleSize/4);
-            transform:translateX(@sidebarWidth - 40px) translateY(@toggleSize/4);
-        }
-
-        #hamburgler { 
+    .toggleOpen {
+        background: transparent;
+        box-shadow: 1px 1px 5px rgba(0, 40, 80, 0), 1px 1px 8px rgba(20, 80, 120, 0);
+        -webkit-transform: translateX(@sidebarWidth - 40px) translateY(@toggleSize/2);
+        -ms-transform: translateX(@sidebarWidth - 40px) translateY(@toggleSize/2);
+        transform: translateX(@sidebarWidth - 40px) translateY(@toggleSize/2);
+        #hamburgler {
             span {
-                background:transparent;
-                height:100%;
-                width:100%;
-                border-radius:50%;
-                border:(@hamburglerThickness*.8) solid @hamburglerIconColor;
+                background: transparent;
+                height: 100%;
+                width: 100%;
+                border-radius: 50%;
+                border: (@hamburglerThickness*.8) solid @hamburglerIconColor;
                 -webkit-transform-style: preserve-3d;
                 -moz-transform-style: preserve-3d;
                 transform-style: preserve-3d;
-
-                @angle:45deg;
-                @scale:.7;
+                @angle: 45deg;
+                @scale: .7;
                 &:before {
-                    -webkit-transform:translateY(200%) rotate(@angle) scale(@scale);                    -ms-transform:translateY(200%) rotate(@angle) scale(@scale);                    transform:translateY(200%) rotate(@angle) scale(@scale);
+                    -webkit-transform: translateY(200%) rotate(@angle) scale(@scale);
+                    -ms-transform: translateY(200%) rotate(@angle) scale(@scale);
+                    transform: translateY(200%) rotate(@angle) scale(@scale);
                 }
                 &:after {
-                    -webkit-transform:translateY(200%) rotate(-@angle) scale(@scale);                    -ms-transform:translateY(200%) rotate(-@angle) scale(@scale);                    transform:translateY(200%) rotate(-@angle) scale(@scale);
+                    -webkit-transform: translateY(200%) rotate(-@angle) scale(@scale);
+                    -ms-transform: translateY(200%) rotate(-@angle) scale(@scale);
+                    transform: translateY(200%) rotate(-@angle) scale(@scale);
                 }
-            }/* span */
-        }/* hamburgler */
-    }/* toggle */
-}/* toggler */
-
-body {
-    @media @desktop-xl {
-        #content {
-            width:80%;
+            }
         }
-        
-        #sidebar-toggler {
+    }
+    .toggleClosed {
+        .toggleClosedStyle;
+        -webkit-transform: translateX(@toggleSize/2) translateY(@toggleSize/2);
+        -ms-transform: translateX(@toggleSize/2) translateY(@toggleSize/2);
+        transform: translateX(@toggleSize/2) translateY(@toggleSize/2);
+        #hamburgler {
+            span {
+                // middle bar
+                background: @hamburglerIconColor;
+                height: @hamburglerThickness;
+                width: @hamburglerSize;
+                border-radius: @HamburglerRadius;
+                border: 0 solid transparent;
+                &:before {
+                    // top bar
+                    -webkit-transform: translateY(-200%);
+                    -ms-transform: translateY(-200%);
+                    transform: translateY(-200%);
+                }
+                &:after {
+                    // bottom bar
+                    -webkit-transform: translateY(200%);
+                    -ms-transform: translateY(200%);
+                    transform: translateY(200%);
+                }
+            }
+        }
+    }
+    .sidebarOpen {
+        -webkit-transform: translateX(0);
+        -ms-transform: translateX(0);
+        transform: translateX(0)
+    }
+    .sidebarClosed {
+        -webkit-transform: translateX(-@sidebarWidth - 10px);
+        -ms-transform: translateX(-@sidebarWidth - 10px);
+        transform: translateX(-@sidebarWidth - 10px);
+    }
+    #sidebar-toggler {
+        display: none!important;
+        &:checked ~ .sidebar {
+            -webkit-transform: translateX(0);
+            -ms-transform: translateX(0);
+            transform: translateX(0)
+        }
+        &:checked + .toggle {
+            background: transparent;
+            box-shadow: 1px 1px 5px rgba(0, 40, 80, 0), 1px 1px 8px rgba(20, 80, 120, 0);
+            -webkit-transform: translateX(@sidebarWidth - 40px) translateY(@toggleSize/2);
+            -ms-transform: translateX(@sidebarWidth - 40px) translateY(@toggleSize/2);
+            transform: translateX(@sidebarWidth - 40px) translateY(@toggleSize/2);
+            // ISSUE - should be @sidebarWidth - (@toggleSize*1.5) but rems aren't working nested under :checked
+            @media @mobile {
+                height: 3rem;
+                -webkit-transform: translateX(@sidebarWidth - 40px) translateY(@toggleSize/4);
+                -ms-transform: translateX(@sidebarWidth - 40px) translateY(@toggleSize/4);
+                transform: translateX(@sidebarWidth - 40px) translateY(@toggleSize/4);
+            }
+            @media @tablet {
+                height: 4rem;
+                -webkit-transform: translateX(@sidebarWidth - 40px) translateY(@toggleSize/4);
+                -ms-transform: translateX(@sidebarWidth - 40px) translateY(@toggleSize/4);
+                transform: translateX(@sidebarWidth - 40px) translateY(@toggleSize/4);
+            }
+            #hamburgler {
+                span {
+                    background: transparent;
+                    height: 100%;
+                    width: 100%;
+                    border-radius: 50%;
+                    border: (@hamburglerThickness*.8) solid @hamburglerIconColor;
+                    -webkit-transform-style: preserve-3d;
+                    -moz-transform-style: preserve-3d;
+                    transform-style: preserve-3d;
+                    @angle: 45deg;
+                    @scale: .7;
+                    &:before {
+                        -webkit-transform: translateY(200%) rotate(@angle) scale(@scale);
+                        -ms-transform: translateY(200%) rotate(@angle) scale(@scale);
+                        transform: translateY(200%) rotate(@angle) scale(@scale);
+                    }
+                    &:after {
+                        -webkit-transform: translateY(200%) rotate(-@angle) scale(@scale);
+                        -ms-transform: translateY(200%) rotate(-@angle) scale(@scale);
+                        transform: translateY(200%) rotate(-@angle) scale(@scale);
+                    }
+                }
+                /* span */
+            }
+            /* hamburgler */
+        }
+        /* toggle */
+    }
+    /* toggler */
+    body {
+        @media @desktop-xl {
+            #content {
+                width: 80%;
+            }
+            #sidebar-toggler {
                 & ~ header {
                     .transition;
-                    -webkit-transform:translateX(@sidebarWidth/2);                    -ms-transform:translateX(@sidebarWidth/2);                    transform:translateX(@sidebarWidth/2);
+                    -webkit-transform: translateX(@sidebarWidth/2);
+                    -ms-transform: translateX(@sidebarWidth/2);
+                    transform: translateX(@sidebarWidth/2);
                 }
                 & ~ .wrap > #content {
                     .transition;
-                    -webkit-transform:translateX(@sidebarWidth/2);                    -ms-transform:translateX(@sidebarWidth/2);                    transform:translateX(@sidebarWidth/2);
+                    -webkit-transform: translateX(@sidebarWidth/2);
+                    -ms-transform: translateX(@sidebarWidth/2);
+                    transform: translateX(@sidebarWidth/2);
                 }
-                & + .toggle {.toggleOpen;}
-                & ~ .sidebar {.sidebarOpen;}
-                &:checked{
+                & + .toggle {
+                    .toggleOpen;
+                }
+                & ~ .sidebar {
+                    .sidebarOpen;
+                }
+                &:checked {
                     & ~ header {
-                        -webkit-transform:translateX(0);                        -ms-transform:translateX(0);                        transform:translateX(0)
+                        -webkit-transform: translateX(0);
+                        -ms-transform: translateX(0);
+                        transform: translateX(0)
                     }
                     & ~ .wrap > #content {
-                        -webkit-transform:translateX(0);                        -ms-transform:translateX(0);                        transform:translateX(0);
+                        -webkit-transform: translateX(0);
+                        -ms-transform: translateX(0);
+                        transform: translateX(0);
                     }
-                    & + .toggle {.toggleClosed;}
-                    & ~ .sidebar {.sidebarClosed;}
+                    & + .toggle {
+                        .toggleClosed;
+                    }
+                    & ~ .sidebar {
+                        .sidebarClosed;
+                    }
                 }
+            }
         }
     }
-}
-
