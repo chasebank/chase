@@ -150,7 +150,8 @@ header {
         position:relative;
         
         @media @mobile {
-            height:17vw;
+            width:150%;
+            -webkit-transform: translateX(-17%);-ms-transform: translateX(-17%);transform: translateX(-17%);
         }
         
         @media @tablet {
@@ -271,11 +272,12 @@ div#header p {
 
 @footerHeight: 200px;
 div#content {
-    padding: 1em 1em @footerHeight;
+    padding: 1rem 1rem @footerHeight;
     margin:0 auto;
-    /* bottom padding for footer */
     
-    //background:rgba(0,0,255,.1)
+    @media @mobile {
+        padding: 0 .5rem @footerHeight;
+    }
 }
 
 footer {
