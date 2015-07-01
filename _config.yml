@@ -23,3 +23,9 @@ author:
 
 # Custom vars
 version:             1.0.0
+
+
+collections:
+  portfolio:
+    output: true
+    permalink: /portfolio/:title/

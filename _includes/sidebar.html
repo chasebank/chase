@@ -8,6 +8,7 @@
     
     <nav class="sidebar-nav" role="navigation">
         <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.baseurl }}/">Home</a>
+        <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.baseurl }}/portfolio/">Portfolio</a>
 
         {% comment %}
           The code below dynamically generates a sidebar nav of pages with
@@ -25,9 +26,10 @@
     </nav>
    
     <ul class="social-connect">
-        <li><a href="//behance.net/chasebank"><span class="behance"><i class="fa fa-behance"></i></span>Behance</a></li>
-      <li><a href="//codepen.io/chasebank"><span class="codepen"><i class="fa fa-codepen"></i></span>Codepen</a></li>
-      <li><a href="//github.com/chasebank"><span class="github"><i class="fa fa-github"></i></span>Github</a></li>
+       <li><a href="{{ site.baseurl }}/contact/"><span class="contact"><i class="fa fa-envelope"></i></span>Contact me</a></li>
+       <li><a href="//behance.net/chasebank"><span class="behance"><i class="fa fa-behance"></i></span>Behance</a></li>
+       <li><a href="//codepen.io/chasebank"><span class="codepen"><i class="fa fa-codepen"></i></span>Codepen</a></li>
+       <li><a href="//github.com/chasebank"><span class="github"><i class="fa fa-github"></i></span>Github</a></li>
     </ul>
    
     <div class="sidebar-item">

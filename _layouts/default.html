@@ -7,43 +7,26 @@
     <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
          content to avoid any CSS collisions with our real content. -->
     <div class="stars">
-        <!-- scrolling stars in bg -->
-        <!--<div class="wrap">-->
-
-        <!--<div class="masthead">
-            <div class="container">
-              <h3 class="masthead-title">
-                <a href="{{ site.baseurl }}/" title="Home">{{ site.title }}</a>
-                <small>{{ site.tagline }}</small>
-              </h3>
-            </div>
-          </div>-->
+       
         <input type="checkbox" id="sidebar-toggler" name="" value="" />
         
-        <label for="sidebar-toggler" class="toggle"><span id="hamburgler"><span></span></span>
-            </label>
+        <label for="sidebar-toggler" class="toggle"><span id="hamburgler"><span></span></span></label>
             
         {% include sidebar.html %}
             
         {% include header.html %}
-
         
-
         <div class="wrap">
-           
-           
 
-            
-            
             <div id="content">
                 <section class="container">
                     {{ content }}
                 </section>
             </div>
-
             
         </div>
         <!-- wrap -->
+        
         {% include footer.html %}
         <!--</div>-->
 

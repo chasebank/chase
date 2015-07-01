@@ -86,6 +86,11 @@ body {
     overflow-x:hidden;
 }
 
+section.container {// remove margins on top and bottom children to honor padding
+    * > *:last-child {margin-bottom:0px!important;}
+    * > *:first-child {margin-top:0px!important;}
+}
+
 .stars {
     background-image: url('../img/stars.png');
     position: relative;
@@ -302,7 +307,7 @@ section {
     margin: 0 auto 2rem auto;
     border: 2px solid white;
     padding: 4%;
-    border-radius: 1.2rem;
+    border-radius: 2.5rem;
     box-shadow: 0px 2px 14px rgba(0, 20, 40, .8), inset 0px 0px 50px rgba(185, 205, 200, .7), inset 0px 0px 180px rgba(205, 225, 230, 1);
     @media @mobile {
         width: 100%
