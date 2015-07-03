@@ -2,8 +2,36 @@
 layout: default
 title: Contat me
 ---
+<link href="{{ site.baseurl }}/public/css/form.css" rel="stylesheet">
+
 
 <h2>Thank you!</h2>
-<p>Thanks fo much for taking the time to visit my website.</p>
-<p>If you'd like to contact me, please use the form below.</p>
+<p>Thanks so much for taking the time to visit my website. If you'd like to contact me, please use the form below.</p>
 
+<form id="contact" action="//formspree.io/chase@cha.se.net" method="POST">
+    <ol>
+        <li>
+            <label for="name">Name*</label>
+            <input type="text" id="name" name="name" placeholder="Name*" required />
+            <span class="helper">Example: I'm Batman.</span>
+        </li>
+        <li>
+            <label for="email">Email*</label>
+            <input type="email" name="email" placeholder="Email*" required />
+            <span class="helper">Example: batman@gothymcity.gov</span>
+        </li>
+        <li>
+            <label for="_subject">Subject*</label>
+            <input type="text" name="_subject" placeholder="Subject*" required />
+        </li>
+        <li>
+            <label for="message">Message*</label>
+            <textarea name="message" id="" cols="30" rows="10" placeholder="Message*" required ></textarea>
+        </li>
+        <li style="display:none">
+            <input type="text" name="_gotcha" style="display:none" />
+        </li>
+    </ol>
+
+    <input type="submit" value="Send">
+</form>

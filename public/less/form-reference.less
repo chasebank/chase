@@ -1,0 +1,224 @@
+// out: ../css/form-reference.css
+@import (reference) "variables.less";
+
+form.wufoo {
+    form {
+  margin: 200px 15%;
+  text-shadow: 2px 2px 2px white;
+  color: black;
+}
+
+form header {
+  margin: 0 0 20px 0;
+}
+
+form header div {
+  font-size: 90%;
+}
+
+form header h2 {
+  margin: 0 0 5px 0;
+}
+
+form > div {
+  clear: both;
+  //overflow: hidden;
+  padding: 1px;
+}
+
+form > div > fieldset > div > div {
+  margin: 0 0 5px 0;
+}
+
+form > div > label,
+legend {
+  width: 20%;
+  float: left;
+  padding-right: 10px;
+  font-size: 1rem;
+  padding-top: .5rem;
+}
+
+form > div > div,
+form > div > fieldset > div {
+  width: 80%;
+  float: right;
+}
+
+fieldset {
+  border: 0;
+  padding: 0;
+}
+
+input[type=text],
+input[type=email],
+input[type=url],
+input[type=password],
+textarea {
+  width: 100%;
+  margin-bottom:20px;
+}
+
+// INPUT WRAP
+form {
+  position:relative;
+  > div {position:relative;
+  
+    > div {position:relative;}
+  }
+}
+
+
+input,
+textarea {
+  display:block;
+  font-size: 1.2rem!important;
+  border:none;
+  @topColor:rgba(255,255,255,1);
+  @bottomColor:rgba(246,246,246,1);
+  background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top,  @topColor 0%, @bottomColor 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@topColor), color-stop(100%,@bottomColor)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  @topColor 0%,@bottomColor 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  @topColor 0%,@bottomColor 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  @topColor 0%,@bottomColor 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  @topColor 0%,@bottomColor 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=@topColor, endColorstr=@bottomColor,GradientType=0 ); /* IE6-9 */
+  
+  border-radius: 10px;
+  padding: 14px;
+  color: rgba(150,160,180,1);
+  //font-weight: 700;
+  box-shadow:
+      inset 0px 10px 15px 0px white,//white gradient on border
+      inset 0px 0px 0px 2px #bbbcbf,//border
+      0px 0px 0px 1px #e2e2e2,//reflected light
+      0px 2px 0px 1px #bfc1c3,//outer rim shadow
+      0px 3px 5px #999d9e,//cast shadow
+      0px 0px 100px #dbdbdb,//vignette
+    
+      inset 2px 2px 7px 0px transparent,
+      0px 0px 2px 2px transparent,
+      1px 1px 80px 0px transparent
+    ;
+  position:absolute;
+  top:0px;
+  transition: all .35s linear;
+  
+  &:focus {
+    outline:none;
+    border:none;
+    color:rgba(10,10,10,1);
+    @topColor:rgba(255,255,255,1);
+    @bottomColor:rgba(246,246,246,1);
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top,  @topColor 0%, @bottomColor 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@topColor), color-stop(100%,@bottomColor)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  @topColor 0%,@bottomColor 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  @topColor 0%,@bottomColor 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  @topColor 0%,@bottomColor 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  @topColor 0%,@bottomColor 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=@topColor, endColorstr=@bottomColor,GradientType=0 ); /* IE6-9 */
+    box-shadow:
+      inset 0px 10px 15px 0px transparent,//white gradient on border
+      inset 0px 0px 0px 2px transparent,//border
+      0px 0px 0px 1px transparent,//reflected light
+      0px 2px 0px 1px transparent,//outer rim shadow
+      0px 3px 5px transparent,//cast shadow
+      0px 0px 100px transparent,//vignette
+      
+      inset 2px 2px 7px 0px #9a9ea1,
+      0px 0px 2px 2px white,
+      1px 1px 80px 0px #e4e4e4
+    ;
+    top:3px;
+  }
+}
+
+input[type=text],
+input[type=email],
+input[type=url],
+input[type=password] {
+  width: 70%;
+}
+
+input[type="submit"] {
+  display:block;
+  font-size: 1.2rem!important;
+  border:none;
+  padding: 10px 14px;
+  @topColor:#b5e7ff;
+    @midColor:#4abcf0;
+    @bottomColor:#107dbe;
+    @shdowColor:#114e8f;
+  color:white;
+  text-shadow:2px 2px 4px @bottomColor;
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top,  @topColor 0%, @bottomColor 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@topColor), color-stop(100%,@bottomColor)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  @topColor 0%,@bottomColor 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  @topColor 0%,@bottomColor 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  @topColor 0%,@bottomColor 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  @topColor 0%,@bottomColor 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=@topColor, endColorstr=@bottomColor,GradientType=0 ); /* IE6-9 */
+    box-shadow:
+      inset 0px 10px 15px 0px @topColor,//white gradient on border
+      inset 0px 0px 0px 2px @shdowColor,//border
+      inset 0px 3px 0px 2px white,
+      inset 0px 3px 0px 2px white,
+      0px 1px 0px 0px @bottomColor,//reflected light
+      0px 2px 0px 0px @shdowColor,//outer rim shadow
+      0px 3px 3px @shdowColor,//cast shadow
+      1px 4px 6px @midColor,//vignette
+      
+      inset 0px -10px 15px 0px transparent,//white gradient on border
+      inset 0px 0px 0px 2px transparent,//border
+      inset 2px 2px 6px transparent,
+      0px 0px 5px transparent
+    ;
+  position:absolute;
+  top:0px;
+  transition: all .2s linear;
+  cursor:pointer;
+  
+  &:focus,
+  &:hover {
+    outline:none;
+    border:none;
+    color:rgba(10,10,10,1);
+    
+    @topColor:#4abcf0;
+  @midColor:#4abcf0;
+  @bottomColor:#114e8f;
+  @shdowColor:#114e8f;
+  background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top,  @topColor 0%, @bottomColor 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@topColor), color-stop(100%,@bottomColor)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  @topColor 0%,@bottomColor 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  @topColor 0%,@bottomColor 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  @topColor 0%,@bottomColor 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  @topColor 0%,@bottomColor 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=@topColor, endColorstr=@bottomColor,GradientType=0 ); /* IE6-9 */
+  
+  border-radius: 10px;
+  color: #b5e7ff;
+  text-shadow:@midColor;
+  box-shadow:
+      inset 0px 10px 15px 0px transparent,//white gradient on border
+      inset 0px 0px 0px 2px transparent,//border
+      inset 0px 3px 0px 2px transparent,
+      inset 0px 3px 0px 2px transparent,
+      0px 1px 0px 0px transparent,//reflected light
+      0px 2px 0px 0px transparent,//outer rim shadow
+      0px 3px 3px transparent,//cast shadow
+      1px 4px 6px transparent,//vignette
+    
+      inset 0px -10px 15px 0px @topColor,//white gradient on border
+      inset 0px 0px 0px 2px @shdowColor,//border
+      inset 2px 2px 6px @bottomColor,
+      0px 0px 5px white
+    ;
+    top:3px;
+  }
+}
+}/* form.wofuu */
