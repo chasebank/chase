@@ -57,7 +57,6 @@
     transform: translateX(-@sidebarWidth - 10px);
     width: @sidebarWidth;
     padding: 30px;
-    //background-image: linear-gradient( to bottom, fade(@darkBlue, 80%), transparent 80%);
     z-index: 0;
     box-shadow: 0px -5px 5px fade(@baseBlue, 20%), 2px -5px 15px 5px fade(@darkBlue, 20%);
     .transition;
@@ -85,6 +84,13 @@
         background-position: top center;
         background-repeat: repeat-x;
         background-attachment: fixed;
+        
+        @media @mobile {
+            background: fade(@baseBlue,80%);
+        }
+        @media @tablet {
+            background: fade(@baseBlue,80%);
+        }
     }
         
         a {
@@ -330,6 +336,7 @@
 
 .sidebar {
     color:rgba(220,240,255,1);
+    overflow-y:scroll;
     
     a {
         color:rgba(220,240,255,1);
@@ -376,23 +383,23 @@ ul.social-connect {
         
       i {text-shadow: none;}
         
-      &.contact {
+      &.contact.icon {
           background-image: linear-gradient(
           to bottom,#0F64B1,#66DDFE);
           i {text-shadow: 0px 0px 3px fade(@baseBlue,50%);}
       }
       
-      &.behance {
+      &.behance.icon {
         background-image: linear-gradient(
           to bottom,#005dff,#0096ff)
       }
       
-      &.github {
+      &.github.icon {
         background-image: linear-gradient(
           to bottom,#202d5f,#614381)
       }
       
-      &.codepen {
+      &.codepen.icon {
         background-image: linear-gradient(
         to bottom,#252525,#444)
       }
