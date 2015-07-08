@@ -13,6 +13,10 @@
     -khtml-border-radius:@radius; /* for old Konqueror browsers */
 }
 
+.transition(@target: all, @duration: .7s, @ease: ease-in-out) {
+    transition: @target @duration @ease;
+}
+
 *, *:after, *:before {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -127,6 +131,8 @@
 
 
 // COLORS
+@whiteBlue:#e4faff;
+@lightBlue:#adf1ff;
 @baseBlue:#212b2e;
 @darkBlue: #141f22;
 @blackBlue: #0e1618;

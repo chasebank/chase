@@ -94,3 +94,21 @@ $("#validate").click(function(){
     "use strict";
     $('#name').closest('li').addClass('error');
 });
+
+
+// sidebar toggle scroll
+var sidebarToggle = $('#sidebar-toggler');
+var $root = $('html, body');
+
+$('#sidebar-toggler').change(function () {
+    "use strict";
+    if ($(this).is(':checked')) {
+        var href = $('#sidebar');
+        $root.animate({
+            scrollTop: $(href).offset().top
+        }, 500, function () {
+            window.location.hash = href;
+        });
+        return false;
+    }
+});
