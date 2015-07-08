@@ -152,6 +152,7 @@
 }/* hamburgler */
 
 .toggleOpen {
+    position:absolute;
     background: transparent;
     box-shadow: 1px 1px 5px rgba(0, 40, 80, 0), 1px 1px 8px rgba(20, 80, 120, 0);
     -webkit-transform: translateX(@sidebarWidth - 40px) translateY(@toggleSize/2);
@@ -185,6 +186,7 @@
 
 .toggleClosed {
     .toggleClosedStyle;
+    position:fixed;
     -webkit-transform: translateX(@toggleSize/2) translateY(@toggleSize/2);
     -ms-transform: translateX(@toggleSize/2) translateY(@toggleSize/2);
     transform: translateX(@toggleSize/2) translateY(@toggleSize/2);
@@ -301,7 +303,6 @@ body {
                 transform: translateX(@sidebarWidth/2);
             }
             & + .toggle {
-                position:absolute;
                 .toggleOpen;
             }
             & ~ #sidebar {
@@ -319,7 +320,6 @@ body {
                     transform: translateX(0);
                 }
                 & + .toggle {
-                    position:fixed;
                     .toggleClosed;
                 }
                 & ~ #sidebar {
