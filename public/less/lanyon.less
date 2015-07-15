@@ -554,27 +554,25 @@ a.pagination-item:hover {
     margin-bottom:-1.9%;
     
     li {
+        @border-radius:3rem;
+        @padding:@border-radius*.34;
+        position:relative;
         background: #fff;
         #grid > .cell;
         #grid > .span(3);
         max-width:237px;
-        padding:.5%;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        border-radius: 5%;
-        
-        @media @tablet {
-            #grid > .span(4);
-        }
-        
-        @media @mobile {
-            #grid > .span(6);
-        }
+        padding:@padding;
+        box-shadow: 0 1px 5px fade(@baseBlue,25%);
+        border-radius: @border-radius;
 
         a {
             display: block;
             position: relative;
+            top:0;
+            left:0;
             overflow: hidden;
             text-decoration: none;
+            border-radius: @border-radius*.7;
 
             img {
                 display: block;
@@ -582,15 +580,26 @@ a.pagination-item:hover {
                 width:100%;
                 height:auto;
                 margin:0;
-                border-radius: 4%;
+                border-radius: @border-radius*.7;
+            }
+            
+            &:hover {
+                img {
+                    @animate: thumb .3s 1 alternate ease-out forwards;
+                    -webkit-animation: @animate; /* Safari 4+ */
+                    -moz-animation: @animate; /* Fx 5+ */
+                    -o-animation: @animate; /* Opera 12+ */
+                    animation: @animate; /* IE 10+, Fx 29+ */
+                    -webkit-transform-style: preserve-3d;
+                }
             }
 
             div {
                 position: absolute;
-                background: rgba(27, 198, 237, .5);
+                background: rgba(27, 198, 247, .4);
                 width: 100%;
                 height: 100%;
-                border-radius: 4%;
+                border-radius: @border-radius*.7;
 
                 span {
                     display: block;
@@ -608,6 +617,26 @@ a.pagination-item:hover {
         }/* a */
     }/* li */
 }/* portfolio-thumbs */
+
+
+@-webkit-keyframes thumb {
+  0%  {
+    @filter:grayscale(0%) brightness(100%);
+    filter: @filter;
+    -webkit-filter: @filter;
+    -moz-filter: @filter;
+    -o-filter: @filter;
+    -ms-filter: @filter;
+  }
+  100% {
+    @filter:grayscale(100%) brightness(125%);
+    filter: @filter;
+    -webkit-filter: @filter;
+    -moz-filter: @filter;
+    -o-filter: @filter;
+    -ms-filter: @filter;
+  }
+}
 
 // No JS
 .no-js {

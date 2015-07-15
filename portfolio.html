@@ -8,7 +8,7 @@ title: Portfolio
 <ul id="portfolio" class="portfolio-thumbs">
     {% for project in site.portfolio %}
     <li>
-        <a href="http://dribbble.com/shots/505046-Menu">
+        <a href="{{ site.baseurl }}{{ project.url }}">
         <img src="{{ site.baseurl }}{{ project.url }}project-thumb.jpg" alt="{{ project.title }} Thumbnail" />
         <div>
             <span>{{ project.title }}</span>
