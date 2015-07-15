@@ -26,6 +26,9 @@ version:             1.0.0
 
 
 collections:
+  quotes:
+    output: true
+    permalink: /quotes/:title/
   portfolio:
     output: true
     permalink: /portfolio/:title/

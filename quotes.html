@@ -1,0 +1,13 @@
+---
+layout: default
+title: Quotes
+---
+
+<div class="posts"> 
+  {% for quote in site.quotes %}
+  <div class="post">
+    <p>{{ quote.quote }}</p>
+    <p>- {% if quote.author_url %}<a href="{{ quote.author_url }}" title="More info on {{ quote.author }}">{% endif %}{{ quote.author }}{% if quote.author_url %}</a>{% endif %}</p>
+  </div>
+  {% endfor %}
+</div>

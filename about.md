@@ -1,6 +1,7 @@
 ---
 layout: page
 title: About
+exclude_from_nav: true
 ---
 
 <p class="message">

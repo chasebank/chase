@@ -1,0 +1,35 @@
+// main: styles.less
+@import (reference) "variables.less";
+
+.chase-logo-svg {fill:fade(#adf1ff,35%);opacity:.75}
+.chase-logo-c-top {fill: url(#gradient-left-right);}
+.chase-logo-c-tophl {fill: url(#gradient-right-left);}
+.chase-logo-c-mid {fill: url(#gradient-top-bottom);}
+.chase-logo-c-bottomhl {fill: url(#gradient-top-bottomhl);}
+.chase-logo-c-bottom {fill: url(#gradient-left-right);}
+.chase-logo-letter {fill: url(#gradient-bottom-top);}
+
+
+footer {
+    #grid;
+    position:relative;
+    background:fade(red,10%);
+    
+    .chase-logo-svg {
+        #grid > .cell;
+        #grid > .span(5);
+        #grid > .prepend(3.5);
+    }
+    
+    .footer-content {
+        #grid > .cell;
+        #grid > .span(12);
+        background:yellow;
+        
+        nav {
+            display:inline-block;
+            margin:0 auto;
+            background:red;
+        }
+    }
+}/* footer */

@@ -182,14 +182,9 @@ var mqCheckboxStatus = function(mql) {
         if (mql.matches) {
             // set position to fixed
             $('#sidebar').css('position','fixed');
-            console.log('position fixed');
         } else {
             // set position to absolute
             $('#sidebar').css('position','absolute');
-            console.log('position absolute');
-            
-            // scroll to top when toggle is clicked
-            console.log('scroll to top when toggle is clicked');
         }
     },
     desktopXL = window.matchMedia('(min-width: 1129px)');
