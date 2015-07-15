@@ -2,11 +2,16 @@
      styles, `#sidebar-checkbox` for behavior. -->
      
 <div id="sidebar">
-    <!--<div class="sidebar-item">
-        <p>{{ site.description }}</p>
-    </div>-->
     
     <nav class="sidebar-nav" role="navigation">
+       <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.baseurl }}/">Home</a>
+       <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.baseurl }}/portfolio/">Portfolio</a>
+       {% if page.url == '/portfolio/' %}
+            {% for project in site.portfolio %}
+            <a href="{{ site.baseurl }}{{ project.url }}">{{ project.title }}</a>
+            {% endfor %}
+       {% endif %}
+       
         {% comment %}
           The code below dynamically generates a sidebar nav of pages with
           `layout: page` in the front-matter. See readme for usage.
@@ -32,8 +37,5 @@
        <li><a href="//codepen.io/chasebank"><span class="codepen icon"><i class="fa fa-codepen"></i></span>Codepen</a></li>
        <li><a href="//github.com/chasebank"><span class="github icon"><i class="fa fa-github"></i></span>Github</a></li>
     </ul>
-   
-    <div class="sidebar-item">
-        <p class="copyright">&copy; {{ site.time | date: '%Y' }}. All rights reserved.</p>
-    </div>
+
 </div>

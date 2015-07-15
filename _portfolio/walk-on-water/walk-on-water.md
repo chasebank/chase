@@ -1,7 +1,6 @@
 ---
-layout: wtf
-title: Marketing Material
-client: Walk on Water
+layout: project
+title: Walk on Water
+service: Marketing Material
 description: Various ad pieces designed for a local fashion retailer.
 ---
-

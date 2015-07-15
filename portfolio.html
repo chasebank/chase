@@ -3,35 +3,18 @@ layout: default
 title: Portfolio
 ---
 
-<div class="posts">
 <!--{% assign projects = site.portfolio | sort: 'date' | reverse %}-->
  
-  {% for project in site.portfolio %}
-  <div class="post">
-    <h1 class="post-title">
-      <a href="{{ site.baseurl }}{{ project.url }}">
-        {{ project.title }}
-      </a>
-      <p class="client">{{ project.client }}</p>
-      <p class="description">{{ project.description }}</p>
-    </h1>
-  </div>
-  {% endfor %}
-</div>
-
-<!--<div class="pagination">
-  {% if paginator.next_page %}
-    <a class="pagination-item older" href="{{ site.baseurl }}/page{{paginator.next_page}}">Older</a>
-  {% else %}
-    <span class="pagination-item older">Older</span>
-  {% endif %}
-  {% if paginator.previous_page %}
-    {% if paginator.page == 2 %}
-      <a class="pagination-item newer" href="{{ site.baseurl }}/">Newer</a>
-    {% else %}
-      <a class="pagination-item newer" href="{{ site.baseurl }}/page{{paginator.previous_page}}">Newer</a>
-    {% endif %}
-  {% else %}
-    <span class="pagination-item newer">Newer</span>
-  {% endif %}
-</div>-->
+<ul id="portfolio" class="portfolio-thumbs">
+    {% for project in site.portfolio %}
+    <li>
+        <a href="http://dribbble.com/shots/505046-Menu">
+        <img src="{{ site.baseurl }}{{ project.url }}project-thumb.jpg" alt="{{ project.title }} Thumbnail" />
+        <div>
+            <span>{{ project.title }}</span>
+            <p class="client">{{ project.service }}</p>
+        </div>
+        </a>
+    </li>
+    {% endfor %}
+</ul>
