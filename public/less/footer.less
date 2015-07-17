@@ -13,23 +13,107 @@
 footer {
     #grid;
     position:relative;
-    background:fade(red,10%);
+    //background:fade(red,10%);
     
     .chase-logo-svg {
         #grid > .cell;
-        #grid > .span(5);
-        #grid > .prepend(3.5);
+        #grid > .span(3.8);
+        max-height:100px;
+        
+        @media @mobile {
+            #grid > .span(12);
+            height:4rem;
+            margin-bottom:1.5rem;
+        }
+        
+        @media @tablet {
+            #grid > .span(5);
+        }
     }
     
     .footer-content {
         #grid > .cell;
-        #grid > .span(12);
-        background:yellow;
+        #grid > .span(8.2);
+        text-align:right;
+        color: fade(#adf1ff,80%);
+        
+        @media @mobile {
+            #grid > .span(12);
+            text-align:center!important;
+        }
+        
+        @media @tablet {
+            #grid > .span(7);
+        }
+        
+        a,
+        a:visited {
+            color: fade(#adf1ff,80%);
+            display:inline-block;
+            font-family: 'Lato', sans-serif;
+            font-weight: 600;
+            text-decoration: none;
+            
+            &:hover {color:white}
+        }
         
         nav {
-            display:inline-block;
-            margin:0 auto;
-            background:red;
+            font-size:1.8rem;
+            margin-bottom:1rem;
+            text-transform: uppercase;
+            
+            a {margin-left:1.8rem;font-size:1.75rem;
+                &:first-of-type {margin:0;}
+            }
         }
-    }
+        
+        .social-media {
+            display:block;
+            padding:0;
+            text-align: right;
+            margin-bottom:1rem;
+            
+            @media @mobile {
+                margin-bottom:.8rem;
+                list-style:none;
+                padding:0 5%;
+                text-align: justify !important;
+                text-justify: distribute-all-lines;
+                font-size: 0 !important;
+                
+                &:after {
+                  content: '';
+                  display: inline-block;
+                  width: 100%;
+                }
+            }
+            
+            li {
+                display:inline-block;
+                margin:0 0 0 1.4rem;
+                
+                @media @mobile {
+                    margin:0;
+                    display:inline-block;
+                    width:25%;
+                    font-size:1.5rem;
+                    text-align:center;
+                    span {
+                        display:block;
+                        margin:0 auto;
+                    }
+                }
+            }
+            
+            @media @mobile {
+                .icon {
+                    color:white;
+                    &.email {background-image: linear-gradient(to bottom,#0F64B1,#66DDFE);}
+                    &.codepen {background-image: linear-gradient(to bottom,#252525,#444);}
+                    &.behance {background-image: linear-gradient(to bottom,#005dff,#0096ff);}
+                    &.github {background-image: linear-gradient(to bottom,#202d5f,#614381);}
+                }/* icon */
+            }
+        }/* social-media */
+    }/* footer-content */
 }/* footer */

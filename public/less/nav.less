@@ -26,6 +26,19 @@
     z-index: 999;
     cursor: pointer;
     .transition;
+    
+    &:hover {
+        #hamburgler span {
+            background: white;
+            border-color: white!important;
+            
+            &:before,
+            &:after {
+                background: white;
+            }
+        }
+    }
+    
     @media @mobile {
         height: 3rem;
         -webkit-transform: translateX(@toggleSize/3) translateY(@toggleSize/4);
@@ -43,7 +56,7 @@
         box-shadow: 1px 1px 5px rgba(0, 40, 80, 1), 1px 1px 8px rgba(20, 80, 120, .4);
     }
 }
-@sidebarWidth: 240px;
+@sidebarWidth: 220px;
 @sidebarMargin: @toggleSize*2;
 #sidebar {
     position: absolute;
@@ -56,13 +69,23 @@
     width: @sidebarWidth;
     padding: 30px;
     z-index: 0;
-    box-shadow: 0px -5px 5px fade(@baseBlue, 20%), 2px -5px 15px 5px fade(@darkBlue, 20%);
+    box-shadow:
+        0px -5px 5px fade(@baseBlue, 20%),
+        2px -5px 15px 3px fade(@baseBlue, 50%);
     .transition;
     z-index: 900;
+    @colorStop: 714px;
+    @topColor:fade(@baseBlue,90%);
+    background-image: -moz-linear-gradient(top, @topColor 0%, @baseBlue @colorStop, @blackBlue 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, @topColor) color-stop(@colorStop, @baseBlue), color-stop(100%, @blackBlue));
+    background-image: -webkit-linear-gradient(top, @topColor 0%, @baseBlue @colorStop, @blackBlue 100%);
+    background-image: -o-linear-gradient(top, @topColor 0%, @baseBlue @colorStop, @blackBlue 100%);
+    background-image: -ms-linear-gradient(top, @topColor 0%, @baseBlue @colorStop, @blackBlue 100%);
+    background-image: linear-gradient(to bottom, @topColor 0%, @baseBlue @colorStop, @blackBlue 100%);
+        
         
     &:before {
         content: "";
-        opacity: 0.8;
         top: 0;
         left: 0;
         bottom: 0;
@@ -71,32 +94,40 @@
         z-index:-1;
         height:100%;
         //background: @baseBlue;
-        @image: '../img/stars-bg.gif';
-        @colorStop: 714px;
-        background-image: url(@image);
-        background-image: -moz-linear-gradient(top, fade(@baseBlue,80%) @colorStop, @baseBlue @colorStop, transparent 100%), url(@image);
-        background-image: -webkit-gradient(linear, left top, left bottom, color-stop(@colorStop, fade(@baseBlue,80%)), color-stop(@colorStop, @baseBlue), color-stop(100%, transparent)), url(@image);
-        background-image: -webkit-linear-gradient(top, fade(@baseBlue,80%) @colorStop, @baseBlue @colorStop, transparent 100%), url(@image);
-        background-image: -o-linear-gradient(top, fade(@baseBlue,80%) @colorStop, @baseBlue @colorStop, transparent 100%), url(@image);
-        background-image: -ms-linear-gradient(top, fade(@baseBlue,80%) @colorStop, @baseBlue @colorStop, transparent 100%), url(@image);
-        background-image: linear-gradient(to bottom, fade(@baseBlue,80%) @colorStop, @baseBlue @colorStop, transparent 100%), url(@image);
+        background-image: url('../img/stars-bg.gif');
+        background-color: @baseBlue;
         background-position: top center;
         background-repeat: repeat-x;
         background-attachment: fixed;
+        zoom: 1;
+        filter: alpha(opacity=40);
+        opacity: 0.4;
+        
+        border-right:1px!important;
+        border-style: solid;
+        -webkit-border-image: 
+        -webkit-gradient(linear, 0 0, 0 100%, @darkBlue, to(rgba(0, 0, 0, 0))) 1 100%;
+        -webkit-border-image: 
+        -webkit-linear-gradient(@darkBlue, rgba(0, 0, 0, 0)) 1 100%;
+        -moz-border-image:
+        -moz-linear-gradient(@darkBlue, rgba(0, 0, 0, 0)) 1 100%;    
+        -o-border-image:
+        -o-linear-gradient(@darkBlue, rgba(0, 0, 0, 0)) 1 100%;
+        border-image:linear-gradient(to bottom, @darkBlue, rgba(0, 0, 0, 0)) 1 100%;
         
         @media @mobile {
-            background: fade(@baseBlue,80%);
+            //background: fade(@baseBlue,80%);
         }
         @media @tablet {
-            background: fade(@baseBlue,80%);
+            //background: fade(@baseBlue,80%);
         }
     }
 }/* sidebar */
 
 @hamburglerSize: 2.4rem;
-@HamburglerRadius: @hamburglerSize*.08;
+@hamburglerRadius: @hamburglerSize*.08;
 @hamburglerThickness: @hamburglerSize*.15;
-@hamburglerIconColor: white;
+@hamburglerIconColor: @lightBlue;
 @hamburglerTransition: all .4s ease-in-out;
 #hamburgler {
     position: relative;
@@ -111,6 +142,7 @@
     -webkit-transform-style: preserve-3d;
     -moz-transform-style: preserve-3d;
     transform-style: preserve-3d;
+    
     span {
         // middle bar
         position: relative;
@@ -122,7 +154,7 @@
         background: @hamburglerIconColor;
         height: @hamburglerThickness;
         width: @hamburglerSize;
-        border-radius: @HamburglerRadius;
+        border-radius: @hamburglerRadius;
         margin: 0 auto;
         transition: @hamburglerTransition;
         border: 0 solid transparent;
@@ -133,7 +165,7 @@
             display: block;
             background: @hamburglerIconColor;
             height: @hamburglerThickness;
-            border-radius: @HamburglerRadius;
+            border-radius: @hamburglerRadius;
             width: 100%;
             transition: @hamburglerTransition;
         }
@@ -197,7 +229,7 @@
             background: @hamburglerIconColor;
             height: @hamburglerThickness;
             width: @hamburglerSize;
-            border-radius: @HamburglerRadius;
+            border-radius: @hamburglerRadius;
             border: 0 solid transparent;
             &:before {
                 // top bar
@@ -358,65 +390,113 @@ nav.sidebar-nav {
     }
 }/* nav */
 
-ul.social-connect {
-    font-size:1.5rem;
-    font-weight:400;
-    margin:0 auto;
-    padding:0;
-    list-style:none;
-    margin-bottom:2rem;
-    display:inline-block!important;
-    width:72%;
-    text-align: left;
+
+
+ul.social-media {
+  display:-moz-inline-stack;
+  display:inline-block;
+  zoom:1;
+  *display:inline;
+  list-style:none;
+  text-align:left;
+  padding:0 1rem 0 0;
+  margin:0;
+  color:#a8f8ff;
   
-    li {
-        display:inline-block;
-        padding:.5rem 0;
+  li {
+    margin-bottom:.5rem;
+  }
+  
+  .icon {
+    @icon-size:3rem;
+    display:inline-block;
+    border-radius: 50%;
+    height: @icon-size;
+    margin: 0 3px 0 0;
+    width: @icon-size;
     
-        span {
-
-            font-size:1.6rem;
-            display:inline-block;
-            padding: .5rem;
-            width:2.9rem;
-            text-align:center;
-            border-radius:50%;
-            margin-right:.8rem;
-
-            &.icon {
-                background-image: linear-gradient(
-                to bottom,@baseBlue,@darkBlue);
-            }
-
-            i {color:fade(@whiteBlue,50%);text-shadow: none;.transition;}
-        }/* span */
+    &:after {
+      font:400 1em/@icon-size 'FontAwesome';
+      display: block;
+      line-height: @icon-size;
+      text-align: center;
+      -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: all 0.3s ease-in-out;
+          transition: all 0.3s ease-in-out;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+    }
+    
+    &.email {
+      &:after {content:'\f003'}
+    }
+    
+    &.codepen {
+      &:after {content:'\f1cb'}
+    }
+    
+    &.behance {
+      &:after {content:'\f1b4'}
+    }
+    
+    &.github {
+      &:after {content:'\f113'}
+    }
+  }
+  
+  li:hover {
+    .icon {
+        animation: shadow 1s forwards;
+        -ms-animation: shadow 1s forwards;
+        -moz-animation: shadow 1s forwards;
+        -webkit-animation: shadow 1s forwards;
       
-        &:hover {
-            i {color:@whiteBlue;}
-            
-            .contact.icon {
-                background-image: linear-gradient(
-                to bottom,#0F64B1,#66DDFE);
-                i {text-shadow: 0px 0px 3px fade(@baseBlue,50%);}
-            }
+      &:after {
+        color:white;
+          text-shadow:none;
+        -webkit-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        transform: scale(1.2);
+      }
+      
+      &.email {
+        background-image: linear-gradient(
+                  to bottom,#0F64B1,#66DDFE);
+      }
 
-            .behance.icon {
-                background-image: linear-gradient(
-                to bottom,#005dff,#0096ff)
-            }
+      &.codepen {
+        background-image: linear-gradient(
+                  to bottom,#252525,#444);
+      }
 
-            .github.icon {
-                background-image: linear-gradient(
-                to bottom,#202d5f,#614381)
-            }
+      &.behance {
+        background-image: linear-gradient(
+                  to bottom,#005dff,#0096ff);
+      }
 
-            .codepen.icon {
-                background-image: linear-gradient(
-                to bottom,#252525,#444)
-            }
-        }/* li.hover */
-    }/* li */
-}/* ul */
+      &.github {
+        background-image: linear-gradient(
+                  to bottom,#202d5f,#614381);
+      }
+    }/* icon */
+  }/* li:hover */
+}
+
+@-webkit-keyframes shadow {
+  from {box-shadow: 0 0 0 rgba(150,250,255,.25);}
+  to {box-shadow: 0 0 0 10px rgba(150,250,255,0);}
+}
+
+@keyframes shadow {
+  from {box-shadow: 0 0 0 rgba(150,250,255,.25);}
+  to {box-shadow: 0 0 0 10px rgba(150,250,255,0);}
+}
+
+
 
 p.copyright {
     font-family: 'Exo 2', sans-serif;
