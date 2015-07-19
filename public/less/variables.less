@@ -67,6 +67,12 @@ body {
   }
 }
 
+// remove dev overlay from splash page
+// can delete on launch
+body.splash {
+    &:after {display:none}
+}
+
 
 // Breakpoints
 // Source: http://blog.scur.pl/2012/06/variable-media-queries-less-css/
