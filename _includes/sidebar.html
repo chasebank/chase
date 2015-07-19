@@ -4,13 +4,13 @@
 <div id="sidebar">
     
     <nav class="sidebar-nav" role="navigation">
-       <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.baseurl }}/">Home</a>
-       <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.baseurl }}/portfolio/">Portfolio</a>
-       {% if page.url == '/portfolio/' %}
+        <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.baseurl }}/">Home</a>
+        <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.baseurl }}/portfolio/">Portfolio</a>
+        {% if page.url == '/portfolio/' %}
             {% for project in site.portfolio %}
-            <a href="{{ site.baseurl }}{{ project.url }}">{{ project.title }}</a>
+            <a class="sidebar-subnav-item{% if page.url == site.baseurl %} active{% endif %}"href="{{ site.baseurl }}{{ project.url }}">{{ project.title }}</a>
             {% endfor %}
-       {% endif %}
+        {% endif %}
        
         {% comment %}
           The code below dynamically generates a sidebar nav of pages with

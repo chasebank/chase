@@ -1,0 +1,50 @@
+// out: null
+@import (reference) "variables.less";
+
+.toggleClosed {
+    .toggle {
+        -webkit-transform: translateX(@toggleSize/2) translateY(@toggleSize/2);
+        -ms-transform: translateX(@toggleSize/2) translateY(@toggleSize/2);
+        transform: translateX(@toggleSize/2) translateY(@toggleSize/2);
+    }
+    
+    #sidebar {
+        -webkit-transform: translateX(-@sidebarWidth - 10px);
+        -ms-transform: translateX(-@sidebarWidth - 10px);
+        transform: translateX(-@sidebarWidth - 10px);
+    }
+    
+    #hamburgler {
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        
+        span {
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+            background: @hamburglerIconColor;
+            height: @hamburglerThickness;
+            width: @hamburglerSize;
+            border: 0 solid transparent;
+            &:before,
+            &:after {
+                background: @hamburglerIconColor;
+                height: @hamburglerThickness;
+                width: 100%;
+            }
+            &:before {
+                // top bar
+                -webkit-transform: translateY(-200%);
+                -ms-transform: translateY(-200%);
+                transform: translateY(-200%);
+            }
+            &:after {
+                // bottom bar
+                -webkit-transform: translateY(200%);
+                -ms-transform: translateY(200%);
+                transform: translateY(200%);
+            }
+        }/* span */
+    }/* hamburgler */
+}/* toggleClosed */

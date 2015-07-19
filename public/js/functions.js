@@ -167,17 +167,7 @@ window.matchMedia || (window.matchMedia = function() {
 
 // media query for checkbox
 
-var mqCheckboxStatus = function(mql) {
-        "use strict";
-        if (mql.matches) {
-            // set sidebar toggle as checked
-            $("#sidebar-toggler").prop( "checked", true );
-        } else {
-            // set sidebar toggle as unchecked
-            $("#sidebar-toggler").prop( "checked", false );
-        }
-    },
-    mqSidebarPosition = function(mql) {
+var mqSidebarPosition = function(mql) {
         "use strict";
         if (mql.matches) {
             // set position to fixed
@@ -191,9 +181,7 @@ var mqCheckboxStatus = function(mql) {
     desktopAndXL = window.matchMedia('(min-width: 769px)');
     mobileTablet = window.matchMedia('(max-width: 768px)');
 
-mqCheckboxStatus(desktopXL);
 mqSidebarPosition(desktopAndXL);
-desktopXL.addListener(mqCheckboxStatus);
 desktopAndXL.addListener(mqSidebarPosition);
 
 

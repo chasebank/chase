@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+{% include head.html %}
+
+<body>
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="stars">
+            
+        {% include header.html %}
+        
+        <div class="wrap">
+
+            <div id="content" style="width:50%">
+                <section class="container">
+                    {{ content }}
+                </section>
+                
+            </div>
+            
+        </div>
+        
+    </div>
+
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="{{ site.baseurl }}/public/js/functions.js"></script>
+
+</body>
+
+</html>
