@@ -1,9 +1,42 @@
 ---
-layout: default
+layout: splash
 title: Home
 ---
+<link href="{{ site.baseurl }}/public/css/form.css" rel="stylesheet">
 
-<div class="posts">
+<h2>Welcome!</h2>
+<p>Thanks for taking the time to visit my site. Sorry, but I'm right in the middle of updating it, which should be finished soon.</p>
+<p>In the mean time, if you'd like to contact me, please use the form below:</p>
+
+<form id="contact" action="//formspree.io/chase@cha.se.net" method="POST">
+    <ol>
+        <li>
+            <label for="name">Name*</label>
+            <input type="text" id="name" name="name" placeholder="Name*" required />
+            <span class="helper">Example: I'm Batman.</span>
+        </li>
+        <li>
+            <label for="email">Email*</label>
+            <input type="email" name="email" placeholder="Email*" required />
+            <span class="helper">Example: batman@gothymcity.gov</span>
+        </li>
+        <li>
+            <label for="_subject">Subject*</label>
+            <input type="text" name="_subject" placeholder="Subject*" required />
+        </li>
+        <li>
+            <label for="message">Message*</label>
+            <textarea name="message" id="" cols="30" rows="10" placeholder="Message*" required ></textarea>
+        </li>
+        <li style="display:none">
+            <input type="text" name="_gotcha" style="display:none" />
+        </li>
+    </ol>
+
+    <input type="submit" value="Send">
+</form>
+
+<!--<div class="posts">
   {% for post in paginator.posts %}
   <div class="post">
     <h1 class="post-title">
@@ -34,5 +67,5 @@ title: Home
   {% else %}
     <span class="pagination-item newer">Newer</span>
   {% endif %}
-</div>
+</div>-->
 
