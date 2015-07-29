@@ -1,0 +1,42 @@
+// out: null
+@import (reference) "variables.less";
+
+figure.hero {
+    display:block;
+    width:auto;
+}
+
+section.project {
+    h1 {display:block;margin-bottom:0rem!important;}
+    h3 {
+        position:relative;
+        &:after {
+            display:block;
+            position:absolute;
+            bottom:-.5rem;
+            width:100%;
+            height:.2rem;
+        }
+    }
+}
+
+.project-styles (@color,@accent,@text) {
+    h1, h2, h3, h4, h5, h6 {color:@color}
+    p.h1-sub-heading {color:@accent}
+    h3 {
+        &:after {
+            background-image: linear-gradient(to right, red 0%, black 100%);
+        }
+    }
+}
+
+/*##################
+ * Projects
+ #################*/
+
+section.project-walkonwater {
+    figure.hero {
+        padding-top:32%;// start with imgheight450px / imgwidth800px = 0.5625 and then adjust
+    }
+    .project-styles (#00b3b5,#db2e4a,#547171);
+}

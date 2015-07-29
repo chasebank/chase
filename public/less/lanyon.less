@@ -297,7 +297,7 @@ div#footer p {
     margin: 0;
 }
 
-section {
+section.container {
     background: white;
     width: 100%;
     margin: 0 auto 2rem auto;
@@ -305,8 +305,20 @@ section {
     padding: 4%;
     border-radius: 2.5rem;
     box-shadow: 0px 2px 14px rgba(0, 20, 40, .8), inset 0px 0px 50px rgba(185, 205, 200, .7), inset 0px 0px 180px rgba(205, 225, 230, 1);
+    max-width:1200px!important;
+    
     @media @mobile {
-        width: 100%
+    box-shadow:
+        0px 2px 14px rgba(0, 20, 40, .8),
+        inset 0px 0px 5px rgba(185, 205, 200, .7),
+        inset 0px 0px 25px rgba(205, 225, 230, 1);
+    }
+
+    @media @tablet {
+    box-shadow:
+        0px 2px 14px rgba(0, 20, 40, .8),
+        inset 0px 0px 5px rgba(185, 205, 200, .7),
+        inset 0px 0px 25px rgba(205, 225, 230, 1);
     }
 }
 
@@ -323,37 +335,6 @@ section {
     position: relative;
     width: 100%;
 }
-/*
- * Container
- *
- * Center the page content.
- */
-/*.container {    OLD
-    //max-width: 38rem;
-    padding-left:  1rem;
-    padding-right: 1rem;
-    margin-left:  auto;
-    margin-right: auto;
-    width: 80%;
-    font-size: 1.5rem;
-
-    @media @tablet {width:80%;}
-}*/
-/*@media (min-width: 38em) {
-  .container {
-    max-width: 32rem;
-  }
-}
-@media (min-width: 56em) {
-  .container {
-    max-width: 38rem;
-  }
-}*/
-/*
- * Masthead
- *
- * Super small header above the content for site name and short description.
- */
 
 .masthead {
     padding-top: 1rem;

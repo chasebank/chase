@@ -1,10 +1,13 @@
 ---
-layout: default
+layout: main
 ---
 
-<div class="page">
-  <h1 class="page-title">{{ page.title }}</h1>
-  <p>{{ page.service }}</p>
-  {{ content }}
-</div>
-
+<section class="container project project-{{ page.slug }}" style="background:url('project-hero.jpg') top center no-repeat;background-size:100%">
+    <figure class="hero"></figure><!-- maintains aspect ratio of top padding -->
+    <h1>{{ page.title }}</h1>
+    <p class="h1-sub-heading">{{ page.service }}</p>
+    {{ content }}
+    
+    <h3>About {{ page.title }}</h3>
+    <p>{{ page.body }}</p>
+</section>

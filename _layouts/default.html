@@ -1,38 +1,7 @@
-<!DOCTYPE html>
-<html lang="en-us">
-
-{% include head.html %}
-
-<body>
-    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
-         content to avoid any CSS collisions with our real content. -->
-    <div class="stars">
-       
-        <input type="checkbox" id="sidebar-toggler" name="" value="" />
-        
-        <label for="sidebar-toggler" class="toggle"><span id="hamburgler"><span></span></span></label>
-            
-        {% include sidebar.html %}
-            
-        {% include header.html %}
-        
-        <div class="wrap">
-
-            <div id="content">
-                <section class="container">
-                    {{ content }}
-                </section>
-                
-                {% include footer.html %}
-            </div>
-            
-        </div>
-        
-    </div>
-
-    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="{{ site.baseurl }}/public/js/functions.js"></script>
-
-</body>
-
-</html>
+---
+layout: main
+---
+   
+<section class="container">
+    {{ content }}
+</section>
