@@ -13,6 +13,24 @@
 footer {
     #grid;
     position:relative;
+    padding: 1rem 1rem 0;
+    margin:0 auto;
+    width:80%;
+    max-width:1200px;
+    
+    @media @mobile {
+        padding: 0 .5rem 0;
+        width:99%;
+    }
+    
+    @media @tablet {
+        padding: 0 .8rem 0;
+        width:98%;
+    }
+    
+    @media @desktop {
+        width:90%;
+    }
     //background:fade(red,10%);
     
     .chase-logo-svg {

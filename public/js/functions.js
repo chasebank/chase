@@ -413,3 +413,14 @@ $(function() {
     hoverDelay : 75
   }); } );
 });
+
+
+
+
+// Fancybox
+$(document).ready(function() {
+	$('.fancybox').fancybox({
+		closeClick: true,
+        padding: 0
+	});
+});

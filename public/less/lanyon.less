@@ -304,7 +304,10 @@ section.container {
     border: 2px solid white;
     padding: 4%;
     border-radius: 2.5rem;
-    box-shadow: 0px 2px 14px rgba(0, 20, 40, .8), inset 0px 0px 50px rgba(185, 205, 200, .7), inset 0px 0px 180px rgba(205, 225, 230, 1);
+    box-shadow:
+        0px 2px 14px rgba(0, 20, 40, .8),
+        inset 0px 0px 50px rgba(185, 205, 200, .7),
+        inset 0px 0px 180px rgba(205, 225, 230, 1);
     max-width:1200px!important;
     
     @media @mobile {
@@ -524,127 +527,3 @@ a.pagination-item:hover {
     }
 }
 
-
-
-.portfolio-thumbs { 
-    list-style: none;
-    padding: 0;
-    #grid;
-    margin-bottom:-1.9%;
-    
-    li {
-        @border-radius:3rem;
-        @padding:@border-radius*.34;
-        position:relative;
-        background: #fff;
-        #grid > .cell;
-        #grid > .span(3);
-        max-width:237px;
-        padding:@padding;
-        box-shadow: 0 1px 5px fade(@baseBlue,25%);
-        border-radius: @border-radius;
-
-        a {
-            display: block;
-            position: relative;
-            top:0;
-            left:0;
-            overflow: hidden;
-            text-decoration: none;
-            border-radius: @border-radius*.7;
-
-            img {
-                display: block;
-                position: relative;
-                width:100%;
-                height:auto;
-                margin:0;
-                border-radius: @border-radius*.7;
-                //@animate: thumb .3s 1 alternate ease-out forwards;
-                @filter:grayscale(0%) brightness(100%);
-                filter: @filter;
-                -webkit-filter: @filter;
-                -moz-filter: @filter;
-                -o-filter: @filter;
-                -ms-filter: @filter;
-                transition:all .4s ease-in-out;
-            }
-            
-            &:hover {
-                img {
-                    @filter:grayscale(100%) brightness(60%);
-                    filter: @filter;
-                    -webkit-filter: @filter;
-                    -moz-filter: @filter;
-                    -o-filter: @filter;
-                    -ms-filter: @filter;
-                }
-            }
-
-            div {
-                position: absolute;
-                background: rgba(27, 198, 237, .55);
-                width: 100%;
-                height: 100%;
-                border-radius: @border-radius*.7;
-                padding:1.5rem;
-                text-shadow:
-                        1px 1px 4px fade(@darkBlue,50%),
-                        1px 1px 8px fade(@baseBlue,40%);
-                
-                h2 {font-size:2.8rem;color:white;}
-                p {font-size:1.8rem;color:white;}
-                
-                .fa {
-                    position:absolute;
-                    top:69%;
-                    left:50%;
-                    width:auto;
-                    text-align: center;
-                    font-size:6rem;
-                    display:block;
-                    transform:  translateX(-50%);
-                    color:rgba(145, 238, 255, .7);
-                    text-shadow:none;
-                }
-
-            }/* div */
-        }/* a */
-    }/* li */
-}/* portfolio-thumbs */
-
-
-@keyframes thumb {
-  0%  {
-    @filter:grayscale(0%) brightness(100%);
-    filter: @filter;
-    -webkit-filter: @filter;
-    -moz-filter: @filter;
-    -o-filter: @filter;
-    -ms-filter: @filter;
-  }
-  100% {
-    @filter:grayscale(100%) brightness(125%);
-    filter: @filter;
-    -webkit-filter: @filter;
-    -moz-filter: @filter;
-    -o-filter: @filter;
-    -ms-filter: @filter;
-  }
-}
-
-// No JS
-.no-js {
-  .portfolio-thumbs li a div {
-    top: 0px;
-    left: -100%;
-    -webkit-transition: all 0.3s ease;
-    -moz-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    -ms-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-  }
-  .portfolio-thumbs li a:hover div{
-    left: 0px;
-  }
-}

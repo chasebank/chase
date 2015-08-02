@@ -2,12 +2,10 @@
 layout: main
 ---
 
-<section class="container project project-{{ page.slug }}" style="background:url('project-hero.jpg') top center no-repeat;background-size:100%">
+<section class="container project project-{{ page.slug }}">
     <figure class="hero"></figure><!-- maintains aspect ratio of top padding -->
     <h1>{{ page.title }}</h1>
     <p class="h1-sub-heading">{{ page.service }}</p>
-    {{ content }}
     
-    <h3>About {{ page.title }}</h3>
-    <p>{{ page.body }}</p>
+    {{ content }}
 </section>
