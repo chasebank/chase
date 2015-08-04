@@ -23,7 +23,7 @@
   box-sizing: border-box;
 }
 
-/*Add label in top-left corner desplaying current media query state.*/
+// Add label in top left corner desplaying current media query state
 body {
     &:after {
     background: red;
@@ -51,8 +51,8 @@ body {
         ;
         box-shadow: 0px 0px 5px lighten(@color,20%);
     }
-    @media @mobile {
-        .overlay(orange,"mobile");
+    @media @phone {
+        .overlay(orange,"phone");
     }
     @media @tablet {
         .overlay(purple,"tablet");
@@ -80,8 +80,11 @@ body.splash {
               ~"only screen and (min--moz-device-pixel-ratio: 1.5)",
               ~"only screen and (-o-min-device-pixel-ratio: 3/2)",
               ~"only screen and (min-device-pixel-ratio: 1.5)";
-@mobile:      ~"only screen and (max-width: 529px)";
+@phone:       ~"only screen and (max-width: 529px)";
+  @not-phone: ~"only screen and (min-width: 530px)"; // Everything bigger than phones
 @tablet:      ~"only screen and (min-width: 530px) and (max-width: 768px)";
+  @mobile:    ~"only screen and (max-width: 768px)"; // Phones and Tablets
+  @not-mobile:~"only screen and (min-width: 769px)"; // Everything bigger than phone and tablet
 @desktop:     ~"only screen and (min-width: 769px) and (max-width: 1128px)";
 @desktop-xl:  ~"only screen and (min-width: 1129px)";
 

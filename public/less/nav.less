@@ -29,7 +29,7 @@
         }
     }
     
-    @media @mobile {
+    @media @phone {
         height: 3rem;
         -webkit-transform: translateX(@toggleSize/3) translateY(@toggleSize/4);
         -ms-transform: translateX(@toggleSize/3) translateY(@toggleSize/4);
@@ -105,7 +105,7 @@
         -o-linear-gradient(@darkBlue, rgba(0, 0, 0, 0)) 1 100%;
         border-image:linear-gradient(to bottom, @darkBlue, rgba(0, 0, 0, 0)) 1 100%;
         
-        @media @mobile {
+        @media @phone {
             //background: fade(@baseBlue,80%);
         }
         @media @tablet {
@@ -270,7 +270,7 @@
         -ms-transform: translateX(@sidebarWidth - 40px) translateY(@toggleSize/2);
         transform: translateX(@sidebarWidth - 40px) translateY(@toggleSize/2);
         // ISSUE - should be @sidebarWidth - (@toggleSize*1.5) but rems aren't working nested under :checked
-        @media @mobile {
+        @media @phone {
             position:absolute;
             height: 3rem;
             -webkit-transform: translateX(@sidebarWidth - 40px) translateY(@toggleSize/4);
@@ -431,7 +431,7 @@ ul.social-media {
     margin-bottom:.5rem;
   }
   
-  .icon {
+  .icon {      
     @icon-size:3rem;
     display:inline-block;
     border-radius: 50%;
