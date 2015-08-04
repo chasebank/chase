@@ -514,6 +514,14 @@ section.project-officemax {
         padding:@padding;
         box-shadow: 0 1px 5px fade(@baseBlue,25%);
         border-radius: @border-radius;
+        
+        @media @tablet {
+            #grid > .span(4);
+        }
+        
+        @media @phone {
+            #grid > .span(6);
+        }
 
         a {
             display: block;
