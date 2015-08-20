@@ -52,6 +52,7 @@ footer {
     .footer-content {
         #grid > .cell;
         #grid > .span(8.2);
+        margin-bottom:0!important;// overwriting grid
         text-align:right;
         color: fade(#adf1ff,80%);
         
@@ -94,7 +95,6 @@ footer {
             @media @phone {
                 margin-bottom:.8rem;
                 list-style:none;
-                padding:0 5%;
                 text-align: justify !important;
                 text-justify: distribute-all-lines;
                 font-size: 0 !important;
@@ -113,7 +113,6 @@ footer {
                 @media @phone {
                     margin:0;
                     display:inline-block;
-                    width:25%;
                     font-size:1.5rem;
                     text-align:center;
                     span {

@@ -13,7 +13,7 @@
     -khtml-border-radius:@radius; /* for old Konqueror browsers */
 }
 
-.transition(@target: all, @duration: .7s, @ease: ease-in-out) {
+.transition(@target: all, @duration: .85s, @ease: cubic-bezier(0.19, 0.02, 0, 0.99)) {
     transition: @target @duration @ease;
 }
 
@@ -83,7 +83,7 @@ body.splash {
 @phone:       ~"only screen and (max-width: 529px)";
   @not-phone: ~"only screen and (min-width: 530px)"; // Everything bigger than phones
 @tablet:      ~"only screen and (min-width: 530px) and (max-width: 768px)";
-  @mobile:    ~"only screen and (max-width: 768px)"; // Phones and Tablets
+@mobile:    ~"only screen and (max-width: 768px)"; // Phones and Tablets
   @not-mobile:~"only screen and (min-width: 769px)"; // Everything bigger than phone and tablet
 @desktop:     ~"only screen and (min-width: 769px) and (max-width: 1128px)";
 @desktop-xl:  ~"only screen and (min-width: 1129px)";

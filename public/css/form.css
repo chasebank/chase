@@ -107,6 +107,7 @@ form#contact input[type="submit"] {
   font-size: 1.8rem!important;
   border: none;
   padding: 1rem 3rem;
+  margin-bottom: 1rem!important;
   color: white;
   text-shadow: 2px 2px 4px #107dbe;
   background: #ffffff;

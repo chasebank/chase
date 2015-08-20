@@ -53,6 +53,8 @@ body {
     /* Old browsers */
     
     font-size: 10px;
+    
+    @media @mobile { font-size:9px; }
 }
 
 body {
@@ -81,7 +83,6 @@ body {
     background-position: top center;
     background-repeat: repeat-x;
     background-attachment: fixed;
-    font-size:1.2rem;
     overflow-x:hidden;
 }
 
@@ -255,20 +256,18 @@ div#header p {
     margin: 0;
 }
 
-@footerHeight: 150px;
-
 #content {
-    padding: 1rem 1rem @footerHeight;
+    padding: 1rem 1rem 1rem;
     margin:0 auto;
     width:80%;
     
     @media @phone {
-        padding: 0 .5rem @footerHeight;
+        padding: 0 .5rem .5rem;
         width:99%;
     }
     
     @media @tablet {
-        padding: 0 .8rem @footerHeight;
+        padding: 0 .8rem .8rem;
         width:98%;
     }
     
@@ -280,16 +279,6 @@ div#header p {
         @media @desktop-xl {width:60%}
         @media @desktop {width:80%}
     }
-}
-
-footer {
-    position: absolute;
-    width: 100%;
-    height: @footerHeight;
-    bottom: 0;
-    /* stick to bottom */
-    
-    //background:rgba(255,0,0,.2);
 }
 
 div#footer p {

@@ -11,7 +11,7 @@ section.project {
     h3 {
         position:relative;
         margin-bottom:1rem;
-        margin-top:2.5rem;
+        //margin-top:2.5rem;
         &:after {
             display:block;
             position:absolute;
@@ -21,9 +21,6 @@ section.project {
             width:50%;
             height:.2rem;
         }
-    }
-    p.h1-sub-heading {
-        margin-bottom:1rem;
     }
 }
 
@@ -48,14 +45,19 @@ section.project {
 section.project-walkonwater {
     background:white url('@{projectHero}/walk-on-water/project-hero.jpg') top center no-repeat;
     background-size:100%;
-    text-shadow:2px 2px 5px white,2px 2px 5px white,0px 0px 15px white;
+    @media @mobile {
+        background: white url('@{projectHero}/walk-on-water/project-hero-mobile.jpg') top center no-repeat;
+    background-size: 100%;
+    }
+    
+    text-shadow: 2px 2px 5px white,2px 2px 5px white,0px 0px 15px white;
     figure.hero {
-        padding-top:32%;// start with imgheight450px / imgwidth800px = 0.5625 and then adjust
+        padding-top: 32%;// start with imgheight450px / imgwidth800px = 0.5625 and then adjust
     }
     .project-styles (#00b3b5,#db2e4a,#547171);
     .gallery {
-        margin-left:-6px;
-        margin-right:-6px;
+        margin-left: -6px;
+        margin-right: -6px;
     }
 }
 
@@ -64,22 +66,35 @@ section.project-feastbeast {
         url('@{projectHero}/feastbeast-food-truck/project-hero.png') top center no-repeat,
         url('@{projectHero}/feastbeast-food-truck/project-bg.png') top center repeat-y,
         #4e0200;
-    background-size:100%;
-    border-color:#680000;
-    box-shadow:0px 2px 14px fade(black,80%);
-    padding:7%;
-    text-shadow:2px 2px 5px fade(black,50%),1px 1px 8px black;
+    background-size: 100%;
+    @media @mobile {
+        background:
+            url('@{projectHero}/feastbeast-food-truck/project-hero-mobile.png') top center no-repeat,
+            url('@{projectHero}/feastbeast-food-truck/project-bg-mobile.png') top center repeat-y,
+            #4e0200;
+        background-size: 100%;
+    }
+        
+    border-color: #680000;
+    box-shadow: 0px 2px 14px fade(black,80%);
+    padding: 7%;
+    text-shadow: 2px 2px 5px fade(black,50%),1px 1px 8px black;
     figure.hero {
-        padding-top:16%;// start with imgheight381px / imgwidth1200px = 0.3175 and then adjust
+        padding-top: 16%;// start with imgheight381px / imgwidth1200px = 0.3175 and then adjust
+        
+        @media @phone { padding-top: 28% }
+        @media @tablet { padding-top: 30% }
     }
     .gallery,
-    .image {border-color:black;}
+    .image {border:none;}
     .project-styles (#ff434c,#ffdfdf,white);
 }
 
 section.project-officemax {
-    background:url('@{projectHero}/officemax/project-hero.png') top center no-repeat,#e4e4e4;
-    figure.hero {padding-top:15%}
+    background: url('@{projectHero}/officemax/project-hero.png') top center no-repeat,#e4e4e4;
+    background-size: 100%;
+    
+    figure.hero { padding-top: 15%}
     .project-styles (#ec1b3c,#717275,#2f2929);
     h3 {
         &:after {
@@ -87,7 +102,28 @@ section.project-officemax {
         }
     }
     .gallery,
-    .image {border-color:#717275;}
+    .image {border-color: #717275;}
+}
+
+
+section.project-pga {
+    background: url('@{projectHero}/pga/project-hero.jpg') top center no-repeat, #ced6ac;
+    background-size:100%;
+    border-color: #b18e53;
+    
+    @media @mobile {
+        background: url('@{projectHero}/pga/project-hero-mobile.jpg') top center no-repeat, #ced6ac;
+        background-size:100%;
+    }
+    
+    figure.hero {
+        padding-top:30%;
+            
+        @media @phone { padding-top: 38% }
+        @media @tablet { padding-top: 40% }
+    }
+    
+    .project-styles (#7a6036,#0b2a6c,#313634);
 }
 
 
@@ -167,7 +203,6 @@ section.project-officemax {
   }
   @media @desktop {
     .gallery-group:nth-of-type(2n) {
-      background:red;
 
       .large-image {
         margin-left:30%;
@@ -179,7 +214,6 @@ section.project-officemax {
   }
   @media @desktop-xl {
     .gallery-group:nth-of-type(2n) {
-      background:red;
 
       .large-image {
         margin-left:30%;
@@ -194,11 +228,6 @@ section.project-officemax {
 
 
 
-/*! fancyBox v2.1.5 fancyapps.com | fancyapps.com/fancybox/#license */
-.fancybox {
-    
-}
-
 .image {
     opacity: 1;
     transition: opacity .4s ease-in-out;
@@ -206,16 +235,28 @@ section.project-officemax {
 
     &:after {  // TO DO - Make magnifying glass fade in on hover
         display: block;
+        font-family:'FontAwesome';
+        font-size:5rem;
+        content:'\f002';
+        text-shadow:none;
+        text-align:center;
+        color:white;
         position: absolute;
-        top: 0;
+        top: 50%;
         left: 0;
-        height: 100%;
+        height:5rem;
+        margin-top:-2.5rem;
         width: 100%;
-        background: red;
+        opacity:0;
+        transition: opacity .4s ease-in-out;
     }
 
     &:hover {
-        opacity: .75;
+        opacity: .6;
+        
+        &:after {
+            opacity: 1;
+        }
     }
 }
 
@@ -557,6 +598,16 @@ section.project-officemax {
                     -moz-filter: @filter;
                     -o-filter: @filter;
                     -ms-filter: @filter;
+                    
+                    // Remove effect on mobile. Hovers seem problematic, for now...
+                    @media @mobile { 
+                        @filter: initial;
+                        filter: @filter;
+                        -webkit-filter: @filter;
+                        -moz-filter: @filter;
+                        -o-filter: @filter;
+                        -ms-filter: @filter;
+                    }
                 }
             }
 
@@ -570,6 +621,9 @@ section.project-officemax {
                 text-shadow:
                         1px 1px 4px fade(@darkBlue,50%),
                         1px 1px 8px fade(@baseBlue,40%);
+                
+                // Remove on mobile. Hovers seem problematic, for now...
+                @media @mobile { display: none!important }
                 
                 h2 {font-size:2.8rem;color:white;}
                 p {font-size:1.8rem;color:white;}
