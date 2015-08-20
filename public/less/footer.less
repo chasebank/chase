@@ -134,3 +134,38 @@ footer {
         }/* social-media */
     }/* footer-content */
 }/* footer */
+
+.splash {
+    footer {
+        .footer-content {
+            #grid > .cell;
+            #grid > .span(12);
+            
+            .social-media {
+                text-align: center;
+                margin-bottom:3rem;
+                font-size: 1.8rem;
+                
+                li {text-align:center;}
+                
+                .icon {      
+                    @icon-size:4rem;
+                    height: @icon-size;
+                    margin: 0 3px 0 0;
+                    width: @icon-size;
+
+                    &:after {
+                      font:400 1em/@icon-size 'FontAwesome';
+                      line-height: @icon-size;
+                    }
+                    
+                    @media @phone {
+                        margin:0px auto 5px auto!important;
+                    }
+                }
+            }/* social-media */
+            
+            
+        }/* footer-content */
+    }/* footer */
+}
