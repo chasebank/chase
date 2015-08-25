@@ -19,7 +19,7 @@ I wasn't able to find a stock photo capturing this idea, so the challenge was se
     <a class="fancybox" href="pga-card.jpg"><div class="image large-image" style="background-image:url('pga-card.jpg')"></div></a>
     <div class="small-image-group">
       <a class="fancybox" href="pga-card-design-closeup.jpg"><div class="image small-image" style="background-image:url('pga-card-design-closeup.jpg')">1</div></a>
-      <a class="fancybox fancybox.iframe" href="https://player.vimeo.com/video/137291395"><div class="image small-image" style="background-image:url('pga-card-process-thumb.gif')">2</div></a>
+      <a class="fancybox fancybox.iframe" href="https://player.vimeo.com/video/137291395"><div class="image small-image video" style="background-image:url('pga-card-process-thumb.gif')">2</div></a>
     </div>
   </div>
   <div class="gallery-group">

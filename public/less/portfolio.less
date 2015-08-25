@@ -227,6 +227,7 @@ section.project-pga {
 
 
 
+    
 
 .image {
     opacity: 1;
@@ -250,7 +251,7 @@ section.project-pga {
         opacity:0;
         transition: opacity .4s ease-in-out;
     }
-
+    
     &:hover {
         opacity: .6;
         
@@ -259,6 +260,12 @@ section.project-pga {
         }
     }
 }
+
+// Play button icon overlay on hover for videos
+.video.image:after {
+    content:'\f16a'!important;
+}
+
 
 .fancybox-wrap,
 .fancybox-skin,
