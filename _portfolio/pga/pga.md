@@ -13,3 +13,20 @@ Design a holiday card that captures both the spirits of golf and the holidays. M
 
 ###Challenges
 I wasn't able to find a stock photo capturing this idea, so the challenge was set to make one, using a composite of multiple photos. This also included imposing the PGA emblem on a golf ball, indended for the main focal point.
+
+<div class="gallery">
+  <div class="gallery-group">
+    <a class="fancybox" rel="gallery" href="pga-card.jpg"><div class="image large-image" style="background-image:url('pga-card.jpg')"></div></a>
+    <div class="small-image-group">
+      <a class="fancybox" rel="gallery" href="pga-card-design-closeup.jpg"><div class="image small-image" style="background-image:url('pga-card-design-closeup.jpg')">1</div></a>
+      <a class="fancybox iframe" rel="gallery" href="https://player.vimeo.com/video/137291395"><div class="image small-image" style="background-image:url('pga-card-process-thumb.gif')">2</div></a>
+    </div>
+  </div>
+  <div class="gallery-group">
+    <a class="fancybox" rel="gallery" href="pga-card-design.jpg"><div class="image large-image" style="background-image:url('pga-card-design.jpg');background-position:bottom center"></div></a>
+    <div class="small-image-group">
+      <a class="fancybox" rel="gallery" href="pga-card-design-closeup.jpg"><div class="image small-image" style="background-image:url('pga-card-design-closeup.jpg')">1</div></a>
+      <a class="fancybox" rel="gallery" href="pga-card-process-thumb.gif"><div class="image small-image" style="background-image:url('pga-card-process-thumb.gif')">2</div></a>
+    </div>
+  </div>
+</div>
