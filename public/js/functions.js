@@ -416,6 +416,15 @@ $(function() {
 
 
 
+//gallery
+$(function(){
+   $(".gallery-group:has(.large)")
+      .children().not('.large').addClass('small');
+     
+   $(".gallery-group:has(.left.large)")
+      .children().not('.left').addClass('right');
+});
+
 
 // Fancybox
 $(document).ready(function() {

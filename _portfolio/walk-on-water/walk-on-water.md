@@ -21,4 +21,10 @@ Create a branding style and image that's recognizable, and adaptable for use thr
       <a class="fancybox" rel="gallery" href="http://fancyapps.com/fancybox/demo/1_b.jpg"><div class="image small-image" style="background-image:url('http://placeimg.com/1000/700/nature')">2</div></a>
     </div>
   </div>
+  <div class="gallery-group">
+    <a class="fancybox" rel="gallery" href="http://fancyapps.com/fancybox/demo/1_b.jpg"><div class="image large-image" style="background-image:url('http://placeimg.com/1000/700/nature')"></div></a>
+    <div class="small-image-group">
+      <a class="fancybox" rel="gallery" href="http://fancyapps.com/fancybox/demo/1_b.jpg"><div class="image small-image" style="background-image:url('http://placeimg.com/1000/700/nature')">1</div></a>
+    </div>
+  </div>
 </div>
