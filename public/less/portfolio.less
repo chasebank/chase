@@ -59,10 +59,10 @@ section.project-walkonwater {
         padding-top: 32%; // start with imgheight450px / imgwidth800px = 0.5625 and then adjust
     }
     .project-styles (#00b3b5, #db2e4a, #547171);
-    .gallery {
+    /*.gallery {
         margin-left: -6px;
         margin-right: -6px;
-    }
+    }*/
 }
 section.project-feastbeast {
     background: url('@{projectHero}/feastbeast-food-truck/project-hero.png') top center no-repeat, url('@{projectHero}/feastbeast-food-truck/project-bg.png') top center repeat-y, #4e0200;
@@ -84,9 +84,6 @@ section.project-feastbeast {
             padding-top: 30%
         }
     }
-    .gallery, .image {
-        border: none;
-    }
     .project-styles (#ff434c, #ffdfdf, white);
 }
 section.project-officemax {
@@ -100,9 +97,6 @@ section.project-officemax {
         &:after {
             background-image: linear-gradient(to right, #febc12 0%, fade(#ffef01, 50%) 50%, transparent 100%);
         }
-    }
-    .gallery, .image {
-        border-color: #717275;
     }
 }
 section.project-pga {
@@ -157,7 +151,7 @@ section.project-pga {
     overflow: hidden;
     display: flex;
     flex-wrap: wrap;
-    margin: 0 -2px;
+    margin: 0;
     a {
         display: block;
         padding: .4rem!important;
