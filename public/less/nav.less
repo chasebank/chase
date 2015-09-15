@@ -1,3 +1,531 @@
 // main: styles.less
 @import (reference) "variables.less";
 
+
+@toggleSize: 4rem;
+  
+.toggle {
+    background: fade(@baseBlue, 50%);
+    box-shadow: 0px 0px 5px rgba(0, 40, 80, .8), 0px 0px 8px rgba(20, 80, 120, .2);
+    position: fixed;
+    width: @toggleSize;
+    height: @toggleSize;
+    -webkit-transform: translateX(@toggleSize/2) translateY(@toggleSize/2);
+    -ms-transform: translateX(@toggleSize/2) translateY(@toggleSize/2);
+    transform: translateX(@toggleSize/2) translateY(@toggleSize/2);
+    z-index: 999;
+    cursor: pointer;
+    .transition;
+    
+    &:hover {
+        #hamburgler span {
+            background: white;
+            border-color: white!important;
+            
+            &:before,
+            &:after {
+                background: white;
+            }
+        }
+    }
+    
+    @media @phone {
+        height: 3rem;
+        -webkit-transform: translateX(@toggleSize/3) translateY(@toggleSize/4);
+        -ms-transform: translateX(@toggleSize/3) translateY(@toggleSize/4);
+        transform: translateX(@toggleSize/3) translateY(@toggleSize/4);
+        background: fade(@baseBlue, 70%);
+        box-shadow: 1px 1px 5px rgba(0, 40, 80, 1), 1px 1px 8px rgba(20, 80, 120, .4);
+    }
+    @media @tablet {
+        height: 4rem;
+        -webkit-transform: translateX(@toggleSize/3) translateY(@toggleSize/4);
+        -ms-transform: translateX(@toggleSize/3) translateY(@toggleSize/4);
+        transform: translateX(@toggleSize/3) translateY(@toggleSize/4);
+        background: fade(@baseBlue, 70%);
+        box-shadow: 1px 1px 5px rgba(0, 40, 80, 1), 1px 1px 8px rgba(20, 80, 120, .4);
+    }
+}
+@sidebarWidth: 220px;
+@sidebarMargin: @toggleSize*2;
+#sidebar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    min-height: 100%;
+    -webkit-transform: translateX(-@sidebarWidth - 10px);
+    -ms-transform: translateX(-@sidebarWidth - 10px);
+    transform: translateX(-@sidebarWidth - 10px);
+    width: @sidebarWidth;
+    padding: 30px;
+    z-index: 0;
+    box-shadow:
+        0px -5px 5px fade(@baseBlue, 20%),
+        2px -5px 15px 3px fade(@baseBlue, 50%);
+    .transition;
+    z-index: 900;
+    @colorStop: 714px;
+    @topColor:fade(@baseBlue,90%);
+    background-image: -moz-linear-gradient(top, @topColor 0%, @baseBlue @colorStop, @blackBlue 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, @topColor) color-stop(@colorStop, @baseBlue), color-stop(100%, @blackBlue));
+    background-image: -webkit-linear-gradient(top, @topColor 0%, @baseBlue @colorStop, @blackBlue 100%);
+    background-image: -o-linear-gradient(top, @topColor 0%, @baseBlue @colorStop, @blackBlue 100%);
+    background-image: -ms-linear-gradient(top, @topColor 0%, @baseBlue @colorStop, @blackBlue 100%);
+    background-image: linear-gradient(to bottom, @topColor 0%, @baseBlue @colorStop, @blackBlue 100%);
+        
+        
+    &:before {
+        content: "";
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index:-1;
+        height:100%;
+        //background: @baseBlue;
+        background-image: url('../img/stars-bg.gif');
+        background-color: @baseBlue;
+        background-position: top center;
+        background-repeat: repeat-x;
+        background-attachment: fixed;
+        zoom: 1;
+        filter: alpha(opacity=40);
+        opacity: 0.4;
+        
+        border-right:1px!important;
+        border-style: solid;
+        -webkit-border-image: 
+        -webkit-gradient(linear, 0 0, 0 100%, @darkBlue, to(rgba(0, 0, 0, 0))) 1 100%;
+        -webkit-border-image: 
+        -webkit-linear-gradient(@darkBlue, rgba(0, 0, 0, 0)) 1 100%;
+        -moz-border-image:
+        -moz-linear-gradient(@darkBlue, rgba(0, 0, 0, 0)) 1 100%;    
+        -o-border-image:
+        -o-linear-gradient(@darkBlue, rgba(0, 0, 0, 0)) 1 100%;
+        border-image:linear-gradient(to bottom, @darkBlue, rgba(0, 0, 0, 0)) 1 100%;
+        
+        @media @phone {
+            //background: fade(@baseBlue,80%);
+        }
+        @media @tablet {
+            //background: fade(@baseBlue,80%);
+        }
+    }
+}/* sidebar */
+
+@hamburglerSize: 2.4rem;
+@hamburglerRadius: @hamburglerSize*.08;
+@hamburglerThickness: @hamburglerSize*.15;
+@hamburglerIconColor: @lightBlue;
+@hamburglerTransition: all .4s ease-in-out;
+#hamburgler {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    margin: 0 auto;
+    display: block;
+    width: @hamburglerSize;
+    height: @hamburglerSize;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    
+    span {
+        // middle bar
+        position: relative;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        display: block;
+        background: @hamburglerIconColor;
+        height: @hamburglerThickness;
+        width: @hamburglerSize;
+        border-radius: @hamburglerRadius;
+        margin: 0 auto;
+        transition: @hamburglerTransition;
+        border: 0 solid transparent;
+        &:before,
+        &:after {
+            position: absolute;
+            content: '';
+            display: block;
+            background: @hamburglerIconColor;
+            height: @hamburglerThickness;
+            border-radius: @hamburglerRadius;
+            width: 100%;
+            transition: @hamburglerTransition;
+        }
+        &:before {
+            // top bar
+            -webkit-transform: translateY(-200%);
+            -ms-transform: translateY(-200%);
+            transform: translateY(-200%);
+        }
+        &:after {
+            // bottom bar
+            -webkit-transform: translateY(200%);
+            -ms-transform: translateY(200%);
+            transform: translateY(200%);
+        }
+    }
+}/* hamburgler */
+
+.toggleOpen {
+    position:fixed;
+    background: transparent;
+    box-shadow: 1px 1px 5px rgba(0, 40, 80, 0), 1px 1px 8px rgba(20, 80, 120, 0);
+    -webkit-transform: translateX(@sidebarWidth - 40px) translateY(@toggleSize/2);
+    -ms-transform: translateX(@sidebarWidth - 40px) translateY(@toggleSize/2);
+    transform: translateX(@sidebarWidth - 40px) translateY(@toggleSize/2);
+    #hamburgler {
+        span {
+            background: transparent;
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+            border: (@hamburglerThickness*.8) solid @hamburglerIconColor;
+            -webkit-transform-style: preserve-3d;
+            -moz-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+            @angle: 45deg;
+            @scale: .7;
+            &:before {
+                -webkit-transform: translateY(200%) rotate(@angle) scale(@scale);
+                -ms-transform: translateY(200%) rotate(@angle) scale(@scale);
+                transform: translateY(200%) rotate(@angle) scale(@scale);
+            }
+            &:after {
+                -webkit-transform: translateY(200%) rotate(-@angle) scale(@scale);
+                -ms-transform: translateY(200%) rotate(-@angle) scale(@scale);
+                transform: translateY(200%) rotate(-@angle) scale(@scale);
+            }
+        }
+    }
+}/* toggleOpen */
+
+.toggleClosed {
+    position:fixed;
+    background: fade(@baseBlue, 50%);
+    box-shadow: 0px 0px 5px rgba(0, 40, 80, .8), 0px 0px 8px rgba(20, 80, 120, .2);
+    -webkit-transform: translateX(@toggleSize/2) translateY(@toggleSize/2);
+    -ms-transform: translateX(@toggleSize/2) translateY(@toggleSize/2);
+    transform: translateX(@toggleSize/2) translateY(@toggleSize/2);
+    
+    &:hover {
+        #hamburgler span {background: white;}
+    }
+    
+    #hamburgler {
+        span {
+            // middle bar
+            background: @hamburglerIconColor;
+            height: @hamburglerThickness;
+            width: @hamburglerSize;
+            border-radius: @hamburglerRadius;
+            border: 0 solid transparent;
+            &:before {
+                // top bar
+                -webkit-transform: translateY(-200%);
+                -ms-transform: translateY(-200%);
+                transform: translateY(-200%);
+            }
+            &:after {
+                // bottom bar
+                -webkit-transform: translateY(200%);
+                -ms-transform: translateY(200%);
+                transform: translateY(200%);
+            }
+        }
+    }
+}/* toggleClosed */
+
+.sidebarOpen {
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0)
+}
+.sidebarClosed {
+    -webkit-transform: translateX(-@sidebarWidth - 10px);
+    -ms-transform: translateX(-@sidebarWidth - 10px);
+    transform: translateX(-@sidebarWidth - 10px);
+}
+
+#sidebar-toggler {
+    display: none!important;
+    
+    &:checked ~ #sidebar {
+        -webkit-transform: translateX(0);
+        -ms-transform: translateX(0);
+        transform: translateX(0)
+    }
+    &:checked + .toggle {
+        position:fixed;
+        background: transparent;
+        box-shadow: 1px 1px 5px rgba(0, 40, 80, 0), 1px 1px 8px rgba(20, 80, 120, 0);
+        -webkit-transform: translateX(@sidebarWidth - 40px) translateY(@toggleSize/2);
+        -ms-transform: translateX(@sidebarWidth - 40px) translateY(@toggleSize/2);
+        transform: translateX(@sidebarWidth - 40px) translateY(@toggleSize/2);
+        // ISSUE - should be @sidebarWidth - (@toggleSize*1.5) but rems aren't working nested under :checked
+        @media @phone {
+            position:absolute;
+            height: 3rem;
+            -webkit-transform: translateX(@sidebarWidth - 40px) translateY(@toggleSize/4);
+            -ms-transform: translateX(@sidebarWidth - 40px) translateY(@toggleSize/4);
+            transform: translateX(@sidebarWidth - 40px) translateY(@toggleSize/4);
+        }
+        @media @tablet {
+            position:absolute;
+            height: 4rem;
+            -webkit-transform: translateX(@sidebarWidth - 40px) translateY(@toggleSize/4);
+            -ms-transform: translateX(@sidebarWidth - 40px) translateY(@toggleSize/4);
+            transform: translateX(@sidebarWidth - 40px) translateY(@toggleSize/4);
+        }
+        #hamburgler {
+            span {
+                background: transparent;
+                height: 100%;
+                width: 100%;
+                border-radius: 50%;
+                border: (@hamburglerThickness*.8) solid @hamburglerIconColor;
+                -webkit-transform-style: preserve-3d;
+                -moz-transform-style: preserve-3d;
+                transform-style: preserve-3d;
+                @angle: 45deg;
+                @scale: .7;
+                &:before {
+                    -webkit-transform: translateY(200%) rotate(@angle) scale(@scale);
+                    -ms-transform: translateY(200%) rotate(@angle) scale(@scale);
+                    transform: translateY(200%) rotate(@angle) scale(@scale);
+                }
+                &:after {
+                    -webkit-transform: translateY(200%) rotate(-@angle) scale(@scale);
+                    -ms-transform: translateY(200%) rotate(-@angle) scale(@scale);
+                    transform: translateY(200%) rotate(-@angle) scale(@scale);
+                }
+            }
+            /* span */
+        }
+        /* hamburgler */
+    }
+    /* toggle */
+}
+/* toggler */
+
+body {
+    @media @desktop-xl {
+        #sidebar-toggler {
+            //sidebar open
+            & + .toggle {
+                .toggleOpen;
+            }
+            
+            & ~ #sidebar {
+                -webkit-transform: translateX(0px);
+                -ms-transform: translateX(0px);
+                transform: translateX(0px);
+            }
+            
+            & ~ header {
+                .transition;
+                -webkit-transform: translateX(@sidebarWidth/2);
+                -ms-transform: translateX(@sidebarWidth/2);
+                transform: translateX(@sidebarWidth/2);
+            }
+            & ~ .wrap > #content {
+                .transition;
+                -webkit-transform: translateX(@sidebarWidth/2);
+                -ms-transform: translateX(@sidebarWidth/2);
+                transform: translateX(@sidebarWidth/2);
+            }
+
+            &:checked {
+                //sidebar closed
+                + .toggle {
+                    .toggleClosed;
+                }
+                
+                & ~ #sidebar {
+                    -webkit-transform: translateX(-@sidebarWidth - 10px);
+                    -ms-transform: translateX(-@sidebarWidth - 10px);
+                    transform: translateX(-@sidebarWidth - 10px);
+                }
+                
+                & ~ header {
+                    -webkit-transform: translateX(0);
+                    -ms-transform: translateX(0);
+                    transform: translateX(0);
+                }
+                & ~ .wrap > #content {
+                    -webkit-transform: translateX(0);
+                    -ms-transform: translateX(0);
+                    transform: translateX(0);
+                }
+            }
+        }
+    }
+}/* body*/
+
+
+
+// Social Connect
+
+#sidebar {
+    font-family: 'Lato', sans-serif;
+    font-weight: 600;
+    text-align:center;
+    
+    a {
+        display:block;
+        color:rgba(220,240,255,1);
+        text-shadow: 1px 1px 2px black,
+            0px 0px 10px rgba(0,10,50,.5);
+        transition: all .4s ease-in-out;
+        text-decoration: none;
+        color:@lightBlue;
+        
+        &:hover {color:@whiteBlue}
+        
+        &.active {color:@whiteBlue}
+        
+        &.sidebar-subnav-item {
+            font-size:1.2rem;
+            margin-bottom:1rem;
+            &:last-of-type {
+                margin-bottom:1.2rem;
+            }
+        }
+    }
+}
+
+nav.sidebar-nav {
+    
+    font-size:1.8rem;
+    margin-bottom:2rem;
+    text-transform: uppercase;
+    a {
+        margin-bottom:1.2rem;
+        &:last-of-type {
+            margin:0;
+        }
+    }
+}/* nav */
+
+
+
+ul.social-media {
+  display:-moz-inline-stack;
+  display:inline-block;
+  zoom:1;
+  *display:inline;
+  list-style:none;
+  text-align:left;
+  padding:0 1rem 0 0;
+  margin:0;
+  color:#a8f8ff;
+  
+  li {
+    margin-bottom:.5rem;
+  }
+  
+  .icon {      
+    @icon-size:3rem;
+    display:inline-block;
+    border-radius: 50%;
+    height: @icon-size;
+    margin: 0 3px 0 0;
+    width: @icon-size;
+    
+    &:after {
+      font:400 1em/@icon-size 'FontAwesome';
+      display: block;
+      line-height: @icon-size;
+      text-align: center;
+      -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: all 0.3s ease-in-out;
+          transition: all 0.3s ease-in-out;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+    }
+    
+    &.email {
+      &:after {content:'\f003'}
+    }
+    
+    &.codepen {
+      &:after {content:'\f1cb'}
+    }
+    
+    &.behance {
+      &:after {content:'\f1b4'}
+    }
+    
+    &.github {
+      &:after {content:'\f113'}
+    }
+  }
+  
+  li:hover {
+    .icon {
+        animation: shadow 1s forwards;
+        -ms-animation: shadow 1s forwards;
+        -moz-animation: shadow 1s forwards;
+        -webkit-animation: shadow 1s forwards;
+      
+      &:after {
+        color:white;
+        text-shadow:none;
+        -webkit-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        transform: scale(1.2);
+      }
+      
+      &.email {
+        background-image: linear-gradient(
+                  to bottom,#0F64B1,#66DDFE);
+      }
+
+      &.codepen {
+        background-image: linear-gradient(
+                  to bottom,#252525,#444);
+      }
+
+      &.behance {
+        background-image: linear-gradient(
+                  to bottom,#005dff,#0096ff);
+      }
+
+      &.github {
+        background-image: linear-gradient(
+                  to bottom,#202d5f,#614381);
+      }
+    }/* icon */
+  }/* li:hover */
+}
+
+@-webkit-keyframes shadow {
+  from {box-shadow: 0 0 0 rgba(150,250,255,.25);}
+  to {box-shadow: 0 0 0 10px rgba(150,250,255,0);}
+}
+
+@keyframes shadow {
+  from {box-shadow: 0 0 0 rgba(150,250,255,.25);}
+  to {box-shadow: 0 0 0 10px rgba(150,250,255,0);}
+}
+
+
+
+p.copyright {
+    font-family: 'Exo 2', sans-serif;
+    font-weight:300;
+    font-size:1.2rem;
+    font-weight:300;
+    color:fade(@lightBlue,50%);
+}
