@@ -96,95 +96,16 @@ $("#validate").click(function(){
 });
 
 
-// sidebar toggle scroll
 
-var sidebarToggle = $('#sidebar-toggler');
-var $root = $('html, body');
 
-$('#sidebar-toggler').change(function () {
-    "use strict";
-    if ($(this).is(':checked')) {
-        var href = $('#sidebar');
-        $root.animate({
-            scrollTop: $(href).offset().top
-        }, 500, function () {
-            window.location.hash = href;
-        });
-        return false;
-    }
+// Sidebar Toggle
+$('#toggle-nav').click(function() {
+   $(this).toggleClass('open');
+   $('.toggle-text').children('span').toggleClass('hide');
+   
+   $('#nav-container').toggleClass('menuOpen');
+   $('main').toggleClass('menuOpen');
 });
-
-
-
-
-/*! matchMedia() polyfill - Test a CSS media type/query in JS. Authors & copyright (c) 2012: Scott Jehl, Paul Irish, Nicholas Zakas, David Knight. Dual MIT/BSD license */
-
-window.matchMedia || (window.matchMedia = function() {
-
-    // For browsers that support matchMedium api such as IE 9 and webkit
-    var styleMedia = (window.styleMedia || window.media);
-
-    // For those that don't support matchMedium
-    
-    if (!styleMedia) {
-        var style       = document.createElement('style'),
-            script      = document.getElementsByTagName('script')[0],
-            info        = null;
-
-        style.type  = 'text/css';
-        style.id    = 'matchmediajs-test';
-
-        script.parentNode.insertBefore(style, script);
-
-        // 'style.currentStyle' is used by IE <= 8 and 'window.getComputedStyle' for all other browsers
-        info = ('getComputedStyle' in window) && window.getComputedStyle(style, null) || style.currentStyle;
-
-        styleMedia = {
-            matchMedium: function(media) {
-                var text = '@media ' + media + '{ #matchmediajs-test { width: 1px; } }';
-
-                // 'style.styleSheet' is used by IE <= 8 and 'style.textContent' for all other browsers
-                if (style.styleSheet) {
-                    style.styleSheet.cssText = text;
-                } else {
-                    style.textContent = text;
-                }
-
-                // Test if media query is true or false
-                return info.width === '1px';
-            }
-        };
-    }
-
-    return function(media) {
-        return {
-            matches: styleMedia.matchMedium(media || 'all'),
-            media: media || 'all'
-        };
-    };
-}());
-
-
-// media query for checkbox
-
-var mqSidebarPosition = function(mql) {
-        "use strict";
-        if (mql.matches) {
-            // set position to fixed
-            $('#sidebar').css('position','fixed');
-        } else {
-            // set position to absolute
-            $('#sidebar').css('position','absolute');
-        }
-    },
-    desktopXL = window.matchMedia('(min-width: 1129px)');
-    desktopAndXL = window.matchMedia('(min-width: 769px)');
-    mobileTablet = window.matchMedia('(max-width: 768px)');
-
-mqSidebarPosition(desktopAndXL);
-desktopAndXL.addListener(mqSidebarPosition);
-
-
 
 
 /**

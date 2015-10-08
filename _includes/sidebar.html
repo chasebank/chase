@@ -1,41 +1,38 @@
 <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
      styles, `#sidebar-checkbox` for behavior. -->
      
-<div id="sidebar">
+     
+<div id="nav-container">
+    <nav role='navigation'>
+        <a class="{% if page.url == site.baseurl %}active{% endif %}" href="{{ site.baseurl }}/">Home</a>
+        <a class="{% if page.url contains "/portfolio" %}active{% endif %}" href="{{ site.baseurl }}/portfolio/">Portfolio</a>
+        {% if page.url contains '/portfolio/' %}
+            <div class="subnav">
+                <ul>
+                    {% for project in site.portfolio %}
+                        <li><a class="{% if page.url == project.url %}active{% endif %}" href="{{ site.baseurl }}{{ project.url }}">{{ project.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
     
-    <nav class="sidebar-nav" role="navigation">
-        <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.baseurl }}/">Home</a>
-        <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.baseurl }}/portfolio/">Portfolio</a>
-        {% if page.url == '/portfolio/' %}
-            {% for project in site.portfolio %}
-            <a class="sidebar-subnav-item{% if page.url == site.baseurl %} active{% endif %}"href="{{ site.baseurl }}{{ project.url }}">{{ project.title }}</a>
-            {% endfor %}
-        {% endif %}
-       
-        {% comment %}
-          The code below dynamically generates a sidebar nav of pages with
-          `layout: page` in the front-matter. See readme for usage.
-        {% endcomment %}
-
-        {% assign pages_list = site.pages | sort:"url" %}
-        {% for node in pages_list %}
-        
-        {% if node.title != null %}
-            {% if node.layout == "page" %}
-               {% unless node.exclude_from_nav %}
-                <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ node.url }}">{{ node.title }}</a>
-               {% endunless %}
-            {% endif %}
-        {% endif %}
-        
-        {% endfor %}
+        <a href="#">Notes</a>
+        <div class="subnav">
+            <ul>
+                <li>Blog</li>
+                <li>Quotes</li>
+                <li>Code Snippets</li>
+                <li>Useful Tools</li>
+            </ul>
+        </div>
+        <a class="{% if page.url == "/about/" %}active{% endif %}" href="{{ site.baseurl }}/about/">About Me</a>
     </nav>
-    
-    <ul class="social-media">
-        <li><a href="{{ site.baseurl }}/contact/"><span class="icon email"></span><span>Contact me</span></a></li>
-        <li><a href="//behance.net/chasebank"><span class="icon codepen"></span><span>CodePen</span></a></li>
-        <li><a href="//codepen.io/chasebank"><span class="icon behance"></span><span>Behance</span></a></li>
-        <li><a href="//github.com/chasebank"><span class="icon github"></span><span>GitHub</span></a></li>
-    </ul>
-
+    <div class="subnav">
+        <ul class="social-media">
+            <li><a class="{% if page.url contains "/contact" %}active{% endif %}" href="{{ site.baseurl }}/contact/"><span class="icon email"></span><span>Contact me</span></a></li>
+            <li><a href="//behance.net/chasebank"><span class="icon codepen"></span><span>CodePen</span></a></li>
+            <li><a href="//codepen.io/chasebank"><span class="icon behance"></span><span>Behance</span></a></li>
+            <li><a href="//github.com/chasebank"><span class="icon github"></span><span>GitHub</span></a></li>
+        </ul>
+    </div>
 </div>
