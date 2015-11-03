@@ -2,13 +2,34 @@
 layout: splash
 title: Home
 ---
-<link href="{{ site.baseurl }}/public/css/form.css" rel="stylesheet">
 
 <h2>Welcome!</h2>
-<p>Thanks for taking the time to visit my site. Sorry, but I'm right in the middle of updating it, which should be finished soon.</p>
-<p>In the mean time, if you'd like to contact me, please use the form below:</p>
+<p>Thanks so much for visiting my site. You caught me right in the middle of re-designing it! It should be finished soon though, so please come back.</p>
+<p>In the mean time, some of my work can be viewed using the links at the bottom of this page. Or, if you’d like to contact me, please use the form below:</p>
 
-<form id="contact" action="//formspree.io/chase@cha.se.net" method="POST">
+
+<div id="wufoo-q1jkk36m1p2rzx9">
+Fill out my <a href="https://chasew.wufoo.com/forms/q1jkk36m1p2rzx9">online form</a>.
+</div>
+
+<script type="text/javascript">var q1jkk36m1p2rzx9;(function(d, t) {
+var s = d.createElement(t), options = {
+'userName':'chasew',
+'formHash':'q1jkk36m1p2rzx9',
+'autoResize':true,
+'height':'500',
+'async':true,
+'host':'wufoo.com',
+'header':'show',
+'ssl':false};
+s.src = ('http:' == d.location.protocol ? 'https://' : 'http://') + 'www.wufoo.com/scripts/embed/form.js';
+s.onload = s.onreadystatechange = function() {
+var rs = this.readyState; if (rs) if (rs != 'complete') if (rs != 'loaded') return;
+try { q1jkk36m1p2rzx9 = new WufooForm();q1jkk36m1p2rzx9.initialize(options);q1jkk36m1p2rzx9.display(); } catch (e) {}};
+var scr = d.getElementsByTagName(t)[0], par = scr.parentNode; par.insertBefore(s, scr);
+})(document, 'script');</script>
+
+<!--<form id="contact" action="//formspree.io/chase@cha.se.net" method="POST">
     <ol>
         <li>
             <label for="name">Name*</label>
@@ -36,7 +57,7 @@ title: Home
     <input type="submit" value="Send">
 </form>
 
-<!--<div class="posts">
+<div class="posts">
   {% for post in paginator.posts %}
   <div class="post">
     <h1 class="post-title">

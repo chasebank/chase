@@ -1,39 +1,32 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en-us" class="splash">
 
 {% include head.html %}
 
 <body class="splash">
     <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
          content to avoid any CSS collisions with our real content. -->
-    <div class="stars">
-            
-        <header>
-             <a href="{{ site.baseurl }}/" id="logo-link" title="Home"></a>
-        </header>
-        
-        <div class="wrap">
 
-            <div id="content" class="splash">
-               
-                <section class="container">
-                    {{ content }}
-                </section>
-                
+    <div class="wrap">
+
+        <main>
+            {% include header.html %}
+
+            <div id="content">
+                {{ content }}
+
                 <footer>
-                  <div class="footer-content">
-                    <ul class="social-media">
-                        <li><a href="//behance.net/chasebank"><span class="icon codepen"></span><span>CodePen</span></a></li>
-                        <li><a href="//codepen.io/chasebank"><span class="icon behance"></span><span>Behance</span></a></li>
-                        <li><a href="//github.com/chasebank"><span class="icon github"></span><span>GitHub</span></a></li>
-                    </ul>
-                  </div>
+                    <div class="footer-content">
+                        <ul class="social-media">
+                            <li><a href="//codepen.io/chasebank"><span class="icon codepen"></span><span>CodePen</span></a></li>
+                            <li><a href="//behance.net/chasebank"><span class="icon behance"></span><span>Behance</span></a></li>
+                            <li><a href="//github.com/chasebank"><span class="icon github"></span><span>GitHub</span></a></li>
+                        </ul>
+                    </div>
                 </footer>
-
             </div>
-            
-        </div>
-        
+        </main>
+
     </div>
 
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
