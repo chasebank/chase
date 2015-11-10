@@ -46,7 +46,7 @@
     <nav class="footer-nav" role="navigation">
        <a href="{{ site.baseurl }}/">Home</a>
        <a href="{{ site.baseurl }}/portfolio/">Portfolio</a>
-       
+
         {% comment %}
           The code below dynamically generates a sidebar nav of pages with
           `layout: page` in the front-matter. See readme for usage.
@@ -54,7 +54,7 @@
 
         {% assign pages_list = site.pages | sort:"url" %}
         {% for node in pages_list %}
-        
+
         {% if node.title != null %}
             {% if node.layout == "page" %}
                {% unless node.exclude_from_nav %}
@@ -62,7 +62,7 @@
                {% endunless %}
             {% endif %}
         {% endif %}
-        
+
         {% endfor %}
     </nav>
     <ul class="social-media">
@@ -71,6 +71,5 @@
         <li><a href="//codepen.io/chasebank"><span class="icon behance"></span><span>Behance</span></a></li>
         <li><a href="//github.com/chasebank"><span class="icon github"></span><span>GitHub</span></a></li>
     </ul>
-    <p class="copyright">&copy; {{ site.time | date: '%Y' }}. All rights reserved.</p>
   </div>
 </footer>
