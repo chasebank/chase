@@ -13,23 +13,27 @@
 footer {
     #grid;
     position:relative;
-    padding: 1rem 1rem 0;
+    padding: 1rem 0 0 0;
     margin:0 auto;
     //width:80%;
     //max-width:1200px;
 
+    @media only screen and (max-width: 1000px) {
+        padding: 3rem 0 0 0;
+    }
+
     @media @phone {
-        padding: 0 .5rem 0;
-        width:99%;
+        //padding: 0 .5rem 0;
+        //width:99%;
     }
 
     @media @tablet {
-        padding: 0 .8rem 0;
-        width:98%;
+        //padding: 0 .8rem 0;
+        //width:98%;
     }
 
     @media @desktop {
-        width:90%;
+        //width:90%;
     }
 
     .chase-logo-svg {
@@ -44,7 +48,7 @@ footer {
         }
 
         @media @tablet {
-            #grid > .span(5);
+            #grid > .span(4);
         }
     }
 
@@ -61,7 +65,7 @@ footer {
         }
 
         @media @tablet {
-            #grid > .span(7);
+            #grid > .span(8);
         }
 
         a,
@@ -79,7 +83,13 @@ footer {
         nav {
             font-size:1.8rem;
             margin-bottom:1rem;
+            text-align: right;
             text-transform: uppercase;
+            padding: 0;
+
+            @media @phone {
+                text-align: center;
+            }
 
             a {margin-left:1.8rem;font-size:1.75rem;
                 &:first-of-type {margin:0;}

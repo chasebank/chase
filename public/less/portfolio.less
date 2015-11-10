@@ -1,5 +1,6 @@
 // main: styles.less
 @import (reference) "variables.less";
+
 figure.hero {
     display: block;
     width: auto;
@@ -131,7 +132,7 @@ section.project-pga {
             padding-top: @ratio;
         }
     }
-    
+
     .galleryColumns(@i - 1, @ratio);
 }
 
@@ -159,7 +160,7 @@ section.project-pga {
     a {
         display: block;
         padding: .4rem!important;
-        
+
         @i: 4;
         @ratio: 66.6%;
         .galleryColumns(@i, @ratio);
@@ -266,10 +267,10 @@ section.project-pga {
             margin-top: -2rem;
             opacity: 0;
             transition: .5s all cubic-bezier(.23, .71, .63, .92);
-            
+
             @media @notMobile { font-size: 6rem; }
         }
-        
+
         &:hover {
             opacity: .5;
             &:after {
@@ -521,15 +522,25 @@ section.project-pga {
         @padding: @border-radius*.34;
         position: relative;
         background: #fff;
+        border: 5px solid #D3F7FE;
         #grid > .cell;
         #grid > .span(3);
         max-width: 237px;
-        padding: @padding;
-        box-shadow: 0 1px 5px fade(@baseBlue, 25%);
+        box-shadow:
+            0px -1px 1px 1px white,
+            2px 2px 15px fade(@blackBlue, 80%);
         border-radius: @border-radius;
+        overflow: hidden;
+        z-index: 10;
+
         @media @tablet {
             #grid > .span(4);
         }
+
+        @media only screen and (max-width: 1000px) {
+            #grid > .span(4);
+        }
+
         @media @phone {
             #grid > .span(6);
         }
@@ -548,7 +559,6 @@ section.project-pga {
                 height: auto;
                 margin: 0;
                 border-radius: @border-radius*.7;
-                //@animate: thumb .3s 1 alternate ease-out forwards;
                 @filter: grayscale(0%) brightness(100%);
                 filter: @filter;
                 -webkit-filter: @filter;
@@ -591,10 +601,18 @@ section.project-pga {
                 h2 {
                     font-size: 2.8rem;
                     color: white;
+
+                    @media @desktop {
+                        font-size: 2.4rem;
+                    }
                 }
                 p {
                     font-size: 1.8rem;
                     color: white;
+
+                    @media @desktop {
+                        font-size: 1.5rem;
+                    }
                 }
                 .fa {
                     position: absolute;
