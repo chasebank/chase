@@ -1,0 +1,22 @@
+{
+  "name": "chase",
+  "version": "1.0.0",
+  "description": "Personal website for Chase",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chasebank/chase.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chasebank/chase/issues"
+  },
+  "homepage": "https://github.com/chasebank/chase#readme",
+  "devDependencies": {
+    "grunt-responsive-images": "^0.1.7"
+  }
+}
