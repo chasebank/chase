@@ -14,7 +14,7 @@ module.exports = function(grunt) {
       your_target: {
         // Target-specific file lists and/or options go here.
           expand: true,
-          src: ['_portfolio/officemax/gallery/*.{jpg,gif,png}'],
+          src: ['_portfolio/*.{jpg,gif,png}'],
       }
     }
   });

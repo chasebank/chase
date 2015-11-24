@@ -13,18 +13,55 @@ Through their local boutiques, they sell fashionable clothing, jewlry, accessori
 ###Project Overview
 Create a branding style and image that's recognizable, and adaptable for use throughout the various Walk on Water endeavors. Gradully unify all marketing materials to adhere to this consistent image, while maintaining a balanced separation, between the Walk on Water stores and sponsored charity events.
 
-<div class="gallery">
+<div class="gallery" itemscope itemtype="http://schema.org/ImageGallery">
   <div class="gallery-group">
-    <a class="fancybox" rel="gallery" href="http://fancyapps.com/fancybox/demo/1_b.jpg"><div class="image large-image" style="background-image:url('http://placeimg.com/1000/700/nature')"></div></a>
-    <div class="small-image-group">
-      <a class="fancybox" rel="gallery" href="http://fancyapps.com/fancybox/demo/1_b.jpg"><div class="image small-image" style="background-image:url('http://placeimg.com/1000/700/nature')">1</div></a>
-      <a class="fancybox" rel="gallery" href="http://fancyapps.com/fancybox/demo/1_b.jpg"><div class="image small-image" style="background-image:url('http://placeimg.com/1000/700/nature')">2</div></a>
-    </div>
+    <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+      <a href="gallery/wow-eventad-web.jpg" itemprop="contentUrl" data-size="1280x1000"><img src="gallery/wow-eventad-web-thumb.jpg" itemprop="thumbnail" alt="Image description" /></a>
+    </figure>
+    <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+      <a href="gallery/westin-ad-web.jpg" itemprop="contentUrl" data-size="1280x960"><img src="gallery/westin-ad-web-thumb.jpg" itemprop="thumbnail" alt="Image description" /></a>
+    </figure>
+    <figure class="large" iitemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+      <a href="gallery/winterpark-poster-web.jpg" itemprop="contentUrl" data-size="1200x869"><img src="gallery/winterpark-poster-web-thumb.jpg" itemprop="thumbnail" alt="Image description" /></a>
+    </figure>
   </div>
   <div class="gallery-group">
-    <a class="fancybox" rel="gallery" href="http://fancyapps.com/fancybox/demo/1_b.jpg"><div class="image large-image" style="background-image:url('http://placeimg.com/1000/700/nature')"></div></a>
-    <div class="small-image-group">
-      <a class="fancybox" rel="gallery" href="http://fancyapps.com/fancybox/demo/1_b.jpg"><div class="image small-image" style="background-image:url('http://placeimg.com/1000/700/nature')">1</div></a>
-    </div>
+    <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+      <a href="gallery/wow-couponcard-back.jpg" itemprop="contentUrl" data-size="1280x1000"><img src="gallery/wow-couponcard-back-thumb.jpg" itemprop="thumbnail" alt="Image description" /></a>
+    </figure>
+    <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+      <a href="gallery/wow-couponcard-closeup.jpg" itemprop="contentUrl" data-size="1280x960"><img src="gallery/wow-couponcard-closeup-thumb.jpg" itemprop="thumbnail" alt="Image description" /></a>
+    </figure>
+    <figure class="large left" iitemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+      <a href="gallery/wow-couponcard-front.jpg" itemprop="contentUrl" data-size="1200x869"><img src="gallery/wow-couponcard-front-thumb.jpg" itemprop="thumbnail" alt="Image description" /></a>
+    </figure>
   </div>
+  <div class="gallery-group">
+    <figure class="tall" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+      <a href="gallery/powerofpink-shirt-poster-web.jpg" itemprop="contentUrl" data-size="1280x1000"><img src="gallery/powerofpink-shirt-poster-web-thumb.jpg" itemprop="thumbnail" alt="Image description" /></a>
+    </figure>
+    <figure class="large" iitemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+      <a href="gallery/merchandise-tags-web.jpg" itemprop="contentUrl" data-size="1200x869"><img src="gallery/merchandise-tags-web-thumb.jpg" itemprop="thumbnail" alt="Image description" /></a>
+    </figure>
+  </div>
+  <div class="gallery-group">
+    <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+      <a href="gallery/5k-postcard-web.jpg" itemprop="contentUrl" data-size="1280x1000"><img src="gallery/5k-postcard-web-thumb.jpg" itemprop="thumbnail" alt="Image description" /></a>
+    </figure>
+    <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+      <a href="gallery/pandora-bracelet-web.jpg" itemprop="contentUrl" data-size="1280x960"><img src="gallery/pandora-bracelet-web-thumb.jpg" itemprop="thumbnail" alt="Image description" /></a>
+    </figure>
+    <figure class="large left" iitemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+      <a href="gallery/lmhs-magazine-web.jpg" itemprop="contentUrl" data-size="1200x869"><img src="gallery/lmhs-magazine-web-thumb.jpg" itemprop="thumbnail" alt="Image description" /></a>
+    </figure>
+  </div>
+  <div class="gallery-group">
+    <figure class="half" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+      <a href="gallery/valentines-shirt-poster-web.jpg" itemprop="contentUrl" data-size="1280x1000"><img src="gallery/valentines-shirt-poster-web-thumb.jpg" itemprop="thumbnail" alt="Image description" /></a>
+    </figure>
+    <figure class="half" iitemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+      <a href="gallery/wow-business-card-animation.gif" itemprop="contentUrl" data-size="1200x869"><img src="gallery/wow-business-card-animation.gif" itemprop="thumbnail" alt="Image description" /></a>
+    </figure>
+  </div>
+
 </div>

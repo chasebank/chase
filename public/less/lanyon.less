@@ -211,14 +211,16 @@ body {
     -webkit-overflow-scrolling: touch;
 }
 
+
+// TO DO... .container?? isn't this an id?
 section.container {// remove margins on top and bottom children to honor padding
     * > *:last-child {margin-bottom:0px!important;}
     * > *:first-child {margin-top:0px!important;}
 }
 
 .wrap {
-   background: url('../img/stars.png');
-   min-height: 100%;
+    background: url('../img/stars.png');
+    min-height: 100%;
     position: absolute;
     top: 0;
     right: 0;
@@ -227,55 +229,50 @@ section.container {// remove margins on top and bottom children to honor padding
 }
 
 main {
-   font-size: 1.5rem;
-   width: auto;
-   transition: @navContainerTiming @navContainerEase;
-
-   @media @notMobile {
-      margin-left: @navContainerWidth;
-   }
-
-   @media only screen and (min-width: 1483px) {
-      margin-left: 15%;
-   }
-
-   &.menuOpen {
-      transform: translate3d(@navContainerWidth, 0px, 0px);
-      transform-style: preserve-3d;
-      backface-visibility: hidden;
-
-      @media @notMobile {
-         transform: translate3d(0, 0, 0);
-      }
-   }
+    font-size: 1.5rem;
+    width: auto;
+    transition: @navContainerTiming @navContainerEase;
+    @media @notMobile {
+        margin-left: @navContainerWidth;
+    }
+    @media only screen and (min-width: 1483px) {
+        margin-left: 15%;
+    }
+    &.menuOpen {
+        transform: translate3d(@navContainerWidth, 0px, 0px);
+        transform-style: preserve-3d;
+        backface-visibility: hidden;
+        @media @notMobile {
+            transform: translate3d(0, 0, 0);
+        }
+    }
 }
 
-header {
-   z-index: 100;
-   background: url('../img/logo-retna.png');
-   background-size: contain;
-   background-position: top center;
-   background-repeat: no-repeat;
-   image-rendering: pixelated;
-   padding-top: 16.831%;
-   max-width: 900px;
-   position: relative;
-   margin: 0 auto;
-
-   @media only screen and (min-width: 1137px) {
-      padding: 0;
-      height: 152px;
-   }
-   @media only screen and (max-width: 960px) {
-      padding: 0;
-      height: 120px;
-      background-position: 20% 50%;
-      background-size: cover;
-   }
-   @media @phone {
-      background-position: 50% 50%;
-      margin-bottom: 60px;
-   }
+    header {
+    z-index: 100;
+    background: url('../img/logo-retna.png');
+    background-size: contain;
+    background-position: top center;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    padding-top: 16.831%;
+    max-width: 900px;
+    position: relative;
+    margin: 0 auto;
+    @media only screen and (min-width: 1137px) {
+        padding: 0;
+        height: 152px;
+    }
+    @media only screen and (max-width: 960px) {
+        padding: 0;
+        height: 120px;
+        background-position: 20% 50%;
+        background-size: cover;
+    }
+    @media @phone {
+        background-position: 50% 50%;
+        margin-bottom: 60px;
+    }
 
    #logo-link {
       display: block;
