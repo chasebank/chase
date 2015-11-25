@@ -1,16 +1,11 @@
 // main: styles.less
 
 .opacity (@opacity) {
-    -webkit-opacity: 	@opacity;
-    -moz-opacity: 		@opacity;
-    opacity: 		@opacity;
+    opacity: @opacity;
 }
 
 .radius (@radius:10px) {
-    -moz-border-radius:@radius;
-    -webkit-border-radius:@radius;
-    border-radius:@radius;/* future proofing */
-    -khtml-border-radius:@radius; /* for old Konqueror browsers */
+    border-radius: @radius;/* future proofing */
 }
 
 .transition(@target: all, @duration: .85s, @ease: cubic-bezier(0.19, 0.02, 0, 0.99)) {
@@ -22,6 +17,7 @@
 // remove dev overlay from splash page
 // can delete on launch
 body.splash {
+
     &:after {display:none}
 }
 
@@ -67,25 +63,20 @@ body.splash {
     width: 100%;
   }
   .span(@cols, @total: @columns) {
-    width: percentage((@column-width * @cols  + @gutter-width * (@cols  - 1)) /
-                      (@column-width * @total + @gutter-width * (@total - 1)));
+    width: percentage((@column-width * @cols + @gutter-width * (@cols - 1)) / (@column-width * @total + @gutter-width * (@total - 1)));
     margin-bottom: 1.9%;
   }
   .push(@cols, @total: @columns) {
-    left: percentage((@column-width + @gutter-width) * @cols /
-                     (@column-width * @total + @gutter-width * (@total - 1)));
+    left: percentage((@column-width + @gutter-width) * @cols / (@column-width * @total + @gutter-width * (@total - 1)));
   }
   .pull(@cols, @total: @columns) {
-    left: percentage((@column-width + @gutter-width) * -@cols /
-                     (@column-width * @total + @gutter-width * (@total - 1)));
+    left: percentage((@column-width + @gutter-width) * -@cols / (@column-width * @total + @gutter-width * (@total - 1)));
   }
   .prepend(@cols, @total: @columns) {
-    margin-left: percentage((@column-width + @gutter-width) * @cols /
-                            (@column-width * @total + @gutter-width * (@total - 1)));
+    margin-left: percentage((@column-width + @gutter-width) * @cols / (@column-width * @total + @gutter-width * (@total - 1)));
   }
   .append(@cols, @total: @columns) {
-    margin-right: percentage((@column-width + @gutter-width) * @cols /
-                             (@column-width * @total + @gutter-width * (@total - 1)));
+    margin-right: percentage((@column-width + @gutter-width) * @cols / (@column-width * @total + @gutter-width * (@total - 1)));
   }
 }
 
@@ -93,8 +84,9 @@ body.splash {
 
 
 // COLORS
-@whiteBlue:#e4faff;
-@lightBlue:#adf1ff;
-@baseBlue:#212b2e;
+@blue: #2ECEF1;
+@whiteBlue: #e4faff;
+@lightBlue: #adf1ff;
+@baseBlue: #212b2e;
 @darkBlue: #141f22;
 @blackBlue: #0e1618;

@@ -1,0 +1,18 @@
+---
+layout: default
+title: Codes
+---
+
+<!--{% assign projects = site.portfolio | sort: 'date' | reverse %}-->
+
+<ul>
+    {% for code in site.codes %}
+    <li>
+        <a href="{{ site.baseurl }}{{ code.url }}">
+        <div>
+            <h2>{{ code.title }}</h2>
+        </div>
+        </a>
+    </li>
+    {% endfor %}
+</ul>

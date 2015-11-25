@@ -124,11 +124,20 @@ section.project-pga {
  * Gallery Style
  #################*/
 
+.gallery img {
+    height: 0px;
+    width: 0px;
+    visibility: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
 .galleryColumns (@i, @ratio) when (@i > 1) {
     &:first-child:nth-last-child(@{i}),
     &:first-child:nth-last-child(@{i}) ~ a {
         width: 100% / @i;
-        div {
+        a {
             padding-top: @ratio;
         }
     }
@@ -140,7 +149,7 @@ section.project-pga {
     &:first-child:nth-last-child(@{i}),
     &:first-child:nth-last-child(@{i}) ~ a {
         width: 100% / @i;
-        div {
+        a {
             padding-top: @ratio;
         }
     }
@@ -149,16 +158,19 @@ section.project-pga {
 .gallery-group {
     position: relative;
     width: 100%;
-    width: calc(100% + 4px);
+    margin-left: -.8rem;
+    margin-right: -.8rem;
+    width: calc(100%);
     overflow: hidden;
     display: flex;
     flex-wrap: wrap;
     margin: 0;
     font-size: 0;
     zoom: 1;
-    margin-left: -2px;
-    a {
+
+    figure {
         display: block;
+
         padding: .4rem!important;
 
         @i: 4;
@@ -167,22 +179,33 @@ section.project-pga {
         @media @mobile {
             &:first-child:nth-last-child(4), &:first-child:nth-last-child(4) ~ a {
                 width: 50%;
-                div {
+                a {
                     padding-top: @ratio;
                 }
             }
         }
-        div {
+
+        a {
+            display: block;
             width: 100%!important;
             background-size: cover;
             background-position: center center;
+        }
+        &.half {
+            position: relative!important;
+            display: inline-block!important;
+            width: 50%!important;
+            a {
+                padding-top: @ratio!important;
+            }
         }
         &.large {
             position: relative;
             top: 0px;
             margin-left: auto;
+            margin-right: 0;
             width: 66.5%!important;
-            div {
+            a {
                 padding-top: @ratio!important;
             }
         }
@@ -191,7 +214,8 @@ section.project-pga {
             left: 0px;
             width: 33.5%!important;
             height: 50%;
-            div {
+            margin: 0;
+            a {
                 padding: 0%!important;
                 height: 100%;
             }
@@ -209,12 +233,12 @@ section.project-pga {
                 position: relative;
                 display: inline-block;
                 width: 50%!important;
-                div {
+                a {
                     padding-top: @ratio!important;
                 }
                 + .large {
                     width: 100%!important;
-                    div {
+                    a {
                         padding-top: @ratio!important;
                         width: 100%!important;
                     }
@@ -246,45 +270,9 @@ section.project-pga {
     /* a */
 }
 
-/* .gallery-group */
-// Gallery Hover Overlay
-.gallery-group {
-    a {
-        opacity: 1;
-        transition: .5s all cubic-bezier(.23, .71, .63, .92);
-        &:after {
-            display: block;
-            font-family: 'FontAwesome';
-            content: '\f002';
-            font-size: 4rem;
-            text-align: center;
-            color: white;
-            height: 4rem;
-            width: 100%;
-            position: absolute;
-            top: 50%;
-            left: 0;
-            margin-top: -2rem;
-            opacity: 0;
-            transition: .5s all cubic-bezier(.23, .71, .63, .92);
 
-            @media @notMobile { font-size: 6rem; }
-        }
 
-        &:hover {
-            opacity: .5;
-            &:after {
-                opacity: 1;
-            }
-        }
-        &.video {
-            &:after {
-                content: '\f16a'!important;
-            }
-        }
-    }
-    /* a */
-}
+
 .fancybox-wrap, .fancybox-skin, .fancybox-outer, .fancybox-inner, .fancybox-image, .fancybox-wrap iframe, .fancybox-wrap object, .fancybox-nav, .fancybox-nav span, .fancybox-tmp {
     padding: 0;
     margin: 0;

@@ -54,7 +54,7 @@ p {
     margin-bottom: 2.5rem;
 }
 
-section.container p { color: #616161; }
+section.container { color: #616161; text-shadow: none; }
 
 strong {
     color: #303030;
@@ -112,4 +112,76 @@ main {
       color: #2ecef1;
   }
   p { color: #cbf6ff; font-size: 1.6rem; }
+}
+
+
+dt {
+    position: relative;
+    cursor: pointer;
+    margin-top: 1.5rem;
+    margin-left: 2rem;
+    font-size: 1.5rem;
+
+    &:before {
+        position: absolute;
+        top: 0;
+        left: -2rem;
+        height: 100%;
+        font-family: 'FontAwesome';
+        content:'\f078';
+        opacity: .5;
+        color: @blue;
+        transition: opacity .4s ease-out;
+    }
+
+    &:after {
+        position: absolute;
+        top: 0;
+        left: -2rem;
+        height: 100%;
+        font-family: 'FontAwesome';
+        content:'\f077';
+        opacity: 0;
+        color: @blue;
+        transition: opacity .4s ease-out;
+    }
+
+    &.toggled {
+        &:before {opacity: 0 }
+        &:after { opacity: .8 }
+
+        &:hover {
+            &:before { opacity: 0 }
+        }
+    }
+
+    &:hover {
+        &:before { opacity: 1 }
+    }
+}
+
+dd {
+    position: relative;
+    top: 0;
+    left: 4rem;
+    color: #cbf6ff;
+    font-size: 1.4rem;
+    background: linear-gradient(
+        to right,
+        #171d1f, transparent);
+    padding: 1rem;
+    margin: 0;
+    margin-top: .5rem;
+    display: block;
+    transition: left .4s ease-out;
+
+    p {
+        margin-bottom: 1rem!important;
+        color: #cbf6ff;
+        font-size: 1.4rem;
+    }
+
+    &.toggled {
+        left: 2rem;
+    }
 }

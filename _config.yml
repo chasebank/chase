@@ -32,3 +32,6 @@ collections:
   portfolio:
     output: true
     permalink: /portfolio/:title/
+  codes:
+    output: true
+    permalink: /codes/:title/
