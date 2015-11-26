@@ -563,6 +563,8 @@ initPhotoSwipeFromDOM('.gallery');
 
 
 
+
+// Cool drop down definition lists
 $.fn.slideFadeToggle  = function(speed, easing, callback) {
    return this.animate({
 	  opacity: 'toggle',
@@ -580,4 +582,11 @@ $('dt').click(function(){
    $(this).toggleClass('toggled')
 	   .next('dd').slideFadeToggle().toggleClass('toggled');
 
+});
+
+
+
+
+$("div").contains('.cp_embed_iframe').resizable({
+	alsoResize : '.cp_embed_iframe'
 });

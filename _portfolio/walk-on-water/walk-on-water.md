@@ -63,5 +63,4 @@ Create a branding style and image that's recognizable, and adaptable for use thr
       <a href="gallery/wow-business-card-animation.gif" itemprop="contentUrl" data-size="1200x869"><img src="gallery/wow-business-card-animation.gif" itemprop="thumbnail" alt="Image description" /></a>
     </figure>
   </div>
-
 </div>
