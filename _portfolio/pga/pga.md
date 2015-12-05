@@ -14,14 +14,29 @@ Design a holiday card that captures the spirits of enjoying both golf and the ho
 ###Challenges
 To fully capture the golf 'winter wonderland' scene that was pictured in my mind, a full photo composite was needed. Various elements were combined from 4 primary stock photos to create the final scene and mood. This also included realisticly imposing the PGA logo onto a golf ball, indended for the main focal point.
 
-<div class="gallery">
+<div class="gallery" itemscope itemtype="http://schema.org/ImageGallery">
   <div class="gallery-group">
-    <a class="fancybox" href="pga-card-design-closeup.jpg"><div style="background-image:url('pga-card-design-closeup.jpg')"></div></a>
-    <a class="fancybox fancybox.iframe video" href="https://player.vimeo.com/video/137291395"><div style="background-image:url('pga-card-process-thumb.gif')"></div></a>
-    <a class="fancybox large" href="pga-card.jpg"><div style="background-image:url('pga-card.jpg')"></div></a>
+    <figure class="tall" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+      <a href="gallery/pga-card-design-closeup.jpg" itemprop="contentUrl" data-size="800x1000"><img src="gallery/pga-card-design-closeup-thumb.jpg" itemprop="thumbnail" alt="Image description" /></a>
+    </figure>
+    <figure class="large" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+      <a href="gallery/pga-card.jpg" itemprop="contentUrl" data-size="1200x932"><img src="gallery/pga-card-thumb.jpg" itemprop="thumbnail" alt="Image description" /></a>
+    </figure>
   </div>
   <div class="gallery-group">
-    <a class="fancybox tall" href="reference-photos.jpg"><div style="background-image:url('reference-photos.jpg')"></div></a>
-    <a class="fancybox large left" href="pga-card-design.jpg"><div style="background-image:url('pga-card-design.jpg');background-position:bottom center"></div></a>
+    <figure class="tall" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+      <a href="gallery/reference-photos.jpg" itemprop="contentUrl" data-size="1280x1100"><img src="gallery/reference-photos-thumb.jpg" itemprop="thumbnail" alt="Image description" /></a>
+    </figure>
+    <!--<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+      <a href="gallery/pga-card-process.gif" itemprop="contentUrl" data-size="1280x960" class="video"><img src="gallery/pga-card-process.gif" itemprop="thumbnail" alt="Image description" /></a>
+    </figure>-->
+    <figure class="large left" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+      <a href="gallery/pga-card-design.jpg" itemprop="contentUrl" data-size="755x1000" style="background-position: center bottom"><img src="gallery/pga-card-design-thumb.jpg" itemprop="thumbnail" alt="Image description" /></a>
+    </figure>
+  </div>
+
+  <div class="video-wrapper">
+    <!-- Copy & Pasted from YouTube -->
+      <iframe src="https://player.vimeo.com/video/137291395?color=2ECEF1&byline=0&portrait=0" id="pga-process" width="500" height="664" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
   </div>
 </div>

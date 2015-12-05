@@ -5,14 +5,19 @@ title: Codes
 
 <!--{% assign projects = site.portfolio | sort: 'date' | reverse %}-->
 
-<ul>
-    {% for code in site.codes %}
-    <li>
-        <a href="{{ site.baseurl }}{{ code.url }}">
-        <div>
-            <h2>{{ code.title }}</h2>
-        </div>
-        </a>
-    </li>
-    {% endfor %}
-</ul>
+<h2>Code Snippets</h2>
+
+<p>A bunch of useful tidbits I've stumbled upon, lifted from some random corner of the interwebs, or discovered myself through trial of blood sweat and tears. <a href="" title="Contact Me">Let me know</a> if you have some cool tricks you use!</p>
+
+{% for code in site.codes %}
+
+<section class="code">
+
+    <a href="{{ site.baseurl }}{{ code.url }}" title="{{ code.title }}">
+        <h3>{{ code.title }}</h3>
+        <p>{{ code.description }}</p>
+    </a>
+
+</section>
+
+{% endfor %}

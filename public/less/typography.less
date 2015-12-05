@@ -6,20 +6,41 @@ body {font-family: 'Exo 2', sans-serif;}
 
 /* No `:visited` state is required by default (browsers will use `a`) */
 a {
-    color: #268bd2;
+    color: #2ecef1;
     text-decoration: none;
+
+    .transition;
+
+    &:hover,
+    &:focus {
+        color: @whiteBlue;
+        text-decoration: underline;
+    }
+
+    // Underline hover effect for code snippet posts
+    /*p,
+    h3 {
+        text-decoration: none;
+    }
+
+    &:hover,
+    &:focus {
+        p,
+        h3 {
+            text-decoration: underline;
+        }
+    }*/
 }
 
 a strong {
     color: inherit;
 }
-/* `:focus` is linked to `:hover` for basic accessibility */
 
-a:hover,
-a:focus {
-    text-decoration: underline;
+section {
+    > *:first-child {
+        margin-top: 0;
+    }
 }
-/* Headings */
 
 h1,
 h2,
@@ -27,8 +48,7 @@ h3,
 h4,
 h5,
 h6 {
-    margin-top:0;
-    margin-bottom: .5rem;
+    margin-bottom: 0;
     font-weight: 600;
     letter-spacing: -.025rem;
     line-height: 1.25;
@@ -37,7 +57,11 @@ h6 {
 }
 
 h1 {font-size: 3.2rem;}
-p.h1-sub-heading {font-size:2rem;font-weight:600;}
+p.h1-sub-heading {
+    margin-top: 0;
+    font-size:2rem;
+    font-weight:600;
+}
 
 h2 {font-size: 2.6rem;}
 
@@ -50,9 +74,30 @@ h6 {font-size: 1.8rem;}
 p {
     font-size: 1.5rem;
     line-height: 1.5;
-    margin-top: 0;
-    margin-bottom: 2.5rem;
+    margin-bottom: 0;
+
+    &.example {
+        position: relative;
+
+        &:after {
+            display: block;
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-image: linear-gradient(to right,
+            @lightBlue, transparent);
+            opacity: .4;
+        }
+    }
 }
+
+h1 + p,
+h2 + p,
+h3 + p,
+h4 + p { margin-top: .5em }
 
 section.container { color: #616161; text-shadow: none; }
 
@@ -166,11 +211,13 @@ dd {
     left: 4rem;
     color: #cbf6ff;
     font-size: 1.4rem;
+    line-height: 1.5;
     background: linear-gradient(
         to right,
         #171d1f, transparent);
     padding: 1rem;
     margin: 0;
+    width: calc(100% - 1rem);
     margin-top: .5rem;
     display: block;
     transition: left .4s ease-out;

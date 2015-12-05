@@ -5,12 +5,12 @@
 #toggle-nav {
    /* ICON SIZE - all other paramaters are based on this */
    @hamburgerWidth: 25px;
-   
+
    @hamburgerHeight: floor(@hamburgerWidth*.2);
    @togglePadding: @hamburgerHeight*1.8;
    @hamburgerBorderRadius: @hamburgerHeight;
    @hamburgerColor: @whiteBlue;
-   
+
    position: relative;
    display: inline-block;
    height: @hamburgerHeight*5+(@togglePadding*2.5);
@@ -21,7 +21,7 @@
    text-decoration: none;
    top: 20px;
    left: 4%;
-   
+
    @media @tablet {
       transition: 0.2s ease-in-out;
       background: linear-gradient(to bottom,
@@ -29,7 +29,7 @@
          fade(@lightBlue,20%)
       )!important;
       box-shadow:inset 0px 0px 2px fade(@lightBlue,40%)  ;
-      
+
       &:before {
          position: absolute;
          left: 0;
@@ -47,10 +47,10 @@
             0px 4px 4px fade(@darkBlue,60%);
          transition: 0.2s ease-in-out;
       }
-      
+
       &:active {
          top: 25px;
-         
+
          &:before {
             height: 100%;
             box-shadow:
@@ -60,7 +60,7 @@
          }
       }
    }
-   
+
    @media @phone {
       top: inherit;
       position: absolute;
@@ -73,7 +73,7 @@
          fade(@darkBlue,50%),
          fade(@darkBlue,80%)
       );
-         
+
       &:before, &:after {
         content: "";
         position: absolute;
@@ -89,7 +89,7 @@
         bottom: 0px;
       }
    }
-   
+
    @media @notMobile {
       display: none;
    }
@@ -101,12 +101,12 @@
       transform: translate3d(0%, -50%, 0);
       float: left;
       border: 0px solid transparent;
-      
+
       @media @phone {
          /* content padding */
          left: 4%;
       }
-      
+
       &, &:before, &:after {
          background: @hamburgerColor;
          height: @hamburgerHeight;
@@ -123,6 +123,7 @@
          display: block;
          content: '';
          position: absolute;
+         left: 0;
          border: 0px!important;
       }
 
@@ -134,7 +135,7 @@
          top: 200%;
       }
    }/* hamburger */
-   
+
    &.open {
       .hamburger {
          height: @hamburgerWidth*1.2;
@@ -145,27 +146,27 @@
          transform: translate3d(0%, -50%, 0);
          background: transparent;
          border: @hamburgerHeight*.7 solid @hamburgerColor;
-         
+
          @media @phone {
             /* content padding */
             left: 4%;
          }
-         
+
          &:before, &:after {
             top: 50%;
             left: 50%;
          }
-         
+
          &:before {
             transform: translate3d(-50%,-50%,0) rotate(-135deg) scale(.6,.7);
          }
-         
+
          &:after {
             transform: translate3d(-50%,-50%,0) rotate(135deg) scale(.6,.7);
          }
       }
    }
-   
+
    .toggle-text {
       padding-left: @togglePadding;
       font-size: @hamburgerHeight*4;
@@ -175,32 +176,32 @@
       top: 50%;
       text-align: center;
       font-family: 'Lato',sans-serif;
-      
+
       span {
          opacity: 1;
          transition: all .4s ease-out;
-         
+
          &:first-of-type {
             position: absolute;
             width: 100%;
             padding-right: @togglePadding;
             text-align: center;
          }
-         
+
          &.hide {
             opacity: 0;
          }
       }
-      
+
       @media @phone {
          text-align: left;
          left: 3%;
-         
+
          span {
             width: auto!important;
          }
       }
-                  
+
       &::selection { background-color: transparent }
       &::-moz-selection { background-color: transparent }
       &::-webkit-selection { background-color: transparent }
@@ -212,6 +213,7 @@
 @navContainerWidth: 220px;
 @navContainerTiming: .7s;
 @navContainerEase: cubic-bezier(0.19, 0.02, 0, 0.99);
+
 #nav-container {
    position: absolute;
    z-index: 999;
@@ -224,7 +226,7 @@
    padding: 1rem;
    background-image: linear-gradient(to bottom, fade(@baseBlue,80%) 0%, fade(@baseBlue,0%) 100%);
    transition: @navContainerTiming @navContainerEase;
-      
+
    &:before {
       display: block;
       content: '';
@@ -235,7 +237,7 @@
       height: 100%;
       background-image: linear-gradient( fade(@darkBlue,20%), fade(@darkBlue,0%) );
    }
-   
+
    &:after {
       display: block;
       content: '';
@@ -250,10 +252,10 @@
       background-repeat: no-repeat;
       background-size: 100% 100%;
    }
-   
+
    @media @notMobile {
       transform: translate3d(0, 0, 0);
-      
+
       &:after {
          opacity: .4;
          height: 75%;
@@ -264,39 +266,40 @@
       min-width: @navContainerWidth;
       width: 15%;
    }
-      
+
    &.menuOpen {
       transform: translate3d(0, 0, 0);
       transform-style: preserve-3d;
       backface-visibility: hidden;
-      
+
       &:after {
          opacity: .4;
       }
-      
+
       @media @notMobile {
          transform: translate3d(0, 0, 0);
       }
    }
-   
+
    a {
-        display: block;
-        color: rgba(220,240,255,1);
-        text-shadow: 1px 1px 2px black,
-            0px 0px 10px rgba(0,10,50,.5);
-        transition: all .4s ease-in-out;
-        text-decoration: none;
-        color: @lightBlue;
-        
-        &:hover { color: @whiteBlue }
-        
-        &.active { color: @whiteBlue!important }
-    }
+      display: block;
+      color: rgba(220,240,255,1);
+      text-shadow: 1px 1px 2px black,
+      0px 0px 10px rgba(0,10,50,.5);
+      transition: all .4s ease-in-out;
+      text-decoration: none;
+      color: @lightBlue;
+      margin-bottom: 1rem;
+
+      &:hover { color: @whiteBlue }
+
+      &.active { color: @whiteBlue!important }
+   }
 }/* nav container */
 
 ul.social-media {
    font-family: 'Lato',sans-serif;
-   
+
    display: -moz-inline-stack;
    display: inline-block;
    zoom: 1;
@@ -307,19 +310,19 @@ ul.social-media {
    margin: 0;
    color: #a8f8ff;
    font-size: 1.4rem;
-  
+
   li {
-    margin-bottom: 1rem;
+    //margin-bottom: 1rem;
   }
-  
-  .icon {      
+
+  .icon {
     @icon-size: 3rem;
     display: inline-block;
     border-radius: 50%;
     height: @icon-size;
     margin: 0 8px 0 0;
     width: @icon-size;
-    
+
     &:after {
       font: 400 1em/@icon-size 'FontAwesome';
       display: block;
@@ -337,35 +340,35 @@ ul.social-media {
   -webkit-transform: translateZ(0);
           transform: translateZ(0);
     }
-    
+
     &.email {
        background-image: linear-gradient(to bottom,#0F64B1,#66DDFE);
        &:after {content:'\f003'}
     }
-    
+
     &.codepen {
        background-image: linear-gradient(to bottom,#252525,#444);
        &:after {content:'\f1cb'}
     }
-    
+
     &.behance {
        background-image: linear-gradient(to bottom,#005dff,#0096ff);
        &:after {content:'\f1b4'}
     }
-    
+
     &.github {
        background-image: linear-gradient(to bottom,#202d5f,#614381);
        &:after {content:'\f113'}
     }
   }
-   
+
   li:hover {
     .icon {
         animation: shadow 1s forwards;
         -ms-animation: shadow 1s forwards;
         -moz-animation: shadow 1s forwards;
         -webkit-animation: shadow 1s forwards;
-      
+
       &:after {
         text-shadow: none;
         -webkit-transform: scale(1.2);
@@ -374,7 +377,7 @@ ul.social-media {
       }
     }/* icon */
   }/* li:hover */
-   
+
    @-webkit-keyframes shadow {
      from {box-shadow: 0 0 0 rgba(150,250,255,.25);}
      to {box-shadow: 0 0 0 10px rgba(150,250,255,0);}
@@ -396,17 +399,17 @@ nav {
    padding-top: 2rem;
    margin-bottom: 2.5rem;
    text-transform: uppercase;
-   
+
    a {
       display: block;
-      margin-bottom: 2rem;
+      //margin-bottom: 2rem;
       text-decoration: none;
       color: @lightBlue;
    }
-   
+
    .subnav {
-      margin-top: -1.5rem;
-      
+      margin-top: -.8rem;
+
       ul {
          display: -moz-inline-stack;
          display: inline-block;
@@ -420,7 +423,7 @@ nav {
          li {
             font-size: 1.2rem;
             color: fade(@lightBlue,85%);
-            margin-bottom: 1rem;
+            //margin-bottom: 1rem;
          }
       }
    }
@@ -431,11 +434,11 @@ nav {
    background-image: linear-gradient( fade(@darkBlue,50%), fade(@darkBlue,0%) );
    padding: 1rem;
    width: 100%;
-   margin-bottom: 2rem;
+   margin-bottom: 1rem;
    border-radius: 8px 8px 0 0;
    position: relative;
    border-top: 2px solid fade(@blackBlue,60%);
-      
+
    &:before, &:after {
      content: "";
      position: absolute;

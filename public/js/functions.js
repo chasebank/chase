@@ -581,3 +581,15 @@ $('dt').click(function(){
 	   .next('dd').slideFadeToggle().toggleClass('toggled');
 
 });
+
+
+
+
+// Back button
+function goBack() {
+	window.history.back();
+}
+
+
+
+

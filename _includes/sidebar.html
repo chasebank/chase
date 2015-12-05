@@ -1,38 +1,38 @@
 <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
      styles, `#sidebar-checkbox` for behavior. -->
-     
-     
+
+
 <div id="nav-container">
     <nav role='navigation'>
-        <a class="{% if page.url == site.baseurl %}active{% endif %}" href="{{ site.baseurl }}/">Home</a>
-        <a class="{% if page.url contains "/portfolio" %}active{% endif %}" href="{{ site.baseurl }}/portfolio/">Portfolio</a>
+        <a class="{% if page.url == site.baseurl %}active{% endif %}" href="{{ site.baseurl }}/" title="Home">Home</a>
+        <a class="{% if page.url contains "/portfolio" %}active{% endif %}" href="{{ site.baseurl }}/portfolio/" title="Portfolio">Portfolio</a>
         {% if page.url contains '/portfolio/' %}
             <div class="subnav">
                 <ul>
                     {% for project in site.portfolio %}
-                        <li><a class="{% if page.url == project.url %}active{% endif %}" href="{{ site.baseurl }}{{ project.url }}">{{ project.title }}</a></li>
+                        <li><a class="{% if page.url == project.url %}active{% endif %}" href="{{ site.baseurl }}{{ project.url }}" title="{{ project.title }}">{{ project.title }}</a></li>
                     {% endfor %}
                 </ul>
             </div>
         {% endif %}
-    
-        <a href="#">Notes</a>
+
+        <a href="#" title="Notes">Notes</a>
         <div class="subnav">
             <ul>
-                <li>Blog</li>
-                <li>Quotes</li>
-                <li>Code Snippets</li>
-                <li>Useful Tools</li>
+                <li><a class="{% if page.url contains "/blog" %}active{% endif %}" href="{{ site.baseurl }}/blog" title="Blog">Blog</a></li>
+                <li><a class="{% if page.url contains "/quotes" %}active{% endif %}" href="{{ site.baseurl }}/quotes" title="Quotes">Quotes</a.</li>
+                <li><a class="{% if page.url contains "/codes" %}active{% endif %}" href="{{ site.baseurl }}/codes" title="Code Snippets">Code Snippets</a></li>
+                <li><a class="{% if page.url contains "/tools" %}active{% endif %}" href="{{ site.baseurl }}/tools" title="Useful Stuff">Useful Stuff</a></li>
             </ul>
         </div>
-        <a class="{% if page.url == "/about/" %}active{% endif %}" href="{{ site.baseurl }}/about/">About Me</a>
+        <a class="{% if page.url == "/about/" %}active{% endif %}" href="{{ site.baseurl }}/about/" title="About Me">About Me</a>
     </nav>
     <div class="subnav">
         <ul class="social-media">
-            <li><a class="{% if page.url contains "/contact" %}active{% endif %}" href="{{ site.baseurl }}/contact/"><span class="icon email"></span><span>Contact me</span></a></li>
-            <li><a href="//behance.net/chasebank"><span class="icon codepen"></span><span>CodePen</span></a></li>
-            <li><a href="//codepen.io/chasebank"><span class="icon behance"></span><span>Behance</span></a></li>
-            <li><a href="//github.com/chasebank"><span class="icon github"></span><span>GitHub</span></a></li>
+            <li><a class="{% if page.url contains "/contact" %}active{% endif %}" href="{{ site.baseurl }}/contact/" title="Contact Me"><span class="icon email"></span><span>Contact me</span></a></li>
+            <li><a href="//behance.net/chasebank"><span class="icon codepen" title="Visit my CodePen"></span><span>CodePen</span></a></li>
+            <li><a href="//codepen.io/chasebank"><span class="icon behance" title="Visit my Behance"></span><span>Behance</span></a></li>
+            <li><a href="//github.com/chasebank"><span class="icon github" title="Visit my Github"></span><span>GitHub</span></a></li>
         </ul>
     </div>
 </div>

@@ -1,0 +1,101 @@
+// main: styles.less
+
+/*
+  THEME
+*/
+
+.box pre { font-family: 'Source Code Pro', Monaco, Consolas, monospace, "Andale Mono", "lucida console", "Courier New";}
+
+// Angle brackets ie. <
+.cm-tag.cm-bracket    { color: red; }
+
+/*  */
+.cm-header     { color: #ff6400; }
+
+/*
+   html: plain text
+   css: curly brackets and symbolx/separators eg: {}():;,
+   js: same as css
+*/
+.box pre       { color: white; }
+
+/* e.g. var, function */
+.cm-keyword    { color: #ddca7e; }
+
+/* e.g. $, i */
+.cm-variable   { color: #ddca7e; }
+
+/* e.g. class="" id="" */
+.cm-attribute  { color: #ddca7e; }
+
+/* not sure if used */
+.cm-strong     { color: #ddca7e; }
+
+/* not sure if used */
+.cm-em         { color: #ddca7e; }
+
+/* e.g. .box */
+.cm-qualifier  { color: #ddca7e; }
+
+/* not sure if used */
+.cm-builtin    { color: #ddca7e; }
+
+/* CSS SPECIFIC */
+/* e.g. h1, h2 */
+.box-css .cm-tag { color: #ddca7e; }
+/* e.g. #id */
+.cm-atom       { color: #ddca7e; }
+/* e.g. 20 */
+.cm-number     { color: #d0782a; }
+
+/* HTML SPECIFIC */
+/* e.g. markdown blockquote */
+.box-html .cm-atom { color: #96b38a; }
+
+/* e.g. "string" */
+.cm-string     { color: #96b38a; }
+
+/* e.g. px, em */
+.cm-unit       { color: #d0782a; }
+
+/* e.g. @include, [this] */
+.cm-def        { color: #809bbd; }
+
+/* e.g. for key in [this], Markdown li */
+.cm-variable-2 { color: #809bbd; }
+
+/* e.g. getElementbyId, CSS properties */
+.cm-property   { color: #9a8297; }
+
+/* e.g. HTML elements */
+.cm-tag        { color: #9a6e35; }
+
+/* e.g. @font-face */
+.cm-meta       { color: #9a8297; }
+
+/* e.g. CoffeeScript ->, CSS colons */
+.cm-operator   { color: #cccccc; }
+
+/* e.g. // comments */
+.cm-comment    { color: #666666; }
+
+/* e.g. some CSS values */
+.cm-string-2   { color: #FFFFFF; }
+
+
+
+
+
+.CodeMirror-linenumber {
+  color: #343434;
+}
+
+.box {
+  background: #1d1f20;
+  background: -webkit-linear-gradient(45deg, #1d1f20, #2f3031) !important;
+  background: -moz-linear-gradient(45deg, #1d1f20, #2f3031) !important;
+  background: -o-linear-gradient(45deg, #1d1f20, #2f3031) !important;
+  background: linear-gradient(45deg, #1d1f20, #2f3031) !important;
+}
+
+.CodeMirror-guttermarker-subtle { color: red; }
