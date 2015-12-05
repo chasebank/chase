@@ -66,6 +66,28 @@ body.splash {
             }
         }
 
+        > div[id*="wufoo"] {
+            text-align: center;
+            max-width: 1200px;
+            margin: 2rem auto 0 auto;
+
+            @media @phone {
+                width:96%;
+            }
+
+            @media @tablet {
+                width:96%;
+            }
+
+            @media @desktop {
+                width:90%;
+            }
+
+            @media @desktop-xl {
+                width:90%;
+            }
+        }
+
         h2 {
             max-width: 1200px;
             margin-left: auto;
@@ -90,27 +112,6 @@ body.splash {
 
         iframe {
             width: 100%;
-
-            #container {
-                max-width: 1200px;
-                margin-left: auto;
-                margin-right: auto;
-
-                @media @phone {
-                    padding-left:.5%;
-                    padding-right:.5%;
-                }
-
-                @media @tablet {
-                    padding-left:1%;
-                    padding-right:1%;
-                }
-
-                @media @desktop {
-                    padding-left:5%;
-                    padding-right:5%;
-                }
-            }
         }
 
         form {
