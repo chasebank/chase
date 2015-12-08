@@ -4,6 +4,7 @@
 body {font-family: 'Exo 2', sans-serif;}
 
 
+
 /* No `:visited` state is required by default (browsers will use `a`) */
 a {
     color: #2ecef1;
@@ -16,31 +17,13 @@ a {
         color: @whiteBlue;
         text-decoration: underline;
     }
-
-    // Underline hover effect for code snippet posts
-    /*p,
-    h3 {
-        text-decoration: none;
-    }
-
-    &:hover,
-    &:focus {
-        p,
-        h3 {
-            text-decoration: underline;
-        }
-    }*/
 }
 
 a strong {
     color: inherit;
 }
 
-section {
-    > *:first-child {
-        margin-top: 0;
-    }
-}
+
 
 h1,
 h2,
@@ -54,6 +37,7 @@ h6 {
     line-height: 1.25;
     text-rendering: optimizeLegibility;
     color: #313131;
+    margin: 0;
 }
 
 h1 {font-size: 3.2rem;}
@@ -75,6 +59,7 @@ p {
     font-size: 1.5rem;
     line-height: 1.5;
     margin-bottom: 0;
+    margin-top: 0;
 
     &.example {
         position: relative;
@@ -101,9 +86,6 @@ h4 + p { margin-top: .5em }
 
 section.container { color: #616161; text-shadow: none; }
 
-strong {
-    color: #303030;
-}
 
 
 /* Meta data line below post title */
@@ -160,6 +142,31 @@ main {
 }
 
 
+ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+        margin-left: 2rem;
+        position: relative;
+
+        &:before {
+            display: inline-block;
+            position: absolute;
+            top: .2rem;
+            left: -2rem;
+            height: 100%;
+            font-family: 'FontAwesome';
+            content:'\f192';
+            opacity: .5;
+            color: @blue;
+            transition: all .4s ease-out;
+        }
+    }
+}
+
+
+
 dt {
     position: relative;
     cursor: pointer;
@@ -168,6 +175,7 @@ dt {
     font-size: 1.5rem;
 
     &:before {
+        display: inline-block;
         position: absolute;
         top: 0;
         left: -2rem;
@@ -176,10 +184,11 @@ dt {
         content:'\f078';
         opacity: .5;
         color: @blue;
-        transition: opacity .4s ease-out;
+        transform: rotate(0deg);
+        transition: all .4s ease-out;
     }
 
-    &:after {
+    /*&:after {
         position: absolute;
         top: 0;
         left: -2rem;
@@ -189,19 +198,21 @@ dt {
         opacity: 0;
         color: @blue;
         transition: opacity .4s ease-out;
-    }
+    }*/
 
     &.toggled {
-        &:before {opacity: 0 }
-        &:after { opacity: .8 }
+        &:before {
+            opacity: 1;
+            transform: rotate(180deg);
+        }
 
         &:hover {
-            &:before { opacity: 0 }
+            &:before { opacity: 1 }
         }
     }
 
     &:hover {
-        &:before { opacity: 1 }
+        &:before { opacity: .8 }
     }
 }
 
@@ -218,12 +229,12 @@ dd {
     padding: 1rem;
     margin: 0;
     width: calc(100% - 1rem);
-    margin-top: .5rem;
+    margin-top: .5rem!important;
     display: block;
     transition: left .4s ease-out;
 
     p {
-        margin-bottom: 1rem!important;
+        //margin-bottom: 1rem!important;
         color: #cbf6ff;
         font-size: 1.4rem;
     }

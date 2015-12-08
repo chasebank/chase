@@ -9,20 +9,22 @@ This isn't a [boilerplate](https://html5boilerplate.com/) or framework. It's jus
 <p class="example">What's in the box! <small><em>(click each for explenation)</em></small></p>
 
 <dl>
-  <dt>Declare a root font size of 10px.</dt>
+  <dt>Declare a root font size of 10px - Make math easy</dt>
   <dd>I don't like math. I also don't like em units, except in certain situations where their cascading nature adds simplicity, rather than complexity. rem units reference the root font size, so 1rem has the same value everywhere, regardless of context. With a root font size of 10px, math is easy. 1.6rem will always = 16px</dd>
 
-  <dt>Set everything to border-box, but let modular layouts easily overwrite it.</dt>
-  <dd>Fixes the crazy css box model. Border and padding changes to inset, rather than add to a defined height/width. 100px width + 10px padding + 2px border = 100px. Border-box is set on the html element and everything else inherits it. Unless for some strange reason a different box-sizing is defined later on, the new crazy setting will cascade to it's crazy children.</dd>
+  <dt>Fix the crazy CSS box model - Set everything to border-box</dt>
+  <dd>This changes borders and padding to inset, so they don't add dimention to a defined height/width. 100px width + 10px padding + 2px border = 100px. Border-box is set on the html element and everything else inherits it. Unless for some strange reason a different box-sizing is defined later on, the new crazy setting will cascade to it's crazy children.</dd>
 
-  <dt>The Lobotomized Owl Selector Selector - Add a line break between succeeding elements.</dt>
+  <dt>The Lobotomized Owl Selector Selector - Add a line break between succeeding elements</dt>
   <dd><p>The + adjacent sibling selector targets an element that follows another element. x + y will target y <em>only</em> if it follows x. The * universal selector targets <em>everything</em> &lt;queue evil laghter/&gt;.</p>
 
-<p>So * + * targets everything, as long as it follows something else... It sounds like the screenplay for <a href="http://www.imdb.com/title/tt1375666/">Inception</a>, but it works!</p>
+<p>So * + * targets everything, as long as it follows something else... Sounds like the plot for the movie <a href="https://www.youtube.com/watch?v=V3-a58Wt2tk">Inception</a>, but it really does work.</p>
 
-<p>Heydon Pickering named this the "Lobotomized Owl Selector" due to it's emote resemblance to... a dead bird. And contrary to popular belief, <a href="http://alistapart.com/article/axiomatic-css-and-lobotomized-owls" title="A List Apart - Axiomatic CSS and Lobotomized Owls" target="_blank">this isn't a resource hog</a>. Welcome to the future.</p></dd>
+<p>Heydon Pickering named this the "Lobotomized Owl Selector" because as an emote, it sorta looks like... a dead bird...</p>
 
-  <dt>Media query mixins to quickly target <em>relatively</em> common break points.</dt>
+<p>And contrary to popular belief, <a href="http://alistapart.com/article/axiomatic-css-and-lobotomized-owls" title="A List Apart - Axiomatic CSS and Lobotomized Owls" target="_blank">this is not a resource hog</a>. Welcome to the future.</p></dd>
+
+  <dt>Media query mixins - Quickly target <em>relatively</em> common break points</dt>
   <dd><p>Useful for quickly blocking out layouts and prototypes.</p>
   <p class="example">Usage example:</p>
 

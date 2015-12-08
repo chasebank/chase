@@ -16,16 +16,27 @@
             </div>
         {% endif %}
 
-        <a class="{% if page.url contains "/notes" %}active{% endif %}" href="{{ site.baseurl }}/notes/" title="Notes">Notes</a>
+        <a class="
+            {% if page.url contains "/notes" %}active{% endif %}
+            {% if page.url contains "/blog" %}active{% endif %}
+            {% if page.url contains "/quotes" %}active{% endif %}
+            {% if page.url contains "/codes" %}active{% endif %}
+            {% if page.url contains "/tools" %}active{% endif %}
+        " href="{{ site.baseurl }}/notes/" title="Notes">Notes</a>
         {% if page.url contains '/notes/' %}
-            <div class="subnav">
-                <ul>
-                    <li><a class="{% if page.url contains "/blog" %}active{% endif %}" href="{{ site.baseurl }}/blog" title="Blog">Blog</a></li>
-                    <li><a class="{% if page.url contains "/quotes" %}active{% endif %}" href="{{ site.baseurl }}/quotes" title="Quotes">Quotes</a.</li>
-                    <li><a class="{% if page.url contains "/codes" %}active{% endif %}" href="{{ site.baseurl }}/codes" title="Code Snippets">Code Snippets</a></li>
-                    <li><a class="{% if page.url contains "/tools" %}active{% endif %}" href="{{ site.baseurl }}/tools" title="Useful Stuff">Useful Stuff</a></li>
-                </ul>
-            </div>
+            {% include subnav.html %}
+        {% endif %}
+        {% if page.url contains '/blog' %}
+            {% include subnav.html %}
+        {% endif %}
+        {% if page.url contains '/quotes' %}
+            {% include subnav.html %}
+        {% endif %}
+        {% if page.url contains '/codes' %}
+            {% include subnav.html %}
+        {% endif %}
+        {% if page.url contains '/tools' %}
+            {% include subnav.html %}
         {% endif %}
 
         <a class="{% if page.url == "/about/" %}active{% endif %}" href="{{ site.baseurl }}/about/" title="About Me">About Me</a>

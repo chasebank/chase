@@ -29,6 +29,32 @@ body.splash {
 
 body.splash {
 
+    &.maintenance #content p {
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+
+        @media @phone {
+            width:96%;
+        }
+
+        @media @tablet {
+            width:96%;
+        }
+
+        @media @desktop {
+            width:90%;
+        }
+
+        @media @desktop-xl {
+            width:90%;
+        }
+    }
+
+    article {
+        margin-top: 2rem;
+    }
+
     // hide media query from form body
     &:after {
         display: none;
@@ -39,31 +65,24 @@ body.splash {
     }
 
     #content {
-        padding: 0;
-        margin: 0;
-        width: 100%!important;
-        max-width: 100%;
+        //padding: 0;
+        //margin: 0;
+        //width: 100%!important;
+        //max-width: 100%;
 
-        p {
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
+        padding: 0 4%;
+        margin: 0 auto;
+        max-width: 1200px;
+        min-height: 100%;
 
-            @media @phone {
-                width:96%;
-            }
+        @media @mobile {
+            width:100%;
+            margin: 0;
+        }
 
-            @media @tablet {
-                width:96%;
-            }
-
-            @media @desktop {
-                width:90%;
-            }
-
-            @media @desktop-xl {
-                width:90%;
-            }
+        @media @desktop {
+            width:90%;
+            padding: 0;
         }
 
         > div[id*="wufoo"] {
@@ -210,10 +229,12 @@ body {
 }
 
 
-section {// remove margins on top and bottom children to honor padding
+main {
     // Add a line break between succeeding elements
+    // Needs to stay here.. has to concatinate after typography.less
     * + * { margin-top: 1.5rem }
 }
+
 
 .wrap {
     background: url('../img/stars.png');
@@ -348,6 +369,10 @@ section.container {
         inset 0px 0px 5px rgba(185, 205, 200, .7),
         inset 0px 0px 25px rgba(205, 225, 230, 1);
     }
+}
+
+.page-head {
+    margin-bottom: 2rem;
 }
 
 
