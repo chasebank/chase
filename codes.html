@@ -13,13 +13,13 @@ title: Codes
 
 {% for code in site.codes %}
 
-<section class="code">
+<article class="code">
 
     <a href="{{ site.baseurl }}{{ code.url }}" title="{{ code.title }}">
         <h3>{{ code.title }}</h3>
         <p>{{ code.description }}</p>
     </a>
 
-</section>
+</article>
 
 {% endfor %}

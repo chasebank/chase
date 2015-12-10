@@ -1,5 +1,7 @@
 ---
-quote: Life is like a box of chocolates; ya never know what you're gonna get.
+layout: quote
 author: Forest Gump
-author_url: google.com
+quote: Life is like a box of chocolates; ya never know what you're gonna get.
+about: google.com
+color: 101010
 ---
