@@ -44,26 +44,10 @@
   </svg>
   <div class="footer-content">
     <nav class="footer-nav" role="navigation">
-       <a href="{{ site.baseurl }}/">Home</a>
-       <a href="{{ site.baseurl }}/portfolio/">Portfolio</a>
+       <!--<a href="{{ site.baseurl }}/">Home</a>
+       <a href="{{ site.baseurl }}/portfolio/">Portfolio</a>-->
 
-        {% comment %}
-          The code below dynamically generates a sidebar nav of pages with
-          `layout: page` in the front-matter. See readme for usage.
-        {% endcomment %}
-
-        {% assign pages_list = site.pages | sort:"url" %}
-        {% for node in pages_list %}
-
-        {% if node.title != null %}
-            {% if node.layout == "page" %}
-               {% unless node.exclude_from_nav %}
-                <a href="{{ node.url }}">{{ node.title }}</a>
-               {% endunless %}
-            {% endif %}
-        {% endif %}
-
-        {% endfor %}
+        <a href="#top" title="Scroll back to top" id="back-to-top">Back to top <i class="fa fa-reply fa-rotate-90"></i></a>
     </nav>
     <ul class="social-media">
         <li><a href="{{ site.baseurl }}/contact/"><span class="icon email"></span><span>Contact me</span></a></li>
