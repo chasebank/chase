@@ -55,13 +55,13 @@ footer {
     .footer-content {
         #grid > .cell;
         #grid > .span(9);
-        margin-bottom:0!important;// overwriting grid
-        text-align:right;
+
+        text-align: right;
         color: fade(#adf1ff,80%);
 
         @media @phone {
             #grid > .span(12);
-            text-align:center!important;
+            text-align: center!important;
         }
 
         @media @tablet {
@@ -71,7 +71,7 @@ footer {
         a,
         a:visited {
             color: fade(#adf1ff,80%);
-            display:inline-block;
+            display: inline-block;
             font-family: 'Lato', sans-serif;
             font-weight: 600;
             text-decoration: none;
@@ -81,8 +81,8 @@ footer {
         }
 
         nav {
-            font-size:1.8rem;
-            margin-bottom:1rem;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
             text-align: right;
             text-transform: uppercase;
             padding: 0;
@@ -91,20 +91,20 @@ footer {
                 text-align: center;
             }
 
-            a {margin-left:1.8rem;font-size:1.75rem;
-                &:first-of-type {margin:0;}
+            a {margin-left:1.8rem; font-size:1.75rem;
+                &:first-of-type { margin:0;}
             }
         }
 
         .social-media {
-            display:block;
-            padding:0;
+            display: block;
+            padding: 0;
             text-align: right;
-            margin-bottom:1rem;
+            margin-bottom: 1rem;
 
             @media @phone {
                 margin-bottom:.8rem;
-                list-style:none;
+                list-style: none;
                 text-align: justify !important;
                 text-justify: distribute-all-lines;
                 font-size: 0 !important;
@@ -117,17 +117,17 @@ footer {
             }
 
             li {
-                display:inline-block;
-                margin:0 0 0 1.4rem;
+                display: inline-block;
+                margin: 0 0 0 1.4rem;
 
                 @media @phone {
-                    margin:0;
-                    display:inline-block;
-                    font-size:1.5rem;
-                    text-align:center;
+                    margin: 0;
+                    display: inline-block;
+                    font-size: 1.5rem;
+                    text-align: center;
                     span {
-                        display:block;
-                        margin:0 auto;
+                        display: block;
+                        margin: 0 auto;
                     }
                 }
             }
@@ -186,4 +186,12 @@ footer {
 
         }/* footer-content */
     }/* footer */
+}
+
+.footer-content {
+    margin-top: 0!important;
+
+    nav a {
+        margin-top: 0!important;
+    }
 }
