@@ -2,6 +2,7 @@
 layout: code
 title: One Code to Rule Them All
 description: I think this is a well-rounded starter for <em>most</em> projects.
+date: 2015-12-10
 ---
 
 This isn't a [boilerplate](https://html5boilerplate.com/) or framework. It's just some stuff I find myself inevitably useing in all projects, so I packed 'em up neat in a box.

@@ -14,7 +14,7 @@ When there's nothing left to shoot, we'll head over to the camp site.
 
 Some stragglers will probably show up separately later on, but if you want to car pool or follow someone - catch one of those two groups.
 
-####Help us make some plans:
+####Post a comment to help us make some plans:
 
 * Are you definitely going? maybe? definitely not?
 * Are you staying the whole night or leaving at some point?

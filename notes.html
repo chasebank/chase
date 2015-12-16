@@ -8,3 +8,17 @@ title: Codes
 
     <p><strong>Random things</strong> I've found/learned/created that may or may not be worth sharing sharing. Nevertheless, here they are!</p>
 </div>
+
+
+{% for code in site.codes %}
+
+<article class="code">
+
+    <a href="{{ site.baseurl }}{{ code.url }}" title="{{ code.title }}">
+        <h3>{{ code.title }}</h3>
+        <p>{{ code.description }}</p>
+    </a>
+
+</article>
+
+{% endfor %}
