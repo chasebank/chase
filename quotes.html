@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Quotes
+permalink: /notes/quotes/
 ---
 
 <div class="page-head">
@@ -9,8 +10,8 @@ title: Quotes
     <p>These are some quotes I've found inspirational, thought provoking, funny, etc. <a href="" title="Contact Me">Let me know</a> if you know some cool/inspirational quotes.</p>
 </div>
 
-{% for quote in site.quotes %}
-
+{% for quote in site.notes %}
+{% if quote.category == "quotes" %}
 
 <article class="quote" style="color: #{{ quote.color }};">
     <figure style="background-image: url(http://localhost:4000/public/img/quote-authors/steve-jobs.jpg);"></figure>
@@ -24,5 +25,5 @@ title: Quotes
     </a>
 </article>
 
-
+{% endif %}
 {% endfor %}

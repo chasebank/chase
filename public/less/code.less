@@ -2,11 +2,13 @@
 @import (reference) "variables.less";
 
 
+
 article.code {
     position: relative;
     //z-index: 15;
-    background: linear-gradient(to bottom,
-        #1c2629 150px, #151e20);
+    background: #121c1f url('../img/codes-bg.gif');
+    background-position: top right;
+    background-repeat: no-repeat;
     border: 1px solid @darkBlue;
     box-shadow:
         inset 0px 0px 0px 1px #1c2629,
@@ -46,6 +48,7 @@ article.code {
             transparent, fade(@blue,20%), transparent)
     }
 }
+
 
 @blue: #2ecef1;
 @lightBlue: #adf1ff;

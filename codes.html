@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Codes
+permalink: /notes/codes/
 ---
 
 <!--{% assign projects = site.portfolio | sort: 'date' | reverse %}-->
@@ -11,15 +12,23 @@ title: Codes
     <p>A bunch of useful tidbits I've stumbled upon, lifted from some random corner of the interwebs, or discovered myself through trial of blood sweat and tears. <a href="" title="Contact Me">Let me know</a> if you have some cool tricks you use!</p>
 </div>
 
-{% for code in site.codes %}
 
-<article class="code">
 
-    <a href="{{ site.baseurl }}{{ code.url }}" title="{{ code.title }}">
-        <h3>{{ code.title }}</h3>
-        <p>{{ code.description }}</p>
-    </a>
+<div class="masonry">
+    <!-- Masonry gutter and masonry column settings -->
+    <div class="masonry__gutter"></div>
+    <div class="masonry__column"></div>
+    
+    {% for code in site.notes %}
+    {% if code.category == "codes" %}
+    <article class="code">
 
-</article>
+        <a href="{{ site.baseurl }}{{ code.url }}" title="{{ code.title }}">
+            <h3>{{ code.title }}</h3>
+            <p>{{ code.description }}</p>
+        </a>
 
-{% endfor %}
+    </article>
+    {% endif %}
+    {% endfor %}
+</div>

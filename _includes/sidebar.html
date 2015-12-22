@@ -26,18 +26,6 @@
         {% if page.url contains '/notes/' %}
             {% include subnav.html %}
         {% endif %}
-        {% if page.url contains '/blog' %}
-            {% include subnav.html %}
-        {% endif %}
-        {% if page.url contains '/quotes' %}
-            {% include subnav.html %}
-        {% endif %}
-        {% if page.url contains '/codes' %}
-            {% include subnav.html %}
-        {% endif %}
-        {% if page.url contains '/tools' %}
-            {% include subnav.html %}
-        {% endif %}
 
         <a class="{% if page.url == "/about/" %}active{% endif %}" href="{{ site.baseurl }}/about/" title="About Me">About Me</a>
     </nav>

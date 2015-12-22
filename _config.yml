@@ -26,12 +26,10 @@ version:             1.0.0
 
 
 collections:
-  quotes:
+  notes:
     output: true
-    permalink: /quotes/:title/
-  portfolio:
+    permalink: /:collection/:path/
+    post_dirs: false
+  portfolio: 
     output: true
     permalink: /portfolio/:title/
-  codes:
-    output: true
-    permalink: /codes/:title/
