@@ -54,9 +54,9 @@ footer {
 
     .footer-content {
         #grid > .cell;
-        #grid > .span(9);
+        #grid > .span(12);
 
-        text-align: right;
+        text-align: center;
         color: fade(#adf1ff,80%);
 
         @media @phone {
@@ -99,7 +99,7 @@ footer {
         .social-media {
             display: block;
             padding: 0;
-            text-align: right;
+            text-align: center;
             margin-bottom: 1rem;
 
             @media @phone {
@@ -144,6 +144,21 @@ footer {
         }/* social-media */
     }/* footer-content */
 }/* footer */
+
+#back-to-top {
+    display: block;
+    padding-left: 1rem;
+    text-align: right;
+    text-transform: uppercase;
+    position: relative;
+    font-size: 1.2rem;
+
+    .fa {
+        font-size: 1.2em;
+        position: relative;
+        top: -.2rem;
+    }
+}
 
 .splash {
     footer {

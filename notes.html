@@ -28,16 +28,13 @@ title: Notes
     {% endif %}
     
     {% if item.category == "quotes" %}
-    <article class="quote" style="color: #{{ item.color }};">
-        <figure style="background-image: url(http://localhost:4000/public/img/quote-authors/steve-jobs.jpg);"></figure>
-        <a href="{{ site.baseurl }}{{ item.url }}" title="{{ item.author }}">
-        <div class="quote">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="175.666" height="121.666" viewBox="0 0 175.666 121.666"><path d="M128.836 7c20.282 0 36.724 16.44 36.724 36.724 0 20.282-16.44 36.725-36.724 36.725-.572 0-1.13-.02-1.682-.044-2.08 8.497 5.078 19.232 32.212 34.26-59.88-11.503-67.255-50.66-67.255-70.94 0-20.285 16.443-36.727 36.726-36.727zM46.83 7c20.284 0 36.726 16.44 36.726 36.724 0 20.282-16.442 36.725-36.725 36.725-.57 0-1.13-.02-1.68-.044-2.078 8.497 5.077 19.232 32.212 34.26-59.882-11.503-67.256-50.66-67.256-70.942C10.106 23.44 26.548 7 46.83 7z"/></svg>
-            <p class="quote-text">{{ item.quote }}{% if item.content %}{{ item.content }}{% endif %}</p>
-            <p style="color: #{{ item.color }};">- {% if item.about %}<a href="{{ item.about }}" title="About {{ item.author }}">
-        {% endif %}{{ item.author }}{% if item.about %}</a>{% endif %}</p>
-        </div>
-        </a>
+    <article class="quote" style="background-color: #{{ item.background-color }}; color: #{{ item.text-color }}">
+        <figure style="background-image: url({{ site.baseurl }}/public/img/quote-authors/{{ item.author-image }}.png)"><span class="author-fade" style="background-image: -webkit-linear-gradient(left, transparent 70%, #{{ item.background-color }}); background-image: linear-gradient(to right, transparent 70%, #{{ item.background-color }});"></span></figure>
+        <a href="{{ site.baseurl }}{{ item.url }}" title="{{ item.author }}"><div class="quote-content">
+           {{ item.content }}
+            <p class="quote-author">- {% if item.about %}<a href="{{ item.about }}" title="About {{ item.author }}">{% endif %}{{ item.author }}{% if item.about %}</a>{% endif %}</p>
+        </div></a>
+        <svg xmlns="http://www.w3.org/2000/svg" width="35.9" height="29.5" fill="#{{ item.background-color }}" viewBox="0 0 35.9 29.5"><path d="M6.7 17.4L36 0s2 29.5-36 29.5c20.3-3.6 14.5-12 6.7-12z"/></svg>
     </article>
     {% endif %}
     
