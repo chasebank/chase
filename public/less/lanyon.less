@@ -618,42 +618,39 @@ a.pagination-item:hover {
 */
 
 // override lobotimized owl
-.masonry > * { margin-top: 0; }
+.masonry { margin-top: -@masonryGutter; }
 
-// Sets masonry column size
-@masonryGutter: 1rem;
-@masonryColumn: 100% / 3;
-.masonry__column {
-  width: ~"calc( (100% - (@{masonryGutter} *2)) / 3 )";
-
-  @media screen and (min-width: 801px) and (max-width: 1250px) {
-    width: ~"calc( (100% - @{masonryGutter}) / 2 )";
-  }
-
-  @media screen and (max-width: 800px) {
-    width: 100%;
-  }
+/* clearfix */
+.masonry:after {
+  content: ' ';
+  display: block;
+  clear: both;
 }
 
-// Sets masonry gutter size
-.masonry__gutter {
+@masonryGutter: 10px;
+.masonry-gutter {
   width: @masonryGutter;
 }
-
-.masonry > *:not(.masonry__gutter):not(.masonry__column) {
-  // Masonry item width
-  width: ~"calc( (100% - (@{masonryGutter} *2)) / 3 )";
+.masonry > article {
+  float: left;
+  width: ~"calc( (100% - (@{masonryGutter} *2)) / 3 )"!important;
   margin-top: @masonryGutter;
-
-  @media screen and (min-width: 801px) and (max-width: 1250px) {
-    width: ~"calc( (100% - @{masonryGutter}) / 2 )";
+  
+  @media screen and (min-width: 1200px) {
+    //width: ~"calc( (100% - (@{masonryGutter} *2)) / 3 )";
   }
-
-  @media screen and (max-width: 800px) {
-    width: 100%;
+  
+  @media screen and (min-width: 1000px) and (max-width: 1199px) {
+    width: ~"calc( (100% - @{masonryGutter}) / 2 )"!important;
   }
-}
-
-.masonry {
-  margin-top: -@masonryGutter;
+  
+  @media screen and (min-width: 650px) and (max-width: 999px) {
+    width: ~"calc( (100% - @{masonryGutter}) / 2 )"!important;
+    
+    &.quote { width: 100%!important; }
+  }
+  
+  @media screen and (max-width: 649px) {
+    width: 100%!important;
+  }
 }

@@ -3,16 +3,11 @@ layout: default
 ---
 
 <article class="quote" style="background-color: #{{ page.background-color }}; color: #{{ page.text-color }}; margin: 0 auto;">
-    <figure style="background-image: url({{ site.baseurl }}/public/img/quote-authors/{{ page.author-image }}.png)"><span class="author-fade" style="background-image: -webkit-linear-gradient(left, transparent 70%, #{{ page.background-color }}); background-image: linear-gradient(to right, transparent 70%, #{{ page.background-color }});"></span></figure>
-    <a href="{{ site.baseurl }}{{ page.url }}" title="{{ page.author }}">
-        <div class="quote-content">
-            {{ page.content }}
-            <p class="quote-author">- {% if page.about %}<a href="{{ page.about }}" title="About {{ page.author }}">{% endif %}{{ page.author }}{% if page.about %}</a>{% endif %}</p>
+        {% if page.author-image %}<figure style="background-image: url({{ site.baseurl }}/public/img/quote-authors/{{ page.author-image }}.png)"><span class="author-fade" style="background-image: -webkit-linear-gradient(left, transparent 70%, #{{ page.background-color }}); background-image: linear-gradient(to right, transparent 70%, #{{ page.background-color }});"></span></figure>{% endif %}
+        <div class="quote-content {% if page.author-image %}{% else %}no-author-image{% endif %}">
+           {{ page.content }}
+           {% if page.author %}<p class="quote-author">- {% if page.about %}<a href="{{ page.about }}" title="About {{ page.author }}">{% endif %}{{ page.author }}{% if page.author-title %}<span class="author-title">{{ page.author-title }}</span>{% endif %}{% if page.about %}</a>{% endif %}</p>{% endif %}
         </div>
-    </a>
-    <svg xmlns="http://www.w3.org/2000/svg" width="35.9" height="29.5" fill="#{{ page.background-color }}" viewBox="0 0 35.9 29.5">
-        <path d="M6.7 17.4L36 0s2 29.5-36 29.5c20.3-3.6 14.5-12 6.7-12z" />
-    </svg>
-    {% include atom-back-button.html %}
+        <svg xmlns="http://www.w3.org/2000/svg" width="35.9" height="29.5" fill="#{{ page.background-color }}" viewBox="0 0 35.9 29.5"><path d="M6.7 17.4L36 0s2 29.5-36 29.5c20.3-3.6 14.5-12 6.7-12z"/></svg>
+        {% include atom-back-button.html %}
 </article>
-

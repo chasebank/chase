@@ -2,13 +2,12 @@
 @import (reference) "variables.less";
 article.quote {
     position: relative;
-    width: 100%;
     border-radius: 1rem 1rem 2rem 1rem;
     padding: 1.5rem;
     display: table;
+    width: 100%;
     max-width: 700px;
     min-height: 175px;
-    //margin: 0 auto;
     text-shadow: none;
     figure {
         position: absolute;
@@ -42,6 +41,26 @@ article.quote {
             text-decoration: underline;
         }
     }
+    .quote-content.no-author-image {
+        width: 100%!important;
+        
+        p { margin-left: 0; }
+        
+        .video-embed-wrap {
+            position: relative;
+            padding-top: 66.6667%;
+            width: 100%;
+
+            > * {
+                position: absolute!important;
+                top: 0;
+                left: 0;
+                width: 100%!important;
+                height: 100%!important;
+                margin: 0!important;
+            }
+        }
+    }
     p {
         position: relative;
         text-align: center;
@@ -62,10 +81,12 @@ article.quote {
             margin-left: calc( ~"30% - .9rem");
             text-transform: uppercase;
             .author-title {
-                font-size: .9em;
+                display: block;
+                margin-top: .2rem;
+                font-size: .8em;
                 text-transform: none;
                 font-weight: 300;
-                opacity: .75;
+                opacity: .7;
              }
         }
     }
