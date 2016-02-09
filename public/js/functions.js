@@ -3,8 +3,32 @@
 /*jslint white: true */
 
 
+
+
+$(window).load(function() {
+    'use strict';
+    if ($('main').height() > $(window).height()) {
+        $('footer').show();
+    } else {
+        $('footer').hide();
+    }
+
+    $(window).on('resize', function() {
+        if ($('main').height() > $(window).height()) {
+            $('footer').show();
+        } else {
+            $('footer').hide();
+        }
+    });
+
+});
+
+
+
+
+
 $(function () {
-    "use strict";
+    'use strict';
     /* ADDED: make targets focusable */
     $('target[id]').attr('tabindex', '-1');
 
@@ -36,7 +60,7 @@ $(function () {
 
 // Float Label (slightly modified) based on version by Aaron Barker www.codepen.io/aaronbarker/
 $(function () {
-    "use strict";
+    'use strict';
     var activeClass = "active",
         showClass = "show";
 
@@ -63,7 +87,7 @@ $(function () {
 
 // Helper Label by Chase Whiteside www.codepen.io/chasebank/
 $(function () {
-    "use strict";
+    'use strict';
     var hideClass = "hide";
 
     $('.helper').hide().addClass('hide');
@@ -617,8 +641,6 @@ $('dt').click(function () {
 
 
 
-
-
 jQuery(document).ready(function ($) {
     'use strict';
     
@@ -630,15 +652,4 @@ jQuery(document).ready(function ($) {
         gutter: $container.find('.masonry-gutter')[0],
     });
 
-
-    
-    
-    // Check if body height is smaller than window height, and hide footer if so
-    var hasVScroll = document.body.scrollHeight > document.body.clientHeight;
-    
-    if ( hasVScroll = true ) {
-        $('footer').hide();
-    } else {
-        $('footer').show();
-    }
 });
