@@ -18,8 +18,3 @@ And contrary to popular belief, <a href="http://alistapart.com/article/axiomatic
 // Add a line break between succeeding elements
 * + * { margin-top: 1.5em }
 {% endhighlight %}
-
-{% highlight css %}
-// Add a line break between succeeding elements
-* + * { margin-top: 1.5em }
-{% endhighlight %}
