@@ -12,7 +12,12 @@ So * + * targets everything, as long as it follows something else... Sounds like
 
 Heydon Pickering named this the "Lobotomized Owl Selector" because as an emote, it sorta looks like... a dead bird...
 
-And contrary to popular belief, <a href="http://alistapart.com/article/axiomatic-css-and-lobotomized-owls" title="A List Apart - Axiomatic CSS and Lobotomized Owls" target="_blank">this isn't a resource hog</a>. Welcome to the future.</p></dd>
+And contrary to popular belief, <a href="http://alistapart.com/article/axiomatic-css-and-lobotomized-owls" title="A List Apart - Axiomatic CSS and Lobotomized Owls" target="_blank">this isn't a resource hog</a>. Welcome to the future.
+
+{% highlight scss %}
+// Add a line break between succeeding elements
+* + * { margin-top: 1.5em }
+{% endhighlight %}
 
 {% highlight css %}
 // Add a line break between succeeding elements
