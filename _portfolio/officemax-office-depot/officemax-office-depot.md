@@ -1,8 +1,9 @@
 ---
 layout: project
-title: OfficeMax
-slug: officemax
+title: OfficeMax Office Depot
+css: officemax
 service: Marketing / Merchandise Displays / Client Work
+permalink: /portfolio/:title/
 ---
 
 ###About OfficeMax

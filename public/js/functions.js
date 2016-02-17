@@ -4,23 +4,9 @@
 
 
 
-
-$(window).load(function() {
-    'use strict';
-    if ($('main').height() > $(window).height()) {
-        $('footer').show();
-    } else {
-        $('footer').hide();
-    }
-
-    $(window).on('resize', function() {
-        if ($('main').height() > $(window).height()) {
-            $('footer').show();
-        } else {
-            $('footer').hide();
-        }
-    });
-
+// Only show footer if page content requires scroll.
+$('body').on( 'scroll', function(){
+    $('footer').css('opacity','1');
 });
 
 

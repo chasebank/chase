@@ -1,8 +1,9 @@
 ---
 layout: project
 title: Walk on Water
-slug: walkonwater
+css: walkonwater
 service: Marketing and Promotional Materials / Branding
+permalink: /portfolio/:title/
 ---
 
 ###About Walk on Water

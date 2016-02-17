@@ -6,7 +6,7 @@ date: 2015-12-13
 category: codes
 ---
 
-Great for quick demos/tests, so you can pull whatever *thing* you're working on out from the corner, and push it into the center, where it looks nicer.
+Great for quick demos/tests, so you can pull whatever *thing* you're working on out from the corner, and drop it right in the middle, where it looks nicer anyway.
 
 And you don't have to muck up the CSS of the actual *thing* with otherwise needless positioning/margins.
 

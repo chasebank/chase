@@ -17,15 +17,6 @@ This isn't a [boilerplate](https://html5boilerplate.com/) or framework. It's jus
   <dt>Fix the crazy CSS box model - Set everything to border-box</dt>
   <dd>This changes borders and padding to inset, so they don't add dimention to a defined height/width. 100px width + 10px padding + 2px border = 100px. Border-box is set on the html element and everything else inherits it. Unless for some strange reason a different box-sizing is defined later on, the new crazy setting will cascade to it's crazy children.</dd>
 
-  <dt>The Lobotomized Owl Selector - Add a line break between succeeding elements</dt>
-  <dd><p>The + adjacent sibling selector targets an element that follows another element. x + y will target y <em>only</em> if it follows x. The * universal selector targets <em>everything</em> &lt;queue evil laghter/&gt;.</p>
-
-<p>So * + * targets everything, as long as it follows something else... Sounds like the plot for the movie <a href="https://www.youtube.com/watch?v=V3-a58Wt2tk">Inception</a>, but it really does work.</p>
-
-<p>Heydon Pickering named this the "Lobotomized Owl Selector" because as an emote, it sorta looks like... a dead bird...</p>
-
-<p>And contrary to popular belief, <a href="http://alistapart.com/article/axiomatic-css-and-lobotomized-owls" title="A List Apart - Axiomatic CSS and Lobotomized Owls" target="_blank">this is not a resource hog</a>. Welcome to the future.</p></dd>
-
   <dt>Media query mixins - Quickly target <em>relatively</em> common break points</dt>
   <dd><p>Useful for quickly blocking out layouts and prototypes.</p>
   <p class="example">Usage example:</p>
@@ -38,8 +29,9 @@ This isn't a [boilerplate](https://html5boilerplate.com/) or framework. It's jus
 </dd>
 
   <dt>Justified Grid</dt>
-  <dd><p>I haven't played with <a href="http://neat.bourbon.io/">Bourbon Neat</a> yet (can't beat that name!), but justified grids are easy to implement and just work. The concept is to use the powers of paragraph justification for natural equal space between elements (gutters).</p>
-  <p>When element widths add up to less than 100%, blank space naturally flows between them for equal distribution across the entire line/row. When elements add up to more than 100%, they automatically wrap to the next line, like words at the end of a paragraph. No messy gutter mischief. No extra mark up. Grid 'cells' don't have to be wrapped in container rows. The rows create themselves through natural flow.</p>
+  <dd><p>I haven't played with <a href="http://neat.bourbon.io/">Bourbon Neat</a> yet (can't beat that name!), but justified grids are easy to implement and just work. The concept is to harness the powers of paragraph justification, for natural equal space between elements (gutters).</p>
+  <p>When element widths add up to less than 100%, blank space naturally flows between them for equal distribution across the entire line/row. When elements add up to more than 100%, they automatically wrap to the next line, like words at the end of a paragraph. No messy margin mischief. No extra mark up. Grid 'cells' don't have to be wrapped in container rows. The rows create themselves through natural flow.</p>
+  <p>You also keep the markup clean, and free of circumstantial grid classes, like "grid-4-of-12", which is really 6-of-12 at a certain breakpoint, but 12-of-12 at another... but who's counting?? Justified grids can be managed entirely with mixins, and kept in the CSS where they belong.</p>
   <p>The only downside, if there is any, is blank space in the mark up throws off the justification. But setting the font size of the grid's parent to zero solves this. Some people have a problem with that, but I don't. rem units makes it a non-issue.</p>
   <p>My version is tailored for how I work, but more details and a neat grid builder can be found at <a href="http://justifygrid.com/">justifygrid.com</a></p>
   <p class="example">Usage example:</p>

@@ -1,8 +1,9 @@
 ---
 layout: project
 title: FeastBeast Food Truck
-slug: feastbeast
+css: feastbeast
 service: Vehicle Wrap / Marketing and Promotional Materials / Branding
+permalink: /portfolio/:title/
 ---
 
 ###About FeastBeast

@@ -93,7 +93,7 @@ section.project-feastbeast {
 
 section.project-officemax {
     position: relative!important;
-    background: url('@{projectHero}/officemax/project-hero.png') top center no-repeat, #e4e4e4;
+    background: url('@{projectHero}/officemax-office-depot/project-hero.png') top center no-repeat, #e4e4e4;
     background-size: 100%;
     padding: 4%;
     box-shadow:
@@ -109,7 +109,7 @@ section.project-officemax {
         left: 0;
         padding-top: 17.5%;
         width: 100%;
-        background: url('@{projectHero}/officemax/project-hero-transparent.png') top center no-repeat;
+        background: url('@{projectHero}/officemax-office-depot/project-hero-transparent.png') top center no-repeat;
         background-size: 100% auto;
         border-radius: 2.4rem 2.4rem 0 0;
     }
@@ -586,8 +586,11 @@ section.project-pga {
 .portfolio-thumbs {
     list-style: none;
     padding: 0;
-    #grid;
     margin-bottom: -1.9%;
+    #grid;
+    
+    li { margin-left: 0; }
+    
     li {
         @border-radius: 3rem;
         @padding: @border-radius*.34;
@@ -597,18 +600,17 @@ section.project-pga {
         border: 5px solid #D3F7FE;
         #grid > .cell;
         #grid > .span(3);
-        max-width: 237px;
         box-shadow:
             0px -1px 1px 1px white,
             2px 2px 15px fade(@blackBlue, 80%);
         border-radius: @border-radius;
         overflow: hidden;
         z-index: 10;
-
-        @media @tablet {
-            #grid > .span(4);
+        
+        @media @desktop-xl {
+            max-width: 280px;
         }
-
+        
         @media only screen and (max-width: 1000px) {
             #grid > .span(4);
         }
@@ -616,6 +618,7 @@ section.project-pga {
         @media @phone {
             #grid > .span(6);
         }
+        
         a {
             display: block;
             position: relative;

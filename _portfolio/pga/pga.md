@@ -1,8 +1,9 @@
 ---
 layout: project
 title: PGA
-slug: pga
+css: pga
 service: Holiday Card / Photo Composite
+permalink: /portfolio/:title/
 ---
 
 ###About the PGA

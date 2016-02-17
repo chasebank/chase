@@ -10,13 +10,14 @@ title: Notes
 </div>
 
 <div class="masonry">
-   <div class="masonry-gutter"></div>
     <!-- Masonry gutter and masonry column settings -->
+    <div class="masonry-gutter"></div>
+    
+    <!-- Begin masonry items -->
 
 {% assign sorted = (site.notes | sort: 'date')%}
 {% for item in sorted %}
 
-    <!-- Begin masonry items -->
     {% if item.category == "quotes" %}
     <article class="quote" style="background-color: #{{ item.background-color }}; color: #{{ item.text-color }}">
         {% if item.author-image %}<figure style="background-image: url({{ site.baseurl }}/public/img/quote-authors/{{ item.author-image }}.png)"><span class="author-fade" style="background-image: -webkit-linear-gradient(left, transparent 70%, #{{ item.background-color }}); background-image: linear-gradient(to right, transparent 70%, #{{ item.background-color }});"></span></figure>{% endif %}
