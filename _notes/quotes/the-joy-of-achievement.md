@@ -11,4 +11,4 @@ date: 2015-12-12
 category: quotes
 ---
 
-Happiness is not in the mere possession of money; it lies in the joy of achievement, in the thrill of creative effort.
+Happiness is not in the mere possession of money; it lies in the joy of achievement, in the thrill of&nbsp;creative&nbsp;effort.

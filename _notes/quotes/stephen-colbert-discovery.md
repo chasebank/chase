@@ -11,4 +11,4 @@ date: 2015-12-12
 category: quotes
 ---
 
-Discovery is always superior to invention.
+Discovery is always superior&nbsp;to&nbsp;invention.

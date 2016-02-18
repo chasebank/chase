@@ -11,4 +11,4 @@ date: 2015-12-12
 category: quotes
 ---
 
-All of your plans are stupid. All plans are stupid, and a waste of time... Until they work. And then they're totally worth it. But you never know which plan will work, so you might as well get started on your stupid plan.
+All of your plans are stupid. All plans are stupid, and a waste of time... Until they work. And then they're totally worth it. But you never know which plan will work, so you might as well get started on&nbsp;your&nbsp;stupid&nbsp;plan.

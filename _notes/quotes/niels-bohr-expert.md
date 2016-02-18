@@ -11,4 +11,4 @@ date: 2015-12-12
 category: quotes
 ---
 
-An expert is a person who has made all the mistakes that can be made in a very narrow field.
+An expert is a person who has made all the mistakes that can be made in a very&nbsp;narrow&nbsp;field.
