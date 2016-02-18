@@ -22,7 +22,8 @@
    top: 20px;
    left: 4%;
 
-   @media @tablet {
+   // hide nav behind larger toggle
+   @media only screen and (max-width: 899px) {
       transition: 0.2s ease-in-out;
       background: linear-gradient(to bottom,
          fade(@darkBlue,50%),

@@ -16,8 +16,6 @@ footer {
     padding: 4rem 0 0 0;
     margin:0 auto;
     opacity: 0;
-    //width:80%;
-    //max-width:1200px;
 
     @media only screen and (max-width: 1000px) {
         padding: 3rem 0 0 0;
@@ -59,15 +57,6 @@ footer {
 
         text-align: center;
         color: fade(#adf1ff,80%);
-
-        @media @phone {
-            #grid > .span(12);
-            text-align: center!important;
-        }
-
-        @media @tablet {
-            #grid > .span(8);
-        }
 
         a,
         a:visited {
@@ -120,6 +109,25 @@ footer {
             li {
                 display: inline-block;
                 margin: 0 0 0 1.4rem;
+                
+                // hide social icons on wide screen (redundant from fixed nav)
+                &:not(:last-child) {
+                    @media screen and (min-width: 1200px) {
+                        display: none;
+                    }
+                }
+                
+                // back to top link
+                &:last-child {
+                    @media only screen and (max-width: 640px) {
+                        margin-top: 1.5rem;
+                        width: 100%;
+                        #back-to-top {
+                            display: inline-block;
+                            text-align: center;
+                        }
+                    }
+                }
 
                 @media @phone {
                     margin: 0;

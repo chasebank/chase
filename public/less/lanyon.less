@@ -181,7 +181,7 @@ body.splash {
     
     #content {
         @media @desktop-xl { width:60% }
-        @media @desktop { width:80% }
+        //@media @desktop { width:80% }
     }
 }
 
@@ -634,6 +634,7 @@ a.pagination-item:hover {
 }
 .masonry > article {
   float: left;
+  // 3 columns
   width: ~"calc( (100% - (@{masonryGutter} *2)) / 3 )"!important;
   margin-top: @masonryGutter;
   
@@ -641,17 +642,18 @@ a.pagination-item:hover {
     //width: ~"calc( (100% - (@{masonryGutter} *2)) / 3 )";
   }
   
-  @media screen and (min-width: 1000px) and (max-width: 1199px) {
+  @media screen and (min-width: 1000px) and (max-width: 1350px) {
+    // 2 columns
     width: ~"calc( (100% - @{masonryGutter}) / 2 )"!important;
   }
   
-  @media screen and (min-width: 650px) and (max-width: 999px) {
+    @media screen and (min-width: 900px) and (max-width: 1050px) {
+    // 2 columns
     width: ~"calc( (100% - @{masonryGutter}) / 2 )"!important;
-    
     &.quote { width: 100%!important; }
   }
   
-  @media screen and (max-width: 649px) {
+  @media screen and (max-width: 899px) {
     width: 100%!important;
   }
 }
