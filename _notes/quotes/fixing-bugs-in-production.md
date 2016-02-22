@@ -1,14 +1,15 @@
 ---
-title: Niels Bohr Expert
+title: Fixing bugs in production
 layout: quote
 author:
 author-title:
 author-image: 
 about:
-background-color: 483d33
-text-color: f4ecf5
+background-color: '483d33'
+text-color: 'f4ecf5'
 date: 2015-12-12
 category: quotes
+share-link: https://twitter.com/JonathanDeMoor/status/676027065171316737
 ---
 
 Fixing bugs in production...

@@ -1,91 +1,47 @@
 ---
-layout: splash
-title: Home
+layout: default
+title: Notes
 ---
 
-<p>Thanks so much for visiting my site. You caught me right in the middle of re-designing it!</p>
-<p>In the mean time, some of my work can be viewed using the links at the bottom of this page. Or, if you’d like to contact me, please use the form below:</p>
+<div class="page-head">
+    <h2>Notes</h2>
 
-
-<div id="wufoo-q1jkk36m1p2rzx9">
-Fill out my <a href="https://chasew.wufoo.com/forms/q1jkk36m1p2rzx9">online form</a>.
+    <p><strong>Random things</strong> I've found/learned/created that may or may not be worth sharing sharing. Nevertheless,&nbsphere&nbspthey&nbspare!</p>
 </div>
 
-<script type="text/javascript">var q1jkk36m1p2rzx9;(function(d, t) {
-var s = d.createElement(t), options = {
-'userName':'chasew',
-'formHash':'q1jkk36m1p2rzx9',
-'autoResize':true,
-'height':'500',
-'async':true,
-'host':'wufoo.com',
-'header':'show',
-'ssl':false};
-s.src = ('http:' == d.location.protocol ? 'https://' : 'http://') + 'www.wufoo.com/scripts/embed/form.js';
-s.onload = s.onreadystatechange = function() {
-var rs = this.readyState; if (rs) if (rs != 'complete') if (rs != 'loaded') return;
-try { q1jkk36m1p2rzx9 = new WufooForm();q1jkk36m1p2rzx9.initialize(options);q1jkk36m1p2rzx9.display(); } catch (e) {}};
-var scr = d.getElementsByTagName(t)[0], par = scr.parentNode; par.insertBefore(s, scr);
-})(document, 'script');</script>
+<div class="masonry">
+    <!-- Masonry gutter and masonry column settings -->
+    <div class="masonry-gutter"></div>
+    
+    <!-- Begin masonry items -->
 
-<!--<form id="contact" action="//formspree.io/chase@cha.se.net" method="POST">
-    <ol>
-        <li>
-            <label for="name">Name*</label>
-            <input type="text" id="name" name="name" placeholder="Name*" required />
-            <span class="helper">Example: I'm Batman.</span>
-        </li>
-        <li>
-            <label for="email">Email*</label>
-            <input type="email" name="email" placeholder="Email*" required />
-            <span class="helper">Example: batman@gothamcity.gov</span>
-        </li>
-        <li>
-            <label for="_subject">Subject*</label>
-            <input type="text" name="_subject" placeholder="Subject*" required />
-        </li>
-        <li>
-            <label for="message">Message*</label>
-            <textarea name="message" id="" cols="30" rows="10" placeholder="Message*" required ></textarea>
-        </li>
-        <li style="display:none">
-            <input type="text" name="_gotcha" style="display:none" />
-        </li>
-    </ol>
+{% assign sorted = (site.notes | sort: 'date' )%}
+{% for item in sorted reversed %}
 
-    <input type="submit" value="Send">
-</form>
-
-<div class="posts">
-  {% for post in paginator.posts %}
-  <div class="post">
-    <h1 class="post-title">
-      <a href="{{ site.baseurl }}/{{ post.url }}">
-        {{ post.title }}
-      </a>
-    </h1>
-
-    <span class="post-date">{{ post.date | date_to_string }}</span>
-
-    {{ post.content }}
-  </div>
-  {% endfor %}
-</div>
-
-<div class="pagination">
-  {% if paginator.next_page %}
-    <a class="pagination-item older" href="{{ site.baseurl }}/page{{paginator.next_page}}">Older</a>
-  {% else %}
-    <span class="pagination-item older">Older</span>
-  {% endif %}
-  {% if paginator.previous_page %}
-    {% if paginator.page == 2 %}
-      <a class="pagination-item newer" href="{{ site.baseurl }}/">Newer</a>
-    {% else %}
-      <a class="pagination-item newer" href="{{ site.baseurl }}/page{{paginator.previous_page}}">Newer</a>
+    {% if item.category == "quotes" %}
+    <article class="quote" style="background-color: #{{ item.background-color }}; color: #{{ item.text-color }}">
+        {% if item.author-image %}<figure style="background-image: url({{ site.baseurl }}/public/img/quote-authors/{{ item.author-image }}.png)"><span class="author-fade" style="background-image: -webkit-linear-gradient(left, transparent 70%, #{{ item.background-color }}); background-image: linear-gradient(to right, transparent 70%, #{{ item.background-color }});"></span></figure>{% endif %}
+        <div class="quote-content {% if item.author-image %}{% else %}no-author-image{% endif %}">
+            <a href="{{ site.baseurl }}{{ item.url }}" title="{{ item.author }}">
+            {{ item.content }}
+            </a>
+            {% if item.author %}<p class="quote-author">{% if item.about %}<a href="{{ item.about }}" title="About {{ item.author }}">{% endif %}-&nbsp;{{ item.author }}{% if item.author-title %}<span class="author-title">{{ item.author-title }}</span>{% endif %}{% if item.about %}</a>{% endif %}</p>{% endif %}
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="35.9" height="29.5" fill="#{{ item.background-color }}" viewBox="0 0 35.9 29.5"><path d="M6.7 17.4L36 0s2 29.5-36 29.5c20.3-3.6 14.5-12 6.7-12z"/></svg>
+        <a href="{{ item.share-link }}" id="twitter-share" title="Tweet this quote" target="_blank"><i class="fa fa-twitter"></i><span class="twitter-share--text">Tweet this</span></a>
+    </article>
     {% endif %}
-  {% else %}
-    <span class="pagination-item newer">Newer</span>
-  {% endif %}
-</div>-->
 
+    {% if item.category == "codes" %}
+    <article class="code">
+        <a href="{{ site.baseurl }}{{ item.url }}" title="{{ item.title }}">
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.description }}</p>
+        </a>
+    </article>
+    {% endif %}
+    
+{% endfor %}
+</div>
+
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"> </script>

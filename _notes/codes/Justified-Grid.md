@@ -2,7 +2,7 @@
 layout: code
 title: Justified Grid
 description: A grid that's easy to implement and just works.
-date: 2015-12-13
+date: 2016-02-20
 category: codes
 ---
 

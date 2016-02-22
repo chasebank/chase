@@ -5,10 +5,11 @@ author:
 author-title:
 author-image: 
 about:
-background-color: 10191a
-text-color: f3e6ea
+background-color: '10191a'
+text-color: 'f3e6ea'
 date: 2015-12-12
 category: quotes
+share-link: https://twitter.com/intent/tweet?text=THE%20GAP%20by%20Ira%20Glass%20https://vimeo.com/85040589
 ---
 
 TASTE

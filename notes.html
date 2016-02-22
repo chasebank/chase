@@ -15,8 +15,8 @@ title: Notes
     
     <!-- Begin masonry items -->
 
-{% assign sorted = (site.notes | sort: 'date')%}
-{% for item in sorted %}
+{% assign sorted = (site.notes | sort: 'date' )%}
+{% for item in sorted reversed %}
 
     {% if item.category == "quotes" %}
     <article class="quote" style="background-color: #{{ item.background-color }}; color: #{{ item.text-color }}">
@@ -24,10 +24,11 @@ title: Notes
         <div class="quote-content {% if item.author-image %}{% else %}no-author-image{% endif %}">
             <a href="{{ site.baseurl }}{{ item.url }}" title="{{ item.author }}">
             {{ item.content }}
-            {% if item.author %}<p class="quote-author">- {% if item.about %}<a href="{{ item.about }}" title="About {{ item.author }}">{% endif %}{{ item.author }}{% if item.author-title %}<span class="author-title">{{ item.author-title }}</span>{% endif %}{% if item.about %}</a>{% endif %}</p>{% endif %}
             </a>
+            {% if item.author %}<p class="quote-author">{% if item.about %}<a href="{{ item.about }}" title="About {{ item.author }}">{% endif %}-&nbsp;{{ item.author }}{% if item.author-title %}<span class="author-title">{{ item.author-title }}</span>{% endif %}{% if item.about %}</a>{% endif %}</p>{% endif %}
         </div>
         <svg xmlns="http://www.w3.org/2000/svg" width="35.9" height="29.5" fill="#{{ item.background-color }}" viewBox="0 0 35.9 29.5"><path d="M6.7 17.4L36 0s2 29.5-36 29.5c20.3-3.6 14.5-12 6.7-12z"/></svg>
+        <a href="{{ item.share-link }}" id="twitter-share" title="Tweet this quote" target="_blank"><i class="fa fa-twitter"></i><span class="twitter-share--text">Tweet this</span></a>
     </article>
     {% endif %}
 

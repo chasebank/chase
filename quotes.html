@@ -11,7 +11,7 @@ permalink: /notes/quotes/
 </div>
 
 
-<div class="masonry">
+<div class="masonry quotes-page">
     <!-- Masonry gutter and masonry column settings -->
     <div class="masonry-gutter"></div>
     
@@ -25,10 +25,11 @@ permalink: /notes/quotes/
         <div class="quote-content {% if quote.author-image %}{% else %}no-author-image{% endif %}">
             <a href="{{ site.baseurl }}{{ quote.url }}" title="{{ quote.author }}">
             {{ quote.content }}
-            {% if quote.author %}<p class="quote-author">- {% if quote.about %}<a href="{{ quote.about }}" title="About {{ quote.author }}">{% endif %}{{ quote.author }}{% if quote.author-title %}<span class="author-title">{{ quote.author-title }}</span>{% endif %}{% if quote.about %}</a>{% endif %}</p>{% endif %}
+            {% if quote.author %}<p class="quote-author">{% if quote.about %}<a href="{{ quote.about }}" title="About {{ quote.author }}">{% endif %}-&nbsp;{{ quote.author }}{% if quote.author-title %}<span class="author-title">{{ quote.author-title }}</span>{% endif %}{% if quote.about %}</a>{% endif %}</p>{% endif %}
             </a>
         </div>
         <svg xmlns="http://www.w3.org/2000/svg" width="35.9" height="29.5" fill="#{{ quote.background-color }}" viewBox="0 0 35.9 29.5"><path d="M6.7 17.4L36 0s2 29.5-36 29.5c20.3-3.6 14.5-12 6.7-12z"/></svg>
+        <a href="{{ quote.share-link }}" id="twitter-share" title="Tweet this quote" target="_blank"><i class="fa fa-twitter"></i><span class="twitter-share--text">Tweet this</span></a>
     </article>
 
     {% endif %}

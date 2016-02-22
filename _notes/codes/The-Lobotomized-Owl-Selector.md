@@ -1,6 +1,6 @@
 ---
 layout: code
-title: The Lobotomized Owl Selector
+title: The Lobotomized Owl&nbsp;Selector
 description: Add a line break between succeeding elements.
 date: 2015-12-13
 category: codes

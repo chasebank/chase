@@ -1,6 +1,6 @@
 ---
 layout: code
-title: One Code to Rule Them All
+title: One Code to&nbsp;Rule&nbsp;Them&nbsp;All
 description: I think this is a well-rounded starter for <em>most</em> projects.
 date: 2015-12-11
 category: codes

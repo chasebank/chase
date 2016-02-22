@@ -1,31 +1,17 @@
 ---
 layout: page
-title: About
+title: About Me
 exclude_from_nav: true
 ---
 
-<p class="message">
-  Hey there! This page is included as an example. Feel free to customize it for your own use upon downloading. Carry on!
-</p>
+Thanks for visiting my site. It's newly designed and fresh off the press, but there's a few things I'm still working on - including this page. But, a quick intro:
 
-In the novel, *The Strange Case of Dr. Jeykll and Mr. Hyde*, Mr. Poole is Dr. Jekyll's virtuous and loyal butler. Similarly, Poole is an upstanding and effective butler that helps you build Jekyll themes. It's made by [@mdo](https://twitter.com/mdo).
+I'm a designer from/in Orlando Florida. "Designer" is purposely vague, as my skills, experience and interests are continually growing.
 
-There are currently two themes built on Poole:
+My "professional" story started when I was ~roughly~ 12 years old, and landed a gig managing a company's monthly printed newsletter. I'd only recently started learning Photoshop but caught on fast. This was long before Adobe coined the brand "Creative Suite", and half of Adobe's current flagship products were still owned by Macromedia.
 
-* [Hyde](http://hyde.getpoole.com)
-* [Lanyon](http://lanyon.getpoole.com)
+It wasn't long before I started dabbling with websites. While the old times had *some* simplicity (72 DPI, no more than 1024px wide), it had it's own challenges. The web was built atop complex architectural structures known as "tables". Tables inside tables that were sometimes in more tables, like the movie Inception. Anything more complex than simple, required intricately slicing up images and carefully puzzling them back together. And responsive design wasn't a thing, since there were no smartphones to respond to.
 
-Learn more and contribute on [GitHub](https://github.com/poole).
+Over the years, I've continued to bounce back and fourth between web and print as both industries evolve with the times. The nature of design is creative problem solving. Visual, physical, technological, accessibility, experience... I enjoy the often parallel challenges between web and print, and finding ways to adapt lessons learned in one, and apply them to the other. 
 
-## Setup
-
-Some fun facts about the setup of this project include:
-
-* Built for [Jekyll](http://jekyllrb.com)
-* Developed on GitHub and hosted for free on [GitHub Pages](https://pages.github.com)
-* Coded with [Sublime Text 2](http://sublimetext.com), an amazing code editor
-* Designed and developed while listening to music like [Blood Bros Trilogy](https://soundcloud.com/maddecent/sets/blood-bros-series)
-
-Have questions or suggestions? Feel free to [open an issue on GitHub](https://github.com/poole/issues/new) or [ask me on Twitter](https://twitter.com/mdo).
-
-Thanks for reading!
+To be continued...

@@ -3,7 +3,7 @@
 article.quote {
     position: relative;
     border-radius: 1rem 1rem 2rem 1rem;
-    padding: 1.5rem;
+    padding: 3.5rem 1.5rem;
     display: table;
     width: 100%;
     max-width: 700px;
@@ -40,6 +40,10 @@ article.quote {
         &:hover {
             text-decoration: underline;
         }
+    }
+    
+    .quote-author a {
+        display: inline-block;
     }
     .quote-content.no-author-image {
         width: 100%!important;
@@ -94,5 +98,69 @@ article.quote {
         position: absolute;
         right: 0;
         bottom: -11px;
+    }
+}
+
+// Stagger quotes at 100% on quotes page
+.quotes-page article.quote {
+    @media @tablet {
+        &:nth-child(odd) {
+            left: auto!important;
+            right: 0px!important;
+        }
+    }
+}
+
+
+
+#twitter-share {
+    display: inline-block;
+    position: absolute;
+    bottom: .75rem;
+    right: .75rem;
+    @size: 5rem;
+    font-size: @size;
+    text-decoration: none;
+    transition: all .3s ease-out;
+    transform: scale(.5) translateX(50%) translateY(50%);
+    
+    i.fa {
+        backface-visibility: hidden;
+        -webkit-font-smoothing: antialiased;
+        transition: all .3s ease-out;
+        opacity: .5
+    }
+    
+    .twitter-share--text {
+        position: absolute;
+        top: 50%;
+        right: 100%;
+        display: block;
+        // absolute position width hack :(
+        //height: 100%;
+        width: 8.5em;
+        text-align: right;
+        transform:  translate3d(50%,-50%,0) scaleX(.1) scaleY(.5);
+        backface-visibility: hidden;
+        -webkit-font-smoothing: antialiased;
+        padding-right: .5em;
+        font-size: @size*.5;
+        line-height: 1;
+        opacity: 0;
+        transition: all .3s ease-out;
+        text-transform: uppercase;
+    }
+    
+    &:hover {
+        i.fa {
+            transform: translate3d(0,0,0) perspective(1px) scale(1.4) rotate(-12deg);
+            transform-origin: center center;
+            opacity: 1;
+        }
+        
+        .twitter-share--text {
+            transform: translate3d(0%,-50%,0) scaleX(1);
+            opacity: 1;
+        }
     }
 }

@@ -3,33 +3,34 @@
 
 
 #toggle-nav {
-   /* ICON SIZE - all other paramaters are based on this */
-   @hamburgerWidth: 25px;
+    /* ICON SIZE - all other paramaters are based on this */
+    @hamburgerWidth: 25px;
 
-   @hamburgerHeight: floor(@hamburgerWidth*.2);
-   @togglePadding: @hamburgerHeight*1.8;
-   @hamburgerBorderRadius: @hamburgerHeight;
-   @hamburgerColor: @whiteBlue;
+    @hamburgerHeight: floor(@hamburgerWidth*.2);
+    @togglePadding: @hamburgerHeight*1.8;
+    @hamburgerBorderRadius: @hamburgerHeight;
+    @hamburgerColor: @whiteBlue;
 
-   position: relative;
-   display: inline-block;
-   height: @hamburgerHeight*5+(@togglePadding*2.5);
-   padding-left: @hamburgerWidth+@togglePadding;
-   padding-right: @togglePadding;
-   border-radius: @hamburgerHeight*1.5;
-   cursor: pointer;
-   text-decoration: none;
-   top: 20px;
-   left: 4%;
+    position: relative;
+    display: inline-block;
+    height: @hamburgerHeight*5+(@togglePadding*2.5);
+    padding-left: @hamburgerWidth+@togglePadding;
+    padding-right: @togglePadding;
+    border-radius: @hamburgerHeight*1.5;
+    cursor: pointer;
+    text-decoration: none;
+    top: 20px;
+    left: 4%;
 
-   // hide nav behind larger toggle
-   @media only screen and (max-width: 899px) {
-      transition: 0.2s ease-in-out;
-      background: linear-gradient(to bottom,
-         fade(@darkBlue,50%),
-         fade(@lightBlue,20%)
-      )!important;
-      box-shadow:inset 0px 0px 2px fade(@lightBlue,40%)  ;
+    // hide nav behind larger toggle
+    @media @tablet {
+        
+        transition: 0.2s ease-in-out;
+        background: linear-gradient(to bottom,
+            fade(@darkBlue,50%),
+            fade(@lightBlue,20%)
+        )!important;
+        box-shadow:inset 0px 0px 2px fade(@lightBlue,40%)  ;
 
       &:before {
          position: absolute;
