@@ -6,13 +6,13 @@
     <nav role='navigation'>
         <!--<a class="{% if page.url == site.baseurl %}active{% endif %}" href="{{ site.baseurl }}/" title="Home">Home</a>-->
         <a class="
-            {% if page.url contains '/notes/' %}active{% endif %}
+            {% if page.url contains '/notes/' or page.url == "/" %}active{% endif %}
             {% if page.url contains "/blog" %}active{% endif %}
             {% if page.url contains "/quotes" %}active{% endif %}
             {% if page.url contains "/codes" %}active{% endif %}
             {% if page.url contains "/tools" %}active{% endif %}
         " href="{{ site.baseurl }}/notes/" title="Notes">Notes</a>
-        {% if page.url contains '/notes/'%}
+        {% if page.url contains '/notes/' or page.url == "/" %}
             {% include subnav.html %}
         {% endif %}
         
