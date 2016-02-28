@@ -4,7 +4,7 @@ exclude: ['README.md']
 # Permalinks
 #
 # Use of `relative_permalinks` ensures post links from the index work properly.
-permalink:           pretty
+permalink:           /notes/blog/:title/
 
 # Setup
 title:               Chase Whiteside
@@ -24,6 +24,8 @@ author:
 version:             1.0.0
 
 gems: [jekyll-paginate]
+
+
 
 collections:
   notes:
