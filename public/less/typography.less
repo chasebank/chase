@@ -1,7 +1,7 @@
 // main: styles.less
 @import (reference) "variables.less";
 
-body {font-family: 'Exo 2', sans-serif;}
+body { font-family: 'Exo 2', sans-serif; }
 
 
 
@@ -87,16 +87,25 @@ h2 + p,
 h3 + p,
 h4 + p { margin-top: .5em }
 
-section.container { color: #616161; text-shadow: none; }
+section.container {
+    color: #616161;
+    text-shadow: none;
+}
 
 
+.post-title {
+    position: relative;
+    font-size: 4.5rem;
+}
 
 /* Meta data line below post title */
+
 .post-date {
-  display: block;
-  margin-top: -.5rem;
-  margin-bottom: 1rem;
-  color: #9a9a9a;
+    position: relative;
+    display: block;
+    font-size: 2rem;
+    margin-top: 1rem;
+    color: #9a9a9a;
 }
 
 /* Related posts */
@@ -129,6 +138,38 @@ ul, ol, dl {
   font-size:1.4rem;
 }
 
+ol {
+    margin: 0 0 0 2%;
+    padding: 0;
+    list-style-type: none;
+    
+    li {
+        position: relative;
+        counter-increment: step-counter;
+        margin-bottom: 2rem;
+        margin-left: 4%;
+    }
+    
+    li:before {
+        display: inline-block;
+        position: absolute;
+        top: -.5rem;
+        left: -4rem;
+        font-family: 'Exo 2', sans-serif;
+        content: counter(step-counter);
+        margin-right: 5px;
+        font-size: 2rem;
+        width: 3rem;
+        height: 3rem;
+        background-color: @blue;
+        color: white;
+        text-shadow: none;
+        font-weight: bold;
+        padding: .2rem .1rem 0 0;
+        text-align: center;
+        border-radius: 50%;
+    }
+}
 
 main {
   text-shadow: 1px 1px 4px @blackBlue;
@@ -141,7 +182,10 @@ main {
   h6 {
       color: #2ecef1;
   }
-  p { color: #cbf6ff; font-size: 1.6rem; }
+  p {
+      color: #cbf6ff;
+      font-size: 1.6rem;
+    }
 }
 
 article.code,
@@ -152,8 +196,10 @@ section {
 
 article ul,
 section ul {
+    font-size: 110%;
     list-style: none;
     padding: 0;
+    margin: 3% 2%;
 
     li {
         margin-left: 2rem;
@@ -163,7 +209,7 @@ section ul {
             display: inline-block;
             position: absolute;
             top: .2rem;
-            left: -2rem;
+            left: -2.5rem;
             height: 100%;
             font-family: 'FontAwesome';
             content:'\f192';
@@ -266,6 +312,29 @@ dd {
         height: 100%;
         background-image: linear-gradient(to bottom, @blue, transparent);
     }*/
+}
+
+
+.blog-post {
+    p,
+    li { color: @baseBlue }
+    
+    a { color: @blueDarker }
+    
+    ul li:before { color: @blue; opacity: 1 }
+    
+    code { color: #427690; background: #E4EEF1 }
+}
+
+.blog-header {
+    text-align: center;
+    text-shadow:
+        1px 1px 4px black,
+        2px 2px 12px black;
+    h1,
+    .post-date { color: white }
+    
+    .post-date { opacity: .75 }
 }
 
 

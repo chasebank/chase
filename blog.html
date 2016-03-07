@@ -1,0 +1,37 @@
+---
+layout: default
+title: Blog
+permalink: /notes/blog/
+---
+
+<!--{% assign projects = site.portfolio | sort: 'date' | reverse %}-->
+
+<div class="page-head">
+<h2>My Blog</h2>
+
+    <p>This is all personal opinion, based on my perspective and experience.</br>It may be wrong, is most certainly incomplete, and likely to change&nbspat&nbspany&nbsptime. "Strong&nbspconvictions,&nbsploosely&nbspheld..."</p>
+</div>
+
+
+
+<div class="masonry">
+<!-- Masonry gutter and masonry column settings -->
+<div class="masonry-gutter"></div>
+
+<!-- Begin masonry items -->
+{% for post in site.posts %}    
+    <article class="blog-post--grid" style="background-image: url('{{ site.baseurl }}/public/img/post-heros/{{ post.hero-image }}'); text-shadow:         2px 4px 2px black,
+    0px 0px 10px black,
+    0px 0px 10px black">
+    <a href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}" style="color: #{{ post.accent-color }}">
+        <h3 class="blog-post--title">{{ post.title }}</h3>
+        <div class="blog-post--excerpt">
+            <p>Just about anything that renders raw code, does so with the added flair of syntax highlighting. Gone are the days of green text on black backgrounds. No need for code to look like a seizure inducing Matrix intro. Welcome to the future.</p>
+            <figure class="blog-post--excerpt--overlay" style="color: #000000">
+                <button class="blog-post--read-more"><span>...Read More</span></button>
+            </figure>
+        </div>
+    </a>
+</article>
+{% endfor %}
+</div>

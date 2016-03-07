@@ -2,6 +2,12 @@
 layout: main
 ---
 
-<section>
-    {{ content }}
-</section>
+{% include header.html %}
+
+<div id="content">
+    <section>
+        {{ content }}
+    </section>
+
+    {% include footer.html %}
+</div>
