@@ -5,18 +5,10 @@
 
 
 // Only show footer if page content requires scroll.
-$('body').one( 'scroll', function(){
+$('body').on( 'scroll', function(){
     $('footer').css('opacity','1');
 });
 
-
-
-
-$('.blog-post--grid').each(function() {
-    var blogAccentColor = $(this).find('a').css('color');
-    
-    $(this).find('.blog-post--read-more > span').css('color',blogAccentColor);
-}); 
 
 
 
