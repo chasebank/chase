@@ -5,7 +5,7 @@
 
 
 // Only show footer if page content requires scroll.
-$(window).one( 'scroll', function(){
+$('body').one( 'scroll', function(){
     $('footer').css('opacity','1');
 });
 
