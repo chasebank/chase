@@ -228,7 +228,7 @@ body {
 }
 
 
-main {
+article {
     // Add a line break between succeeding elements
     // Needs to stay here.. has to concatinate after typography.less
     * + * { margin-top: 1.5rem }
@@ -265,7 +265,7 @@ main {
     }
 }
 
-    #top {
+#top {
     z-index: 100;
     background: url('../img/logo-retna.png');
     background-size: contain;
@@ -327,6 +327,10 @@ main {
     margin: 0 auto;
     //max-width: 1200px;
     min-height: 100%;
+    
+    @media @phone {
+        padding: 0 1.5%;
+    }
 
     @media @mobile {
         width:100%;
@@ -484,7 +488,7 @@ hr {
 .post {
     margin-bottom: 4em;
 }
-/* Blog post or page title */
+/* post or page title */
 
 .page-title,
 .post-title {

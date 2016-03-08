@@ -4,11 +4,28 @@
 
 
 
+#blog-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+.menuOpen,
+#blog-nav,
+#toggle-nav {
+    margin-top: 0!important;
+}
+
+
+
 .blog-hero {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    right: 0;
+    //width: 100%;
     background-size: cover!important;
     background-position: center center!important;
     min-height: 500px;
@@ -25,6 +42,10 @@
         1px 1px 4px black,
         2px 2px 12px black,
         4px 4px 20px black;
+    
+    .post-title {
+        @media @phone { font-size: 3.5rem }
+    }
     
     .post-title,
     .post-date { color: currentColor }

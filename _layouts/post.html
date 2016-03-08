@@ -2,6 +2,15 @@
 layout: main
 ---
 
+<header id="blog-nav">
+   <a href="{{ site.baseurl }}/" id="logo-link" title="Home"></a>
+   <a href="#" id="toggle-nav" title="Toggle Menu">
+      <div class="hamburger"></div>
+      <div class="toggle-text"><span>MENU</span><span class="hide">CLOSE</span></div>
+   </a>
+</header>
+
+
 <div id="content" class="content-blog">
     <figure class="blog-hero" style="
             background: -webkit-linear-gradient(top, transparent 50%, #212b2e), url({{ site.baseurl }}/public/img/post-heros/{{ page.hero-image }});

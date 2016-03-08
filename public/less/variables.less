@@ -69,15 +69,11 @@ body.splash {
         margin-bottom: @gridGutterWidth;
     }
     .push(@cols, @total: @gridColumns) {
-        //eft: percentage((@gridColumnWidth + @gridGutterWidth) * @cols /
-                        //(@gridColumnWidth * @total + @gridGutterWidth * (@total - 1)));
         @gutterCalc: @total / @cols;
         @totalGutter: (@gutterCalc - 1) * @gridGutterWidth;
         left: calc( ~"(100% - @{totalGutter}) / @{gutterCalc} + @{gridGutterWidth}" );
     }
     .pull(@cols, @total: @gridColumns) {
-        //left: percentage((@gridColumnWidth + @gridGutterWidth) * -@cols /
-                        //(@gridColumnWidth * @total + @gridGutterWidth * (@total - 1)));
         @gutterCalc: @total / @cols;
         @totalGutter: (@gutterCalc - 1) * @gridGutterWidth;
         left: calc( ~"( (100% - @{totalGutter}) / @{gutterCalc} + @{gridGutterWidth} ) * -1" );
