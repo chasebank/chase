@@ -4,11 +4,13 @@
 
 
 
-// Only show footer if page content requires scroll.
-$('body').one( 'scroll', function(){
-    $('footer').css('opacity','1');
-});
 
+// Only show footer if page content requires scroll.
+$(window).ready(function(){
+    $(this).one('scroll', function(){
+        $('footer').css('opacity','1');
+    });
+});
 
 
 
