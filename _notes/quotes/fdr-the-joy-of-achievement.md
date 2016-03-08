@@ -5,7 +5,7 @@ author: Franklin D. Roosevelt
 author-title: 32nd President of the United States
 author-image: franklin-roosevelt
 about: https://en.wikipedia.org/wiki/Franklin_D._Roosevelt
-background-color: '2d322b'
+background-color: '45,50,43'
 text-color: 'f8ffe1'
 date: 2015-12-12
 category: quotes

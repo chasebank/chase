@@ -5,7 +5,7 @@ author: Niels Bohr
 author-title: Nobel Prize winning Physicist
 author-image: niels-bohr
 about: https://en.wikipedia.org/wiki/Niels_Bohr
-background-color: '2e1f54'
+background-color: '43,31,84'
 text-color: 'feffc3'
 date: 2015-12-12
 category: quotes

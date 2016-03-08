@@ -5,7 +5,7 @@ author: Travis Neilson
 author-title: YouTuber
 author-image: travis-neilson
 about: http://travisneilson.com/
-background-color: 'ffff00'
+background-color: '255,255,0'
 text-color: '221700'
 date: 2015-12-12
 category: quotes

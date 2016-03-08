@@ -5,7 +5,7 @@ author: Seneca
 author-title: Roman Stoic philosopher
 author-image: seneca
 about: https://en.wikipedia.org/wiki/Seneca_the_Younger
-background-color: '3e282a'
+background-color: '62,40,42'
 text-color: 'fcffec'
 date: 2015-12-12
 category: quotes

@@ -14,15 +14,17 @@
 {% for item in sorted reversed %}
 
     {% if item.category == "quotes" %}
-    <article class="quote" style="background-color: #{{ item.background-color }}; color: #{{ item.text-color }}">
-        {% if item.author-image %}<figure style="background-image: url({{ site.baseurl }}/public/img/quote-authors/{{ item.author-image }}.png)"><span class="author-fade" style="background-image: -webkit-linear-gradient(left, transparent 70%, #{{ item.background-color }}); background-image: linear-gradient(to right, transparent 70%, #{{ item.background-color }});"></span></figure>{% endif %}
+    <article class="quote" style="background-color: rgba({{ item.background-color }},1); color: #{{ item.text-color }}">
+        {% if item.author-image %}<figure style="background-image: url({{ site.baseurl }}/public/img/quote-authors/{{ item.author-image }}.png)"><span class="author-fade" style="
+        background-image: -webkit-linear-gradient(left, rgba({{ item.background-color }},0) 70%, rgba({{ item.background-color }},1));
+        background-image: linear-gradient(to right, rgba({{ item.background-color }},0) 70%, rgba({{ item.background-color }},1));"></span></figure>{% endif %}
         <div class="quote-content {% if item.author-image %}{% else %}no-author-image{% endif %}">
             <a href="{{ site.baseurl }}{{ item.url }}" title="{{ item.title }}">
             {{ item.content }}
             </a>
             {% if item.author %}<p class="quote-author">{% if item.about %}<a href="{{ item.about }}" title="About {{ item.author }}">{% endif %}-&nbsp;{{ item.author }}{% if item.author-title %}<span class="author-title">{{ item.author-title }}</span>{% endif %}{% if item.about %}</a>{% endif %}</p>{% endif %}
         </div>
-        <svg xmlns="http://www.w3.org/2000/svg" width="35.9" height="29.5" fill="#{{ item.background-color }}" viewBox="0 0 35.9 29.5"><path d="M6.7 17.4L36 0s2 29.5-36 29.5c20.3-3.6 14.5-12 6.7-12z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="35.9" height="29.5" fill="rgba({{ item.background-color }},1)" viewBox="0 0 35.9 29.5"><path d="M6.7 17.4L36 0s2 29.5-36 29.5c20.3-3.6 14.5-12 6.7-12z"/></svg>
         <a href="{{ item.share-link }}" id="twitter-share" title="Tweet this quote" target="_blank"><i class="fa fa-twitter"></i><span class="twitter-share--text">Tweet this</span></a>
     </article>
     {% endif %}

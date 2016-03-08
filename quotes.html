@@ -20,15 +20,17 @@ permalink: /notes/quotes/
     {% for quote in site.notes %}
     {% if quote.category == "quotes" %}
 
-    <article class="quote" style="background-color: #{{ quote.background-color }}; color: #{{ quote.text-color }}">
-        {% if quote.author-image %}<figure style="background-image: url({{ site.baseurl }}/public/img/quote-authors/{{ quote.author-image }}.png)"><span class="author-fade" style="background-image: -webkit-linear-gradient(left, transparent 70%, #{{ quote.background-color }}); background-image: linear-gradient(to right, transparent 70%, #{{ quote.background-color }});"></span></figure>{% endif %}
+    <article class="quote" style="background-color: rgba({{ quote.background-color }},1); color: #{{ quote.text-color }}">
+        {% if quote.author-image %}<figure style="background-image: url({{ site.baseurl }}/public/img/quote-authors/{{ quote.author-image }}.png)"><span class="author-fade" style="
+        background-image: -webkit-linear-gradient(left, rgba({{ quote.background-color }},0) 70%, rgba({{ quote.background-color }},1));
+        background-image: linear-gradient(to right, rgba({{ quote.background-color }},0) 70%, rgba({{ quote.background-color }},1));"></span></figure>{% endif %}
         <div class="quote-content {% if quote.author-image %}{% else %}no-author-image{% endif %}">
             <a href="{{ site.baseurl }}{{ quote.url }}" title="{{ quote.title }}">
             {{ quote.content }}
             {% if quote.author %}<p class="quote-author">{% if quote.about %}<a href="{{ quote.about }}" title="About {{ quote.author }}">{% endif %}-&nbsp;{{ quote.author }}{% if quote.author-title %}<span class="author-title">{{ quote.author-title }}</span>{% endif %}{% if quote.about %}</a>{% endif %}</p>{% endif %}
             </a>
         </div>
-        <svg xmlns="http://www.w3.org/2000/svg" width="35.9" height="29.5" fill="#{{ quote.background-color }}" viewBox="0 0 35.9 29.5"><path d="M6.7 17.4L36 0s2 29.5-36 29.5c20.3-3.6 14.5-12 6.7-12z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="35.9" height="29.5" fill="rgba({{ quote.background-color }},1)" viewBox="0 0 35.9 29.5"><path d="M6.7 17.4L36 0s2 29.5-36 29.5c20.3-3.6 14.5-12 6.7-12z"/></svg>
         <a href="{{ quote.share-link }}" id="twitter-share" title="Tweet this quote" target="_blank"><i class="fa fa-twitter"></i><span class="twitter-share--text">Tweet this</span></a>
     </article>
 

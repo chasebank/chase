@@ -5,7 +5,7 @@ author: Alan Cooper
 author-title: “Father of Visual Basic"
 author-image: alan-cooper
 about: http://casey.nyc/
-background-color: '626367'
+background-color: '98,99,103'
 text-color: 'd9e3f2'
 date: 2016-01-12
 category: quotes

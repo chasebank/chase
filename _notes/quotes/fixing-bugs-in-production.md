@@ -5,7 +5,7 @@ author:
 author-title:
 author-image: 
 about:
-background-color: '483d33'
+background-color: '72,61,51'
 text-color: 'f4ecf5'
 date: 2015-12-12
 category: quotes

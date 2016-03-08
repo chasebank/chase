@@ -5,7 +5,7 @@ author: C.S. Lewis <small></br>(in a personal letter to J.R.R.&nbsp;Tolkien)</sm
 author-title: Authors,&nbsp;The Chronicles of Narnia and The&nbsp;Lord&nbsp;of&nbsp;The&nbsp;Rings, respectively
 author-image: cs-lewis
 about: https://en.wikipedia.org/wiki/C._S._Lewis
-background-color: '6e8eb2'
+background-color: '110,142,178'
 text-color: 'f1f6e8'
 date: 2015-12-12
 category: quotes

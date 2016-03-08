@@ -5,7 +5,7 @@ author: Stephen Colbert
 author-title: Host of The Late Show
 author-image: stephen-colbert
 about: https://en.wikipedia.org/wiki/Stephen_Colbert
-background-color: '092ff1'
+background-color: '9,47,241'
 text-color: 'fff'
 date: 2016-02-12
 category: quotes
