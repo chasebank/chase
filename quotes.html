@@ -23,7 +23,7 @@ permalink: /notes/quotes/
     <article class="quote" style="background-color: #{{ quote.background-color }}; color: #{{ quote.text-color }}">
         {% if quote.author-image %}<figure style="background-image: url({{ site.baseurl }}/public/img/quote-authors/{{ quote.author-image }}.png)"><span class="author-fade" style="background-image: -webkit-linear-gradient(left, transparent 70%, #{{ quote.background-color }}); background-image: linear-gradient(to right, transparent 70%, #{{ quote.background-color }});"></span></figure>{% endif %}
         <div class="quote-content {% if quote.author-image %}{% else %}no-author-image{% endif %}">
-            <a href="{{ site.baseurl }}{{ quote.url }}" title="{{ quote.author }}">
+            <a href="{{ site.baseurl }}{{ quote.url }}" title="{{ quote.title }}">
             {{ quote.content }}
             {% if quote.author %}<p class="quote-author">{% if quote.about %}<a href="{{ quote.about }}" title="About {{ quote.author }}">{% endif %}-&nbsp;{{ quote.author }}{% if quote.author-title %}<span class="author-title">{{ quote.author-title }}</span>{% endif %}{% if quote.about %}</a>{% endif %}</p>{% endif %}
             </a>

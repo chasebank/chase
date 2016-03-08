@@ -12,4 +12,4 @@ category: quotes
 share-link: https://twitter.com/intent/tweet?text=Alan%20Cooper%20on%20interface%20design%20pic.twitter.com%2FBYKAHSQPFX&source=webclient
 ---
 
-No matter how cool your interface is, it would be better if there were less of it.
+No matter how cool your interface is, it would be better if there were&nbsp;less&nbsp;of&nbsp;it.

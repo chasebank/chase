@@ -17,7 +17,7 @@
     <article class="quote" style="background-color: #{{ item.background-color }}; color: #{{ item.text-color }}">
         {% if item.author-image %}<figure style="background-image: url({{ site.baseurl }}/public/img/quote-authors/{{ item.author-image }}.png)"><span class="author-fade" style="background-image: -webkit-linear-gradient(left, transparent 70%, #{{ item.background-color }}); background-image: linear-gradient(to right, transparent 70%, #{{ item.background-color }});"></span></figure>{% endif %}
         <div class="quote-content {% if item.author-image %}{% else %}no-author-image{% endif %}">
-            <a href="{{ site.baseurl }}{{ item.url }}" title="{{ item.author }}">
+            <a href="{{ site.baseurl }}{{ item.url }}" title="{{ item.title }}">
             {{ item.content }}
             </a>
             {% if item.author %}<p class="quote-author">{% if item.about %}<a href="{{ item.about }}" title="About {{ item.author }}">{% endif %}-&nbsp;{{ item.author }}{% if item.author-title %}<span class="author-title">{{ item.author-title }}</span>{% endif %}{% if item.about %}</a>{% endif %}</p>{% endif %}
