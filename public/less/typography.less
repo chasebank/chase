@@ -344,7 +344,13 @@ dd {
     ul li:before { color: @blue; opacity: 1 }
     
     pre,
-    code { color: #427690; background: #E4EEF1 }
+    code {
+        color: #427690;
+        background: #E4EEF1;
+        display: block;
+        border-radius: 0;
+        border-left: 4px solid #2ECEF1;
+    }
 }
 
 .blog-header {
@@ -358,5 +364,16 @@ dd {
     .post-date { opacity: .75 }
 }
 
+
+::selection {
+    background: @blue; /* WebKit/Blink Browsers */
+    color: white;
+    text-shadow: none;
+}
+::-moz-selection {
+    background: @blue; /* Gecko Browsers */
+    color: white;
+    text-shadow: none;
+}
 
 
