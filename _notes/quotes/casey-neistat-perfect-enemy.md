@@ -5,7 +5,7 @@ author: Casey Neistat
 author-title: YouTuber
 author-image: casey-neistat
 about: http://casey.nyc/
-background-color: '00fe54'
+background-color: '0,254,84'
 text-color: '010201'
 date: 2015-12-12
 category: quotes
