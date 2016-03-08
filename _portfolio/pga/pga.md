@@ -6,13 +6,16 @@ service: Holiday Card / Photo Composite
 permalink: /portfolio/:title/
 ---
 
-###About the PGA
+### About the PGA
+
 The Professional Golfer’s Association of America (PGA) is the largest working sports organization in the world, comprised of more than 27,000 dedicated supporters promoting the game of golf to everyone, everywhere.
 
-###Project Overview
+### Project Overview
+
 Design a holiday card that captures the spirits of enjoying both golf and the holidays. My concept was to show a golf scene under a light winter's snow. The holidays are a time to enjoy the things you love with the ones you love - in this case, playing golf (come rain or shine, or even snow...).
 
-###Challenges
+### Challenges
+
 To fully capture the golf 'winter wonderland' scene that was pictured in my mind, a full photo composite was needed. Various elements were combined from 4 primary stock photos to create the final scene and mood. This also included realisticly imposing the PGA logo onto a golf ball, indended for the main focal point.
 
 <div class="gallery" itemscope itemtype="http://schema.org/ImageGallery">
