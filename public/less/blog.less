@@ -69,6 +69,12 @@
     background: linear-gradient(to bottom, white, rgba(255,255,255,.4) 250px), url('../img/stars.png');
     border: 2px solid white;
     
+    // iOS z-index bug. keep post above hero img
+    -webkit-transform: translate3d(0,0,1px);
+    -moz-transform: translate3d(0,0,1px);
+    -o-transform: translate3d(0,0,1px);
+    transform: translate3d(0,0,1px);
+    
     &:after {
         display: block;
         content: '';
