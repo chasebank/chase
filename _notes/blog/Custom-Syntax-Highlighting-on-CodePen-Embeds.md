@@ -22,12 +22,6 @@ The reasons for highlighting are many and varied; just but a few:
 
 That's actually rather interesting. A lot of code editors display code almost as a website in and of it'self. There's some smoke, mirrors and trickery involved in using code to render text that represents code that will render even more text. Or even more code... It's like the movie [Inception](https://www.youtube.com/watch?v=8BfMivMDOBI). But once you crack open the hood and rip out the wires and technical bits, you find plane old HTML and CSS.
 
-## Test
-
-test
-
-## test
-
 This monstrosity:
 
 ```
