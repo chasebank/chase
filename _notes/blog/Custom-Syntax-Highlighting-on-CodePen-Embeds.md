@@ -8,7 +8,7 @@ hero-image: code-syntax.jpg
 accent-color: '218,255,235'
 ---
 
-Just about anything that renders raw code, does so with the added flair of syntax highlighting. Gone are the days of green text on black backgrounds. No need for code that looks like a [seizure inducing](<https://www.youtube.com/watch?v=Kf9N5AWprG8>) Matrix intro. Welcome to the future!
+Just about anything that renders raw code, does so with the added flair of syntax highlighting. Gone are the days of green text on black backgrounds. No need for code that looks like a [seizure inducing](https://www.youtube.com/watch?v=Kf9N5AWprG8 "Click it. You know you want to..."). Matrix intro. Welcome to the future!<!--more-->
 
 The reasons for highlighting are many and varied; just but a few:
 
@@ -19,7 +19,14 @@ The reasons for highlighting are many and varied; just but a few:
 * **Because colors fun.**
 
 ## How's it done?
+
 That's actually rather interesting. A lot of code editors display code almost as a website in and of it'self. There's some smoke, mirrors and trickery involved in using code to render text that represents code that will render even more text. Or even more code... It's like the movie [Inception](https://www.youtube.com/watch?v=8BfMivMDOBI). But once you crack open the hood and rip out the wires and technical bits, you find plane old HTML and CSS.
+
+## Test
+
+test
+
+## test
 
 This monstrosity:
 

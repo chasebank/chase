@@ -10,11 +10,19 @@
     
     <!-- Begin masonry items -->
 
-{% assign sorted = (site.notes and site.posts | sort: 'date') %}
+{% assign sorted = (site.notes | sort: 'date') %}
 {% for item in sorted reversed %}
     {% if item.category == "blog" %}
-    <article>
-        <h1 style="font-size: 3rem; color: red;">{{ item.title }}</h1>
+    <article class="blog-post--grid" style="background-image: url('http://image-static.qiniudn.com/lujun.me/2014/03/07/best_programmer.JPG'); text-shadow: 2px 4px 2px black, 0px 0px 10px black">
+    <a href="{{ site.baseurl }}{{ item.url }}" style="color: rgba({{ item.accent-color }},1)">
+        <h3 class="blog-post--title">{{ item.title }}</h3>
+        <div class="blog-post--excerpt">
+            <p>{{ item.excerpt | strip_html }}</p>
+            <figure class="blog-post--excerpt--overlay" style="color: #000000">
+                <button class="blog-post--read-more"><span style="color: rgba({{ item.accent-color }},1)">...Read More</span></button>
+            </figure>
+        </div>
+    </a>
     </article>
     {% endif %}
 

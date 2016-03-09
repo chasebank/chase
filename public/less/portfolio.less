@@ -5,14 +5,14 @@ figure.hero {
     display: block;
     width: auto;
 }
-section.project {
+
+article.project {
     h1 {
         display: block;
         margin-bottom: 0rem!important;
     }
     h3 {
         position: relative;
-        margin-bottom: 1rem;
         &:after {
             display: block;
             position: absolute;
@@ -41,6 +41,7 @@ section.project {
     }
     .gallery-group a:after { text-shadow: 0px 0px 20px @color; }
 }
+
 @projectHero: '../../portfolio/';
 
 
@@ -50,7 +51,7 @@ section.project {
  * Projects
  #################*/
 
-section.project-walkonwater {
+.project-walkonwater {
     background:white url('@{projectHero}/walk-on-water/project-hero.jpg') top center no-repeat;
     background-size: 100%;
     @media @mobile {
@@ -67,7 +68,7 @@ section.project-walkonwater {
     }
 }
 
-section.project-feastbeast {
+.project-feastbeast {
     background: url('@{projectHero}/feastbeast-food-truck/project-hero.png') top center no-repeat, url('@{projectHero}/feastbeast-food-truck/project-bg.png') top center repeat-y, #4e0200;
     background-size: 100%;
     @media @mobile {
@@ -90,7 +91,7 @@ section.project-feastbeast {
     .project-styles (#ff434c, #ffdfdf, white);
 }
 
-section.project-officemax {
+.project-officemax {
     position: relative!important;
     background: url('@{projectHero}/officemax-office-depot/project-hero.png') top center no-repeat, #e4e4e4;
     background-size: 100%;
@@ -125,7 +126,7 @@ section.project-officemax {
     }
 }
 
-section.project-pga {
+.project-pga {
     background: url('@{projectHero}/pga/project-hero.jpg') top center no-repeat, #ced6ac;
     background-size: 100%;
     border-color: #b18e53;

@@ -14,11 +14,11 @@ $(window).ready(function(){
 
 
 
-$('.blog-post--grid').each(function() {
+/*$('.blog-post--grid').each(function() {
     var blogAccentColor = $(this).find('a').css('color');
     
     $(this).find('.blog-post--read-more > span').css('color',blogAccentColor);
-}); 
+});*/ 
 
 
 
