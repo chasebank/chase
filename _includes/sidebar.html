@@ -2,7 +2,7 @@
      styles, `#sidebar-checkbox` for behavior. -->
 
 
-<div id="nav-container">
+<div id="nav-container" class="{% if page.url contains "/blog/" and page.url != "/notes/blog/" %}nav-gradient--blog-post{% else %}nav-gradient{% endif %}">
     <nav role='navigation'>
         <!--<a class="{% if page.url == site.baseurl %}active{% endif %}" href="{{ site.baseurl }}/" title="Home">Home</a>-->
         <a class="

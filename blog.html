@@ -20,10 +20,10 @@ permalink: /notes/blog/
 
 <!-- Begin masonry items -->
 {% for post in site.posts %}    
-    <article class="blog-post--grid" style="background-image: url('{{ site.baseurl }}/public/img/post-heros/{{ post.hero-image }}'); text-shadow:         2px 4px 2px black,
+    <article class="blog-post--grid" style="background-image: url('{{ site.baseurl }}/public/img/post-heros/{{ post.hero-image }}'); text-shadow: 2px 4px 2px black,
     0px 0px 10px black,
     0px 0px 10px black">
-    <a href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}" style="color: #{{ post.accent-color }}">
+    <a href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}" style="color: rgba({{ post.accent-color }},1)">
         <h3 class="blog-post--title">{{ post.title }}</h3>
         <div class="blog-post--excerpt">
             <p>Just about anything that renders raw code, does so with the added flair of syntax highlighting. Gone are the days of green text on black backgrounds. No need for code to look like a seizure inducing Matrix intro. Welcome to the future.</p>

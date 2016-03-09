@@ -10,8 +10,13 @@
     
     <!-- Begin masonry items -->
 
-{% assign sorted = (site.notes | sort: 'date' )%}
+{% assign sorted = (site.notes and site.posts | sort: 'date') %}
 {% for item in sorted reversed %}
+    {% if item.category == "blog" %}
+    <article>
+        <h1 style="font-size: 3rem; color: red;">{{ item.title }}</h1>
+    </article>
+    {% endif %}
 
     {% if item.category == "quotes" %}
     <article class="quote" style="background-color: rgba({{ item.background-color }},1); color: #{{ item.text-color }}">

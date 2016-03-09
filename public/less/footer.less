@@ -1,14 +1,6 @@
 // main: styles.less
 @import (reference) "variables.less";
 
-.chase-logo-svg {fill:fade(#adf1ff,35%);opacity:.75}
-.chase-logo-c-top {fill: url(#gradient-left-right);}
-.chase-logo-c-tophl {fill: url(#gradient-right-left);}
-.chase-logo-c-mid {fill: url(#gradient-top-bottom);}
-.chase-logo-c-bottomhl {fill: url(#gradient-top-bottomhl);}
-.chase-logo-c-bottom {fill: url(#gradient-left-right);}
-.chase-logo-letter {fill: url(#gradient-bottom-top);}
-
 
 footer {
     #grid;
@@ -33,23 +25,6 @@ footer {
 
     @media @desktop {
         //width:90%;
-    }
-
-    .chase-logo-svg {
-        #grid > .cell;
-        #grid > .span(3);
-        
-        max-height:100px;
-
-        @media @phone {
-            #grid > .span(12);
-            height:4rem;
-            margin-bottom:1.5rem;
-        }
-
-        @media @tablet {
-            #grid > .span(4);
-        }
     }
 
     .footer-content {

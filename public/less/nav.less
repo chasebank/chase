@@ -217,6 +217,23 @@
 @navContainerTiming: .7s;
 @navContainerEase: cubic-bezier(0.19, 0.02, 0, 0.99);
 
+.nav-gradient {
+   background-image: linear-gradient(to bottom, fade(@baseBlue,80%) 0%, fade(@baseBlue,0%) 500px);
+}
+
+.nav-gradient--blog-post {
+   background-image: linear-gradient(to bottom, fade(@baseBlue,100%) 0%, fade(@baseBlue,40%) 500px, fade(@baseBlue,0%) 800px );
+   
+   .subnav {
+      background-image: linear-gradient( fade(@darkBlue,90%), fade(@darkBlue,0%) );
+      border-color: @blackBlue;
+
+      &:before, &:after {
+        background-image: linear-gradient(fade(@blackBlue,80%), fade(@blackBlue,0%));
+      }
+   }
+}
+
 #nav-container {
    position: absolute;
    z-index: 999;
@@ -227,7 +244,6 @@
    transform: translate3d(-@navContainerWidth, 0, 0);
    width: @navContainerWidth;
    padding: 1rem;
-   background-image: linear-gradient(to bottom, fade(@baseBlue,80%) 0%, fade(@baseBlue,0%) 500px);
    transition: @navContainerTiming @navContainerEase;
    background-position: fixed;
        

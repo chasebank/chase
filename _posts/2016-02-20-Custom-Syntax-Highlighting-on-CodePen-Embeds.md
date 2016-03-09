@@ -3,9 +3,9 @@ layout: post
 title: Custom Syntax Highlighting on CodePen&nbsp;Embeds
 description: Centers everything horizontaly & vertically.
 date: 2015-12-13
-category: codes
+category: blog
 hero-image: code-syntax.jpg
-accent-color: 'daffeb'
+accent-color: '218,255,235'
 ---
 
 Just about anything that renders raw code, does so with the added flair of syntax highlighting. Gone are the days of green text on black backgrounds. No need for code that looks like a [seizure inducing](<https://www.youtube.com/watch?v=Kf9N5AWprG8>) Matrix intro. Welcome to the future!

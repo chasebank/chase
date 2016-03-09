@@ -188,6 +188,7 @@ ol {
         padding: .2rem .1rem 0 0;
         text-align: center;
         border-radius: 50%;
+        line-height: normal;
     }
 }
 
@@ -341,7 +342,9 @@ dd {
     
     a { color: @blueDarker }
     
-    ul li:before { color: @blue; opacity: 1 }
+    li { line-height: 1.5 }
+    
+    ul li:before { color: @blue; opacity: 1; }
     
     pre,
     code {
