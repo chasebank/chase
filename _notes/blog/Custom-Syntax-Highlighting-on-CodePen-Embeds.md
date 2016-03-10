@@ -2,9 +2,9 @@
 layout: post
 title: Custom Syntax Highlighting on CodePen&nbsp;Embeds
 description: Centers everything horizontaly & vertically.
-date: 2015-12-13
+date: 2016-03-08
 category: blog
-hero-image: code-syntax.jpg
+hero-image: blog-hero--syntax-highlighting.jpg
 accent-color: '218,255,235'
 ---
 
@@ -64,6 +64,3 @@ That's it! Now your custom syntax highlighting will show up on all pens using th
 And another cool benefit of this method, is since you're using a live link back to that forked pen used to create the theme, you can go back and make further color adjustments, and the saved changes will automatically show up in any pens using that embed theme.
 
 Here are some examples inspired from a [CSS-Tricks Post about popular duo-tone themes](https://css-tricks.com/duotone-themes/).
-
-
-[Cross-post from my personal blog](http://cha.se.net)
