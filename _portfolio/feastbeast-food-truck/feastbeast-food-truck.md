@@ -35,7 +35,7 @@ All the intricacies of a large vehicle add even more complexity. Accurate measur
       <a href="gallery/feastbeast-layout.jpg" itemprop="contentUrl" data-size="1193x716"><img src="gallery/feastbeast-layout-thumb.jpg" itemprop="thumbnail" alt="Image description" /></a>
     </figure>
     <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-      <a href="gallery/feastbeast-branding.jpg" itemprop="contentUrl" data-size="1073x872" class="video"><img src="gallery/feastbeast-branding-thumb.jpg" itemprop="thumbnail" alt="Image description" /></a>
+      <a href="gallery/feastbeast-branding.jpg" itemprop="contentUrl" data-size="1073x872"><img src="gallery/feastbeast-branding-thumb.jpg" itemprop="thumbnail" alt="Image description" /></a>
     </figure>
     <figure class="large" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
       <a href="gallery/feastbeast-printing.jpg" itemprop="contentUrl" data-size="1200x900" style="background-position: center bottom"><img src="gallery/feastbeast-printing-thumb.jpg" itemprop="thumbnail" alt="Image description" /></a>

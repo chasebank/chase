@@ -175,8 +175,6 @@ ol {
         position: absolute;
         top: -.5rem;
         left: -4rem;
-        font-family: 'Exo 2', sans-serif;
-        content: counter(step-counter);
         margin-right: 5px;
         font-size: 2rem;
         width: 3rem;
@@ -189,6 +187,15 @@ ol {
         text-align: center;
         border-radius: 50%;
         line-height: normal;
+    }
+    
+    li:after {
+        display: inline-block;
+        position: absolute;
+        top: -.5rem;
+        left: -4rem;
+        font-family: 'Exo 2', sans-serif;
+        content: counter(step-counter);
     }
 }
 
