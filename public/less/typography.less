@@ -172,31 +172,36 @@ ol {
     
     li:before {
         display: inline-block;
+        content: counter(step-counter);
         position: absolute;
         top: -.5rem;
         left: -4rem;
+        font-family: 'Exo 2', sans-serif;
         margin-right: 5px;
-        font-size: 2rem;
+        font-size: 1.5rem;
         width: 3rem;
         height: 3rem;
+        line-height: 3rem;
         background-color: @blue;
         color: white;
         text-shadow: none;
         font-weight: bold;
-        padding: .2rem .1rem 0 0;
+        padding: 0 .1rem 0 0;
         text-align: center;
         border-radius: 50%;
-        line-height: normal;
     }
     
-    li:after {
+    /*li:after {
         display: inline-block;
         position: absolute;
         top: -.5rem;
         left: -4rem;
         font-family: 'Exo 2', sans-serif;
         content: counter(step-counter);
-    }
+        color: white;
+        text-shadow: none;
+        line-height:
+    }*/
 }
 
 main {
