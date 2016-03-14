@@ -35,7 +35,8 @@ This isn't a [boilerplate](https://html5boilerplate.com/) or framework. It's jus
   <p>The only downside, if there is any, is blank space in the mark up throws off the justification. But setting the font size of the grid's parent to zero solves this. Some people have a problem with that, but I don't. rem units makes it a non-issue.</p>
   <p>My version is tailored for how I work, but more details and a neat grid builder can be found at <a href="http://justifygrid.com/">justifygrid.com</a></p>
   <p class="example">Usage example:</p>
-<div><iframe id="cp_embed_5606ffef961c31272d33e1fa93e0cbfb" src="//codepen.io/chasebank/embed/5606ffef961c31272d33e1fa93e0cbfb?height=206&amp;theme-id=21051&amp;slug-hash=5606ffef961c31272d33e1fa93e0cbfb&amp;default-tab=css&amp;user=chasebank" scrolling="no" frameborder="0" height="206" allowtransparency="true" allowfullscreen="true" name="CodePen Embed" title="CodePen Embed" class="cp_embed_iframe undefined" style="width: 100%; overflow: hidden;"></iframe></div>
+  <p data-height="206" data-theme-id="21051" data-slug-hash="pgmGaL" data-default-tab="result" data-user="chasebank" class="codepen">See the Pen <a href="http://codepen.io/chasebank/pen/pgmGaL/">Justified Grid Example</a> by Chase (<a href="http://codepen.io/chasebank">@chasebank</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 </dd>
 </dl>
 
