@@ -53,9 +53,9 @@ Now for the fun part.
 ## Instructables
 
 1. Fork [the above pen](http://codepen.io/chasebank/pen/0cddeb9a2fd44ef8f39499fdbf963899).
-2. Play with the colors to your heart's content. Have fun. Go crazy.
+2. Play with the colors in the CSS to your heart's content. Have fun. Go crazy.
 3. Take a look at the URL in your browser's address bar. It should look something like <q>.../pen/0cddeb9a2fd44ef8f39499fdbf963899</q>
-4. Add .css to the end, so it now looks like: <q>.../pen/0cddeb9a2fd44ef8f39499fdbf963899.css</q>
+4. Append `.css` to the end, so it now looks like: <q>.../pen/0cddeb9a2fd44ef8f39499fdbf963899.css</q>
 5. Highlight the entire url, and copy it to your clipboard.
 6. Head over to your [Embed Theme Builder](http://codepen.io/user/embed/builder/public). Whether you're editing an existing theme, or creating a new one, in the bottom left hand corner, you'll find a field labeled "Custom CSS". Paste that copied URL into the field and save the theme.
 
