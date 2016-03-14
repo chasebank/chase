@@ -42,7 +42,7 @@ You can happily code in Brainfuck, and CodeMirror will make it look pretty.
 
 Anyway, you can't fully customize CodePen's editor (yet!), but you can customize embeds. I created a sort of CodePen inside a CodePen to help with this. It can be used to not only design a theme, but also host it.
 
-<p data-height="269" data-theme-id="21051" data-slug-hash="0cddeb9a2fd44ef8f39499fdbf963899" data-default-tab="result" data-user="chasebank" class='codepen'>See the Pen <a href='http://codepen.io/chasebank/pen/0cddeb9a2fd44ef8f39499fdbf963899/'>collapse horizontal 3</a> by Chase (<a href='http://codepen.io/chasebank'>@chasebank</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<p data-height="268" data-theme-id="21051" data-slug-hash="EKyGKN" data-default-tab="result" data-user="chasebank" class="codepen">See the Pen <a href="http://codepen.io/chasebank/pen/EKyGKN/">Syntax Highlighting Builder for Embeds</a> by Chase (<a href="http://codepen.io/chasebank">@chasebank</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 
 Now for the fun part.
@@ -52,10 +52,10 @@ Now for the fun part.
 
 ## Instructables
 
-1. Fork [the above pen](http://codepen.io/chasebank/pen/0cddeb9a2fd44ef8f39499fdbf963899).
-2. Play with the colors in the CSS to your heart's content. Have fun. Go crazy.
-3. Take a look at the URL in your browser's address bar. It should look something like <q>.../pen/0cddeb9a2fd44ef8f39499fdbf963899</q>
-4. Append `.css` to the end, so it now looks like: <q>.../pen/0cddeb9a2fd44ef8f39499fdbf963899.css</q>
+1. Fork [the above pen](http://codepen.io/chasebank/pen/EKyGKN).
+2. Play with the colors to your heart's content. Have fun. Go crazy.
+3. Take a look at the URL in your browser's address bar. It should look something like <q>http://codepen.io/USERNAME/pen/EKyGKN</q>
+4. Add .css to the end, so it now looks like: <q>http://codepen.io/USERNAME/pen/EKyGKN.css</q>
 5. Highlight the entire url, and copy it to your clipboard.
 6. Head over to your [Embed Theme Builder](http://codepen.io/user/embed/builder/public). Whether you're editing an existing theme, or creating a new one, in the bottom left hand corner, you'll find a field labeled "Custom CSS". Paste that copied URL into the field and save the theme.
 
@@ -64,3 +64,39 @@ That's it! Now your custom syntax highlighting will show up on all pens using th
 And another cool benefit of this method, is since you're using a live link back to that forked pen used to create the theme, you can go back and make further color adjustments, and the saved changes will automatically show up in any pens using that embed theme.
 
 Here are some examples inspired from a [CSS-Tricks Post about popular duo-tone themes](https://css-tricks.com/duotone-themes/).
+
+
+**DuoTone Dark Sea**
+
+<p data-height="268" data-theme-id="21051" data-slug-hash="KzMbXw" data-default-tab="result" data-user="chasebank" class="codepen">See the Pen <a href="http://codepen.io/chasebank/pen/KzMbXw/">CodePen Syntax - DuoTone Dark Sea</a> by Chase (<a href="http://codepen.io/chasebank">@chasebank</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+**DuoTone Dark Amethyst**
+
+<p data-height="268" data-theme-id="21051" data-slug-hash="XdKoMj" data-default-tab="result" data-user="chasebank" class="codepen">See the Pen <a href="http://codepen.io/chasebank/pen/XdKoMj/">CodePen Syntax - DuoTone Dark Amethyst </a> by Chase (<a href="http://codepen.io/chasebank">@chasebank</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+**DuoTone Blue Dark**
+
+<p data-height="268" data-theme-id="21051" data-slug-hash="reLomM" data-default-tab="result" data-user="chasebank" class="codepen">See the Pen <a href="http://codepen.io/chasebank/pen/reLomM/">CodePen Syntax - DuoTone Blue Dark</a> by Chase (<a href="http://codepen.io/chasebank">@chasebank</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+**DuoTone Light**
+
+<p data-height="268" data-theme-id="21051" data-slug-hash="KzMbqw" data-default-tab="result" data-user="chasebank" class="codepen">See the Pen <a href="http://codepen.io/chasebank/pen/KzMbqw/">CodePen Syntax - DuoTone Light</a> by Chase (<a href="http://codepen.io/chasebank">@chasebank</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+**DuoTone Dark Earth**
+
+<p data-height="268" data-theme-id="21051" data-slug-hash="zqByNo" data-default-tab="result" data-user="chasebank" class="codepen">See the Pen <a href="http://codepen.io/chasebank/pen/zqByNo/">CodePen Syntax - DuoTone Dark Earth</a> by Chase (<a href="http://codepen.io/chasebank">@chasebank</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+**DuoTone Vector Syntax**
+
+<p data-height="268" data-theme-id="21051" data-slug-hash="RaREoJ" data-default-tab="result" data-user="chasebank" class="codepen">See the Pen <a href="http://codepen.io/chasebank/pen/RaREoJ/">CodePen Syntax - Vector Syntax</a> by Chase (<a href="http://codepen.io/chasebank">@chasebank</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+**DuoTone Dark Forest**
+
+<p data-height="268" data-theme-id="21051" data-slug-hash="XdKoKK" data-default-tab="result" data-user="chasebank" class="codepen">See the Pen <a href="http://codepen.io/chasebank/pen/XdKoKK/">CodePen Syntax - DuoTone Dark Forest</a> by Chase (<a href="http://codepen.io/chasebank">@chasebank</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
