@@ -45,8 +45,8 @@
             </a>
             {% if item.author %}<p class="quote-author">{% if item.about %}<a href="{{ item.about }}" title="About {{ item.author }}">{% endif %}-&nbsp;{{ item.author }}{% if item.author-title %}<span class="author-title">{{ item.author-title }}</span>{% endif %}{% if item.about %}</a>{% endif %}</p>{% endif %}
         </div>
-        <svg xmlns="http://www.w3.org/2000/svg" width="35.9" height="29.5" fill="rgba({{ item.background-color }},1)" viewBox="0 0 35.9 29.5"><path d="M6.7 17.4L36 0s2 29.5-36 29.5c20.3-3.6 14.5-12 6.7-12z"/></svg>
-        <a href="{{ item.share-link }}" class="tweet-this" title="Tweet this thing" target="_blank"><svg class="tweet-this--text" viewBox="0 0 321.9 42"><use xlink:href="#tweet-this--text"></use></svg><svg class="tweet-this--logo" viewBox="0 0 182.3 148.1"><use xlink:href="#tweet-this--logo"></use></svg></a>
+        <a href="{{ item.share-link }}" class="tweet-this" title="Tweet this quote" target="_blank"><svg class="tweet-this--text" viewBox="0 0 321.9 42"><use xlink:href="#tweet-this--text"></use></svg><svg class="tweet-this--logo" viewBox="0 0 182.3 148.1"><use xlink:href="#tweet-this--logo"></use></svg></a>
+        <svg xmlns="http://www.w3.org/2000/svg" width="35.9" height="29.5" fill="rgba({{ item.background-color }},1)" viewBox="0 0 35.9 29.5" class="quote-tail"><path d="M6.7 17.4L36 0s2 29.5-36 29.5c20.3-3.6 14.5-12 6.7-12z"/></svg>
     </article>
     {% endif %}
 
