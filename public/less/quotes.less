@@ -77,7 +77,7 @@ article.quote {
         margin-top: 0;
         margin-left: 30%;
         line-height: 1;
-        z-index: 10;
+        //z-index: 10;
         &:not(.quote-author) {
             font-family: 'Amatic SC', 'Exo 2', sans-serif;
             ;
@@ -103,6 +103,7 @@ article.quote {
         position: absolute;
         right: 0;
         bottom: -11px;
+        z-index: -1;
     }
 }
 
@@ -122,9 +123,11 @@ article.quote {
 }
 
 .tweet-this {
+    display: block;
     position: absolute;
     right: 1rem;
     bottom: 1rem;
+    margin: 0;
     @tweetThisSize: 2.5rem;
     width: @tweetThisSize;
     height: @tweetThisSize;
