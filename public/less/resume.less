@@ -467,11 +467,8 @@ footer {
 }
 
 #connect {
-    //position: relative;
     text-align: center;
-    //margin: 0;
-    
-    //@media @phablet { margin: 0 0 @mobilePadding*.75 0 }
+    margin-bottom: .5rem;
     
     li {
         display: inline-block;
@@ -570,22 +567,30 @@ footer {
     }
 }
 
-.footer-inner-wrap {
-    display: block;
-    //z-index: -1;
+.footer-bottom-buttons {
+    text-align: center;
+    overflow: hidden;
+    max-width: 690px;
     width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
-    //overflow: hidden;
-    padding: 1rem;
+    margin: -1rem auto;
     
-    /* @media @phone {
-        display: inline-block!important;
-        width: auto!important;
-        //background: yellow;
-        //overflow: visible;
-        padding-top: 0;
-    } */
+    .inner-wrap {
+        padding: 1rem
+    }
+    
+    .inner-wrap:first-child { float: left }
+    .inner-wrap:nth-child(2) { float: right }
+    
+    @media only screen and (max-width: 569px) {
+        .inner-wrap { float: none!important }
+    }
+    
+    @media @phone {
+        display: inline-block;
+        width: auto;
+        
+        .inner-wrap:nth-child(2) { display: none }
+    }
 }
 
 @adobeCertLogo: 2.8rem;
@@ -593,22 +598,23 @@ footer {
 @adobeCertOffset: @adobeCertLogo + .5rem;
 
 #certification {
-    display: inline-block;
+    display: inline-table;
     position: relative;
-    border: 2px solid #fff;
+    border: .2rem solid #fff;
     height: 5rem;
     border-radius: 1rem;
-    padding: @adobeCertPadding*.9 @adobeCertPadding 0 (@adobeCertOffset + @adobeCertPadding);
+    font-size: 1.4rem;
+    padding: 0 @adobeCertPadding 0 (@adobeCertOffset + @adobeCertPadding);
     background-image: linear-gradient(to bottom,
       #fff, #a5b8c8);
     text-align: left;
     color: #0d1112;
-    //float: left;
-    
-    @media @phone {
-        float: none;
-        margin-bottom: @mobilePadding;
-    }
+}
+
+
+.certification-info {
+    display: table-cell;
+    vertical-align: middle;
 }
 
 .certification-title {
@@ -617,7 +623,6 @@ footer {
     font-weight: 700;
     letter-spacing: .25rem;
     text-transform: uppercase;
-    margin: 0;
 }
 
 .certification-category {
@@ -682,29 +687,36 @@ footer {
     }
 }
 
-#view-on-codepen {
+#view-on-codepen,
+#print {
     display: inline-table;
     border: .2rem solid @colorPrimaryLight;
-    padding: 0 1.5rem;
     height: 5rem;
-    margin: 0!important;
     border-radius: 1rem;
     font-size: 1.4rem;
+    text-align: center;
     text-transform: uppercase;
     text-decoration: none;
     color: @colorPrimaryLight;
+    padding-left: 2.4rem;
     transition: all .3s cubic-bezier(0.19, 0.02, 0, 0.99);
-    float: right;
-    
-    @media @phone {
-        float: none;
-    }
     
     span {
         display: table-cell;
+        position: relative;
         vertical-align: middle;
+        padding: 0 1.5rem 0 1.5rem;
     }
-
+    
+    span:before {
+        display: block;
+        position: absolute;
+        left: -.8rem;
+        font-family: 'FontAwesome';
+        font-size: 1.8rem;
+        font-weight: normal;
+    }
+    
     &:hover {
         background: @colorPrimary;
         color: white;
@@ -718,6 +730,19 @@ footer {
     }
 }
 
+#view-on-codepen {
+    @media @phone { width: 100%; }
+}
+
+#view-on-codepen span:before {
+    content: '\f1cb';
+    @media @phone { left: .2rem; }
+}
+
+#print span:before {
+    content: '\f02f';
+}
+
 .references {
     display: block;
     color: @colorPrimaryLight;
@@ -728,6 +753,8 @@ footer {
         margin-bottom: @mobilePadding;
     }
 }
+
+.print-info { display: none }
 
 
 
@@ -1005,21 +1032,45 @@ ul {
         a:visited:after { content:": " attr(href) " "; color: @colorText }
     }
 
+    .inner-wrap {
+        width: 100%;
+    }
 
     #certification {
-        background-image: none;
         border: none;
         height: initial;
-        padding: 14% 0 0 0;
-        background: url(../img/adobe-certified-expert.png) top center no-repeat;
+        border-radius: none;
+        background-image: none;
+                
+        padding: 30% 0 0 0;
+        background: url(http://cha.se.net/public/img/adobe-certified-expert.png);
+        background-repeat: no-repeat;
         background-size: contain;
         width: 216px;
 
-        span { display: none }
+        .certification-info { display: none }
 
         .adobe-logo { display: none }
     }
 
     #view-on-codepen { display: none }
+    
+    #print { display: none }
+    
+    .print-info {
+        display: block;
+        
+        span {
+            display: block;
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+        }
+
+        strong {
+            display: block;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+    }
     
 }// print
