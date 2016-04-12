@@ -21,48 +21,48 @@ Common sports marketing campaigns like Nike and Gatorade have a recognizably *ex
 <div class="gallery" itemscope itemtype="http://schema.org/ImageGallery">
   <div class="gallery-group">
     <figure class="tall" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-      <a href="gallery/aau-poster-shield-assets-forweb.jpg" itemprop="contentUrl" data-size="870x900"><img src="gallery/aau-poster-shield-assets-forweb.jpg" itemprop="thumbnail" alt="Image description" /></a>
+      <a href="gallery/aau-poster-shield-assets-forweb.jpg" itemprop="contentUrl" data-size="870x900"><img src="gallery/aau-poster-shield-assets-forweb-thumb.jpg" itemprop="thumbnail" alt="Image description" /></a>
     </figure>
     <figure class="large" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-      <a href="gallery/aau-poster-shield-forweb.jpg" itemprop="contentUrl" data-size="600x900"><img src="gallery/aau-poster-shield-forweb.jpg" itemprop="thumbnail" alt="Image description" /></a>
+      <a href="gallery/aau-poster-shield-forweb.jpg" itemprop="contentUrl" data-size="600x900"><img src="gallery/aau-poster-shield-forweb-thumb.jpg" itemprop="thumbnail" alt="Image description" /></a>
     </figure>
   </div>
   <div class="gallery-group">
     <figure class="half" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-      <a href="gallery/aau-webportal-forweb.jpg" itemprop="contentUrl" data-size="1400x934"><img src="gallery/aau-webportal-forweb.jpg" itemprop="thumbnail" alt="Image description" /></a>
+      <a href="gallery/aau-webportal-forweb.jpg" itemprop="contentUrl" data-size="1400x934"><img src="gallery/aau-webportal-forweb-thumb.jpg" itemprop="thumbnail" alt="Image description" /></a>
     </figure>
     <figure class="half" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-      <a href="gallery/aau-emailblast-forweb.jpg" itemprop="contentUrl" data-size="1400x934"><img src="gallery/aau-emailblast-forweb.jpg" itemprop="thumbnail" alt="Image description" /></a>
+      <a href="gallery/aau-emailblast-forweb.jpg" itemprop="contentUrl" data-size="1400x934"><img src="gallery/aau-emailblast-forweb-thumb.jpg" itemprop="thumbnail" alt="Image description" /></a>
     </figure>
   </div>
   <div class="gallery-group">
     <figure class="large left" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-      <a href="gallery/aau-poster-aquatics-forweb.jpg" itemprop="contentUrl" data-size="600x900"><img src="gallery/aau-poster-aquatics-forweb.jpg" itemprop="thumbnail" alt="Image description" /></a>
+      <a href="gallery/aau-poster-aquatics-forweb.jpg" itemprop="contentUrl" data-size="600x900"><img src="gallery/aau-poster-aquatics-forweb-thumb.jpg" itemprop="thumbnail" alt="Image description" /></a>
     </figure>
     <figure class="tall" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-      <a href="gallery/aau-poster-aquatics-assets-forweb.jpg" itemprop="contentUrl" data-size="900x900"><img src="gallery/aau-poster-aquatics-assets-forweb.jpg" itemprop="thumbnail" alt="Image description" /></a>
+      <a href="gallery/aau-poster-aquatics-assets-forweb.jpg" itemprop="contentUrl" data-size="900x900"><img src="gallery/aau-poster-aquatics-assets-forweb-thumb.jpg" itemprop="thumbnail" alt="Image description" /></a>
     </figure>
   </div>
   <div class="gallery-group">
     <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-      <a href="gallery/aau-poster-aquatics-print-forweb.jpg" itemprop="contentUrl" data-size="1412x900"><img src="gallery/aau-poster-aquatics-print-forweb.jpg" itemprop="thumbnail" alt="Image description" /></a>
+      <a href="gallery/aau-poster-aquatics-print-forweb.jpg" itemprop="contentUrl" data-size="1412x900"><img src="gallery/aau-poster-aquatics-print-forweb-thumb.jpg" itemprop="thumbnail" alt="Image description" /></a>
     </figure>
     <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-      <a href="gallery/aau-poster-shield-print-forweb.jpg" itemprop="contentUrl" data-size="1327x900"><img src="gallery/aau-poster-shield-print-forweb.jpg" itemprop="thumbnail" alt="Image description" /></a>
+      <a href="gallery/aau-poster-shield-print-forweb.jpg" itemprop="contentUrl" data-size="1327x900"><img src="gallery/aau-poster-shield-print-forweb-thumb.jpg" itemprop="thumbnail" alt="Image description" /></a>
     </figure>
     <figure class="large" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-      <a href="gallery/aau-stationary-forweb.jpg" itemprop="contentUrl" data-size="1200x800" style="background-position: center bottom"><img src="gallery/aau-stationary-forweb.jpg" itemprop="thumbnail" alt="Image description" /></a>
+      <a href="gallery/aau-stationary-forweb.jpg" itemprop="contentUrl" data-size="1200x800" style="background-position: center bottom"><img src="gallery/aau-stationary-forweb-thumb.jpg" itemprop="thumbnail" alt="Image description" /></a>
     </figure>
   </div>
   <div class="gallery-group">
     <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-      <a href="gallery/aau-poster-basketball-assets-forweb.jpg" itemprop="contentUrl" data-size="767x900"><img src="gallery/aau-poster-basketball-assets-forweb.jpg" itemprop="thumbnail" alt="Image description" /></a>
+      <a href="gallery/aau-poster-basketball-assets-forweb.jpg" itemprop="contentUrl" data-size="767x900"><img src="gallery/aau-poster-basketball-assets-forweb-thumb.jpg" itemprop="thumbnail" alt="Image description" /></a>
     </figure>
     <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-      <a href="gallery/aau-poster-basketball-closeup-forweb.jpg" itemprop="contentUrl" data-size="1028x900"><img src="gallery/aau-poster-basketball-closeup-forweb.jpg" itemprop="thumbnail" alt="Image description" /></a>
+      <a href="gallery/aau-poster-basketball-closeup-forweb.jpg" itemprop="contentUrl" data-size="1028x900"><img src="gallery/aau-poster-basketball-closeup-forweb-thumb.jpg" itemprop="thumbnail" alt="Image description" /></a>
     </figure>
     <figure class="large basketball" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-      <a href="gallery/aau-poster-basketball-forweb.jpg" itemprop="contentUrl" data-size="600x900"><img src="gallery/aau-poster-basketball-forweb.jpg" itemprop="thumbnail" alt="Image description" /></a>
+      <a href="gallery/aau-poster-basketball-forweb.jpg" itemprop="contentUrl" data-size="600x900"><img src="gallery/aau-poster-basketball-forweb-thumb.jpg" itemprop="thumbnail" alt="Image description" /></a>
     </figure>
   </div>
 </div>
