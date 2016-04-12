@@ -61,7 +61,7 @@ Common sports marketing campaigns like Nike and Gatorade have a recognizably *ex
     <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
       <a href="gallery/aau-poster-basketball-closeup-forweb.jpg" itemprop="contentUrl" data-size="1028x900"><img src="gallery/aau-poster-basketball-closeup-forweb.jpg" itemprop="thumbnail" alt="Image description" /></a>
     </figure>
-    <figure class="large" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+    <figure class="large basketball" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
       <a href="gallery/aau-poster-basketball-forweb.jpg" itemprop="contentUrl" data-size="600x900"><img src="gallery/aau-poster-basketball-forweb.jpg" itemprop="thumbnail" alt="Image description" /></a>
     </figure>
   </div>
