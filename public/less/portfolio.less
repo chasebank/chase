@@ -13,6 +13,7 @@ article.project {
     }
     h3 {
         position: relative;
+        
         &:after {
             display: block;
             position: absolute;
@@ -21,6 +22,8 @@ article.project {
             left: -1px;
             width: 50%;
             height: .2rem;
+            
+            @media @mobile { width: 100% }
         }
     }
 }
@@ -34,10 +37,8 @@ article.project {
     p.h1-sub-heading {
         color: @accent
     }
-    h3 {
-        &:after {
-            background-image: linear-gradient(to right, @accent 0%, transparent 100%);
-        }
+    h3:after {
+        background-image: linear-gradient(to right, @accent 0%, fade(@accent,0%) 100%);
     }
     .gallery-group a:after { text-shadow: 0px 0px 20px @color; }
 }
@@ -50,6 +51,34 @@ article.project {
 /*##################
  * Projects
  #################*/
+.project-aau {
+    background:#0b152e url('@{projectHero}/aau/project-hero.jpg') top center no-repeat;
+    background-size: 100%;
+    border-color: #033459;
+    
+    figure.hero {
+        padding-top: 22%; // start with imgheight450px / imgwidth800px = 0.5625 and then adjust
+    }
+    .project-styles (#00e9ff, white, #bef8ff);
+    
+    h3:after {
+         background-image: linear-gradient(to right, white, #00e9ff, fade(#00e9ff,0%));
+    }
+    
+    figure.tall a { background-position: left!important }
+    
+    @media @tablet {
+        background-size: 130%;
+    }
+    
+    @media @phone {
+        background-size: 150%;
+        
+        figure.hero { padding-top: 30% }
+    }
+}
+
+
 
 .project-walkonwater {
     background:white url('@{projectHero}/walk-on-water/project-hero.jpg') top center no-repeat;
@@ -608,7 +637,7 @@ article.project {
         z-index: 10;
         
         @media @desktop-xl {
-            max-width: 280px;
+            max-width: 250px;
         }
         
         @media only screen and (max-width: 1000px) {
