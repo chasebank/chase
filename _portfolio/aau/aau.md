@@ -20,6 +20,11 @@ Common sports marketing campaigns like Nike and Gatorade have a recognizably *ex
 
 <div class="gallery" itemscope itemtype="http://schema.org/ImageGallery">
   <div class="gallery-group">
+    <figure class="logo" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+      <a href="gallery/aau-logo-stylized-forweb.jpg" itemprop="contentUrl" data-size="2912x650"><img src="gallery/aau-logo-stylized-forweb-thumb.jpg" itemprop="thumbnail" alt="Image description" /></a>
+    </figure>
+  </div>
+  <div class="gallery-group">
     <figure class="tall" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
       <a href="gallery/aau-poster-shield-assets-forweb.jpg" itemprop="contentUrl" data-size="870x900"><img src="gallery/aau-poster-shield-assets-forweb-thumb.jpg" itemprop="thumbnail" alt="Image description" /></a>
     </figure>
