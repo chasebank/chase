@@ -372,19 +372,21 @@ main section {
     border: .3rem solid;
     padding: .5rem;
     
-    &:nth-last-child(-n+3) { margin-bottom: 0 }
-    
+    &:last-of-type{
+        position: relative;
+        #grid > .push(4);
+        margin-bottom: 0
+    }
+        
     @media @tablet {
         #grid > .span(6);
         
-        &:nth-last-child(-n+3) { margin-bottom: @gridGutterWidth }
-
-        &:last-of-type {
-            position: relative;
-            
-            #grid > .push(3);
+        &:nth-last-child(-n+2) {
+            border-color: red!important;
             margin-bottom: 0
         }
+        
+        &:last-of-type{ left: initial }
     }
 
     @media @phone {
@@ -392,7 +394,10 @@ main section {
         
         &:nth-last-child(-n+3) { margin-bottom: @gridGutterWidth }
         
-        &:last-of-type { margin-bottom: 0 }
+        &:last-of-type{
+            left: initial;
+            margin-bottom: 0
+        }
     }
 }
 
@@ -439,6 +444,7 @@ main section {
 .css { .skillColors(#002A04,#29F912) }
 .html { .skillColors(#290000,#FF5900) }
 .wordpress { .skillColors(#000,#827F7E) }
+.grunt { .skillColors(#301200,#fba919) }
 .git { .skillColors(#200F00,#F05127) }
 .javascript { .skillColors(#000D2D,#00A0D7) }
 
@@ -791,6 +797,14 @@ h4 { font-size: 1.6rem }
 section { color: @colorText }
 
 .work-history + ul { color: #042029 }
+
+p {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    margin: 0;
+    
+    + p { margin-top: 1rem }
+}
 
 ul {
     font-size: 1.5rem;
