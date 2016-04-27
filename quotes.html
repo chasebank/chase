@@ -25,7 +25,9 @@ permalink: /notes/quotes/
     
     <!-- Begin masonry items -->
 
-    {% for quote in site.notes %}
+    {% assign sorted = (site.notes | sort: 'date') %}
+    {% for quote in sorted reversed %}
+
     {% if quote.category == "quotes" %}
 
     <article class="quote" style="background-color: rgba({{ quote.background-color }},1); color: #{{ quote.text-color }}">
