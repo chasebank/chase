@@ -1,0 +1,22 @@
+{
+  "name": "chase",
+  "version": "1.0.0",
+  "description": "Personal site for Chase Whiteside",
+  "author": "Chase Whiteside",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
+  },
+  "dependencies": {
+    "cross-env": "^5.2.0",
+    "nuxt": "^2.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0",
+    "push-dir": "^0.4.1"
+  }
+}
