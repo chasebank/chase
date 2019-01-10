@@ -59,6 +59,11 @@ module.exports = {
   ** Global CSS
   */
   css: [
+    '~/styles/global.scss'
+  ],
+
+  modules: [
+    ['nuxt-sass-resources-loader', '@/styles/_bitsnpieces.scss']
   ],
 
   /*
