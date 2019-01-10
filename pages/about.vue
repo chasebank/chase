@@ -8,7 +8,7 @@
       <h2 class="subtitle">
         Personal site for Chase Whiteside
       </h2>
-      <nuxt-link to="/about">About (internal link that belongs to the Nuxt App)</nuxt-link>
+      <nuxt-link to="/">Home</nuxt-link>
       <div class="links">
         <a
           href="https://nuxtjs.org/"
@@ -31,9 +31,17 @@ import Logo from '~/components/Logo.vue'
 export default {
   mixins: [metaInfo],
 
+  meta: {
+    depth: 3
+  },
+
   components: {
     Logo
   },
+
+  data: () => ({
+    title: 'Contact',
+  })
 }
 </script>
 
