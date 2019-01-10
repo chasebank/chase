@@ -1,15 +1,13 @@
 const pkg = require('./package')
 
 const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
-  base: '/<repository-name>/'
+  base: '/chase/'
 } : {}
 
 module.exports = {
   mode: 'universal',
 
-  /*
-  ** Headers of the page
-  */
+  // Headers of the page
   head: {
     title: pkg.name,
     meta: [
@@ -22,9 +20,7 @@ module.exports = {
     ]
   },
 
-  /*
-  ** Customize the progress-bar color
-  */
+  // Customize the progress-bar color
   loading: false,
 
   head: {
@@ -42,7 +38,6 @@ module.exports = {
   },
 
   router: {
-    // base: '/chase/',
     ...routerBase,
 
     middleware: 'routeDepth',
@@ -60,9 +55,7 @@ module.exports = {
     }
   },
 
-  /*
-  ** Global CSS
-  */
+  // Global CSS
   css: [
     '~/styles/global.scss'
   ],
@@ -71,25 +64,16 @@ module.exports = {
     ['nuxt-sass-resources-loader', '@/styles/_bitsnpieces.scss']
   ],
 
-  /*
-  ** Plugins to load before mounting the App
-  */
+  // Plugins to load before mounting the App
   plugins: [
   ],
 
-  /*
-  ** Nuxt.js modules
-  */
+  // Nuxt.js modules
   modules: [
   ],
 
-  /*
-  ** Build configuration
-  */
+  // Build configuration
   build: {
-    /*
-    ** You can extend webpack config here
-    */
     extend(config, ctx) {
       
     }
