@@ -1,5 +1,9 @@
 const pkg = require('./package')
 
+const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
+  base: '/<repository-name>/'
+} : {}
+
 module.exports = {
   mode: 'universal',
 
@@ -38,7 +42,8 @@ module.exports = {
   },
 
   router: {
-    base: '/chase/',
+    // base: '/chase/',
+    ...routerBase,
 
     middleware: 'routeDepth',
 
