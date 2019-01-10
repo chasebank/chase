@@ -38,7 +38,7 @@ module.exports = {
   },
 
   router: {
-    base: '/chase/',
+    // base: '/chase/',
 
     middleware: 'routeDepth',
 
