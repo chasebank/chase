@@ -1,0 +1,6 @@
+:root {
+  --scrollbar: 0px;
+}
+
+$fullWidth: calc(100vw - var(--scrollbarWidth));
+$navHeight: 3rem;

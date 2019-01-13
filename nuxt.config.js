@@ -61,15 +61,11 @@ module.exports = {
   ],
 
   modules: [
-    ['nuxt-sass-resources-loader', '@/styles/_bitsnpieces.scss']
+    ['nuxt-sass-resources-loader', '~/styles/_bitsnpieces.scss']
   ],
 
   // Plugins to load before mounting the App
   plugins: [
-  ],
-
-  // Nuxt.js modules
-  modules: [
   ],
 
   // Build configuration

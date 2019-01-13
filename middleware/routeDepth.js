@@ -8,5 +8,5 @@ export default function ({ store, route, redirect }) {
   const routeDepth = route.meta.reduce((depth, meta) => meta.depth || depth, 0)
 
   // send depth to the store
-  // store.commit('setRouteTransitionDirection', routeDepth)
+  store.commit('setRouteTransitionDirection', routeDepth)
 }

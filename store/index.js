@@ -7,7 +7,7 @@ const createStore = () => {
       // currentRouteTitle: '',
       // routeHistory: ["Home"],
       routeDepth: '1',
-      // routeTransitionDirection: 'transition--route-slide-right-'
+      routeTransitionDirection: 'transition--route-slide-right-'
     },
     
     mutations: {
@@ -44,11 +44,11 @@ const createStore = () => {
       //   state.routeHistory.pop()
       // },
 
-      // setRouteTransitionDirection(state, newRouteDepth) {
-      //   newRouteDepth < state.routeDepth ? state.routeTransitionDirection = 'transition--route-slide-right-' : state.routeTransitionDirection = 'transition--route-slide-left-'
+      setRouteTransitionDirection(state, newRouteDepth) {
+        newRouteDepth < state.routeDepth ? state.routeTransitionDirection = 'transition--route-slide-right-' : state.routeTransitionDirection = 'transition--route-slide-left-'
         
-      //   state.routeDepth = newRouteDepth
-      // }
+        state.routeDepth = newRouteDepth
+      }
     }
   })
 }

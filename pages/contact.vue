@@ -1,7 +1,7 @@
 <template>
   <main class="container">
-    <h2>About</h2>
-    <long-content></long-content>
+    <h2>Contact</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet repudiandae tempora quod architecto autem. Modi necessitatibus non vitae dolor consequatur quaerat quae, iure quidem voluptate officia optio nobis accusantium hic.</p>
   </main>
 </template>
 
@@ -14,7 +14,7 @@ export default {
   mixins: [metaInfo],
 
   meta: {
-    depth: 2
+    depth: 3
   },
 
   components: {
