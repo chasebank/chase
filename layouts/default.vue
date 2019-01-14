@@ -63,14 +63,31 @@ export default {
     window.onresize = () => { getScrollbarWidth() }
   },
 
+  data: () => ({
+    vw: '',
+    vh: ''
+  }),
+
   methods: {
     beforeRouteLeave() {
+      // this.vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+      // this.vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 
+      console.log('old', this.vw, this.vh)
     },
 
-    routeEnter() {
+    routeEnter(el) {
+      // let newVh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0),
+      //     appHeight = this.$root.$el.offsetHeight;
 
-    }
+      // console.log('appHeight', appHeight)
+
+      // if (newVh > this.vh) {
+      //   let this.vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+      // }
+
+      // if (newVh > appHeight)
+    },
   }
 }
 </script>
@@ -134,22 +151,28 @@ body {
   // flex-wrap: wrap;
 }
 
+$transitionDurationForDebugging: .8s;
+
 main {
   width: 100%;
   align-self: stretch;
+  // flex: 1 0 100%;
   flex-grow: 1;
-  border: 10px solid black;
+  flex-shrink: 0;
+  min-height: 100%;
+  border: 10px solid gray;
+  transition: all $transitionDurationForDebugging !important;
 }
 
 
-$transitionDurationForDebugging: .8s;
+
 .transition--route-slide-left--enter-active,
 .transition--route-slide-left--leave-active,
 .transition--route-slide-right--enter-active,
 .transition--route-slide-right--leave-active {
   transition: opacity $transitionDurationForDebugging;
 
-  main {
+  .content {
     transition: transform $transitionDurationForDebugging, opacity $transitionDurationForDebugging;
   }
 }
@@ -157,7 +180,7 @@ $transitionDurationForDebugging: .8s;
 .transition--route-slide-right--leave-to {
   opacity: 0;
   
-  main {
+  .content {
     transform: translate3d(60vmax, 0, 0);
   }
 }
@@ -165,7 +188,7 @@ $transitionDurationForDebugging: .8s;
 .transition--route-slide-left--leave-to {
   opacity: 0;
   
-  main {
+  .content {
     transform: translate3d(-60vmax, 0, 0);
   }
 }

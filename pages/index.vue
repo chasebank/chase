@@ -1,7 +1,9 @@
 <template>
   <main class="container">
-    <h2>Home</h2>
-    <long-content></long-content>
+    <div class="content">
+      <h2>Home</h2>
+      <long-content></long-content>
+    </div>
   </main>
 </template>
 
