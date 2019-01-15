@@ -1,3 +1,131 @@
+$smallScreen: 550px;
+$mediumScreen: 768px;
+$largeScreen: 1600px;
+
+
+
+//
+// responsive min max
+//
+@function between( $fromValue, $toValue, $fromWidth, $toWidth ) {
+  $slope: ( $toValue - $fromValue ) / ( $toWidth - $fromWidth );
+  $base: $fromValue - $slope * $fromWidth;
+
+  @return calc(#{$base} + #{100vw * $slope});
+}
+
+@mixin responsive-property(
+  $property,
+  $fromValue,
+  $toValue,
+  $fromBp: $smallScreen,
+  $toBp: $largeScreen
+) {
+
+  $fromValues: ();
+  $betweenValues: ();
+  $toValues: ();
+
+  @for $i from 1 through length( $fromValue ) {
+    $fv: nth( $fromValue, $i );
+    $tv: nth( $toValue, $i );
+
+    $bv: $fv;
+    $bvf: false;
+    $bvt: false;
+
+    @if ( type-of( $fv ) == "number" and not unitless( $fv ) and unit( $fv ) != "%" ) {
+      $fv: if( unit( $fv ) != "px", ( $fv / ( $fv * 0 + 1 ) * 16 ) * 1px, $fv );
+        $bvf: $fv;
+    }
+    @if ( type-of( $tv ) == "number" and not unitless( $tv ) and unit( $tv ) != "%" ) {
+      $tv: if( unit( $tv ) != "px", ( $tv / ( $tv * 0 + 1 ) * 16 ) * 1px, $tv );
+      $bvt: $tv;
+    }
+    @if ( $bvf != false and $bvt != false ) {
+      $bv: between( $bvf, $bvt, $fromBp, $toBp );
+    }
+
+    $fromValues: append( $fromValues, $fv );
+    $betweenValues: append( $betweenValues, $bv );
+    $toValues: append( $toValues, $tv );
+  }
+
+  #{$property}: $fromValues;
+  @media screen and (min-width: #{$fromBp}) {
+    #{$property}: $betweenValues;
+  }
+  @media screen and (min-width: #{$toBp}) {
+    #{$property}: $toValues;
+  }
+}
+
+
+
+//
+// Colors
+//
+@function color($color-name, $color-variant:null) {
+  @if ($color-variant !=null) {
+     @return map-get(map-get($colors, $color-name), $color-variant);
+  }
+  @else {
+     @return map-get($colors, $color-name);
+  }
+}
+
+$colors: (
+  highlight: #00d8ff,
+  light: #d2f8ff,
+  mid: #70bfce,
+  dark: #2d6b77,
+  darker: #1a4850,
+  background: #0b151d
+);
+
+
+
+//
+// Squircles
+//
+@mixin squircleMask($size) {
+  mask-image: url('data:image/svg+xml;charset=UTF-8,\
+    <svg xmlns="http://www.w3.org/2000/svg" height="100%" width="100%">\
+      <mask id="test">\
+        <rect fill="white" width="100%" height="100%"/>\
+        <path fill="black" x="20" width="' + $size + '" height="' + $size + '" d="M' + $size + ' 0H0v' + $size + 'C0 ' + $size * .2 + ' ' + $size * .2 + ' 0 ' + $size + ' 0z"/>\
+        <svg x="100%" style="overflow: visible">\
+          <path fill="black" d="M' + $size + ' ' + $size + 'V0H0c' + $size * .8 + ' 0 ' + $size + ' ' + $size * .2 + ' ' + $size + ' ' + $size + 'z" transform="translate(-' + $size + ',0)"/>\
+        </svg>\
+        <svg x="100%" y="100%" style="overflow: visible">\
+          <path fill="black" d="M0 ' + $size + 'h' + $size + 'V0c0 ' + $size * .8 + '-' + $size * .2 + ' ' + $size + '-' + $size + ' ' + $size + 'z" transform="translate(-' + $size + ',-' + $size + ')"/>\
+        </svg>\
+        <svg y="100%" style="overflow: visible">\
+          <path fill="black" d="M0 0v' + $size + 'h' + $size + 'C' + $size * .2 + ' ' + $size + ' 0 ' + $size * .8 + ' 0 0z" transform="translate(0,-' + $size + ')"/>\
+        </svg>\
+      </mask>\
+      <rect fill="white" width="100%" height="100%" mask="url(#test)"/>\
+    </svg>');
+}
+
+@mixin squircle($minRadius) {
+  $midRadius: $minRadius * 1.2;
+  $maxRadius: $midRadius * 1.2;
+  
+  @include squircleMask($minRadius);
+  min-height: calc(#{$minRadius} * 2px);
+  
+  @media (min-width: $mediumScreen) {
+    @include squircleMask($midRadius);
+    min-height: calc(#{$midRadius} * 2px);
+  }
+  
+  @media (min-width: $largeScreen) {
+    @include squircleMask($maxRadius);
+    min-height: calc(#{$maxRadius} * 2px);
+  }
+}
+
 :root {
   --scrollbar: 0px;
 }
