@@ -3,7 +3,7 @@ import Vuex from 'vuex';
 const createStore = () => {
   return new Vuex.Store({
     state: {
-      // contentScrolled: false,
+      contentScrolled: false,
       // currentRouteTitle: '',
       // routeHistory: ["Home"],
       routeDepth: '1',
@@ -11,13 +11,15 @@ const createStore = () => {
     },
     
     mutations: {
-      // contentScrolled(state) {
-      //   state.contentScrolled = true
-      // },
+      contentScrolled(state) {
+        state.contentScrolled = true
+        console.log('set to true ')
+      },
 
-      // contentNotScrolled(state) {
-      //   state.contentScrolled = false
-      // },
+      contentNotScrolled(state) {
+        state.contentScrolled = false
+        console.log('set to false ')
+      },
 
       // handleHistory(state, payload) {
       //   if (typeof payload !== "undefined") {

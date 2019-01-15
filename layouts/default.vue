@@ -21,8 +21,22 @@ export default {
   },
 
   mounted() {
-    // HANDLE SCROLLBAR FOR VW
-    const getScrollbarWidth = () => {
+    // Set a custom property with the value calculated
+    this.getScrollbarWidth()
+
+    this.setScrollState()
+
+    window.onresize = () => { this.getScrollbarWidth() }
+  },
+
+  data: () => ({
+    
+  }),
+
+  methods: {
+    getScrollbarWidth() {
+      // CALCULATE SCROLLBAR WIDTH FOR VW UNIT
+
       // small customization of codepen.io/Mamboleoo/post/scrollbars-and-css-custom-properties
       // to only set scrollbar width when scrollbar is visible
       
@@ -55,25 +69,12 @@ export default {
       } else {
         document.documentElement.style.setProperty('--scrollbar', '0px');
       }
-    };
+    },
 
-    // Set a custom property with the value we calculated
-    getScrollbarWidth();
-
-    window.onresize = () => { getScrollbarWidth() }
-  },
-
-  data: () => ({
-    vw: '',
-    vh: ''
-  }),
-
-  methods: {
-    beforeRouteLeave() {
+    beforeRouteLeave(el) {
       // this.vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
       // this.vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-
-      console.log('old', this.vw, this.vh)
+      this.fakeScrollPosition(el)
     },
 
     routeEnter(el) {
@@ -87,6 +88,42 @@ export default {
       // }
 
       // if (newVh > appHeight)
+    },
+
+    fakeScrollPosition(el) {
+      let scrollPosition = document.body.scrollTop || document.documentElement.scrollTop
+
+      let newScrollPos = el.getBoundingClientRect()
+
+      // el.style.top = (scrollPosition * -1) + 'px'
+
+      el.style.top = newScrollPos.top + 'px'
+
+      // console.log('ran fakeScrollPos', scrollPosition)
+      console.log('test new scrollPos ', newScrollPos.top)
+    },
+
+    setScrollState() {
+      let checkState = () => {
+        // if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
+        //   this.$store.commit('contentScrolled')
+        // } else {
+        //   this.$store.commit('contentNotScrolled')
+        // }
+
+        // nested condition so that it only runs once
+        if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
+          if (!this.$store.state.contentScrolled) this.$store.commit('contentScrolled')
+        } else {
+          if (this.$store.state.contentScrolled) this.$store.commit('contentNotScrolled')
+        }
+      }
+
+      checkState()
+      
+      window.addEventListener("scroll", function(){
+        checkState()
+      })
     },
   }
 }
@@ -103,9 +140,6 @@ export default {
 *:after { box-sizing: inherit; max-height: 999999px; }
 
 html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -151,7 +185,7 @@ body {
   // flex-wrap: wrap;
 }
 
-$transitionDurationForDebugging: .8s;
+$transitionDurationForDebugging: .6s;
 
 main {
   width: 100%;
@@ -163,8 +197,6 @@ main {
   border: 10px solid gray;
   transition: all $transitionDurationForDebugging !important;
 }
-
-
 
 .transition--route-slide-left--enter-active,
 .transition--route-slide-left--leave-active,
@@ -197,7 +229,7 @@ main {
   position: fixed;
   width: 100%;
 
-  // main {
+  // .content {
   //   position: fixed;
   //   top: 0;
   //   width: 100%;

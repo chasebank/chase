@@ -19,5 +19,7 @@ nav {
   top: 0;
   width: $fullWidth;
   height: $navHeight;
+
+  z-index: 1;
 }
 </style>
