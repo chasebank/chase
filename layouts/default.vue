@@ -1,12 +1,12 @@
 <template>
-  <div id="main-wrap">
+  <div id="main-wrap" ref="mainWrap">
     <navigation/>
     
     <transition :name="$store.state.routeTransitionDirection" @before-leave="beforeRouteLeave" @enter="routeEnter">
-      <nuxt :key="$route.fullPath" />
+      <nuxt :key="$route.fullPath"  />
     </transition>
 
-    <my-footer/>
+    <my-footer ref="footer"/>
   </div>
 </template>
 
@@ -20,6 +20,10 @@ export default {
     myFooter
   },
 
+  data: () => ({
+    footerPosition: '',
+  }),
+
   mounted() {
     // Set a custom property with the value calculated
     this.getScrollbarWidth()
@@ -27,11 +31,17 @@ export default {
     this.setScrollState()
 
     window.onresize = () => { this.getScrollbarWidth() }
-  },
 
-  data: () => ({
-    
-  }),
+    let footer = this.$refs.footer.$el
+
+    if (this.footerPosition == '') {
+      console.log('setting original footer position')
+      this.footerPosition = footer.getBoundingClientRect()
+      console.log(this.footerPosition)
+    }
+
+    document.documentElement.style.setProperty('--calculatedFooterHeight', footer.offsetHeight + 'px');
+  },
 
   methods: {
     getScrollbarWidth() {
@@ -54,8 +64,6 @@ export default {
       // Calculate the width based on the container width minus its child width
       const width = container.offsetWidth - inner.offsetWidth;
 
-      console.log('container ' + container.offsetWidth, 'inner ' + inner.offsetWidth)
-
       // Remove the container from the body
       document.body.removeChild(container);
 
@@ -72,35 +80,81 @@ export default {
     },
 
     beforeRouteLeave(el) {
-      // this.vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-      // this.vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
       this.fakeScrollPosition(el)
     },
 
     routeEnter(el) {
-      // let newVh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0),
-      //     appHeight = this.$root.$el.offsetHeight;
+      let footer = this.$refs.footer.$el,
+          footerHeight = footer.offsetHeight,
+          vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
 
-      // console.log('appHeight', appHeight)
+      // Footer is in view
+      // current page doesn't scroll
+      // next page scrolls (is bigger)
+      // footer will be out of view
+      // console.log(this.footerPosition)
+      if (this.footerPosition.top <= vh + footerHeight) {
+        console.log('bigger')
 
-      // if (newVh > this.vh) {
-      //   let this.vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-      // }
+        let previousRouteEl = el.previousSibling
 
-      // if (newVh > appHeight)
+        footer.style.top = this.footerPosition.top + 'px'
+        footer.classList.add('move-footer-down')
+
+        setTimeout(() => {
+          document.documentElement.style.setProperty('--conditionalFooterSpacer', '0px');
+          footer.style.removeProperty('top')
+          footer.classList.remove('move-footer-down')
+        }, 600)
+      }
+            
+      // footer is not in view
+      // next page is smaller
+      // footer will be in view
+      else if (this.footerPosition.bottom > vh + footerHeight) {
+        footer.classList.add('move-footer-up')
+
+        console.log('footerPo s', this.footerPosition.bottom)
+        console.log('vh + footerHeight ', vh + footerHeight)
+        
+        setTimeout(() => {
+          document.documentElement.style.setProperty('--conditionalFooterSpacer', '0px');
+          // footer.style.removeProperty('top')
+          footer.classList.remove('move-footer-up')
+        }, 600)
+        
+        console.log('smaller')
+      }
+      
+      // this.$nextTick(() => {      
+      //   console.log(this.footerPosition.bottom)
+        
+      //   console.log('setting new footer position')
+        
+      //   this.footerPosition = this.$refs.footer.$el.getBoundingClientRect()
+        
+      //   console.log(this.footerPosition.bottom)
+      // })
+
+      setTimeout(() => {
+        console.log(this.footerPosition.bottom)
+        
+        console.log('setting new footer position')
+        
+        this.footerPosition = this.$refs.footer.$el.getBoundingClientRect()
+        
+        console.log(this.footerPosition.bottom)
+      }, 601)
     },
 
     fakeScrollPosition(el) {
-      let scrollPosition = document.body.scrollTop || document.documentElement.scrollTop
+      // let scrollPosition = document.body.scrollTop || document.documentElement.scrollTop
 
       let newScrollPos = el.getBoundingClientRect()
 
       // el.style.top = (scrollPosition * -1) + 'px'
 
       el.style.top = newScrollPos.top + 'px'
-
-      // console.log('ran fakeScrollPos', scrollPosition)
-      console.log('test new scrollPos ', newScrollPos.top)
     },
 
     setScrollState() {
@@ -176,26 +230,42 @@ body {
 
 #__layout {
   background-color: cyan;
-  padding-top: $navHeight;
 }
 
 #main-wrap {
-  background-color: magenta;
-  // flex-direction: row;
-  // flex-wrap: wrap;
+  background-color: #00ff00;
+  position: relative;
+  min-height: 100%;
 }
 
 $transitionDurationForDebugging: .6s;
 
 main {
-  width: 100%;
+  width: 100%;  
   align-self: stretch;
   // flex: 1 0 100%;
   flex-grow: 1;
   flex-shrink: 0;
   min-height: 100%;
-  border: 10px solid gray;
-  transition: all $transitionDurationForDebugging !important;
+  box-shadow: inset 0 0 1rem 1rem gray;
+  // transition: all $transitionDurationForDebugging !important;
+
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+
+  padding-bottom: var(--calculatedFooterHeight)
+}
+
+.content {
+  box-shadow: inset 0 0 1rem 1rem red;
+
+  padding-top: $navHeight;
+
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .transition--route-slide-left--enter-active,
@@ -228,11 +298,5 @@ main {
 .transition--route-slide-right--leave-active {
   position: fixed;
   width: 100%;
-
-  // .content {
-  //   position: fixed;
-  //   top: 0;
-  //   width: 100%;
-  // }
 }
 </style>

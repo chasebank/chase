@@ -1,6 +1,5 @@
 <template>
-  <main class="container">
-    
+  <main>
     <div class="content">
       <h2>Contact</h2>
 
@@ -31,6 +30,10 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+
+main {
+  background-color: yellow;
+}
 
 </style>

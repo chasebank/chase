@@ -14,7 +14,7 @@ export default {
 
 <style lang="scss" scoped>
 nav {
-  background-color: #eee;
+  background-color: rgba(#eee,.5);
   position: fixed;
   top: 0;
   width: $fullWidth;

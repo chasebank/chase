@@ -128,6 +128,7 @@ $colors: (
 
 :root {
   --scrollbar: 0px;
+  --calculatedFooterHeight: 0px;
 }
 
 $fullWidth: calc(100vw - var(--scrollbarWidth));
