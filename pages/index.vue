@@ -8,12 +8,12 @@
 </template>
 
 <script>
-import metaInfo from '~/mixins/meta-info.vue'
+import pageMixin from '~/mixins/page-mixin.vue'
 
 import LongContent from '~/components/LongContent.vue'
 
 export default {
-  mixins: [metaInfo],
+  mixins: [pageMixin],
 
   components: {
     LongContent

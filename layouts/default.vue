@@ -2,8 +2,8 @@
   <div id="main-wrap" ref="mainWrap">
     <navigation/>
     
-    <transition :name="$store.state.routeTransitionDirection" @before-leave="beforeRouteLeave" @enter="routeEnter">
-      <nuxt :key="$route.fullPath"  />
+    <transition :name="$store.state.routeTransitionDirection" @before-leave="beforeRouteLeave">
+      <nuxt :key="$route.fullPath" />
     </transition>
 
     <my-footer ref="footer"/>
@@ -32,15 +32,12 @@ export default {
 
     window.onresize = () => { this.getScrollbarWidth() }
 
-    let footer = this.$refs.footer.$el
-
     if (this.footerPosition == '') {
-      console.log('setting original footer position')
-      this.footerPosition = footer.getBoundingClientRect()
-      console.log(this.footerPosition)
+      // console.log('setting original footer position')
+      this.footerPosition = this.$refs.footer.$el.getBoundingClientRect().top
     }
 
-    document.documentElement.style.setProperty('--calculatedFooterHeight', footer.offsetHeight + 'px');
+    document.documentElement.style.setProperty('--calculatedFooterHeight', this.$refs.footer.$el.offsetHeight + 'px');
   },
 
   methods: {
@@ -83,70 +80,6 @@ export default {
       this.fakeScrollPosition(el)
     },
 
-    routeEnter(el) {
-      let footer = this.$refs.footer.$el,
-          footerHeight = footer.offsetHeight,
-          vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
-
-      // Footer is in view
-      // current page doesn't scroll
-      // next page scrolls (is bigger)
-      // footer will be out of view
-      // console.log(this.footerPosition)
-      if (this.footerPosition.top <= vh + footerHeight) {
-        console.log('bigger')
-
-        let previousRouteEl = el.previousSibling
-
-        footer.style.top = this.footerPosition.top + 'px'
-        footer.classList.add('move-footer-down')
-
-        setTimeout(() => {
-          document.documentElement.style.setProperty('--conditionalFooterSpacer', '0px');
-          footer.style.removeProperty('top')
-          footer.classList.remove('move-footer-down')
-        }, 600)
-      }
-            
-      // footer is not in view
-      // next page is smaller
-      // footer will be in view
-      else if (this.footerPosition.bottom > vh + footerHeight) {
-        footer.classList.add('move-footer-up')
-
-        console.log('footerPo s', this.footerPosition.bottom)
-        console.log('vh + footerHeight ', vh + footerHeight)
-        
-        setTimeout(() => {
-          document.documentElement.style.setProperty('--conditionalFooterSpacer', '0px');
-          // footer.style.removeProperty('top')
-          footer.classList.remove('move-footer-up')
-        }, 600)
-        
-        console.log('smaller')
-      }
-      
-      // this.$nextTick(() => {      
-      //   console.log(this.footerPosition.bottom)
-        
-      //   console.log('setting new footer position')
-        
-      //   this.footerPosition = this.$refs.footer.$el.getBoundingClientRect()
-        
-      //   console.log(this.footerPosition.bottom)
-      // })
-
-      setTimeout(() => {
-        console.log(this.footerPosition.bottom)
-        
-        console.log('setting new footer position')
-        
-        this.footerPosition = this.$refs.footer.$el.getBoundingClientRect()
-        
-        console.log(this.footerPosition.bottom)
-      }, 601)
-    },
-
     fakeScrollPosition(el) {
       // let scrollPosition = document.body.scrollTop || document.documentElement.scrollTop
 
@@ -179,7 +112,9 @@ export default {
         checkState()
       })
     },
-  }
+  },
+
+  
 }
 </script>
 

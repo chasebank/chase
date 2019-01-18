@@ -40,7 +40,7 @@ module.exports = {
   router: {
     ...routerBase,
 
-    middleware: 'routeDepth',
+    middleware: ['routeDepth','beforeEach'],
 
     scrollBehavior: function (to, from, savedPosition) {
       return new Promise(resolve => {
