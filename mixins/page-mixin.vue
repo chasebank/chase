@@ -13,6 +13,8 @@ export default {
   }),
 
   mounted() {
+    this.$store.commit('handleHistory', this.title)
+    
     let pageEl = this.$root.$children[0],
         footer = pageEl.$refs.footer.$el,
         footerHeight = footer.offsetHeight,
@@ -21,7 +23,6 @@ export default {
         firstFooterPosition = pageEl.footerPosition
     
     if (firstFooterPosition <= vh && newFooterPosition > vh) {
-        
       // console.log('going bigger')
       footer.style.top = firstFooterPosition + 'px'
       footer.classList.add('move-footer-down')
@@ -35,7 +36,6 @@ export default {
     }
     
     else if (firstFooterPosition > vh && newFooterPosition <= vh) {
-
       // console.log('going smaller')
       footer.classList.add('move-footer-up')
 
@@ -47,7 +47,6 @@ export default {
 
     // this.$nextTick(() => {
       
-
     // })
   },
 

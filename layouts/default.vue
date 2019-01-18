@@ -155,20 +155,20 @@ body,
 }
 
 body {
-
+  background-color: #0b151d;
 }
 
 #__nuxt {
-  background-color: purple;
+  // background-color: purple;
   transition: all .8s;
 }
 
 #__layout {
-  background-color: cyan;
+  // background-color: cyan;
 }
 
 #main-wrap {
-  background-color: #00ff00;
+  // background-color: #00ff00;
   position: relative;
   min-height: 100%;
 }

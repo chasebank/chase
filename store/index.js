@@ -4,8 +4,8 @@ const createStore = () => {
   return new Vuex.Store({
     state: {
       contentScrolled: false,
-      // currentRouteTitle: '',
-      // routeHistory: ["Home"],
+      currentRouteTitle: '',
+      routeHistory: ["Home"],
       routeDepth: '1',
       routeTransitionDirection: 'transition--route-slide-right-'
     },
@@ -21,30 +21,30 @@ const createStore = () => {
         console.log('set to false ')
       },
 
-      // handleHistory(state, payload) {
-      //   if (typeof payload !== "undefined") {
+      handleHistory(state, payload) {
+        if (typeof payload !== "undefined") {
   
-      //     if (state.routeHistory[state.routeHistory.length - 1] == payload) {
-      //       state.routeHistory.pop()
-      //       // console.log('popped')
-      //     }
+          if (state.routeHistory[state.routeHistory.length - 1] == payload) {
+            state.routeHistory.pop()
+            // console.log('popped')
+          }
           
-      //     else if (state.currentRouteTitle != '') {
-      //       state.routeHistory.push(state.currentRouteTitle)
-      //     }
+          else if (state.currentRouteTitle != '') {
+            state.routeHistory.push(state.currentRouteTitle)
+          }
   
-      //     state.currentRouteTitle = payload
+          state.currentRouteTitle = payload
   
-      //   } else {
-      //     state.currentRouteTitle = ''
+        } else {
+          state.currentRouteTitle = ''
 
-      //     state.routeHistory = ["Home"]
-      //   }
-      // },
+          state.routeHistory = ["Home"]
+        }
+      },
 
-      // removeHistory(state) {
-      //   state.routeHistory.pop()
-      // },
+      removeHistory(state) {
+        state.routeHistory.pop()
+      },
 
       setRouteTransitionDirection(state, newRouteDepth) {
         newRouteDepth < state.routeDepth ? state.routeTransitionDirection = 'transition--route-slide-right-' : state.routeTransitionDirection = 'transition--route-slide-left-'
