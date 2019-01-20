@@ -70,8 +70,13 @@ module.exports = {
 
   // Build configuration
   build: {
-    extend(config, ctx) {
-      
+    extend (config, ctx) {
+      config.module.rules.push(
+        {
+          test: /\.md$/,
+          loaders: 'markdown-with-front-matter-loader',
+        }
+      )
     }
   }
 }

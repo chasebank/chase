@@ -5,6 +5,8 @@
 
       <h2 class="header--portfolio"><span><nuxt-link to="/portfolio" class="page-link">Portfolio</nuxt-link></span><span>Projects</span></h2>
 
+      <portfolio></portfolio>
+      
       <h2><span>Code</span><span>Snippets</span></h2>
 
       <div class="full-width"></div>
@@ -31,6 +33,7 @@
 import pageMixin from '~/mixins/page-mixin.vue'
 
 import LongContent from '~/components/LongContent.vue'
+import Portfolio from '~/components/portfolio.vue'
 
 export default {
   mixins: [pageMixin],
@@ -38,7 +41,8 @@ export default {
   name: 'home',
 
   components: {
-    LongContent
+    LongContent,
+    Portfolio
   },
 }
 </script>
