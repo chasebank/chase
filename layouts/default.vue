@@ -160,7 +160,15 @@ body {
 
 #__nuxt {
   // background-color: purple;
-  transition: all .8s;
+  background-image:
+    url(~assets/personal-site--header.png),
+    url(~assets/personal-site--footer.png),
+    url(~assets/personal-site--bg.jpg);
+  
+  background-attachment: fixed, initial, initial;
+  background-repeat: no-repeat, no-repeat, repeat;
+  background-position: top center, bottom center;
+  background-size: 100%, 100%, auto;
 }
 
 #__layout {
