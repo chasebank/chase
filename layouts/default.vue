@@ -173,6 +173,7 @@ body {
 
 #__layout {
   // background-color: cyan;
+  z-index: 1;
 }
 
 #main-wrap {
