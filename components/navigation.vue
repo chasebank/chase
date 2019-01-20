@@ -40,10 +40,12 @@ export default {
     },
 
     previousRoute() {
-      let msg = this.routeHistory[this.routeHistory.length - 1]
+      let msg = 'Home'
+
+      if (this.routeHistory.length > 1) msg = this.routeHistory[this.routeHistory.length - 1]
 
       if (this.contentScrolled) msg = "top"
-
+      
       return msg.split('')
     },
 
@@ -56,7 +58,8 @@ export default {
   methods: {
     goBack() {
       if (!this.contentScrolled && this.$route.name != 'index') {
-        if (this.routeHistory.length > 0 && this.routeHistory[0] != 'Home') {
+        // if (this.routeHistory.length > 0 || this.routeHistory[0] != 'Home') {
+        if (this.routeHistory.length > 0) {
 
           this.$router.go(-1)
 

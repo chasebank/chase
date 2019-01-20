@@ -5,7 +5,7 @@ const createStore = () => {
     state: {
       contentScrolled: false,
       currentRouteTitle: '',
-      routeHistory: ["Home"],
+      routeHistory: '',
       routeDepth: '1',
       routeTransitionDirection: 'transition--route-slide-right-'
     },
