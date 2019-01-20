@@ -177,23 +177,19 @@ $transitionDurationForDebugging: .6s;
 
 main {
   width: 100%;  
-  align-self: stretch;
-  // flex: 1 0 100%;
   flex-grow: 1;
   flex-shrink: 0;
   min-height: 100%;
-  box-shadow: inset 0 0 1rem 1rem gray;
-  // transition: all $transitionDurationForDebugging !important;
+  // box-shadow: inset 0 0 1rem 1rem gray;
 
   display: flex;
   flex-direction: column;
-  // justify-content: center;
 
   padding-bottom: var(--calculatedFooterHeight)
 }
 
 .content {
-  box-shadow: inset 0 0 1rem 1rem red;
+  // box-shadow: inset 0 0 1rem 1rem red;
 
   padding-top: $navHeight;
 
@@ -201,6 +197,17 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  width: calc(90vw - 2rem);
+  align-self: center;
+  max-width: 60rem;
+}
+
+.full-width {
+  background-color: cyan;
+  height: 10rem;
+
+  @include full-width;
 }
 
 .transition--route-slide-left--enter-active,
