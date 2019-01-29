@@ -2,7 +2,7 @@
 layout: code
 title: Color Variable Map
 description: Use SASS maps for managing color variables
-date: 2016-11-21
+created: 2016-11-21
 category: codes
 ---
 

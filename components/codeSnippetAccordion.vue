@@ -1,0 +1,194 @@
+<template>
+  <div class="definition-item">
+    <dt @click="expand"
+        :aria-expanded="`${expanded}`"
+        :aria-controls="`definition-${item}`"
+        :class="{'expanded' : expanded}"
+        ref="definitionTerm">
+      {{ item.title }}
+      <div class="toggle">
+        <svg id="icon--back" xmlns="http://www.w3.org/2000/svg" width="19" height="24.665" viewBox="0 0 19 24.665">
+          <path d="M18.779 22.529L5.205 15.003l13.574-8.225V0L-.114 12.467v1.885l18.893 10.313z"/>
+        </svg>
+      </div>
+    </dt>
+    
+    <transition
+      name="transition-accordion-"
+      @enter="transition"
+      @after-enter="afterTransition"
+      @leave="transition"
+      @after-leave="afterTransition">
+      <dd
+        :id="`definition-${item}`"
+        :aria-hidden="`${!expanded}`"
+        v-show="expanded"
+        >
+          <p>Defintion List lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio aliquam laudantium eum laborum maiores natus alias, delectus impedit eos. At voluptatibus molestias tempore dicta, incidunt voluptatem sequi enim tenetur pariatur.</p>
+        </dd>
+    </transition>
+  </div>
+</template>
+
+<script>
+export default {
+  props: ['item'],
+
+  data: () => ({
+    expanded: false
+  }),
+  
+  methods: {
+    expand() {
+      this.expanded = !this.expanded
+    },
+    
+    transition(el) {
+      let firstHeight, endHeight
+      
+      if (this.expanded) {
+        el.style.display = "none"
+        firstHeight = `${this.$el.offsetHeight}px`
+
+        el.style.removeProperty('display')
+        endHeight = `${this.$el.offsetHeight}px`
+      }
+      
+      else {
+        firstHeight = `${this.$el.offsetHeight}px`
+      
+        el.style.display = "none" 
+        endHeight = `${this.$el.offsetHeight}px`
+
+        el.style.removeProperty('display')
+      }
+      
+      this.$el.style.height = firstHeight
+      this.$el.offsetHeight // force repaint
+      this.$el.style.height = endHeight
+    },
+
+    afterTransition() {
+      this.$el.style.removeProperty('height')
+    },
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+$transitionDuration: .3s;
+.definition-item {
+  transition: height $transitionDuration;
+  
+  + .definition-item {
+    margin-top: 1.5rem;
+  }
+}
+
+dt {
+  position: relative;
+  background: linear-gradient(to right, rgba(color(highlight), .2), rgba(color(highlight), 0));
+  padding: .5rem 1rem .5rem 1.75rem;
+  font-family: TimesNewRoman, Times New Roman, Times, Baskerville, Georgia, serif;
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: color(light);
+  text-shadow: 0rem .1rem .15rem black;
+  transition: color .3s;
+  cursor: pointer;
+  
+  backface-visibility: hidden;
+  font-smoothing: antialiased;
+  transform: scale(.99999);
+  
+  &:before {
+    display: block;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(color(highlight), .2), rgba(color(highlight), 0));
+    transition: transform .3s, opacity .3s;
+    transform-origin: top left;
+    transform: scale3d(0, 1, 1);
+    opacity: 0;
+    z-index: -1;
+  }
+}
+
+dd {
+  margin-left: 0;
+  padding: 3vw 2vw 4vw 2vw;
+  
+  backface-visibility: hidden;
+  font-smoothing: antialiased;
+  transform: scale(.99999);
+}
+
+.toggle {
+  background:
+    linear-gradient(rgba(color(highlight),.5), rgba(color(highlight),.5)),
+    url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/106403/personal-site--bg.jpg);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: -.5rem;
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 .2rem .4rem rgba(black,.25);
+  
+  svg {
+    width: .5rem;
+    height: auto;
+    position: relative;
+    top: .5px;
+    fill: cyan;
+    transition: transform .4s ease-in-out;
+    transform: rotate3d(0,0,1,-90deg);
+    
+  }
+}
+
+.expanded {
+  color: white;
+  text-shadow: none;
+  
+  &:before {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+  
+  .toggle {
+    background:
+      linear-gradient(rgba(color(highlight),.6), rgba(color(highlight),1)),
+      url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/106403/personal-site--bg.jpg);
+    
+    svg {
+      fill: white;
+      top: 0;
+      transform: rotate3d(1,1,0,-180deg);
+    }
+  }
+}
+
+.transition-accordion--enter-active,
+.transition-accordion--leave-active {
+  transition: opacity $transitionDuration, transform $transitionDuration;
+}
+
+.transition-accordion--leave-active {
+  z-index: -1;
+}
+
+.transition-accordion--enter,
+.transition-accordion--leave-to {
+  opacity: 0;
+  transform: translate3d(0,-1rem,1px);
+}
+</style>

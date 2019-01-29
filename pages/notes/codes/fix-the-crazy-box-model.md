@@ -1,8 +1,8 @@
 ---
 layout: code
-title: Fix the Crazy CSS&nbsp;Box&nbsp;Model
+title: Fix the Crazy CSS Model
 description: Set everything to border-box, but let modular layouts easily overwrite it.
-date: 2015-12-10
+created: 2015-12-10
 category: codes
 ---
 
