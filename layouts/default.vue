@@ -1,23 +1,23 @@
 <template>
   <div id="main-wrap" ref="mainWrap">
-    <navigation/>
+    <navigation-component />
     
     <transition :name="$store.state.routeTransitionDirection" @before-leave="beforeRouteLeave">
       <nuxt :key="$route.fullPath" />
     </transition>
 
-    <my-footer ref="footer"/>
+    <footer-component ref="footer"/>
   </div>
 </template>
 
 <script>
-import navigation from '~/components/navigation.vue'
-import myFooter from '~/components/myFooter.vue'
+import NavigationComponent from '~/components/navigation-component.vue'
+import FooterComponent from '~/components/footer-component.vue'
 
 export default {
   components: {
-    navigation,
-    myFooter
+    NavigationComponent,
+    FooterComponent
   },
 
   data: () => ({
