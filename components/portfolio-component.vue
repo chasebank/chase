@@ -265,30 +265,32 @@ export default {
   font-size: 1rem;
 }
 
+@mixin projectStyles($dark,$light) {
+  box-shadow: 0 .5rem 1rem -.25rem $light;
+  
+  &:before { background-color: $dark }
+  
+  .portfolio--project-description { color: $light }
+}
 
 
 .project--price-log {
-  &:before { background-color: #03925c }
-  .portfolio--project-description { color: #00cc82 }
+  @include projectStyles(#03925c,#00cc82);
 }
 .project--walk-on-water {
-  &:before { background-color: #574d8e }
-  .portfolio--project-description { color: #f1c4aa }
+  @include projectStyles(#574d8e,#f1c4aa);
 }
 .project--aau {
-  &:before { background-color: #075788 }
-  .portfolio--project-description { color: #27f4fd }
+  @include projectStyles(#075788,#27f4fd);
 }
 .project--feastbeast {
-  &:before { background-color: #653d3d }
-  .portfolio--project-description { color: #fc4141 }
+  @include projectStyles(#653d3d,#fc4141);
 }
 .project--officemax-office-depot {
-  &:before { background-color: #949297 }
-  .portfolio--project-description { color: #918d94 }
+  @include projectStyles(#949297,#918d94);
 }
 .project--pga {
-  &:before { background-color: #385118 }
-  .portfolio--project-description { color: #9ace38 }
+  @include projectStyles(#385118,#9ace38);
 }
+
 </style>
