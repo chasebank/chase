@@ -213,7 +213,7 @@ main {
 }
 
 .full-width {
-  background-color: cyan;
+  // background-color: cyan;
   height: 10rem;
 
   @include full-width;
