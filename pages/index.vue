@@ -3,6 +3,10 @@
     <div class="content">
       <h1 class="header--home"><span>CHASE</span><span>WHITESIDE</span><span>Designer</span><span>Developer</span></h1>
 
+      <nuxt-link to="/">Home</nuxt-link>
+      <nuxt-link to="/about">About</nuxt-link>
+      <nuxt-link to="/contact">Contact</nuxt-link>
+
       <h2 class="header--portfolio"><span><nuxt-link to="/portfolio" class="page-link">Portfolio</nuxt-link></span><span>Projects</span></h2>
 
       <portfolio-component />

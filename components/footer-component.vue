@@ -104,7 +104,7 @@ footer {
 }
 
 .move-footer-up {
-  transition: transform .4s;
+  transition: transform .6s;
   position: fixed;
   top: 100%;
   bottom: initial;
