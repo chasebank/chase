@@ -1,7 +1,13 @@
 <template>
-  <div>
+  <div class="codes">
+    <ul class="code-posts">
+      <li v-for="post in codes" class="code-post">
+        {{ post.title }}
+      </li>
+    </ul>
+
     <dl>
-      <code-snippet-accordion-component v-for="code in codes" :key="code.slug" :item="code" />
+      <!-- <code-snippet-accordion-component v-for="code in codes" :key="code.slug" :item="code" /> -->
     </dl>
   </div>
 </template>
@@ -10,6 +16,7 @@
 import CodeSnippetAccordionComponent from '~/components/code-snippet-accordion-component.vue'
 
 const codes = {};
+const codeSnippets = {};
 const req = require.context('@/pages/notes/codes/', false, /\.md$/);
 
 req.keys().forEach((key) => {
@@ -23,24 +30,35 @@ export default {
 
   computed: {
     codes() {
-      const codeArray = [];
-      
-      Object.keys(codes).forEach((key) => {
-        const code = codes[key],
-              slug = key.replace('./', '').replace('.md', '');
+      const postArray = [];
 
-        code.slug = slug
-        // project.image = require('~/assets/portfolio-assets/' + slug + '/code-thumb.jpg')
+      let getPosts = (posts) => {
+        Object.keys(posts).forEach((key) => {
+          const post = posts[key]
 
-        codeArray.push(code);
-      });
-      
-      return codeArray.sort( (firstCode, secondCode) => firstCode.created < secondCode.created ? 1 : -1 );
+          postArray.push(post);
+        });
+      }
+
+      getPosts(codes)
+
+      return postArray
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+.codes {
+  @include full-width;
+}
 
+.code-posts {
+  padding-left: 0;
+}
+
+.code-post {
+  background-color: black;
+  color: color(highlight)
+}
 </style>
