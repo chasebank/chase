@@ -8,6 +8,7 @@
     <article v-for="post in codes" :key="post.title" class="colcade-item code-post">
       <span class="post-title">{{ post.title }}</span>
       <p>Lorem this is an example of a post description.</p>
+      <nuxt-link :to="'/notes/codes/' + post.title"></nuxt-link>
     </article>
 
     <dl>
@@ -69,6 +70,7 @@ export default {
 }
 
 .code-post {
+  position: relative;
   background-color: rgba(0,0,0,.5);
   padding: 1rem;
   box-shadow: 0 1rem 1.5rem -1rem rgba(7, 57, 72, .25);
@@ -85,5 +87,13 @@ export default {
 p {
   margin-bottom: 0;
   margin-top: 0;
+}
+
+a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 </style>

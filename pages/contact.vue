@@ -21,7 +21,7 @@ export default {
   mixins: [pageMixin],
 
   meta: {
-    depth: 3
+    depth: 2
   },
 
   components: {

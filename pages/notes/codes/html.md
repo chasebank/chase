@@ -1,4 +1,5 @@
 ---
 title: HTML
-description: 
+description:
+type: cheatsheet
 ---

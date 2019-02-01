@@ -24,7 +24,7 @@
         :aria-hidden="`${!expanded}`"
         v-show="expanded"
         >
-          <p>Defintion List lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio aliquam laudantium eum laborum maiores natus alias, delectus impedit eos. At voluptatibus molestias tempore dicta, incidunt voluptatem sequi enim tenetur pariatur.</p>
+          <div v-html="item.__content"></div>
         </dd>
     </transition>
   </div>
@@ -120,7 +120,7 @@ dt {
 
 dd {
   margin-left: 0;
-  padding: 3vw 2vw 4vw 2vw;
+  padding: 2rem 0 3rem 0;
   
   backface-visibility: hidden;
   font-smoothing: antialiased;

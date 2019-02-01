@@ -13,16 +13,13 @@
 </template>
 
 <script>
-// import metaInfo from '@/mixins/meta-info.vue'
+import pageMixin from '~/mixins/page-mixin.vue'
 
-// const projects = {};
-// const req = require.context('./', false, /\.md$/);
-// req.keys().forEach((key) => {
-//   projects[key] = req(key);
-// });
-
-// import Header from '~/components/Header'
-// import Footer from '~/components/Footer'
+const projects = {};
+const req = require.context('./', false, /\.md$/);
+req.keys().forEach((key) => {
+  projects[key] = req(key);
+});
 
 export default {
   // components: {
@@ -42,36 +39,36 @@ export default {
   //   depth: 3
   // },
 
-  // computed: {
-  //   styles() {
-  //     return {
-  //       // 'background-color': this.thisArticle.colorBackground
-  //     }
-  //   },
-  //   projects() {
-  //     const projectArray = [];
+  computed: {
+    // styles() {
+    //   return {
+    //     // 'background-color': this.thisArticle.colorBackground
+    //   }
+    // },
+    // projects() {
+    //   const projectArray = [];
       
-  //     Object.keys(projects).forEach((key) => {
-  //       const project = projects[key];
-  //       project.slug = key.replace('./', '').replace('.md', '');
-  //       projectArray.push(project);
-  //     });
+    //   Object.keys(projects).forEach((key) => {
+    //     const project = projects[key];
+    //     project.slug = key.replace('./', '').replace('.md', '');
+    //     projectArray.push(project);
+    //   });
       
-  //     return projectArray;
-  //   },
-  //   thisProject() {
-  //     return this.projects.find(project => project.slug == this.$route.params.project)
-  //   },
-  //   thisProjectTitle() {
-  //     return this.thisProject.toString()
-  //   },
-  //   color() {
-  //     return this.thisProject.colorBackground
-  //   },
-  //   title() {
-  //     return this.thisProject.title + ' Project'
-  //   }
-  // },
+    //   return projectArray;
+    // },
+    // thisProject() {
+    //   return this.projects.find(project => project.slug == this.$route.params.project)
+    // },
+    // thisProjectTitle() {
+    //   return this.thisProject.toString()
+    // },
+    // color() {
+    //   return this.thisProject.colorBackground
+    // },
+    // title() {
+    //   return this.thisProject.title + ' Project'
+    // }
+  },
 }
 </script>
 

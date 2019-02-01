@@ -3,7 +3,7 @@ layout: code
 title: Dead Center
 description: Centers everything horizontaly & vertically.
 created: 2015-12-13
-category: codes
+category: css
 ---
 
 Great for quick test/demos, so you can pull whatever *thing* you're working on out from the corner, and drop it right in the middle, where it looks nicer anyway.
