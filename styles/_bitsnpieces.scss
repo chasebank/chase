@@ -137,8 +137,38 @@ $mainPadding: 3rem;
 $headerHeight: 3rem;
 $transition: .6s;
 
+
+
+
 @mixin full-width {
   align-self: center;
   width: calc(100vw - var(--scrollbar));
   // box-shadow: inset 0 0 1rem 1rem blue;
+}
+
+$colcadeGutter: 1rem;
+.colcade {
+  display: flex;
+  padding: 0 $colcadeGutter 0 $colcadeGutter;
+}
+
+.colcade-col {
+  flex-grow: 1;
+}
+
+/* 2 columns by default, hide columns 2 & 3 */
+.colcade-col:nth-child(2), .colcade-col:nth-child(3) { display: none }
+
+/* 3 columns at medium size */
+@media ( min-width: 768px ) {
+  .colcade-col:nth-child(2) { display: block; } /* show column 2 */
+}
+
+/* 4 columns at large size */
+@media ( min-width: 1080px ) {
+  .colcade-col:nth-child(3) { display: block; } /* show column 3 */
+}
+
+.colcade-item {
+  margin: $colcadeGutter $colcadeGutter ($colcadeGutter * 2) $colcadeGutter;
 }

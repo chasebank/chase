@@ -165,7 +165,7 @@ body {
     url(~assets/personal-site--footer.png),
     url(~assets/personal-site--bg.jpg);
   
-  background-attachment: fixed, initial, initial;
+  background-attachment: fixed, initial, fixed;
   background-repeat: no-repeat, no-repeat, repeat;
   background-position: top center, bottom center;
   background-size: 100%, 100%, auto;
