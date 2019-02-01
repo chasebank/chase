@@ -164,7 +164,7 @@ export default {
   justify-content: space-around;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  padding-bottom: 2rem;
+  // padding-bottom: 2rem;
   padding-left: 3vw;
   // padding-right: 2vw;
   

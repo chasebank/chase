@@ -3,6 +3,7 @@
     <div class="colcade-col"></div>
     <div class="colcade-col"></div>
     <div class="colcade-col"></div>
+    <div class="colcade-col"></div>
 
     <article v-for="post in codes" :key="post.title" class="colcade-item code-post">
       <span class="post-title">{{ post.title }}</span>

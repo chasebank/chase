@@ -1,4 +1,4 @@
 ---
-title: CSS
-description: 
+title: CSS Cheatsheet
+description: A list of useful patterns
 ---

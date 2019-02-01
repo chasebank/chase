@@ -150,6 +150,7 @@ $colcadeGutter: 1rem;
 .colcade {
   display: flex;
   padding: 0 $colcadeGutter 0 $colcadeGutter;
+  margin-top: $colcadeGutter * -1;
 }
 
 .colcade-col {

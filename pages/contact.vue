@@ -1,7 +1,7 @@
 <template>
   <main>
     <div class="content">
-      <h2>Contact</h2>
+      <h1><span>Contact</span><span>me</span></h1>
 
       <nuxt-link to="/">Home</nuxt-link>
       <nuxt-link to="/about">About</nuxt-link>
@@ -37,7 +37,7 @@ export default {
 <style lang="scss" scoped>
 
 main {
-  background-color: yellow;
+  // background-color: yellow;
 }
 
 </style>

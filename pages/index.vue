@@ -11,7 +11,7 @@
 
       <portfolio-component />
       
-      <h2><span>Code</span><span>Snippets</span></h2>
+      <h2><span><nuxt-link to="/notes/codes" class="page-link">Code</nuxt-link></span><span><nuxt-link to="/notes/codes" class="page-link">Snippets</nuxt-link></span></h2>
 
       <codes-component />
 
