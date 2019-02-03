@@ -6,67 +6,52 @@ created: 2016-11-21
 category: css
 ---
 
-This is a useful mixin for referencing some centralized color variables in a SASS Map. The nesting nature of the map also helps encourage more clear standards for color variations.
+A useful mixin for centralizing color variables in a SASS Map. Helps keep color standardized and consistent.
 
-I learned this technique from [Jake Albaugh](http://codepen.io/jakealbaugh/post/using-sass-functions-to-access-complex-variable-maps).
+I learned this from [Jake Albaugh](http://codepen.io/jakealbaugh/post/using-sass-functions-to-access-complex-variable-maps).
 
-<div 
-  class="codepen" 
-  data-prefill='{
-    "title": "React Basics Demo",
-    "description": "Shows how to use React and React DOM to render a module with props onto the page",
-    "tags": ["react", "react-docs-demo"],
-    "html_classes": ["loading", "no-js"],
-    "head": "&lt;meta name=&#x27;viewport&#x27; content=&#x27;width=device-width, initial-scale=1&#x27;&gt;",
-    "stylesheets": "https://unpkg.com/normalize.css@8.0.1/normalize.css",
-    "scripts": ["https://cdnjs.cloudflare.com/ajax/libs/react/16.6.3/umd/react.production.min.js", "https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.6.3/umd/react-dom.production.min.js"]
-  }'
-  style="height: 400px; overflow: auto;"
-  data-height="400" 
-  data-theme-id="31205"
-  data-default-tab="js,result" 
-  data-editable="true"     
-  style="height: 400px; overflow: auto;"
->
-  <pre data-lang="html">
-    &lt;div id="root"&gt;&lt;/div&gt;
-  </pre>
-  <pre data-lang="scss">
-    $gray: #ccc;
-    body {
-      background: $gray;
-      margin: 0;
-      padding: 1rem;
-    }
-    .module {
-      background: white;
-      padding: 1rem;
-      border-radius: 4px;
-      border: 1px solid #999;
-      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
-      h1 {
-        margin: 0 0 1rem 0;
-      }
-    }
-  </pre>
-  <pre data-lang="babel">
-    class Welcome extends React.Component {
-      render() {
-        return &lt;div class="module"&gt;
-          &lt;h1&gt;
-            Hello, {this.props.name}
-          &lt;/h1&gt;
-          &lt;p&gt;It's a good day to build websites.&lt;/p&gt;
-        &lt;/div&gt;;
-      }
-    }
-    ReactDOM.render(
-      &lt;Welcome name="Chris"&gt;&lt;/Welcome&gt;,
-      document.getElementById('root')
-    );
-  </pre>
+
+<div class="codepen"  data-theme-id="21051" data-default-tab="css,result" data-user="chasebank" data-slug-hash="KbrWdv" data-prefill='{"title":"Masonry with Colcade","tags":[],"stylesheets":[],"scripts":["https://unpkg.com/colcade@0/colcade.js"]}'>
+<pre data-lang="scss" data-option-autoprefixer>
+// color variable map
+$colors: (
+  // non-nested values
+  text: #FFF,
+  background: #333,
+  // nested map inception
+  primary: (
+    base: #FFBB00,
+    light: lighten(#FFBB00, 15%),
+    dark: darken(#FFBB00, 15%),
+  ),
+  secondary: (
+    base: #0969A2,
+    light: lighten(#0969A2, 15%),
+    dark: darken(#0969A2, 15%),
+  )
+);
+
+// retrieve color from $colors map ie. `color(base, primary)`
+@function color($color-name, $color-variant:null) {
+  // color variant is optional
+  @if ($color-variant !=null) {
+    // map inception
+    @return map-get(map-get($colors, $color-name), $color-variant);
+  }
+  @else {
+    @return map-get($colors, $color-name);
+  }
+}
+
+// using the function to get a non-nested color
+body {
+  background-color: color(background);
+}
+
+// using the function to get a nested map color
+h1 {
+  color: color(primary, base);
+  border-bottom: .1em solid rgba(color(secondary, base), .5);
+}
+</pre>
 </div>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
-
-<!-- <p data-height="300" data-theme-id="26404" data-slug-hash="oYZPvg" data-default-tab="css" data-user="chasebank" data-embed-version="2" data-pen-title="Color Variable Map" class="codepen">See the Pen <a href="http://codepen.io/chasebank/pen/oYZPvg/">Color Variable Map</a> by Chase (<a href="http://codepen.io/chasebank">@chasebank</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script> -->

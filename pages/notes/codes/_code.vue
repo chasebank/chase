@@ -7,6 +7,8 @@
         <code-snippet-accordion-component v-for="snippet in snippets" :key="snippet.slug" :item="snippet" />
       </dl>
     </div>
+
+    <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
   </main>
 </template>
 
@@ -99,5 +101,30 @@ export default {
   max-width: 45rem;
   margin-left: auto;
   margin-right: auto;
+}
+
+/deep/ .cp_embed_wrapper {
+  // @include full-width;
+
+  /* required for resize to work */
+  overflow: hidden;
+  
+  /* make resizeble! */
+  resize: both;
+  
+  /* required to see the handle */
+  background: white;
+  padding-bottom: 10px;
+	// // Full width as detailed at: https://css-tricks.com/full-width-containers-limited-width-parents/
+  // width: $fullWidth;
+  // position: relative;
+  // left: 50%;
+  // right: 50%;
+  // margin-left: -50vw;
+  // margin-right: -50vw;
+
+  iframe {
+    height: 100% !important;
+  }
 }
 </style>
