@@ -46,6 +46,65 @@ export default {
     
   }),
 
+  mounted() {
+    function makeResizableDiv(pen) {
+      let handle = document.createElement('div')
+      
+      pen.appendChild(handle)
+      
+      handle.className = 'handle'
+      
+      console.log(handle)
+
+      const minimum_size = 20;
+      let original_width = 0;
+      let original_height = 0;
+      let original_x = 0;
+      let original_y = 0;
+      let original_mouse_x = 0;
+      let original_mouse_y = 0;
+      
+      handle.addEventListener('mousedown', function(e) {
+        e.preventDefault()
+        original_width = parseFloat(getComputedStyle(pen, null).getPropertyValue('width').replace('px', ''));
+        original_height = parseFloat(getComputedStyle(pen, null).getPropertyValue('height').replace('px', ''));
+        original_x = pen.getBoundingClientRect().left;
+        original_y = pen.getBoundingClientRect().top;
+        original_mouse_x = e.pageX;
+        original_mouse_y = e.pageY;
+        window.addEventListener('mousemove', resize)
+        window.addEventListener('mouseup', stopResize)
+        
+        console.log('tried to resize')
+      })
+
+      function resize(e) {
+        const width = original_width + (e.pageX - original_mouse_x);
+        const height = original_height + (e.pageY - original_mouse_y)
+        if (width > minimum_size) {
+          pen.style.width = width + 'px'
+        }
+        if (height > minimum_size) {
+          pen.style.height = height + 'px'
+        }
+      }
+      
+      function stopResize() {
+        window.removeEventListener('mousemove', resize)
+      }
+    }
+
+
+
+    function __CodePenIFrameAddedToPage() {
+      let pens = document.getElementsByClassName('resizable-pen')
+
+      for (let pen of pens) {
+        makeResizableDiv(pen)
+      }
+    }
+  },
+
   computed: {
     posts() {
       return this.getPosts(posts)
