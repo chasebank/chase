@@ -7,7 +7,6 @@
         <code-snippet-accordion-component v-for="snippet in snippets" :key="snippet.slug" :item="snippet" />
       </dl>
     </div>
-
     <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
   </main>
 </template>
@@ -47,22 +46,27 @@ export default {
   }),
 
   mounted() {
-    function makeResizableDiv(pen) {
-      let handle = document.createElement('div')
+    // console.clear();
+    // console.log('mounted')
+
+    function makeResizable(pen) {
+      let minimum_size = 20,
+          original_width = 0,
+          original_height = 0,
+          original_x = 0,
+          original_y = 0,
+          original_mouse_x = 0,
+          original_mouse_y = 0,
+          handle = document.createElement('div'),
+          iframe = pen.getElementsByTagName('iframe')[0]
       
+      console.log(iframe.getBoundingClientRect());
+      
+
+      pen.style.height = iframe.height + 'px'
       pen.appendChild(handle)
       
       handle.className = 'handle'
-      
-      console.log(handle)
-
-      const minimum_size = 20;
-      let original_width = 0;
-      let original_height = 0;
-      let original_x = 0;
-      let original_y = 0;
-      let original_mouse_x = 0;
-      let original_mouse_y = 0;
       
       handle.addEventListener('mousedown', function(e) {
         e.preventDefault()
@@ -74,35 +78,59 @@ export default {
         original_mouse_y = e.pageY;
         window.addEventListener('mousemove', resize)
         window.addEventListener('mouseup', stopResize)
-        
-        console.log('tried to resize')
       })
 
       function resize(e) {
-        const width = original_width + (e.pageX - original_mouse_x);
-        const height = original_height + (e.pageY - original_mouse_y)
+        let width = original_width + (e.pageX - original_mouse_x),
+            height = original_height + (e.pageY - original_mouse_y)
+        
         if (width > minimum_size) {
           pen.style.width = width + 'px'
         }
+        
         if (height > minimum_size) {
           pen.style.height = height + 'px'
         }
+        
+        iframe.style.zIndex = '-1'
       }
       
       function stopResize() {
         window.removeEventListener('mousemove', resize)
+        
+        iframe.style.removeProperty("z-index")
       }
     }
 
+    setTimeout(() => {
+      // let pens = this.$el.querySelectorAll('.cp_embed_wrapper')
+      let pens = this.$el.querySelectorAll('.cp_embed_wrapper')
 
-
-    function __CodePenIFrameAddedToPage() {
-      let pens = document.getElementsByClassName('resizable-pen')
+      // console.log('in timeout')
+      // console.log(pens)
 
       for (let pen of pens) {
-        makeResizableDiv(pen)
+        makeResizable(pen)
+        // console.log('inside loop');
+        
+        // console.log(pen)
       }
-    }
+    }, 300)
+
+    // this.$nextTick(() => {
+    
+    // })
+
+    // function __CodePenIFrameAddedToPage() {
+    //   let pens = this.$el.querySelectorAll('.cp_embed_wrapper')
+
+    //   console.log('__CodePenIFrameAddedToPage')
+    //   console.log(pens)
+
+    //   // for (let pen of pens) {
+    //   //   makeResizable(pen)
+    //   // }
+    // }
   },
 
   computed: {
@@ -150,40 +178,41 @@ export default {
   // background-color: lightblue;
   display: flex;
   flex-direction: column;
-  // align-items: center;
 }
 
-/deep/ dt {
-  // background: red;
-  // flex: 1;
-  width: 100%;
-  max-width: 45rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/deep/ .cp_embed_wrapper {
-  // @include full-width;
-
-  /* required for resize to work */
-  overflow: hidden;
-  
-  /* make resizeble! */
-  resize: both;
-  
-  /* required to see the handle */
-  background: white;
-  padding-bottom: 10px;
-	// // Full width as detailed at: https://css-tricks.com/full-width-containers-limited-width-parents/
-  // width: $fullWidth;
-  // position: relative;
-  // left: 50%;
-  // right: 50%;
-  // margin-left: -50vw;
-  // margin-right: -50vw;
+/deep/ {
+   dt {
+    width: 100%;
+    max-width: 45rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
   iframe {
-    height: 100% !important;
+    position: relative;
+    min-height: 100%;
+    height: auto;
+  }
+
+  .cp_embed_wrapper {
+    position: relative;
+    overflow: hidden;
+    
+    + .cp_embed_wrapper {
+      margin-top: 1rem;
+    }
+  }
+
+  .handle {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    clip-path: polygon(100% 0,100% 100%,0 100%);
+    background: repeating-linear-gradient(135deg,lightblue, lightblue 2px, transparent 2px, transparent 4px);
+    width: 24px;
+    height: 24px;
+    cursor: nwse-resize;
+    z-index: 999;
   }
 }
 </style>

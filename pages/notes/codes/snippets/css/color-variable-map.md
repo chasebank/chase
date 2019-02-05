@@ -11,7 +11,7 @@ A useful mixin for centralizing color variables in a SASS Map. Helps keep color 
 I learned this from [Jake Albaugh](http://codepen.io/jakealbaugh/post/using-sass-functions-to-access-complex-variable-maps).
 
 
-<div class="codepen"  data-theme-id="21051" data-default-tab="css,result" data-user="chasebank" data-slug-hash="KbrWdv" data-prefill='{"title":"Masonry with Colcade","tags":[],"stylesheets":[],"scripts":["https://unpkg.com/colcade@0/colcade.js"]}'>
+<div class="codepen" data-height="300" data-theme-id="21051" data-default-tab="css,result" data-user="chasebank" data-slug-hash="KbrWdv" data-prefill='{"title":"Masonry with Colcade","tags":[],"stylesheets":[],"scripts":["https://unpkg.com/colcade@0/colcade.js"]}'>
 <pre data-lang="scss" data-option-autoprefixer>
 // color variable map
 $colors: (
