@@ -50,32 +50,26 @@ export default {
     // console.log('mounted')
 
     function makeResizable(pen) {
-      let minimum_size = 20,
-          original_width = 0,
-          original_height = 0,
-          original_x = 0,
-          original_y = 0,
-          original_mouse_x = 0,
-          original_mouse_y = 0,
-          handle = document.createElement('div'),
-          iframe = pen.getElementsByTagName('iframe')[0]
-      
-      console.log(iframe.getBoundingClientRect());
-      
+      let handle = document.createElement('div'),
+          iframe = pen.getElementsByTagName('iframe')[0],
+          minimum_size = 50,
+          original_width,
+          original_height,
+          original_mouse_x,
+          original_mouse_y,
+          maximum_width      
 
       pen.style.height = iframe.height + 'px'
       pen.appendChild(handle)
       
       handle.className = 'handle'
-      
       handle.addEventListener('mousedown', function(e) {
         e.preventDefault()
-        original_width = parseFloat(getComputedStyle(pen, null).getPropertyValue('width').replace('px', ''));
-        original_height = parseFloat(getComputedStyle(pen, null).getPropertyValue('height').replace('px', ''));
-        original_x = pen.getBoundingClientRect().left;
-        original_y = pen.getBoundingClientRect().top;
-        original_mouse_x = e.pageX;
-        original_mouse_y = e.pageY;
+        original_width = parseFloat(getComputedStyle(pen, null).getPropertyValue('width').replace('px', ''))
+        original_height = parseFloat(getComputedStyle(pen, null).getPropertyValue('height').replace('px', ''))
+        maximum_width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0) - pen.getBoundingClientRect().left
+        original_mouse_x = e.pageX
+        original_mouse_y = e.pageY
         window.addEventListener('mousemove', resize)
         window.addEventListener('mouseup', stopResize)
       })
@@ -84,7 +78,7 @@ export default {
         let width = original_width + (e.pageX - original_mouse_x),
             height = original_height + (e.pageY - original_mouse_y)
         
-        if (width > minimum_size) {
+        if (width > minimum_size && width < maximum_width) {
           pen.style.width = width + 'px'
         }
         
@@ -175,7 +169,6 @@ export default {
 
 <style lang="scss" scoped>
 .code-snippets {
-  // background-color: lightblue;
   display: flex;
   flex-direction: column;
 }
@@ -199,7 +192,7 @@ export default {
     overflow: hidden;
     
     + .cp_embed_wrapper {
-      margin-top: 1rem;
+      margin-top: 2rem;
     }
   }
 
