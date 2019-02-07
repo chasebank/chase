@@ -28,7 +28,7 @@
       <nuxt-link to="/about">About</nuxt-link>
       <nuxt-link to="/contact">Contact</nuxt-link>
       
-      <long-content></long-content>
+      <!-- <long-content></long-content> -->
     </div>
   </main>
 </template>

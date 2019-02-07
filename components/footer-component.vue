@@ -85,7 +85,7 @@
 
 <style lang="scss" scoped>
 footer {
-  padding: 2rem;
+  padding: 6rem 2rem 2rem 2rem;
   position: absolute;
   bottom: 0;
   width: 100%;

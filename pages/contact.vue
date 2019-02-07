@@ -7,7 +7,7 @@
       <nuxt-link to="/about">About</nuxt-link>
       <nuxt-link to="/contact">Contact</nuxt-link>
       
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet repudiandae tempora quod architecto autem. Modi necessitatibus non vitae dolor consequatur quaerat quae, iure quidem voluptate officia optio nobis accusantium hic.</p>
+      <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet repudiandae tempora quod architecto autem. Modi necessitatibus non vitae dolor consequatur quaerat quae, iure quidem voluptate officia optio nobis accusantium hic.</p> -->
     </div>
   </main>
 </template>

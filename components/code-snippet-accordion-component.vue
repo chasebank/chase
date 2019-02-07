@@ -14,12 +14,13 @@
     </dt>
     
     <transition
-      name="transition-accordion-"
+      :name="transitionName"
       @enter="transition"
       @after-enter="afterTransition"
       @leave="transition"
       @after-leave="afterTransition">
       <dd
+        ref="post"
         :id="`definition-${item}`"
         :aria-hidden="`${!expanded}`"
         v-show="expanded"
@@ -35,8 +36,25 @@ export default {
   props: ['item'],
 
   data: () => ({
-    expanded: false
+    expanded: true,
+    transitionName: ''
+    // transitionName: 'transition-accordion-'
   }),
+
+  mounted() {
+
+    setTimeout(() => {
+      this.expanded = false
+      
+      setTimeout(() => {
+        this.$refs.post.style.position = 'relative'
+        this.$refs.post.style.visibility = 'visible'
+        this.transitionName = 'transition-accordion-'
+      }, 200)
+    }, 300)
+
+    // this.transitionName = 'transition-accordion-'
+  },
   
   methods: {
     expand() {
@@ -44,6 +62,7 @@ export default {
     },
     
     transition(el) {
+      this.$el.classList.add('expanding')
       let firstHeight, endHeight
       
       if (this.expanded) {
@@ -69,6 +88,7 @@ export default {
     },
 
     afterTransition() {
+      this.$el.classList.remove('expanding')
       this.$el.style.removeProperty('height')
     },
   }
@@ -79,10 +99,22 @@ export default {
 $transitionDuration: .3s;
 .definition-item {
   transition: height $transitionDuration;
+  padding-left: .6rem;
+  margin-left: -.3rem;
   
   + .definition-item {
     margin-top: 1.5rem;
   }
+
+  dd {
+    position: absolute;
+    visibility: hidden;
+    width: 100%;
+  }
+}
+
+.expanding {
+  overflow: hidden;
 }
 
 dt {
@@ -133,8 +165,8 @@ dd {
     url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/106403/personal-site--bg.jpg);
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
   left: -.5rem;
+  transform: translateY(-50%);
   border-radius: 50%;
   width: 1.5rem;
   height: 1.5rem;
@@ -148,10 +180,10 @@ dd {
     height: auto;
     position: relative;
     top: .5px;
+    left: -1px;
     fill: cyan;
     transition: transform .4s ease-in-out;
     transform: rotate3d(0,0,1,-90deg);
-    
   }
 }
 
@@ -171,7 +203,7 @@ dd {
     
     svg {
       fill: white;
-      top: 0;
+      top: .5px;
       transform: rotate3d(1,1,0,-180deg);
     }
   }
@@ -180,15 +212,18 @@ dd {
 .transition-accordion--enter-active,
 .transition-accordion--leave-active {
   transition: opacity $transitionDuration, transform $transitionDuration;
-}
-
-.transition-accordion--leave-active {
   z-index: -1;
 }
 
 .transition-accordion--enter,
 .transition-accordion--leave-to {
   opacity: 0;
-  transform: translate3d(0,-1rem,1px);
+  transform: translate3d(0,-3rem,1px);
 }
+
+// .cp_embed_wrapper {
+//   position: absolute;
+//   width: 100%;
+//   visibility: hidden;
+// }
 </style>

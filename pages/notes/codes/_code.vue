@@ -1,6 +1,16 @@
 <template>
   <main class="container">
     <div class="content">
+      <!-- <button @click="test = !test">Toggle</button>
+      <div v-show="test">
+        <p class="codepen" data-height="300" data-theme-id="21051" data-default-tab="result,css" data-user="chasebank" data-slug-hash="aKMpeE" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;" data-pen-title="Inverse responsive">
+  <span>See the Pen <a href="https://codepen.io/chasebank/pen/aKMpeE/">
+  Inverse responsive</a> by Chase (<a href="https://codepen.io/chasebank">@chasebank</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+      </div> -->
+
       <h1><span>{{ thisPost.title.split(' ')[0] }}</span><span>{{ thisPost.title.split(' ').pop() }}</span></h1>
     
       <dl v-if="thisPost.type == 'cheatsheet'" class="code-snippets">
@@ -42,7 +52,7 @@ export default {
   },
 
   data: () => ({
-    
+    test: false
   }),
 
   mounted() {
@@ -168,6 +178,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.content {
+  justify-content: flex-start;
+}
+
 .code-snippets {
   display: flex;
   flex-direction: column;
