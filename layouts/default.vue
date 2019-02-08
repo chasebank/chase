@@ -25,7 +25,6 @@ export default {
   }),
 
   mounted() {
-    // Set a custom property with the value calculated
     this.getScrollbarWidth()
 
     this.setScrollState()

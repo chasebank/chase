@@ -178,9 +178,9 @@ dd {
   svg {
     width: .5rem;
     height: auto;
-    position: relative;
-    top: .5px;
-    left: -1px;
+    // position: relative;
+    // top: .5px;
+    // left: -1px;
     fill: cyan;
     transition: transform .4s ease-in-out;
     transform: rotate3d(0,0,1,-90deg);
@@ -204,7 +204,7 @@ dd {
     svg {
       fill: white;
       top: .5px;
-      transform: rotate3d(1,1,0,-180deg);
+      transform: rotate3d(1,1,0,-180deg) translateX(-1px);
     }
   }
 }

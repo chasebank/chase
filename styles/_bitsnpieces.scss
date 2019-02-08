@@ -148,8 +148,8 @@ $transition: .6s;
   position: relative;
   left: 50%;
   right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
+  margin-left: calc((100vw - var(--scrollbar) * .5) * -.5);
+  margin-right: calc((100vw - var(--scrollbar) * .5) * -.5);
 }
 
 $colcadeGutter: 1rem;
