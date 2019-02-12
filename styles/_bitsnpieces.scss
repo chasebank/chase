@@ -141,15 +141,12 @@ $transition: .6s;
 
 
 @mixin full-width {
-  // align-self: center;
-  // width: $fullWidth;
-  // box-shadow: inset 0 0 1rem 1rem blue;
   width: $fullWidth;
   position: relative;
   left: 50%;
   right: 50%;
-  margin-left: calc((100vw - var(--scrollbar) * .5) * -.5);
-  margin-right: calc((100vw - var(--scrollbar) * .5) * -.5);
+  margin-left: calc(#{$fullWidth} * -.5);
+  margin-right: calc(#{$fullWidth} * -.5);
 }
 
 $colcadeGutter: 1rem;

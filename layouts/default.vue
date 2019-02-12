@@ -69,9 +69,10 @@ export default {
 
       // set scrollbar width IF it exists
       if (hasVerticalScrollbar) {
-        document.documentElement.style.setProperty('--scrollbar', width + 'px');
+        document.documentElement.style.setProperty('--scrollbarWidth', width + 'px');
+        console.log('scrollbar width: ', width)
       } else {
-        document.documentElement.style.setProperty('--scrollbar', '0px');
+        document.documentElement.style.setProperty('--scrollbarWidth', '0px');
       }
     },
 
