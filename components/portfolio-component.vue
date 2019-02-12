@@ -188,14 +188,13 @@ export default {
     display: block;
     content: '';
     position: absolute;
-    bottom: -.75rem;
+    // bottom: -.75rem;
     left: 0;
     width: 100%;
     height: 100%;
     border-radius: inherit;
     transform: rotateX(2deg);
     transform-origin: center bottom;
-    filter: blur(1rem);
     z-index: -1;
     opacity: .75;
   }
@@ -263,12 +262,16 @@ export default {
   margin-left: 10%;
   text-align: right;
   font-size: 1rem;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
 @mixin projectStyles($dark,$light) {
-  box-shadow: 0 .5rem 1rem -.25rem $light;
+  box-shadow: 0 .25rem .75rem -.25rem $light;
   
-  &:before { background-color: $dark }
+  &:before {
+    background-color: $dark;
+    box-shadow: 0 .5rem 2.5rem 0rem saturate(lighten($dark,10%),10%)
+  }
   
   .portfolio--project-description { color: $light }
 }
