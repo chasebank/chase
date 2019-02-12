@@ -1,6 +1,7 @@
 <template>
   <transition name="showHeader-">
-    <header :class="{'content-scrolled' : contentScrolled, 'show-header' : contentScrolled || $route.name != 'index'}" v-if="contentScrolled || $route.name != 'index'">
+    <header :class="{'content-scrolled' : contentScrolled, 'show-header' : contentScrolled || $route.name != 'index'}"
+            v-show="headerVisible">
       <a href="#" id="back" @click.prevent="goBack">
         <svg id="icon--back" xmlns="http://www.w3.org/2000/svg" width="19" height="24.665" viewBox="0 0 19 24.665"><path d="M18.779 22.529L5.205 15.003l13.574-8.225V0L-.114 12.467v1.885l18.893 10.313z"/></svg>
         
@@ -27,10 +28,27 @@ import { mapState } from 'vuex'
 
 export default {
   data: () => ({
-    hideHeader: false
+    headerVisible: true
   }),
 
+  watch: {
+    'contentScrolled' () {
+      if (this.$route.name == 'index') {
+        this.headerVisible = this.contentScrolled ? true : false
+      }
+    }
+  },
+
   computed: {
+    ...mapState([
+      "contentScrolled",
+      "routeHistory"
+    ]),
+
+    // headerVisible() {
+    //   return this.contentScrolled || this.$route.name != 'index' ? true : false
+    // },
+    
     navTransition() {
       if (this.$route.name == 'index') {
         return 'back-slide-down-'
@@ -48,11 +66,6 @@ export default {
       
       return msg.split('')
     },
-
-    ...mapState([
-      "contentScrolled",
-      "routeHistory"
-    ])
   },
 
   methods: {
