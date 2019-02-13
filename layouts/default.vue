@@ -21,7 +21,7 @@ export default {
   },
 
   data: () => ({
-    footerPosition: '',
+    
   }),
 
   mounted() {
@@ -30,11 +30,6 @@ export default {
     this.setScrollState()
 
     window.onresize = () => { this.getScrollbarWidth() }
-
-    if (this.footerPosition == '') {
-      // console.log('setting original footer position')
-      this.footerPosition = this.$refs.footer.$el.getBoundingClientRect().top
-    }
 
     document.documentElement.style.setProperty('--calculatedFooterHeight', this.$refs.footer.$el.offsetHeight + 'px');
   },
@@ -70,7 +65,7 @@ export default {
       // set scrollbar width IF it exists
       if (hasVerticalScrollbar) {
         document.documentElement.style.setProperty('--scrollbarWidth', width + 'px');
-        console.log('scrollbar width: ', width)
+        // console.log('scrollbar width: ', width)
       } else {
         document.documentElement.style.setProperty('--scrollbarWidth', '0px');
       }
