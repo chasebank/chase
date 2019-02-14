@@ -13,6 +13,8 @@
 
       <h2><span>Notes</span><span>& Quotes</span></h2>
 
+      <notes-and-quotes-component/>
+
       <h3>Heading Three</h3>
 
       <h4>Heading Four</h4>
@@ -29,6 +31,7 @@ import pageMixin from '~/mixins/page-mixin.vue'
 import LongContent from '~/components/LongContent.vue'
 import PortfolioComponent from '~/components/portfolio-component.vue'
 import CodesComponent from '~/components/codes-component.vue'
+import NotesAndQuotesComponent from '~/components/notes-and-quotes-component.vue'
 
 export default {
   mixins: [pageMixin],
@@ -38,7 +41,8 @@ export default {
   components: {
     LongContent,
     PortfolioComponent,
-    CodesComponent
+    CodesComponent,
+    NotesAndQuotesComponent
   },
 }
 </script>
