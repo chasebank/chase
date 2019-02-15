@@ -1,25 +1,14 @@
 <template>
-  <div class="codes colcade">
-    <div class="colcade-col"></div>
-    <div class="colcade-col"></div>
-    <div class="colcade-col"></div>
-    <div class="colcade-col"></div>
-
-    <article v-for="post in codes" :key="post.title" class="colcade-item code-post">
+  <div class="codes codes--masonry masonry">
+    <article v-for="post in codes" :key="post.title" class="code-post codes--masonry-item masonry-item">
       <span class="post-title">{{ post.title }}</span>
       <p>Lorem this is an example of a post description.</p>
       <nuxt-link :to="'/notes/codes/' + post.title"></nuxt-link>
     </article>
-
-    <dl>
-      <!-- <code-snippet-accordion-component v-for="code in codes" :key="code.slug" :item="code" /> -->
-    </dl>
   </div>
 </template>
 
 <script>
-import CodeSnippetAccordionComponent from '~/components/code-snippet-accordion-component.vue'
-
 const codes = {};
 const codeSnippets = {};
 const req = require.context('@/pages/notes/codes/', false, /\.md$/);
@@ -30,14 +19,12 @@ req.keys().forEach((key) => {
 
 export default {
   components: {
-    CodeSnippetAccordionComponent
+    
   },
 
   mounted() {
-    new Colcade( '.colcade', {
-      columns: '.colcade-col',
-      items: '.colcade-item'
-    })
+    var grid = document.querySelector('.codes--masonry')
+    var msnry = new Masonry(grid, { itemSelector: '.codes--masonry-item' })
   },
 
   computed: {
@@ -63,10 +50,6 @@ export default {
 <style lang="scss" scoped>
 .codes {
   @include full-width;
-}
-
-.code-posts {
-  padding-left: 0;
 }
 
 .code-post {

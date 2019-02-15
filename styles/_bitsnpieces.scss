@@ -172,16 +172,79 @@ $transition: .6s;
   margin-right: calc(#{$fullWidth} * -.5);
 }
 
-$colcadeGutter: 1rem;
-.colcade {
-  display: flex;
-  padding: 0 $colcadeGutter 0 $colcadeGutter;
-  margin-top: $colcadeGutter * -1;
+@function colWidth($columns, $gutterSize: calc(1rem + 1vw), $span: 1) {
+  $columnWidth: calc((100% - (#{$gutterSize} * (#{$columns} + 1))) / #{$columns});
+  $span: $span - 1;
+
+  @return calc(#{$columnWidth} + (#{$columnWidth} * #{$span}) + (#{$gutterSize} * #{$span}));
 }
 
-.colcade-col {
-  flex-grow: 1;
+@mixin set-grid($gridColumns, $gridGutterSize: calc(1rem + 1vw)) {
+  margin-top: calc(#{$gridGutterSize} * -1);
+  
+  .masonry-item {
+    width: colWidth($gridColumns,$gridGutterSize);
+    margin-left: $gridGutterSize;
+    margin-top: $gridGutterSize;
+  }
 }
+
+.masonry {
+  @include set-grid(4);
+  
+  @media screen and (max-width: 1400px) {
+    @include set-grid(3);
+  }
+  
+  @media screen and (max-width: 1000px) {
+    @include set-grid(2);
+  }
+  
+  @media screen and (max-width: 650px) {
+    @include set-grid(1);
+  }
+}
+
+
+// @mixin set-grid($columns, $gutterSize: calc(1rem + 1vw)) {
+//   margin-top: calc(#{$gutterSize} * -1);
+
+//   .colcade-col {
+//     width: calc((100% - (#{$gutterSize} * (#{$columns} + 1))) / #{$columns});
+//   }
+  
+//   .colcade-item {
+//     margin-left: $gutterSize;
+//     margin-top: $gutterSize;
+//   }
+// }
+
+$colcadeGutter: 1rem;
+// .colcade {
+//   display: flex;
+//   padding: 0 $colcadeGutter 0 $colcadeGutter;
+//   margin-top: $colcadeGutter * -1;
+// }
+
+// .colcade-col {
+//   flex-grow: 1;
+// }
+
+// .colcade {
+//   @include set-grid(4);
+  
+//   @media screen and (max-width: 1400px) {
+//     @include set-grid(3);
+//   }
+  
+//   @media screen and (max-width: 1000px) {
+//     @include set-grid(2);
+//   }
+  
+//   @media screen and (max-width: 650px) {
+//     @include set-grid(1);
+//   }
+// }
 
 /* 2 columns by default, hide columns 2 & 3 */
 .colcade-col:nth-child(2), .colcade-col:nth-child(3) { display: none }

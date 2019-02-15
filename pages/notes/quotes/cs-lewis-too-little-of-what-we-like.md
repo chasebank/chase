@@ -8,6 +8,7 @@ backgroundColor: '#180a11'
 textColor: '#f1f6e8'
 date: 2015-12-12
 share-link: https://twitter.com/intent/tweet?text=C.S.%20Lewis%20in%20letter%20to%20J.R.R.%20Tolkien%20pic.twitter.com/NhHa9qAxww
+category: quote
 ---
 
 There is too little of what we really like in stories. I am afraid we shall have to try and write&nbsp;some&nbsp;ourselves.
