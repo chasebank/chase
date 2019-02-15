@@ -87,6 +87,8 @@ export default {
       let getPosts = (posts) => {
         Object.keys(posts).forEach((key) => {
           const post = posts[key]
+            
+          post.slug = key.replace('./', '').replace('.md', '');
 
           postArray.push(post);
         });
@@ -154,7 +156,7 @@ export default {
 
 .masonry .post {
   position: relative;
-  background-color: rgba(0,0,0,.5);
+  // background-color: rgba(0,0,0,.5);
   // padding: 1rem;
   box-shadow: 0 1rem 1.5rem -1rem rgba(7, 57, 72, .25);
   text-shadow: 0 0.1em 0.2em black;
@@ -186,7 +188,7 @@ a {
 }
 
 .masonry .quote {
-  background: red;
+  // background: red;
   width: colWidth($columns: 4, $span: 2);
 
   @media screen and (max-width: 650px) {

@@ -130,8 +130,8 @@ $colors: (
   background: url('data:image/svg+xml;charset=UTF-8,\
     <svg xmlns="http://www.w3.org/2000/svg" height="100%" width="100%">\
       <mask id="squircle">\
-        <rect fill="white" width="100%" height="100%"/>\
-        <path fill="black" width="' + $size + '" height="' + $size + '" d="M' + $size + ' 0H0v' + $size + 'C0 ' + $size * .2 + ' ' + $size * .2 + ' 0 ' + $size + ' 0z"/>\
+        <rect fill="white" width="100%" height="100%" stroke="black" stroke-width="20"/>\
+        <path fill="black" stroke="black" stroke-width="20" width="' + $size + '" height="' + $size + '" d="M' + $size + ' 0H0v' + $size + 'C0 ' + $size * .2 + ' ' + $size * .2 + ' 0 ' + $size + ' 0z"/>\
         <svg x="100.01%" style="overflow: visible">\
           <path fill="black" d="M' + $size + ' ' + $size + 'V0H0c' + $size * .8 + ' 0 ' + $size + ' ' + $size * .2 + ' ' + $size + ' ' + $size + 'z" transform="translate(-' + $size + ',0)"/>\
         </svg>\
@@ -142,7 +142,7 @@ $colors: (
           <path fill="black" d="M0 0v' + $size + 'h' + $size + 'C' + $size * .2 + ' ' + $size + ' 0 ' + $size * .8 + ' 0 0z" transform="translate(0,-' + $size + ')"/>\
         </svg>\
       </mask>\
-      <rect fill="' + $color + '" width="100%" height="100%" mask="url(#squircle)"/>\
+      <rect fill="' + $color + '" width="100%" height="100%" mask="url(#squircle)" />\
     </svg>');
 }
 
@@ -202,6 +202,14 @@ $transition: .6s;
   
   @media screen and (max-width: 650px) {
     @include set-grid(1);
+  }
+}
+
+.masonry-item {
+  display: flex;
+
+  > * {
+    flex: 1;
   }
 }
 
