@@ -187,13 +187,13 @@ a {
   height: 100%;
 }
 
-.masonry .quote {
+.posts.masonry .masonry-item {
   // background: red;
-  width: colWidth($columns: 4, $span: 2);
+  width: colWidth($columns: 3);
 
-  @media screen and (max-width: 650px) {
-    width: colWidth($columns: 1);
-  }
+  // @media screen and (max-width: 650px) {
+  //   width: colWidth($columns: 1);
+  // }
   
   // @media screen and (max-width: 1000px) {
   //   @include set-grid(2);

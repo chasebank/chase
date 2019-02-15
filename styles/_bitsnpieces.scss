@@ -94,13 +94,13 @@ $colors: (
       <mask id="test">\
         <rect fill="white" width="100%" height="100%"/>\
         <path fill="black" x="20" width="' + $size + '" height="' + $size + '" d="M' + $size + ' 0H0v' + $size + 'C0 ' + $size * .2 + ' ' + $size * .2 + ' 0 ' + $size + ' 0z"/>\
-        <svg x="100%" style="overflow: visible">\
+        <svg x="100.01%" style="overflow: visible">\
           <path fill="black" d="M' + $size + ' ' + $size + 'V0H0c' + $size * .8 + ' 0 ' + $size + ' ' + $size * .2 + ' ' + $size + ' ' + $size + 'z" transform="translate(-' + $size + ',0)"/>\
         </svg>\
-        <svg x="100%" y="100%" style="overflow: visible">\
+        <svg x="100.01%" y="100.01%" style="overflow: visible">\
           <path fill="black" d="M0 ' + $size + 'h' + $size + 'V0c0 ' + $size * .8 + '-' + $size * .2 + ' ' + $size + '-' + $size + ' ' + $size + 'z" transform="translate(-' + $size + ',-' + $size + ')"/>\
         </svg>\
-        <svg y="100%" style="overflow: visible">\
+        <svg  x="-.01%" y="100.01%" style="overflow: visible">\
           <path fill="black" d="M0 0v' + $size + 'h' + $size + 'C' + $size * .2 + ' ' + $size + ' 0 ' + $size * .8 + ' 0 0z" transform="translate(0,-' + $size + ')"/>\
         </svg>\
       </mask>\
@@ -211,62 +211,4 @@ $transition: .6s;
   > * {
     flex: 1;
   }
-}
-
-
-// @mixin set-grid($columns, $gutterSize: calc(1rem + 1vw)) {
-//   margin-top: calc(#{$gutterSize} * -1);
-
-//   .colcade-col {
-//     width: calc((100% - (#{$gutterSize} * (#{$columns} + 1))) / #{$columns});
-//   }
-  
-//   .colcade-item {
-//     margin-left: $gutterSize;
-//     margin-top: $gutterSize;
-//   }
-// }
-
-$colcadeGutter: 1rem;
-// .colcade {
-//   display: flex;
-//   padding: 0 $colcadeGutter 0 $colcadeGutter;
-//   margin-top: $colcadeGutter * -1;
-// }
-
-// .colcade-col {
-//   flex-grow: 1;
-// }
-
-// .colcade {
-//   @include set-grid(4);
-  
-//   @media screen and (max-width: 1400px) {
-//     @include set-grid(3);
-//   }
-  
-//   @media screen and (max-width: 1000px) {
-//     @include set-grid(2);
-//   }
-  
-//   @media screen and (max-width: 650px) {
-//     @include set-grid(1);
-//   }
-// }
-
-/* 2 columns by default, hide columns 2 & 3 */
-.colcade-col:nth-child(2), .colcade-col:nth-child(3) { display: none }
-
-/* 3 columns at medium size */
-@media ( min-width: 768px ) {
-  .colcade-col:nth-child(2) { display: block; } /* show column 2 */
-}
-
-/* 4 columns at large size */
-@media ( min-width: 1080px ) {
-  .colcade-col:nth-child(3) { display: block; } /* show column 3 */
-}
-
-.colcade-item {
-  margin: $colcadeGutter $colcadeGutter ($colcadeGutter * 2) $colcadeGutter;
 }
