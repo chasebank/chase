@@ -19,9 +19,17 @@ export default {
       quoteImage = require('~/assets/quote-assets/' + this.authorString + '.png')
     }
 
-    console.log(quoteImage)
+    // console.log(quoteImage)
 
-    this.$el.style.setProperty('--backgroundImage', `url(${quoteImage})`)
+    // let url = 'url(' + `'${quoteImage}'` + ')'
+
+    let url = `url('${quoteImage}')`
+    console.log(url)
+
+    // this.$el.style.setProperty('--backgroundImage', `url(${quoteImage.toString()})`)
+    this.$el.style.setProperty('--backgroundImage', url)
+
+    // this.$el.style.setProperty('--backgroundImage', quoteImage)
   },
 
   data: () => ({
