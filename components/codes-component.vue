@@ -1,11 +1,11 @@
 <template>
-  <div class="codes codes--masonry masonry">
+  <section class="codes codes--masonry masonry">
     <article v-for="post in codes" :key="post.title" class="code-post codes--masonry-item masonry-item">
       <span class="post-title">{{ post.title }}</span>
       <p>Lorem this is an example of a post description.</p>
       <nuxt-link :to="'/notes/codes/' + post.title"></nuxt-link>
     </article>
-  </div>
+  </section>
 </template>
 
 <script>

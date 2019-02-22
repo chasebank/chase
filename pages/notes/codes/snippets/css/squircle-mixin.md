@@ -6,7 +6,9 @@ created: 2015-12-10
 category: css
 ---
 
-There's a few different ways to do this. All envolve some form of using an SVG as a data URI. The squishy squircle corner shapes are positioned at the corners of the parent svg. What to dow ith it from there depends on style needs. One is a background image:
+There's a few different ways to do this. All envolve some form of using an SVG as a data URI. The squishy squircle corner shapes are positioned at the corners of the parent svg. What to dow ith it from there depends on style needs.
+
+One is a background image:
 
 <p class="codepen" data-height="300" data-theme-id="21051" data-default-tab="css,result" data-user="chasebank" data-slug-hash="MLQbyW" data-editable="true" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;" data-pen-title="Squircle Mixin">
   <span>See the Pen <a href="https://codepen.io/chasebank/pen/MLQbyW/">

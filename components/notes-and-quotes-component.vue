@@ -17,7 +17,7 @@
       </div>
     </div>
   </div> -->
-  <div>
+  <section>
     <ul class="posts posts--masonry masonry">
       <li v-for="post in allPosts" :key="post.title"
       class="post posts--masonry-item masonry-item"
@@ -31,7 +31,7 @@
         </article>
       </li>
     </ul>
-  </div>
+  </section>
 </template>
 
 

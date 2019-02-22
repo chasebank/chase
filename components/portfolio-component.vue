@@ -1,8 +1,8 @@
 <template>
-  <div class="portfolio">
+  <section class="portfolio">
     <ul id="portfolio--projects">
       <li v-for="project in projects" :key="project.slug" class="portfolio--project" :class="'project--' + project.slug">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 378" class="portfolio--project-thumb" preserveAspectRatio="xMidYMax meet">
+        <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 378" class="portfolio--project-thumb" preserveAspectRatio="xMidYMax meet">
           <defs>
             <clipPath id="project-mask">
               <path d="M133.329 0H66.667C14.862.703.704 14.861 0 66.667v244.669C.704 363.139 14.862 377.301 66.667 378h66.663c51.806-.699 65.967-14.861 66.671-66.664V66.667C199.296 14.861 185.135.703 133.329 0z"/>
@@ -10,7 +10,11 @@
           </defs>
 
           <image class="portfolio--project-thumb--image" height="100%" x="-9%" preserveAspectRatio="none" clip-path="url(#project-mask)" :xlink:href="project.image"/>
-        </svg>
+        </svg> -->
+        <!-- <div class="portfolio--project-thumb">
+          <img :src="project.image" alt="" class="">
+        </div> -->
+        <img :src="project.image" alt="" class="portfolio--project-thumb">
 
         <div class="portfolio--project-info">
           <h3 class="portfolio--project-title"><nuxt-link :to="{ name: 'portfolio-project', params: { project: project.slug }}">{{ project.title }}</nuxt-link></h3>
@@ -20,7 +24,7 @@
         <nuxt-link :to="{ name: 'portfolio-project', params: { project: project.slug }}" class="portfolio--project-link"></nuxt-link>
       </li>
     </ul>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -66,21 +70,32 @@ export default {
   justify-content: space-around;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  padding-left: 3vw;
+  padding-left: 1.5vw;
+  padding-right: 1.5vw;
+  padding-bottom: 1rem;
   
   @media (min-width: $smallScreen) {
-    padding-right: 4vw;
+    padding-right: 2vw;
   }
 }
 
 .portfolio--project {
   background-color: #000c16;
   position: relative;
-  border-radius: 3rem;
+  border-radius: 3.1rem;
   perspective: 100;
   margin-bottom: calc(#{$mainPadding} * 1.75);
-  margin-left: 1vw;
-  margin-right: 1vw;
+  margin-left: 1.5vw;
+  margin-right: 1.5vw;
+  $width: 10rem;
+  width: $width;
+  height: calc(#{$width} * 1.8);
+
+  // display: flex;
+
+  // @media (max-width: $smallScreen) {
+  //   width: 10rem;
+  // }
   
   &:before {
     display: block;
@@ -115,15 +130,23 @@ export default {
 }
 
 .portfolio--project-thumb {
-  fill: red;
-  display: block;
-  width: 8rem;
-  height: auto;
-  
-  @media (max-width: $smallScreen) {
-    width: 10rem;
-  }
+  object-fit: cover;
+  object-position: 50% 50%;
+  height: 100%;
+  width: 100%;
+  @include squircle(56);
 }
+
+// .portfolio--project-thumb {
+//   fill: red;
+//   display: block;
+//   width: 8rem;
+//   height: auto;
+  
+//   @media (max-width: $smallScreen) {
+//     width: 10rem;
+//   }
+// }
 
 .portfolio--project-link {
   position: absolute;
@@ -147,7 +170,8 @@ export default {
   left: -20%;
   color: white;
   margin-top: 0;
-  margin-bottom: .1em;
+  margin-bottom: .25em;
+  font-size: 2.5rem;
   line-height: .6;
   text-align: right;
   width: 120%;
