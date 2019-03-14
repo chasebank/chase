@@ -84,6 +84,9 @@ export default {
       } else {
 
         console.log('back to top')
+        // https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
 
       }
     },
