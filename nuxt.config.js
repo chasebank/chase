@@ -66,7 +66,8 @@ module.exports = {
 
   // Plugins to load before mounting the App
   plugins: [
-    { src: '~/plugins/colcade', ssr: false }
+    { src: '~/plugins/colcade', ssr: false },
+    { src: '~/plugins/TweenMax', ssr: false }
   ],
 
   // Build configuration
