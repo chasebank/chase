@@ -114,7 +114,11 @@ article {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #020e0f var(--backgroundImage) bottom left no-repeat;
+    // background-color: ;
+    background:
+      linear-gradient(to right, rgba(#020e0f,0) 35%,#020e0f),
+      var(--backgroundImage) bottom left no-repeat,
+      #020e0f;
     background-size: auto 100%;
     @include squircleMask(50);
     z-index: -1;

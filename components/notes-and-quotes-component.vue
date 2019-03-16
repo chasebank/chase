@@ -18,6 +18,21 @@
     </div>
   </div> -->
   <section>
+    <ul class="notes-filter">
+      <li class="notes-filter--option">
+        <button class="notes-filter--option--button" @click="togglePostType('quotes')" :class="{'active' : visiblePostTypes.includes('quotes')}">Quotes</button>
+      </li>
+      <li class="notes-filter--option">
+        <button class="notes-filter--option--button" @click="togglePostType('books')" :class="{'active' : visiblePostTypes.includes('books')}">Books</button>
+      </li>
+      <li class="notes-filter--option">
+        <button class="notes-filter--option--button" @click="togglePostType('codes')" :class="{'active' : visiblePostTypes.includes('codes')}">Codes</button>
+      </li>
+      <li class="notes-filter--option">
+        <button class="notes-filter--option--button" @click="togglePostType('blog')" :class="{'active' : visiblePostTypes.includes('blog')}">Blog</button>
+      </li>
+    </ul>
+
     <ul class="posts posts--masonry masonry">
       <li v-for="post in allPosts" :key="post.title"
       class="post posts--masonry-item masonry-item"
@@ -61,7 +76,7 @@ export default {
   },
 
   data: () => ({
-    
+    visiblePostTypes: ['quotes','books','blog','codes']
   }),
 
   computed: {
@@ -136,7 +151,11 @@ export default {
   },
 
   methods: {
-
+    togglePostType(type) {
+      let index = this.visiblePostTypes.indexOf(type)
+      
+      index !== -1 ? this.visiblePostTypes.splice(index, 1) : this.visiblePostTypes.push(type)
+    },
   }
 };
 </script>
@@ -202,5 +221,58 @@ a {
   // @media screen and (max-width: 650px) {
   //   @include set-grid(1);
   // }
+}
+
+
+.notes-filter {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5vw;
+}
+
+.notes-filter--option {
+
+  + li {
+    margin-left: 10vw;
+  }
+}
+
+.notes-filter--option--button {
+  position: relative;
+  background: none;
+  border: none;
+  font-family: TimesNewRoman, Times New Roman, Times, Baskerville, Georgia, serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+  padding: .2rem .4rem;
+  color: color(mid);
+  text-shadow: 0 .05em .15em black;
+  transition: color .25s;
+  cursor: pointer;
+
+  &:before {
+    display: block;
+    content: '';
+    background-color: rgba(color(highlight), .2);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    // transform: scale(.5);
+    opacity: 0;
+    // transition: opacity .1s;
+  }
+
+  &.active{
+    color: color(light);
+
+    &:before {
+      // transform: scale(1);
+      opacity: 1;
+    }
+  }
 }
 </style>

@@ -235,7 +235,7 @@ body,
   justify-content: stretch;
   align-items: stretch;
   flex-grow: 1;
-  transition: all .8s;
+  // transition: all .8s;
 }
 
 body {
