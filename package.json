@@ -12,6 +12,7 @@
     "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
   },
   "dependencies": {
+    "focus-visible": "^4.1.5",
     "markdown-with-front-matter-loader": "^0.1.0",
     "masonry-layout": "^4.2.2",
     "nuxt": "^2.0.0",

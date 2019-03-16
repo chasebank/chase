@@ -190,3 +190,14 @@ h2 span:last-child {
 .header--portfolio span:nth-child(2) {
   margin-left: 1.5em;
 }
+
+
+
+// https://github.com/WICG/focus-visible
+:focus:not(.focus-visible) {
+  outline: none
+}
+// future
+// :focus:not(:focus-visible) {
+//   outline: none;
+// }
