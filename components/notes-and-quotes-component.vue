@@ -71,8 +71,15 @@ export default {
   },
 
   mounted() {
-    var grid = document.querySelector('.posts--masonry')
-    var msnry = new Masonry(grid, { itemSelector: '.posts--masonry-item' })
+    let Masonry = require('masonry-layout')
+    
+    this.$nextTick(() => {
+      // grid right margin was wrong on first load
+      // think it has to do with delay setting the $fullwidth var
+      // $nextTick seems to fix
+      let grid = document.querySelector('.posts--masonry')
+      let msnry = new Masonry(grid, { itemSelector: '.posts--masonry-item' })
+    })
   },
 
   data: () => ({
