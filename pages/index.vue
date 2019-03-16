@@ -14,8 +14,6 @@
       <h2><span>Notes</span><span>& Quotes</span></h2>
 
       <notes-and-quotes-component/>
-
-      <h3>Heading Three</h3>
     </div>
   </main>
 </template>
