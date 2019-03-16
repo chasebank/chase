@@ -16,11 +16,6 @@
       <notes-and-quotes-component/>
 
       <h3>Heading Three</h3>
-
-      <h4>Heading Four</h4>
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis repudiandae quis cum sapiente commodi? Quae voluptate odit placeat eos, vel omnis delectus fugit. Itaque officiis animi cupiditate error deleniti labore? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis repudiandae quis cum sapiente commodi?</p>
-
-      <p>Quae voluptate odit placeat eos, vel omnis delectus fugit. Itaque officiis animi cupiditate error deleniti labore.</p>
     </div>
   </main>
 </template>
