@@ -1,5 +1,5 @@
 $smallScreen: 550px;
-$mediumScreen: 768px;
+$mediumScreen: 1024px;
 $largeScreen: 1600px;
 
 
@@ -180,7 +180,7 @@ $transition: .6s;
     @include set-grid(3);
   }
   
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: $mediumScreen) {
     @include set-grid(2);
   }
   
