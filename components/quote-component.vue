@@ -98,9 +98,7 @@ article {
     width: 100%;
     height: 100%;
     box-shadow:
-      0 .5rem 2rem -1rem color(highlight),
-      0 1rem 3rem -1rem black,
-      0 1rem 3rem -1rem black;
+      0 .5rem 2rem -1rem color(highlight);
     background-color: rgba(black,.2);
     border-radius: 2.5rem;
     z-index: -1;
@@ -114,7 +112,6 @@ article {
     left: 0;
     width: 100%;
     height: 100%;
-    // background-color: ;
     background:
       linear-gradient(to right, rgba(#020e0f,0) 35%,#020e0f),
       var(--backgroundImage) bottom left no-repeat,
