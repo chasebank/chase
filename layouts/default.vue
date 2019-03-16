@@ -2,7 +2,7 @@
   <div id="main-wrap" ref="mainWrap">
     <div id="header-bg"></div>
 
-    <svg width="100%" viewBox="0 0 1000 200" id="cosmos" mask="url(#cosmos-mask)">
+    <!-- <svg width="100%" viewBox="0 0 1000 200" id="cosmos" mask="url(#cosmos-mask)">
       <rect id="background" width="1000" height="1000" fill="transparent" mask="url(#cosmos-mask)" />
       <defs>
         <mask id="cosmos-mask" preserveAspectRatio="xMidYMin">
@@ -13,7 +13,7 @@
       <g id="starGroup" mask="url(#cosmos-mask)">
         <g class="starGroup" id="mStarGroup"></g>
       </g>
-    </svg>
+    </svg> -->
 
     <navigation-component />
     
