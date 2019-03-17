@@ -17,6 +17,7 @@
       </div>
     </div>
   </div> -->
+
   <section>
     <ul class="notes-filter">
       <li class="notes-filter--option">
@@ -28,10 +29,12 @@
       <li class="notes-filter--option">
         <button class="notes-filter--option--button" @click="togglePostType('codes')" :class="{'active' : visiblePostTypes.includes('codes')}">Codes</button>
       </li>
-      <li class="notes-filter--option">
+      <!-- <li class="notes-filter--option">
         <button class="notes-filter--option--button" @click="togglePostType('blog')" :class="{'active' : visiblePostTypes.includes('blog')}">Blog</button>
-      </li>
+      </li> -->
     </ul>
+
+    <pre>{{ filteredPosts }}</pre>
 
     <ul class="posts posts--masonry masonry">
       <li v-for="post in allPosts" :key="post.title"
@@ -55,13 +58,19 @@ const quotes = {};
 const reqQuotes = require.context('@/pages/notes/quotes/', false, /\.md$/);
 reqQuotes.keys().forEach((key) => {
   quotes[key] = reqQuotes(key);
-});
+})
 
 const codes = {};
 const reqCodes = require.context('@/pages/notes/codes/', false, /\.md$/);
 reqCodes.keys().forEach((key) => {
   codes[key] = reqCodes(key);
-});
+})
+
+const books = {};
+const reqBooks = require.context('@/pages/notes/books/', false, /\.md$/);
+reqBooks.keys().forEach((key) => {
+  books[key] = reqBooks(key);
+})
 
 import quoteComponent from '~/components/quote-component.vue'
 
@@ -83,7 +92,7 @@ export default {
   },
 
   data: () => ({
-    visiblePostTypes: ['quotes','books','blog','codes']
+    visiblePostTypes: ['quotes','books','codes']
   }),
 
   computed: {
@@ -121,40 +130,50 @@ export default {
       return postArray
     },
 
+    books() {
+      const postArray = [];
+
+      let getPosts = (posts) => {
+        Object.keys(posts).forEach((key) => {
+          const post = posts[key]
+            
+          post.slug = key.replace('./', '').replace('.md', '');
+
+          postArray.push(post);
+        });
+      }
+
+      getPosts(books)
+
+      return postArray
+    },
+
     allPosts() {
-      // function randomDate(start, end) {
-      //   return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
-      // }
-      // randomDate(new Date(2015, 0, 1), new Date())
-      
-      // let posts = new Array(4).fill().map((e, i) => {
-      //   return { cat: "posts", date: randomDate(new Date(2015, 0, 1), new Date()) }
-      // });
-      // let quotes = new Array(7).fill().map((e, i) => {
-      //   return { cat: "quotes", date: randomDate(new Date(2015, 0, 1), new Date()) }
-      // });
-      // let codes = new Array(5).fill().map((e, i) => {
-      //   return { cat: "codes", date: randomDate(new Date(2015, 0, 1), new Date()) }
-      // });
-      
-      let allPosts = [...this.quotes, ...this.codes]
+      let allPosts = [...this.quotes, ...this.codes, ...this.books]
 
-      // let filteredPosts = allPosts.filter(post => (
-      //   this.visiblePostTypes.indexOf(post['cat'].toString().toLowerCase()) > -1
-      // ))
-
-      // let filteredPostsSortedByDate = filteredPosts.sort((a, b) => {
-      //   return a.date > b.date ? -1 : a.date < b.date ? 1 : 0;
-      //  });
+      // return allPosts
+      
       
       let allPostsSortedByDate = allPosts.sort((a, b) => {
-        return a.date > b.date ? -1 : a.date < b.date ? 1 : 0;
+        return a.date > b.date ? -1 : a.date < b.date ? 1 : 0
       });
-      
-      // return filteredPostsSortedByDate
       
       return allPostsSortedByDate
     },
+
+    filteredPosts() {
+      let filteredPosts = this.allPosts.filter(post => (
+        this.visiblePostTypes.indexOf(post['category'].toString().toLowerCase()) > -1
+      ))
+
+      return filteredPosts
+      
+      // let filteredPostsSortedByDate = filteredPosts.sort((a, b) => {
+      //   return a.date > b.date ? -1 : a.date < b.date ? 1 : 0
+      // });
+      
+      // return filteredPostsSortedByDate
+    }
   },
 
   methods: {
