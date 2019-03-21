@@ -301,4 +301,51 @@ a {
   text-shadow: 0 .05em .15em black;
   z-index: -1;
 }
+
+
+
+/deep/ {
+  .neil-degrasse-tyson {
+    .quote--author-image {
+      left: -6rem
+    }
+  }
+
+  .cs-lewis, {
+    .quote--author-image {
+      left: -4rem;
+      min-height: 25rem!important;
+    }
+  }
+
+  .seneca {
+    .quote--author-image {
+      @include responsive-property("left", 0rem, -3rem);
+      max-height: 17rem;
+    }
+  }
+
+  @media screen and (max-width: 1400px) {
+    
+  }
+  
+  @media screen and (max-width: $mediumScreen) {
+    
+  }
+  
+  @media screen and (max-width: 650px) {
+    .neil-degrasse-tyson {
+      .quote--author-image {
+        @include responsive-property("left", -5rem, -1rem, 400px, 650px);
+      }
+    }
+
+    .cs-lewis {
+      .quote--author-image {
+        @include responsive-property("left", -5rem, -2rem, 400px, 650px);
+      }
+    }
+
+  }
+}
 </style>
