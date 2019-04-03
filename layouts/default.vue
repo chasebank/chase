@@ -328,7 +328,8 @@ main {
   display: flex;
   flex-direction: column;
 
-  padding-bottom: var(--calculatedFooterHeight)
+  padding-bottom: var(--calculatedFooterHeight);
+  z-index: 1;
 }
 
 

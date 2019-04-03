@@ -42,12 +42,13 @@
           :key="post.title"
           :class="post.category"
           class="masonry-item">
-        <quote-component v-if="post.category == 'quotes'" :quote="post" class="quote" />
+        <quote-component v-if="post.category == 'quotes'" :quote="post" class="quote"></quote-component>
 
-        <article v-else>
+        <book-component v-if="post.category == 'books'" :book="post"></book-component>
+
+        <article v-if="post.category == 'codes'">
           <span class="post-title">{{ post.title }}</span>
           <p>Lorem this is an example of a post description.</p>
-          <!-- <nuxt-link :to="'/notes/codes/' + post.title"></nuxt-link> -->
         </article>
       </li>
     </transition-group>
@@ -88,10 +89,12 @@ reqBooks.keys().forEach((key) => {
 })
 
 import quoteComponent from '~/components/quote-component.vue'
+import bookComponent from '~/components/book-component.vue'
 
 export default {
   components: {
-    quoteComponent
+    quoteComponent,
+    bookComponent
   },
 
   mounted() {
@@ -134,7 +137,7 @@ export default {
         Object.keys(posts).forEach((key) => {
           const post = posts[key]
             
-          post.slug = key.replace('./', '').replace('.md', '');
+          post.slug = key.replace('./', '').replace('.md', '')
 
           postArray.push(post);
         });
@@ -152,7 +155,8 @@ export default {
         Object.keys(posts).forEach((key) => {
           const post = posts[key]
             
-          post.slug = key.replace('./', '').replace('.md', '');
+          post.slug = key.replace('./', '').replace('.md', '')
+          post.cover = require('~/assets/book-assets/' + post.slug + '.jpg')
 
           postArray.push(post);
         });
