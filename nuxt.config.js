@@ -56,7 +56,15 @@ module.exports = {
   // Global CSS
   css: ["~/styles/global.scss"],
 
-  modules: [["nuxt-sass-resources-loader", "~/styles/_bitsnpieces.scss"]],
+  modules: [
+    '@nuxtjs/style-resources',
+  ],
+
+  styleResources: {
+    scss: [
+      "~/styles/_bitsnpieces.scss"
+    ]
+  },
 
   // Plugins to load before mounting the App
   plugins: [
