@@ -3,18 +3,18 @@ export const state = () => ({
   currentRouteTitle: '',
   routeHistory: '',
   routeDepth: '1',
-  routeTransitionDirection: 'transition--route-slide-right-'
+  routeTransitionDirection: 'transition--route-slide-left-'
 })
 
 export const mutations = {
   contentScrolled(state) {
     state.contentScrolled = true
-    console.log('set to true ')
+    // console.log('set to true ')
   },
 
   contentNotScrolled(state) {
     state.contentScrolled = false
-    console.log('set to false ')
+    // console.log('set to false ')
   },
 
   handleHistory(state, payload) {
@@ -43,8 +43,8 @@ export const mutations = {
   },
 
   setRouteTransitionDirection(state, newRouteDepth) {
-    newRouteDepth < state.routeDepth ? state.routeTransitionDirection = 'transition--route-slide-right-' : state.routeTransitionDirection = 'transition--route-slide-left-'
-
+    state.routeTransitionDirection = newRouteDepth > state.routeDepth ? 'transition--route-slide-left-' : 'transition--route-slide-right-'
+  
     state.routeDepth = newRouteDepth
   }
 }

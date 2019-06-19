@@ -97,6 +97,26 @@ footer {
   // box-shadow: inset 0 0 1rem 1rem blue;
 }
 
+#footer-bg {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: $fullWidth;
+  background-image: url(~assets/personal-site--footer.png);
+  background-size: cover;
+  background-position: bottom right;
+  padding-top: 21%;
+  z-index: -10;
+  
+  @media (max-width: $mediumScreen) {
+    padding-top: 30%;
+  }
+  
+  @media (max-width: $smallScreen) {
+    padding-top: 40%;
+  }
+}
+
 .move-footer-down {
   transition: transform .6s;
   position: fixed;

@@ -17,7 +17,7 @@ export default {
 
   mounted() {
     this.$el.style.setProperty('--bookHue', this.book.hue);
-    console.log('book hue ', this.book.hue)
+    // console.log('book hue ', this.book.hue)
   },
 
   methods: {

@@ -1,7 +1,7 @@
 $smallScreen: 550px;
 $mediumScreen: 1024px;
 $largeScreen: 1600px;
-
+$transitionDurationForDebugging: .5s;
 
 
 //
@@ -127,9 +127,11 @@ $colors: (
 :root {
   --scrollbar: 0px;
   --calculatedFooterHeight: 0px;
+  --innerVW: 100vw;
+  --innerVH: 100vh;
 }
 
-$fullWidth: calc(100vw - var(--scrollbarWidth));
+$fullWidth: var(--innerVW);
 $navHeight: 3rem;
 $mainPadding: 3rem;
 $headerHeight: 3rem;
@@ -137,8 +139,8 @@ $transition: .6s;
 
 
 
-
 @mixin full-width {
+  width: 100vw;
   width: $fullWidth;
   position: relative;
   left: 50%;
@@ -146,6 +148,8 @@ $transition: .6s;
   margin-left: calc(#{$fullWidth} * -.5);
   margin-right: calc(#{$fullWidth} * -.5);
 }
+
+
 
 @function colWidth($columns, $gutterSize: calc(1rem + 1vw), $span: 1) {
   $columnWidth: calc((100% - (#{$gutterSize} * (#{$columns} + 1))) / #{$columns});
