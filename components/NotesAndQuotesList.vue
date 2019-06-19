@@ -42,9 +42,9 @@
           :key="post.title"
           :class="post.category"
           class="masonry-item">
-        <quote-component v-if="post.category == 'quotes'" :quote="post" class="quote"></quote-component>
+        <QuoteItem v-if="post.category == 'quotes'" :quote="post" class="quote"/>
 
-        <book-component v-if="post.category == 'books'" :book="post"></book-component>
+        <BookItem v-if="post.category == 'books'" :book="post"/>
 
         <article v-if="post.category == 'codes'">
           <span class="post-title">{{ post.title }}</span>
@@ -88,13 +88,13 @@ reqBooks.keys().forEach((key) => {
   books[key] = reqBooks(key);
 })
 
-import quoteComponent from '~/components/quote-component.vue'
-import bookComponent from '~/components/book-component.vue'
+import QuoteItem from '~/components/QuoteItem.vue'
+import BookItem from '~/components/BookItem.vue'
 
 export default {
   components: {
-    quoteComponent,
-    bookComponent
+    QuoteItem,
+    BookItem
   },
 
   mounted() {

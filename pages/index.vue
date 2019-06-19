@@ -5,15 +5,15 @@
 
       <h2 class="header--portfolio"><span><nuxt-link to="/portfolio" class="page-link">Portfolio</nuxt-link></span><span>Projects</span></h2>
 
-      <portfolio-component />
+      <PortfolioList/>
       
       <h2><span><nuxt-link to="/notes/codes" class="page-link">Code</nuxt-link></span><span><nuxt-link to="/notes/codes" class="page-link">Snippets</nuxt-link></span></h2>
 
-      <codes-component />
+      <CodesList/>
 
       <h2><span>Notes</span><span>& Quotes</span></h2>
 
-      <notes-and-quotes-component/>
+      <NotesAndQuotesList/>
     </div>
   </main>
 </template>
@@ -22,9 +22,9 @@
 import pageMixin from '~/mixins/page-mixin.vue'
 
 import LongContent from '~/components/LongContent.vue'
-import PortfolioComponent from '~/components/portfolio-component.vue'
-import CodesComponent from '~/components/codes-component.vue'
-import NotesAndQuotesComponent from '~/components/notes-and-quotes-component.vue'
+import PortfolioList from '~/components/PortfolioList.vue'
+import CodesList from '~/components/CodesList.vue'
+import NotesAndQuotesList from '~/components/NotesAndQuotesList.vue'
 
 export default {
   mixins: [pageMixin],
@@ -33,9 +33,9 @@ export default {
 
   components: {
     LongContent,
-    PortfolioComponent,
-    CodesComponent,
-    NotesAndQuotesComponent
+    PortfolioList,
+    CodesList,
+    NotesAndQuotesList
   },
 }
 </script>

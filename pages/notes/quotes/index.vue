@@ -3,18 +3,18 @@
     <div class="content">
       <h1><span>Notes</span><span>& Quotes</span></h1>
 
-      <quotes/>
+      <QuoteList/>
     </div>
   </main>
 </template>
 
 <script>
-import quotes from '@/components/quotes-component.vue'
+import QuoteList from '@/components/QuoteList.vue'
 import pageMixin from '@/mixins/page-mixin.vue'
 
 export default {
   components: {
-    quotes
+    QuoteList
   },
 
   data() {

@@ -14,7 +14,7 @@
       <h1><span>{{ thisPost.title.split(' ')[0] }}</span><span>{{ thisPost.title.split(' ').pop() }}</span></h1>
     
       <dl v-if="thisPost.type == 'cheatsheet'" class="code-snippets">
-        <code-snippet-accordion-component v-for="snippet in snippets" :key="snippet.slug" :item="snippet" />
+        <CodeAccordion v-for="snippet in snippets" :key="snippet.slug" :item="snippet"/>
       </dl>
     </div>
     <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
@@ -38,7 +38,7 @@ reqSnippets.keys().forEach((key) => {
   snippets[key] = reqSnippets(key)
 })
 
-import CodeSnippetAccordionComponent from '~/components/code-snippet-accordion-component.vue'
+import CodeSnippetAccordionComponent from '~/components/CodeAccordion.vue'
 
 export default {
   mixins: [pageMixin],
@@ -48,7 +48,7 @@ export default {
   },
 
   components: {
-    CodeSnippetAccordionComponent
+    CodeAccordion
   },
 
   data: () => ({

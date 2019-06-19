@@ -131,9 +131,11 @@ $colors: (
   --innerVH: 100vh;
 }
 
+
 $fullWidth: var(--innerVW);
 $navHeight: 3rem;
-$mainPadding: 3rem;
+$mainPadding: calc(3rem + 1vw);
+$smallPadding: calc(1rem + 1vw);
 $headerHeight: 3rem;
 $transition: .6s;
 
@@ -151,7 +153,7 @@ $transition: .6s;
 
 
 
-@function colWidth($columns, $gutterSize: calc(1rem + 1vw), $span: 1) {
+@function colWidth($columns, $gutterSize: $smallPadding, $span: 1) {
   $columnWidth: calc((100% - (#{$gutterSize} * (#{$columns} + 1))) / #{$columns});
   $span: $span - 1;
 
