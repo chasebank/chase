@@ -94,51 +94,27 @@ footer {
   justify-content: center;
   align-items: center;
 
-  // box-shadow: inset 0 0 1rem 1rem blue;
-}
+  &:before {
+    display: block;
+    content: '';
+    position: absolute;
+    z-index: -2;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 110%;
+    background-image: url(~assets/personal-site--footer.png);
+    background-size: cover;
+    background-position: top right;
 
-#footer-bg {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: $fullWidth;
-  background-image: url(~assets/personal-site--footer.png);
-  background-size: cover;
-  background-position: bottom right;
-  padding-top: 21%;
-  z-index: -10;
-  
-  @media (max-width: $mediumScreen) {
-    padding-top: 30%;
+    @media (max-width: $mediumScreen) {
+      height: 130%;
+    }
+    
+    @media (max-width: $smallScreen) {
+      height: 150%;
+    }
   }
-  
-  @media (max-width: $smallScreen) {
-    padding-top: 40%;
-  }
-}
-
-.move-footer-down {
-  transition: transform .6s;
-  position: fixed;
-  transform: translate3d(0,100%,0);
-}
-
-.move-footer-up {
-  transition: transform .6s;
-  position: fixed;
-  top: 100%;
-  bottom: initial;
-  transform: translate3d(0,-100%,0);
-}
-
-@keyframes moveFooterDown {
-  from { transform: translate3d(0,0%,0) }
-  from { transform: translate3d(0,-100%,0) }
-}
-
-@keyframes moveFooterUp {
-  from { transform: translate3d(0,0%,0) }
-  from { transform: translate3d(0,-100%,0) }
 }
 
 

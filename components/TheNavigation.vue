@@ -1,7 +1,7 @@
 <template>
-  <transition name="showHeader-">
-    <header :class="{'content-scrolled' : contentScrolled, 'show-header' : contentScrolled || $route.name != 'index'}"
-            v-show="headerVisible">
+  <transition name="showNav-">
+    <nav :class="{'content-scrolled' : contentScrolled, 'show-nav' : contentScrolled || $route.name != 'index'}"
+            v-show="navVisible">
       <a href="#" id="back" @click.prevent="goBack">
         <svg id="icon--back" xmlns="http://www.w3.org/2000/svg" width="19" height="24.665" viewBox="0 0 19 24.665"><path d="M18.779 22.529L5.205 15.003l13.574-8.225V0L-.114 12.467v1.885l18.893 10.313z"/></svg>
         
@@ -18,8 +18,8 @@
         </transition-group>
       </a>
 
-      <h2 class="header--small-name"><span><nuxt-link :to="{ name: 'index'}" class="page-link">CHASE</nuxt-link></span><span><nuxt-link :to="{ name: 'index'}" class="page-link">WHITESIDE</nuxt-link></span></h2>
-    </header>
+      <h2 class="nav--small-name"><span><nuxt-link :to="{ name: 'index'}" class="page-link">CHASE</nuxt-link></span><span><nuxt-link :to="{ name: 'index'}" class="page-link">WHITESIDE</nuxt-link></span></h2>
+    </nav>
   </transition>
 </template>
 
@@ -28,13 +28,13 @@ import { mapState } from 'vuex'
 
 export default {
   data: () => ({
-    headerVisible: true
+    navVisible: true
   }),
 
   watch: {
     'contentScrolled' () {
       if (this.$route.name == 'index') {
-        this.headerVisible = this.contentScrolled ? true : false
+        this.navVisible = this.contentScrolled ? true : false
       }
     }
   },
@@ -96,7 +96,7 @@ export default {
 
 <style lang="scss" scoped>
 
-header {
+nav {
   background: linear-gradient(to top, #0b151d, rgba(black,.5) );
   background: linear-gradient(to top, rgba(#0b151d,0), rgba(black,1) );
   // background: red;
@@ -104,7 +104,7 @@ header {
   top: 0;
   width: 100vw;
   width: $fullWidth;
-  height: $headerHeight;
+  height: $navHeight;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -138,12 +138,12 @@ header {
     opacity: .4;
   }
 }
-.showHeader--enter-active,
-.showHeader--leave-active {
+.showNav--enter-active,
+.showNav--leave-active {
   transition: transform $transition
 }
-.showHeader--enter,
-.showHeader--leave-to {
+.showNav--enter,
+.showNav--leave-to {
   transform: translate3d(0,-100%,0)
 }
 #back {
@@ -178,7 +178,7 @@ header {
   fill: #70bfce;
   transition: transform .8s cubic-bezier(0.72,-0.51, 0.25, 1)
 }
-.header--small-name {
+.nav--small-name {
   font-size: 1.5rem;
   margin-top: .2rem;
   margin-bottom: 0;

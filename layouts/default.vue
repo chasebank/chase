@@ -1,19 +1,6 @@
 <template>
   <div id="app">
-    <!-- <div id="header-bg"></div> -->
-
-    <!-- <svg width="100%" viewBox="0 0 1000 200" id="cosmos" mask="url(#cosmos-mask)">
-      <rect id="background" width="1000" height="1000" fill="transparent" mask="url(#cosmos-mask)" />
-      <defs>
-        <mask id="cosmos-mask" preserveAspectRatio="xMidYMin">
-          <image id="cosmos-mask--image" x="0" y="0" height="100%" xlink:href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/106403/personal-site--header--mask.jpg"></image>
-        </mask>
-      </defs>
-
-      <g id="starGroup" mask="url(#cosmos-mask)">
-        <g class="starGroup" id="mStarGroup"></g>
-      </g>
-    </svg> -->
+    <TheHeader/>
 
     <TheNavigation/>
 
@@ -31,12 +18,13 @@
 
 <script>
 import TheNavigation from '~/components/TheNavigation.vue'
+import TheHeader from '~/components/TheHeader.vue'
 import TheFooter from '~/components/TheFooter.vue'
 
 export default {
   components: {
-    TheNavigation
-    ,
+    TheNavigation,
+    TheHeader,
     TheFooter
   },
 
@@ -74,8 +62,6 @@ export default {
 
     this.setScrollState()
 
-    // this.createStarsHeader()
-
     window.addEventListener('resize', () => {
       this.setCSSCustomProps()
 
@@ -84,77 +70,6 @@ export default {
   },
 
   methods: {
-    createStarsHeader() {
-      function getRandomInt(min, max) {
-        return Math.floor(Math.random() * (max - min + 1) + min);
-      }
-
-      function getRandomTrend(min, max) {
-        return Math.floor(Math.abs(Math.random() - Math.random()) * (1 + max - min) + min)
-      }
-
-      let cosmos = document.getElementById("cosmos"),
-          starGroup = cosmos.getElementById("starGroup"),
-          mask = cosmos.getElementById("cosmos-mask--image"),
-          smallScreen = window.matchMedia( "(max-width: 550px)" ),
-          mediumScreen = window.matchMedia( "(max-width: 768px)" ),
-          x = parseInt(window.innerWidth),
-          y = parseInt(window.innerWidth * .2211);
-
-      if (smallScreen.matches) {
-        y = parseInt(x * 0.6)
-      }
-      else if (mediumScreen.matches) {
-        y = parseInt(x * .4)
-      }
-      else {
-        y = parseInt(x * .2211)
-      }
-
-      mask.setAttribute("width", y * 4.6511628)
-
-      cosmos.setAttribute("viewBox", `0 0 ${x} ${y}`)
-      cosmos.querySelector("#background").setAttribute("height", y)
-      cosmos.querySelector("#background").setAttribute("width", x)
-
-      let makeItem = () => {
-        let star = document.createElementNS("http://www.w3.org/2000/svg", "rect"),
-            size = getRandomInt(.5, 1.1),
-            xCoord = getRandomTrend(0,x)
-        
-        star.setAttribute("width", size)
-        star.setAttribute("height", size)
-        star.setAttribute("x", xCoord)
-        star.setAttribute("y", 0)
-        star.setAttribute("opacity",1)
-        star.setAttribute("fill", "#15546a")
-        star.setAttribute("transform", 'translate3d(0,' + y + ',0)')
-
-        starGroup.appendChild(star);
-
-        if (Math.random() > .5) {
-          star.classList.add('twinkle')
-          star.style.animationDelay = Math.random() + 's'
-          star.style.animationDuration = getRandomInt(2,6) + 's'
-        }
-
-        let time = new TimelineMax({repeat: -1}),
-            speed = getRandomInt(6, 100)
-        
-        time.to(star, speed, {
-          transform: `translate3d(0,${size * -1},0)`,
-          ease: Linear.easeNone,
-          opacity: .5
-        }).progress( Math.random() )
-      }
-
-      let count = Math.max(Math.min(1100, x),600)
-
-      for (let i = 0; i < count; i++) {
-        makeItem()
-      }
-    },
-
     setCSSCustomProps() {
       // Stephen Shaw codepen.io/shshaw/pen/JqGmKx
       document.documentElement.style.setProperty('--innerVW', `${document.scrollingElement.clientWidth}px`)
@@ -193,6 +108,9 @@ export default {
     },
 
     transitionFooter() {
+      // TODO
+      // need to calculate from top of footer:before instead of footer
+      // is that possible?? 
       let footer = this.$refs.footer.$el,
           footerHeight = footer.offsetHeight,
           viewportHeight = window.visualViewport.height || window.innerHeight,
@@ -242,26 +160,18 @@ html {
 
 body {
   background-color: #0b151d;
-  padding: $smallPadding;
+  // padding-left: $smallPadding;
+  // padding-right: $smallPadding;
   overflow-x: hidden;
 }
 
 #__nuxt {
-  // // background-color: purple;
-  // background-image:
-  //   url(~assets/personal-site--header.png),
-  //   url(~assets/personal-site--footer.png),
-  //   url(~assets/personal-site--bg.jpg);
-  
-  // background-attachment: fixed, initial, fixed;
-  // background-repeat: no-repeat, no-repeat, repeat;
-  // background-position: top center, bottom center;
-  // background-size: 100%, 100%, auto;
   position: relative;
   z-index: 1;
   background-image: url(~assets/personal-site--bg.jpg);
   background-attachment: fixed;
   background-repeat: repeat;
+  background-size: 15vw;
   
   @media (max-width: $mediumScreen) {
     background-size: 200px;
@@ -314,66 +224,6 @@ main {
 
 
 
-#header-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: $fullWidth;
-  background-image: url(~assets/personal-site--header.png);
-  background-size: cover;
-  background-position: top left;
-  padding-top: 21%;
-  z-index: -10;
-  
-  @media (max-width: $mediumScreen) {
-    padding-top: 40%;
-  }
-  
-  @media (max-width: $smallScreen) {
-    padding-top: 58%;
-  }
-}
-
-
-
-#cosmos {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
-
-.twinkle {
-  animation: twinkle 4s infinite;
-}
-
-@keyframes twinkle {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  700% {
-    opacity: 0;
-  }
-  80% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-
-
-// .full-width {
-//   // background-color: cyan;
-//   height: 10rem;
-
-//   @include full-width;
-// }
-
 .transition--route-slide-left--enter-active,
 .transition--route-slide-left--leave-active,
 .transition--route-slide-right--enter-active,
@@ -384,11 +234,6 @@ main {
     transition: transform $transitionDurationForDebugging;
   }
 }
-
-// .transition--route-slide-left--leave-active,
-// .transition--route-slide-right--leave-active {
-//   position: fixed;
-// }
 
 .transition--route-slide-left--enter,
 .transition--route-slide-right--leave-to {
