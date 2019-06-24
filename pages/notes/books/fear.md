@@ -1,7 +1,7 @@
 ---
 title: "Fear"
 authors: "Bob Woodward"
-hue: 358
+hue: 0
 rating: 
 date: 2019-02-01
 category: books

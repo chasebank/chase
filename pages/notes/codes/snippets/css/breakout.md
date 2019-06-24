@@ -1,9 +1,9 @@
 ---
-layout: code
 title: Full Width Breakout
 description: Responsive Typography with a min/max contraint
 created: 2015-12-10
 category: css
+layout: code
 ---
 
 Break of the parent container to full width. For fancy important images and such, in the middle of articles.

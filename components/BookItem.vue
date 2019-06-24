@@ -2,13 +2,11 @@
   <article class="book">
     <img :src="book.cover" :alt="`Image of the ${book.title} book cover`" class="book-cover">
 
-    <span class="book-title">{{ book.title }}</span>
+    <h4 class="book-title">{{ book.title }}</h4>
 
-    
-
-    <details class="rating-details" ref="review">
+    <details class="rating-details" ref="review" v-if="book.rating">
       <summary class="rating-summary">
-        <svg class="rating-stars" width="1000" height="200" viewBox="0 0 1000 200" xmlns="http://www.w3.org/2000/svg">
+        <svg class="rating-stars" viewBox="0 0 1000 200" xmlns="http://www.w3.org/2000/svg">
           <title>View my short review</title>
           <defs>
             <path id="def-star" d="M100 10L121.246 78.7539H190L134.377 121.246L155.623 190L100 147.508L44.3769 190L65.6231 121.246L10 78.7539H78.7539L100 10Z" stroke-width="inherit" stroke="inherit"/>
@@ -22,7 +20,7 @@
             </g>
 
             <mask id="mask-rating">
-              <rect id="rating-el" width="70%" height="200" fill="white"/>
+              <rect id="rating-el" width="50%" height="200" fill="white" ref="ratingMask"/>
             </mask>
           </defs>
 
@@ -49,18 +47,48 @@ export default {
 
   }),
 
+  beforeMount() {
+    this.$nextTick(() => {
+      if (this.book.rating) {
+        let rating = `${this.book.rating / .05}%`
+        console.log(this.book.title)
+        console.log(rating)
+        this.$refs.ratingMask.setAttribute('width', rating)
+      }
+    });
+  },
+
   mounted() {
     this.$el.style.setProperty('--bookHue', this.book.hue);
-    // console.log('book hue ', this.book.hue)
+
+    // if (this.book.rating) {
+    //   let rating = `${this.book.rating / .05}%`
+
+    //   this.$refs.ratingMask.setAttribute('width', `${rating / .05}%`)
+    // }
+  },
+
+  watch: {
+    // whenever question changes, this function will run
+    rating(first,last) {
+      this.$refs.ratingMask.setAttribute('width', last)
+      console.log(this.book.title)
+      console.log(first, last)
+    }
   },
 
   computed: {
-
+    rating() {
+      return `${this.book.rating / .05}%`
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+$darkColor: #{hsl(var(--bookHue),100%,2%)};
+$baseColor: #{hsl(var(--bookHue),100%,68%)};
+$lightColor: #{hsl(var(--bookHue),100%,95%)};
 // article {
 //   // background-color: #020e0f;
 //   @include squircleBackground(60,#020e0f);
@@ -126,9 +154,9 @@ $padding: calc(1% + 1rem);
     left: 2px;
     width: calc(100% - 4px);
     height: calc(100% - 4px);
-    background-color: red;
+    background-color: $darkColor;
     border-radius: 40px;
-    box-shadow: 0 1rem 2rem -2rem #{hsl(var(--bookHue),100%,70%)};
+    box-shadow: 0 1rem 2rem -2rem $baseColor;
   }
 
   &:after {
@@ -136,7 +164,7 @@ $padding: calc(1% + 1rem);
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #{hsl(var(--bookHue),100%,2%)};
+    background-color: $darkColor;
     @include squircleMask(60);
   }
 }
@@ -147,20 +175,24 @@ $padding: calc(1% + 1rem);
   width: calc(#{$padding} * 4);
   height: auto;
   left: $padding;
+  display: block;
+  // box-shadow: 0rem .5rem 1.5rem -1rem $baseColor;
 }
 
 .book-title {
   color: white;
-  color: #{hsl(var(--bookHue),100%,95%)};
+  color: $lightColor;
   text-transform: uppercase;
   font-size: 1.5rem;
   font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .book-authors {
   font-size: 1rem;
   font-style: italic;
-  color: #{hsl(var(--bookHue),100%,70%)};
+  color: $baseColor;
   font-style: italic;
   order: 2;
 }
@@ -186,7 +218,7 @@ $padding: calc(1% + 1rem);
   list-style-type: none;
   // https://stackoverflow.com/questions/6195329/how-can-you-hide-the-arrow-that-is-displayed-by-default-on-the-html5-details-e/6202729#6202729
   &::-webkit-details-marker {
-    display:none;
+    display: none;
   }
   
   &:before {
@@ -194,7 +226,7 @@ $padding: calc(1% + 1rem);
     top: 1px;
     display: block;
     content: '⯈';
-    color: #{hsl(var(--bookHue),100%,70%)};
+    color: $baseColor;
     padding-right: .1em;
     transform-origin: 50% 50%;
     transition: transform .3s, color .3s;
@@ -210,7 +242,7 @@ $padding: calc(1% + 1rem);
   background-color: #{hsl(var(--bookHue),100%,2%)};
   padding: 1.5rem 1rem 1rem 1rem;
   color: #{hsl(var(--bookHue),100%,95%)};;
-  box-shadow: 0 1rem 2rem -2rem #{hsl(var(--bookHue),100%,70%)};
+  box-shadow: 0 1rem 2rem -2rem $baseColor;
   margin-top: -1rem;
 }
 
@@ -260,15 +292,13 @@ $padding: calc(1% + 1rem);
 }
 
 .rating-stars--bg {
-  fill: #{hsl(var(--bookHue),100%,70%)};
-  // stroke-width: 0;
-  stroke: #{hsl(var(--bookHue),100%,70%)};
+  fill: $baseColor;
+  stroke: $baseColor;
   opacity: .4;
 }
 
 .rating-stars--el {
-  fill: #{hsl(var(--bookHue),100%,70%)};
+  fill: $baseColor;
   stroke-width: 0;
-  // stroke: #{hsl(var(--bookHue),100%,70%)};
 }
 </style>

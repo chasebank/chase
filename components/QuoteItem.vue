@@ -91,7 +91,7 @@ export default {
   background-color: #020e0f;
   box-shadow: 0 1rem 2rem -2rem color(highlight);
   border-radius: 2.75rem;
-  width: 80%;
+  // width: 80%;
   max-width: 50rem;
 }
 
@@ -129,14 +129,15 @@ export default {
 .quote--content {
   position: relative;
   text-align: center;
-  padding: 2rem 1rem 2rem 8rem;
+  padding: 1.5rem 1rem 1.5rem 8rem;
 }
 
 .quote--text /deep/ p {
   font-family: 'Amatic SC', cursive;
   font-size: 1.5rem;
-  line-height: 1.2;
+  line-height: 1;
   margin-top: 0;
+  margin-bottom: .5rem;
   text-shadow:
     0 .1rem .1rem black,
     0 .1rem .2rem black,
@@ -146,14 +147,14 @@ export default {
 .quote--author {
   display: block;
   color: color(mid);
-  font-size: .8rem;
-  margin-top: .5rem;
+  font-size: .9rem;
+  // margin-top: .5rem;
 }
 
 .quote--author-info {
   display: block;
   color: color(mid);
-  font-size: .7rem;
+  font-size: .75rem;
   font-style: italic;
   text-align: center;
 }

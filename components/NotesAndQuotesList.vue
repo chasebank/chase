@@ -1,70 +1,32 @@
 <template>
-  <!-- <div class="posts posts--colcade colcade">
-    <div class="posts--colcade-col colcade-col"></div>
-    <div class="posts--colcade-col colcade-col"></div>
-    <div class="posts--colcade-col colcade-col"></div>
-    <div class="posts--colcade-col colcade-col"></div>
-
-    <div>
-      <div v-for="post in allPosts" :key="post.title" class="post posts--colcade-item colcade-item">
-        <quote-component v-if="post.category == 'quote'" :quote="post" />
-
-        <article v-else>
-          <span class="post-title">{{ post.title }}</span>
-          <p>Lorem this is an example of a post description.</p>
-          <nuxt-link :to="'/notes/codes/' + post.title"></nuxt-link>
-        </article>
-      </div>
-    </div>
-  </div> -->
-
   <section>
     <ul class="notes-filter">
       <li class="notes-filter--option">
-        <button class="notes-filter--option--button" @click="togglePostType('quotes')" :class="{'active' : visiblePostTypes.includes('quotes')}">Quotes</button>
+        <button class="notes-filter--option--button" @click="togglePostType('codes')" :class="{'active' : visiblePostTypes.includes('codes') && filterActivated}">Codes</button>
       </li>
       <li class="notes-filter--option">
-        <button class="notes-filter--option--button" @click="togglePostType('books')" :class="{'active' : visiblePostTypes.includes('books')}">Books</button>
+        <button class="notes-filter--option--button" @click="togglePostType('posts')" :class="{'active' : visiblePostTypes.includes('posts') && filterActivated}">Posts</button>
       </li>
       <li class="notes-filter--option">
-        <button class="notes-filter--option--button" @click="togglePostType('codes')" :class="{'active' : visiblePostTypes.includes('codes')}">Codes</button>
+        <button class="notes-filter--option--button" @click="togglePostType('books')" :class="{'active' : visiblePostTypes.includes('books') && filterActivated}">Books</button>
       </li>
-      <!-- <li class="notes-filter--option">
-        <button class="notes-filter--option--button" @click="togglePostType('blog')" :class="{'active' : visiblePostTypes.includes('blog')}">Blog</button>
-      </li> -->
+      <li class="notes-filter--option">
+        <button class="notes-filter--option--button" @click="togglePostType('quotes')" :class="{'active' : visiblePostTypes.includes('quotes') && filterActivated}">Quotes</button>
+      </li>
     </ul>
-
-    <!-- <pre>{{ filteredPosts }}</pre> -->
 
     <transition-group class="masonry" tag="ul" name="transition--post-filter-" @enter="resetGrid" @after-leave="resetGrid">
       <li class="no-posts" v-if="filteredPosts.length < 1" key="noPosts">Choose a category from the options above</li>
       <li v-for="post in filteredPosts"
           :key="post.title"
-          :class="post.category"
           class="masonry-item">
-        <QuoteItem v-if="post.category == 'quotes'" :quote="post" class="quote"/>
+        <CodeItem v-if="post.category == 'codes'" :code="post" class="code"/>
 
-        <BookItem v-if="post.category == 'books'" :book="post"/>
+        <BookItem v-if="post.category === 'books'" :book="post"/>
 
-        <article v-if="post.category == 'codes'">
-          <span class="post-title">{{ post.title }}</span>
-          <p>Lorem this is an example of a post description.</p>
-        </article>
+        <QuoteItem v-if="post.category === 'quotes'" :quote="post" class="quote"/>
       </li>
     </transition-group>
-
-    <!-- <ul class="posts posts--masonry masonry">
-      <li v-for="post in filteredPosts" :key="post.title"
-      class="post posts--masonry-item masonry-item"
-      :class="post.category">
-        <quote-component v-if="post.category == 'quotes'" :quote="post" class="quote" />
-
-        <article v-else>
-          <span class="post-title">{{ post.title }}</span>
-          <p>Lorem this is an example of a post description.</p>
-        </article>
-      </li>
-    </ul> -->
   </section>
 </template>
 
@@ -76,25 +38,29 @@ reqQuotes.keys().forEach((key) => {
   quotes[key] = reqQuotes(key);
 })
 
-const codes = {};
-const reqCodes = require.context('@/pages/notes/codes/', false, /\.md$/);
-reqCodes.keys().forEach((key) => {
-  codes[key] = reqCodes(key);
-})
-
 const books = {};
 const reqBooks = require.context('@/pages/notes/books/', false, /\.md$/);
 reqBooks.keys().forEach((key) => {
   books[key] = reqBooks(key);
 })
 
+const codes = {};
+const reqCodes = require.context('@/pages/notes/codes/snippets/', true, /\.md$/);
+reqCodes.keys().forEach((key) => {
+  codes[key] = reqCodes(key);
+})
+
+
+
 import QuoteItem from '~/components/QuoteItem.vue'
 import BookItem from '~/components/BookItem.vue'
+import CodeItem from '~/components/CodeItem.vue'
 
 export default {
   components: {
     QuoteItem,
-    BookItem
+    BookItem,
+    CodeItem
   },
 
   mounted() {
@@ -110,7 +76,8 @@ export default {
   },
 
   data: () => ({
-    visiblePostTypes: ['quotes','books','codes']
+    visiblePostTypes: ['quotes','books','codes','posts'],
+    filterActivated: false
   }),
 
   computed: {
@@ -120,6 +87,9 @@ export default {
       let getPosts = (posts) => {
         Object.keys(posts).forEach((key) => {
           const post = posts[key]
+
+          post.langauge = post.category
+          post.category = 'codes'
 
           postArray.push(post);
         });
@@ -168,7 +138,9 @@ export default {
     },
 
     allPosts() {
-      let allPosts = [...this.quotes, ...this.codes, ...this.books]
+      let allPosts = [...this.quotes, ...this.books, ...this.codes]
+
+      // return allPosts
 
       let allPostsSortedByDate = allPosts.sort((a, b) => {
         return a.date > b.date ? -1 : a.date < b.date ? 1 : 0
@@ -181,6 +153,8 @@ export default {
       let filteredPosts = this.allPosts.filter(post => (
         this.visiblePostTypes.indexOf(post['category'].toString().toLowerCase()) > -1
       ))
+
+      // return filteredPosts
       
       let filteredPostsSortedByDate = filteredPosts.sort((a, b) => {
         return a.date > b.date ? -1 : a.date < b.date ? 1 : 0
@@ -192,9 +166,21 @@ export default {
 
   methods: {
     togglePostType(type) {
-      let index = this.visiblePostTypes.indexOf(type)
+      if (!this.filterActivated) {
+        this.visiblePostTypes = [type]
+
+        this.filterActivated = true
+      }
+
+      else {
+        console.log('filtering posts') 
+
+        let index = this.visiblePostTypes.indexOf(type)
+
+        console.log('clicked index', index)
       
-      index !== -1 ? this.visiblePostTypes.splice(index, 1) : this.visiblePostTypes.push(type)
+        index !== -1 ? this.visiblePostTypes.splice(index, 1) : this.visiblePostTypes.push(type)
+      }
     },
 
     resetGrid() {
