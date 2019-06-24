@@ -1,32 +1,42 @@
 <template>
-  <article>
+  <article class="book">
     <img :src="book.cover" :alt="`Image of the ${book.title} book cover`" class="book-cover">
 
     <span class="book-title">{{ book.title }}</span>
 
-    <span class="book-authors">by {{ book.authors }}</span>
+    
 
-    <svg class="rating" width="1000" height="200" viewBox="0 0 1000 200" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <path id="def-star" d="M100 10L121.246 78.7539H190L134.377 121.246L155.623 190L100 147.508L44.3769 190L65.6231 121.246L10 78.7539H78.7539L100 10Z" stroke-width="inherit" stroke="inherit"/>
-        
-        <g id="def-stars">
-          <use xlink:href="#def-star" x="0" y="0" />
-          <use xlink:href="#def-star" x="200" y="0" />
-          <use xlink:href="#def-star" x="400" y="0" />
-          <use xlink:href="#def-star" x="600" y="0" />
-          <use xlink:href="#def-star" x="800" y="0" />
-        </g>
-        
-        <mask id="mask-rating">
-          <rect id="rating-el" width="100%" height="200" fill="white"/>
-        </mask>
-      </defs>
-      
-      <use class="rating-bg" xlink:href="#def-stars" x="0" y="0" stroke-width="8" />
-      
-      <use class="rating-el" xlink:href="#def-stars" x="0" y="0" stroke-width="10" mask="url(#mask-rating)" />
-    </svg>
+    <details class="rating-details" ref="review">
+      <summary class="rating-summary">
+        <svg class="rating-stars" width="1000" height="200" viewBox="0 0 1000 200" xmlns="http://www.w3.org/2000/svg">
+          <title>View my short review</title>
+          <defs>
+            <path id="def-star" d="M100 10L121.246 78.7539H190L134.377 121.246L155.623 190L100 147.508L44.3769 190L65.6231 121.246L10 78.7539H78.7539L100 10Z" stroke-width="inherit" stroke="inherit"/>
+
+            <g id="def-stars">
+              <use xlink:href="#def-star" x="0" y="0" />
+              <use xlink:href="#def-star" x="200" y="0" />
+              <use xlink:href="#def-star" x="400" y="0" />
+              <use xlink:href="#def-star" x="600" y="0" />
+              <use xlink:href="#def-star" x="800" y="0" />
+            </g>
+
+            <mask id="mask-rating">
+              <rect id="rating-el" width="70%" height="200" fill="white"/>
+            </mask>
+          </defs>
+
+          <use class="rating-stars--bg" xlink:href="#def-stars" x="0" y="0" stroke-width="8" />
+
+          <use class="rating-stars--el" xlink:href="#def-stars" x="0" y="0" stroke-width="10" mask="url(#mask-rating)" />
+        </svg>
+      </summary>
+      <div class="rating-notes">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quaerat, optio voluptatibus deleniti ducimus rem non id adipisci ut. Illo consequatur quas at maxime accusamus, corporis ratione tempora quibusdam molestiae?
+      </div>
+    </details>
+
+    <span class="book-authors">by {{ book.authors }}</span>
     <!-- <div class="book-content" v-html="book.__content"></div> -->
   </article>
 </template>
@@ -44,83 +54,221 @@ export default {
     // console.log('book hue ', this.book.hue)
   },
 
-  methods: {
+  computed: {
 
   }
 }
 </script>
 
 <style lang="scss" scoped>
-article {
-  // background-color: #020e0f;
-  @include squircleBackground(60,#020e0f);
-  padding: 1.5rem 1rem 1.5rem 1rem;
-  box-shadow: 0 0.5rem 2rem -1rem #{hsl(var(--bookHue),100%,70%)};
-  border-radius: 2.75rem;
-  display: inline-block;
-  position: relative;
-  // margin-left: 4rem;
-  margin-top: 1rem;
-}
+// article {
+//   // background-color: #020e0f;
+//   @include squircleBackground(60,#020e0f);
+//   padding: 1.5rem 1rem 1.5rem 1rem;
+//   box-shadow: 0 0.5rem 2rem -1rem #{hsl(var(--bookHue),100%,70%)};
+//   border-radius: 2.75rem;
+//   display: inline-block;
+//   position: relative;
+//   // margin-left: 4rem;
+//   margin-top: 1rem;
+// }
 
-$leftPadding: 6rem;
+// $leftPadding: 6rem;
 
-.book-title {
-  display: block;
-  $hue: var(--bookHue);
-  color: #{hsl(var(--bookHue),100%,70%)};
-  text-transform: uppercase;
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-left: $leftPadding;
-}
+// .book-title {
+//   display: block;
+//   $hue: var(--bookHue);
+//   color: #{hsl(var(--bookHue),100%,70%)};
+//   text-transform: uppercase;
+//   font-size: 1.5rem;
+//   font-weight: bold;
+//   margin-left: $leftPadding;
+// }
 
-.book-authors {
-  display: block;
-  margin-left: $leftPadding;
-  $hue: var(--bookHue);
-  color: #{hsl(var(--bookHue),100%,70%)};
-  font-style: italic;
-}
+// .book-authors {
+//   display: block;
+//   margin-left: $leftPadding;
+//   $hue: var(--bookHue);
+//   color: #{hsl(var(--bookHue),100%,70%)};
+//   font-style: italic;
+// }
 
-.book-content {
-  margin-left: $leftPadding;
+// .book-content {
+//   margin-left: $leftPadding;
 
-  /deep/ * {
-    // font-size: 1rem;
-    color: #{hsl(var(--bookHue),100%,95%)};
-    line-height: 1.5;
+//   /deep/ * {
+//     // font-size: 1rem;
+//     color: #{hsl(var(--bookHue),100%,95%)};
+//     line-height: 1.5;
+//   }
+// }
+
+
+
+$padding: calc(1% + 1rem);
+.book {
+  padding: $padding $padding $padding calc(#{$padding} * 6);
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+
+  &:before,
+  &:after {
+    display: block;
+    content: '';
+    position: absolute;
+    z-index: -1;
+  }
+
+  &:before {
+    top: 2px;
+    left: 2px;
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    background-color: red;
+    border-radius: 40px;
+    box-shadow: 0 1rem 2rem -2rem #{hsl(var(--bookHue),100%,70%)};
+  }
+
+  &:after {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #{hsl(var(--bookHue),100%,2%)};
+    @include squircleMask(60);
   }
 }
 
+
 .book-cover {
   position: absolute;
-  width: 7rem;
-  left: -1rem;
-  top: -.5rem;
-  border: 4px solid #{hsl(var(--bookHue),100%,70%)};
+  width: calc(#{$padding} * 4);
+  height: auto;
+  left: $padding;
+}
+
+.book-title {
+  color: white;
+  color: #{hsl(var(--bookHue),100%,95%)};
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.book-authors {
+  font-size: 1rem;
+  font-style: italic;
+  color: #{hsl(var(--bookHue),100%,70%)};
+  font-style: italic;
+  order: 2;
 }
 
 
 
-svg {
+.rating-details {
+  display: inline-block;
+  order: 3;
+  align-self: flex-start;
+  padding: .2rem;
+  margin-top: -.1rem;
+  margin-left: -.2rem;
+}
+
+.rating-summary {
+  display: flex;
+  position: relative;
+  left: -.1rem;
+  cursor: pointer;
+  
+  // hide defualt arrow in chrome
+  list-style-type: none;
+  // https://stackoverflow.com/questions/6195329/how-can-you-hide-the-arrow-that-is-displayed-by-default-on-the-html5-details-e/6202729#6202729
+  &::-webkit-details-marker {
+    display:none;
+  }
+  
+  &:before {
+    position: relative;
+    top: 1px;
+    display: block;
+    content: '⯈';
+    color: #{hsl(var(--bookHue),100%,70%)};
+    padding-right: .1em;
+    transform-origin: 50% 50%;
+    transition: transform .3s, color .3s;
+  }
+}
+
+.rating-notes {
+  display: block;
+  position: absolute;
+  margin-left: calc(-1 * #{$padding});
+  box-sizing: initial;
+  z-index: 1;
+  background-color: #{hsl(var(--bookHue),100%,2%)};
+  padding: 1.5rem 1rem 1rem 1rem;
+  color: #{hsl(var(--bookHue),100%,95%)};;
+  box-shadow: 0 1rem 2rem -2rem #{hsl(var(--bookHue),100%,70%)};
+  margin-top: -1rem;
+}
+
+.rating-details[open] {
+  .rating-summary {
+    z-index: 2;
+  }
+
+  +.book-authors {
+    z-index: 2;
+  }
+
+  .rating-summary:before {
+    color: #{hsl(var(--bookHue),100%,95%)};
+    transform: translate3d(-.1em,0,0) rotate(90deg) 
+  }
+  
+  .rating-notes {
+    animation: fadeSlideDetails .3s forwards;
+  }
+}
+@keyframes fadeSlideDetails {
+  from {
+    opacity: 0;
+    transform: translate3d(0,-1rem,0);
+  }
+  25% {
+    opacity: 0;
+    transform: translate3d(0,-1rem,0);
+  }
+  to {
+    opacity: 1;
+    border-top-color: red;
+    transform: translate3d(0,0,0);
+  }
+}
+
+.rating-stars {
   display: block;
   height: 1rem;
   width: auto;
-  background-color: red;
+  align-self: flex-start;
 }
 
-.rating path {
+.rating-stars path {
   fill: inherit;
 }
 
-.rating-bg {
-  fill: #eee;
-  stroke: #aaa;
+.rating-stars--bg {
+  fill: #{hsl(var(--bookHue),100%,70%)};
+  // stroke-width: 0;
+  stroke: #{hsl(var(--bookHue),100%,70%)};
+  opacity: .4;
 }
 
-.rating-el {
-  fill: #ffcf00;
-  stroke: orange;
+.rating-stars--el {
+  fill: #{hsl(var(--bookHue),100%,70%)};
+  stroke-width: 0;
+  // stroke: #{hsl(var(--bookHue),100%,70%)};
 }
 </style>
