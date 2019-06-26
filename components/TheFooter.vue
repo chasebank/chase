@@ -85,36 +85,40 @@
 
 <style lang="scss" scoped>
 footer {
+  background-color: magenta;
   padding: 6rem 2rem 2rem 2rem;
   position: absolute;
   bottom: 0;
-  width: 100%;
+  width: var(--innerVW);
 
   display: flex;
   justify-content: center;
   align-items: center;
+  // box-shadow: inset 0 0 0 2rem magenta;
 
-  &:before {
-    display: block;
-    content: '';
-    position: absolute;
-    z-index: -2;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 110%;
-    background-image: url(~assets/personal-site--footer.png);
-    background-size: cover;
-    background-position: top right;
+  // &:before {
+  //   display: block;
+  //   content: '';
+  //   position: absolute;
+  //   z-index: -2;
+  //   bottom: 0;
+  //   left: 0;
+  //   // prevent width change from scrollbar
+  //   width: 100vw;
+  //   height: 15vw;
+  //   background: magenta;
+  //   // background-image: url(~assets/personal-site--footer.png);
+  //   background-size: cover;
+  //   background-position: top right;
 
-    @media (max-width: $mediumScreen) {
-      height: 130%;
-    }
+  //   @media (max-width: $mediumScreen) {
+  //     height: 130%;
+  //   }
     
-    @media (max-width: $smallScreen) {
-      height: 150%;
-    }
-  }
+  //   @media (max-width: $smallScreen) {
+  //     height: 150%;
+  //   }
+  // }
 }
 
 

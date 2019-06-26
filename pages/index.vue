@@ -3,7 +3,7 @@
     <div class="content">
       <h1 class="header--home"><span>CHASE</span><span>WHITESIDE</span><span>Designer</span><span>Developer</span></h1>
 
-      <h2 class="header--portfolio"><span><nuxt-link to="/portfolio" class="page-link">Portfolio</nuxt-link></span><span>Projects</span></h2>
+      <!-- <h2 class="header--portfolio"><span><nuxt-link to="/portfolio" class="page-link">Portfolio</nuxt-link></span><span>Projects</span></h2>
 
       <PortfolioList/>
       
@@ -13,7 +13,7 @@
 
       <h2><span>Notes</span><span>& Quotes</span></h2>
 
-      <NotesAndQuotesList/>
+      <NotesAndQuotesList/> -->
     </div>
   </main>
 </template>

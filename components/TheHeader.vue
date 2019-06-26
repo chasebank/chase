@@ -107,19 +107,24 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  width: $fullWidth;
+  // don't adjust for scrollbar
+  width: 100vw;
   background-image: url(~assets/personal-site--header.png);
+  // background: red;
   background-size: cover;
   background-position: top left;
-  padding-top: 21%;
+  // padding-top: 21%;
+  height: 21vmax;
+  min-height: 250px;
+
   z-index: -10;
   
-  @media (max-width: $mediumScreen) {
-    padding-top: 40%;
-  }
+  // @media (max-width: $mediumScreen) {
+  //   height: 32vmax;
+  // }
   
   @media (max-width: $smallScreen) {
-    padding-top: 58%;
+    // padding-top: calc(var(--innerVW) * .6);
   }
 }
 

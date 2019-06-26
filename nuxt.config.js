@@ -42,15 +42,32 @@ module.exports = {
 
     middleware: ["routeDepth"],
 
-    scrollBehavior: function(to, from, savedPosition) {
-      return new Promise(resolve => {
-        if (savedPosition) {
-          resolve(savedPosition);
-        } else {
-          resolve({ x: 0, y: 0 });
+    // scrollBehavior: function(to, from, savedPosition) {
+    //   return new Promise(resolve => {
+    //     if (savedPosition) {
+    //       resolve(savedPosition);
+    //     } else {
+    //       resolve({ x: 0, y: 0 });
+    //     }
+    //   });
+    // }
+
+    scrollBehavior(to, from, savedPosition) {
+      let savedScrollPositions = this.app.$root.scroll_positions
+
+      if (from.meta.saveScrollPosition) {
+        savedScrollPositions[from.name] = {
+          x: document.documentElement.scrollLeft,
+          y: document.documentElement.scrollTop
         }
-      });
-    }
+      }
+
+      if (savedPosition) {
+        return savedPosition
+      } else {
+        return to.meta.saveScrollPosition && savedScrollPositions.hasOwnProperty(to.name) ? savedScrollPositions[to.name] : { x: 0, y: 0 }
+      }
+    },
   },
 
   // Global CSS

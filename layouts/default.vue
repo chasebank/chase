@@ -29,6 +29,7 @@ export default {
   },
 
   data: () => ({
+    scroll_positions: {},
     leavingFooterTopCoord: 0
   }),
 
@@ -101,39 +102,49 @@ export default {
       let footer = this.$refs.footer.$el
       
       footer.classList.remove('transition-footer')
+      footer.style.removeProperty('height')
       footer.style.removeProperty('transform')
       footer.style.removeProperty('top')
       
       this.$el.style.removeProperty('height')
+
+      // just in case it's changed
+      document.documentElement.style.setProperty('--footerHeight', `${this.$refs.footer.$el.offsetHeight}px`);
     },
 
     transitionFooter() {
       // TODO
       // need to calculate from top of footer:before instead of footer
       // is that possible?? 
-      let footer = this.$refs.footer.$el,
-          footerHeight = footer.offsetHeight,
-          viewportHeight = window.visualViewport.height || window.innerHeight,
-          leavingFooterTopCoord = this.leavingFooterTopCoord,
-          enteringFooterTopCoord = Math.round(footer.getBoundingClientRect().top),
-          leavingFooterVisible = leavingFooterTopCoord < viewportHeight,
-          enteringFooterVisible = enteringFooterTopCoord < viewportHeight
       
-      if (leavingFooterTopCoord !== enteringFooterTopCoord && (leavingFooterVisible || enteringFooterVisible)) {
-        // console.log('translate footer')
-        this.$el.style.height =`${this.$el.offsetHeight}px`
+      // this.$nextTick(() => {
+        let footer = this.$refs.footer.$el,
+            footerHeight = footer.offsetHeight,
+            viewportHeight = window.visualViewport.height || window.innerHeight,
+            leavingFooterTopCoord = this.leavingFooterTopCoord,
+            enteringFooterTopCoord = Math.round(footer.getBoundingClientRect().top),
+            leavingFooterVisible = leavingFooterTopCoord < viewportHeight,
+            enteringFooterVisible = enteringFooterTopCoord < viewportHeight
+
+        // debugger
         
-        footer.classList.add('transition-footer')
-        footer.style.top = `${Math.min(leavingFooterTopCoord, viewportHeight)}px`
-        
-        if (leavingFooterTopCoord < enteringFooterTopCoord) {
-          // translate down
-          footer.style.transform = `translate3d(0,${Math.min(enteringFooterTopCoord - leavingFooterTopCoord, footerHeight)}px,1px)`
-        } else {
-          // translate up
-          footer.style.transform = `translate3d(0,-${Math.min(leavingFooterTopCoord - enteringFooterTopCoord, footerHeight)}px,1px)`
+        if (leavingFooterTopCoord !== enteringFooterTopCoord && (leavingFooterVisible || enteringFooterVisible)) {
+          // console.log('translate footer')
+          this.$el.style.height =`${this.$el.offsetHeight}px`
+          
+          footer.style.height = `${footerHeight}px`
+          footer.classList.add('transition-footer')
+          footer.style.top = `${Math.min(leavingFooterTopCoord, viewportHeight)}px`
+          
+          if (leavingFooterTopCoord < enteringFooterTopCoord) {
+            // translate down
+            footer.style.transform = `translate3d(0,${Math.min(enteringFooterTopCoord - leavingFooterTopCoord, footerHeight)}px,1px)`
+          } else {
+            // translate up
+            footer.style.transform = `translate3d(0,-${Math.min(leavingFooterTopCoord - enteringFooterTopCoord, footerHeight)}px,1px)`
+          }
         }
-      }
+      // })
     },
   },
 
@@ -163,6 +174,9 @@ body {
   // padding-left: $smallPadding;
   // padding-right: $smallPadding;
   overflow-x: hidden;
+  // stop scrollbar jump
+  // temporary...
+  overflow-y: scroll;
 }
 
 #__nuxt {
@@ -171,7 +185,7 @@ body {
   background-image: url(~assets/personal-site--bg.jpg);
   background-attachment: fixed;
   background-repeat: repeat;
-  background-size: 15vw;
+  background-size: 14vmax;
   
   @media (max-width: $mediumScreen) {
     background-size: 200px;
@@ -251,5 +265,11 @@ main {
   .content {
     transform: translate3d(-20vmax,0,1px)
   }
+}
+
+.transition-footer {
+  position: fixed;
+  transition-property: transform, width;
+  transition-duration: $transitionDurationForDebugging;
 }
 </style>

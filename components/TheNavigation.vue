@@ -1,7 +1,7 @@
 <template>
   <transition name="showNav-">
     <nav :class="{'content-scrolled' : contentScrolled, 'show-nav' : contentScrolled || $route.name != 'index'}"
-            v-show="navVisible">
+          v-show="navVisible">
       <a href="#" id="back" @click.prevent="goBack">
         <svg id="icon--back" xmlns="http://www.w3.org/2000/svg" width="19" height="24.665" viewBox="0 0 19 24.665"><path d="M18.779 22.529L5.205 15.003l13.574-8.225V0L-.114 12.467v1.885l18.893 10.313z"/></svg>
         
@@ -17,6 +17,10 @@
           </span>
         </transition-group>
       </a>
+
+      <nuxt-link to="/" style="color: white">Home</nuxt-link>
+      <nuxt-link to="/about" style="color: white">About</nuxt-link>
+      <nuxt-link to="/contact" style="color: white">Contact</nuxt-link>
 
       <h2 class="nav--small-name"><span><nuxt-link :to="{ name: 'index'}" class="page-link">CHASE</nuxt-link></span><span><nuxt-link :to="{ name: 'index'}" class="page-link">WHITESIDE</nuxt-link></span></h2>
     </nav>
@@ -34,7 +38,7 @@ export default {
   watch: {
     'contentScrolled' () {
       if (this.$route.name == 'index') {
-        this.navVisible = this.contentScrolled ? true : false
+        // this.navVisible = this.contentScrolled ? true : false
       }
     }
   },
@@ -44,10 +48,6 @@ export default {
       "contentScrolled",
       "routeHistory"
     ]),
-
-    // headerVisible() {
-    //   return this.contentScrolled || this.$route.name != 'index' ? true : false
-    // },
     
     navTransition() {
       if (this.$route.name == 'index') {
@@ -71,7 +71,6 @@ export default {
   methods: {
     goBack() {
       if (!this.contentScrolled && this.$route.name != 'index') {
-        // if (this.routeHistory.length > 0 || this.routeHistory[0] != 'Home') {
         if (this.routeHistory.length > 0) {
 
           this.$router.go(-1)
