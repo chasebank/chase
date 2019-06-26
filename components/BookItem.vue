@@ -18,15 +18,13 @@
               <use xlink:href="#def-star" x="600" y="0" />
               <use xlink:href="#def-star" x="800" y="0" />
             </g>
-
-            <mask id="mask-rating">
-              <rect id="rating-el" width="50%" height="200" fill="white" ref="ratingMask"/>
-            </mask>
           </defs>
 
-          <use class="rating-stars--bg" xlink:href="#def-stars" x="0" y="0" stroke-width="8" />
+          <use class="rating-stars--bg" xlink:href="#def-stars" stroke-width="8" />
 
-          <use class="rating-stars--el" xlink:href="#def-stars" x="0" y="0" stroke-width="10" mask="url(#mask-rating)" />
+          <svg :x="`-${rating}`" class="rating-stars--el">
+            <use xlink:href="#def-stars" stroke-width="10" :transform="`translate(${rating},0)`" fill="inherit"></use>
+          </svg>
         </svg>
       </summary>
       <div class="rating-notes">
@@ -47,39 +45,57 @@ export default {
 
   }),
 
-  beforeMount() {
-    this.$nextTick(() => {
-      if (this.book.rating) {
-        let rating = `${this.book.rating / .05}%`
-        console.log(this.book.title)
-        console.log(rating)
-        this.$refs.ratingMask.setAttribute('width', rating)
-      }
-    });
-  },
+  // beforeMount() {
+  //   this.$nextTick(() => {
+  //     if (this.book.rating) {
+  //       let rating = `${this.book.rating / .05}%`
+  //       console.log(this.book.title)
+  //       console.log(rating)
+  //       this.$refs.ratingMask.setAttribute('width', rating)
+  //     }
+  //   });
+  // },
 
   mounted() {
     this.$el.style.setProperty('--bookHue', this.book.hue);
+
+    // if (this.book.rating) {
+    //   console.log('THE RATING ', this.book.ratingPercent)
+    //   this.$refs.ratingMask.setAttribute('width', this.book.ratingPercent)
+    // }
+    // 
+    
+    // 
 
     // if (this.book.rating) {
     //   let rating = `${this.book.rating / .05}%`
 
     //   this.$refs.ratingMask.setAttribute('width', `${rating / .05}%`)
     // }
+
+    this.$nextTick(() => {
+      // console.log('THE MASK! ', this.$refs.ratingMask)
+      
+      
+    });
   },
 
-  watch: {
-    // whenever question changes, this function will run
-    rating(first,last) {
-      this.$refs.ratingMask.setAttribute('width', last)
-      console.log(this.book.title)
-      console.log(first, last)
-    }
-  },
+  // watch: {
+  //   // whenever question changes, this function will run
+  //   rating(first,last) {
+  //     this.$refs.ratingMask.setAttribute('width', last)
+  //     console.log(this.book.title)
+  //     console.log(first, last)
+  //   }
+  // },
 
   computed: {
     rating() {
-      return `${this.book.rating / .05}%`
+      if (this.book.rating) {
+        // return `${100 - (this.book.rating / .05)}%`
+        return `${1000 - (this.book.rating / .005)}`
+      }
+      return null
     }
   }
 }

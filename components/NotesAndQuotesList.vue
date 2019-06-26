@@ -127,6 +127,7 @@ export default {
             
           post.slug = key.replace('./', '').replace('.md', '')
           post.cover = require('~/assets/book-assets/' + post.slug + '.jpg')
+          // post.ratingPercent = `${post.rating / .05}%`
 
           postArray.push(post);
         });

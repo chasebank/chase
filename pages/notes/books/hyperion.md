@@ -2,7 +2,7 @@
 title: "Hyperion"
 authors: "Dan Simmons"
 hue: 17
-rating: 3
+rating: 4.5
 date: 2019-02-01
 category: books
 ---
