@@ -127,7 +127,6 @@ export default {
             
           post.slug = key.replace('./', '').replace('.md', '')
           post.cover = require('~/assets/book-assets/' + post.slug + '.jpg')
-          // post.ratingPercent = `${post.rating / .05}%`
 
           postArray.push(post);
         });
@@ -141,8 +140,6 @@ export default {
     allPosts() {
       let allPosts = [...this.quotes, ...this.books, ...this.codes]
 
-      // return allPosts
-
       let allPostsSortedByDate = allPosts.sort((a, b) => {
         return a.date > b.date ? -1 : a.date < b.date ? 1 : 0
       });
@@ -154,8 +151,6 @@ export default {
       let filteredPosts = this.allPosts.filter(post => (
         this.visiblePostTypes.indexOf(post['category'].toString().toLowerCase()) > -1
       ))
-
-      // return filteredPosts
       
       let filteredPostsSortedByDate = filteredPosts.sort((a, b) => {
         return a.date > b.date ? -1 : a.date < b.date ? 1 : 0

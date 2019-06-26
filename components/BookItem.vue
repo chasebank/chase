@@ -41,58 +41,13 @@
 export default {
   props: ['book'],
 
-  data: () => ({
-
-  }),
-
-  // beforeMount() {
-  //   this.$nextTick(() => {
-  //     if (this.book.rating) {
-  //       let rating = `${this.book.rating / .05}%`
-  //       console.log(this.book.title)
-  //       console.log(rating)
-  //       this.$refs.ratingMask.setAttribute('width', rating)
-  //     }
-  //   });
-  // },
-
   mounted() {
     this.$el.style.setProperty('--bookHue', this.book.hue);
-
-    // if (this.book.rating) {
-    //   console.log('THE RATING ', this.book.ratingPercent)
-    //   this.$refs.ratingMask.setAttribute('width', this.book.ratingPercent)
-    // }
-    // 
-    
-    // 
-
-    // if (this.book.rating) {
-    //   let rating = `${this.book.rating / .05}%`
-
-    //   this.$refs.ratingMask.setAttribute('width', `${rating / .05}%`)
-    // }
-
-    this.$nextTick(() => {
-      // console.log('THE MASK! ', this.$refs.ratingMask)
-      
-      
-    });
   },
-
-  // watch: {
-  //   // whenever question changes, this function will run
-  //   rating(first,last) {
-  //     this.$refs.ratingMask.setAttribute('width', last)
-  //     console.log(this.book.title)
-  //     console.log(first, last)
-  //   }
-  // },
 
   computed: {
     rating() {
       if (this.book.rating) {
-        // return `${100 - (this.book.rating / .05)}%`
         return `${1000 - (this.book.rating / .005)}`
       }
       return null
@@ -105,47 +60,6 @@ export default {
 $darkColor: #{hsl(var(--bookHue),100%,2%)};
 $baseColor: #{hsl(var(--bookHue),100%,68%)};
 $lightColor: #{hsl(var(--bookHue),100%,95%)};
-// article {
-//   // background-color: #020e0f;
-//   @include squircleBackground(60,#020e0f);
-//   padding: 1.5rem 1rem 1.5rem 1rem;
-//   box-shadow: 0 0.5rem 2rem -1rem #{hsl(var(--bookHue),100%,70%)};
-//   border-radius: 2.75rem;
-//   display: inline-block;
-//   position: relative;
-//   // margin-left: 4rem;
-//   margin-top: 1rem;
-// }
-
-// $leftPadding: 6rem;
-
-// .book-title {
-//   display: block;
-//   $hue: var(--bookHue);
-//   color: #{hsl(var(--bookHue),100%,70%)};
-//   text-transform: uppercase;
-//   font-size: 1.5rem;
-//   font-weight: bold;
-//   margin-left: $leftPadding;
-// }
-
-// .book-authors {
-//   display: block;
-//   margin-left: $leftPadding;
-//   $hue: var(--bookHue);
-//   color: #{hsl(var(--bookHue),100%,70%)};
-//   font-style: italic;
-// }
-
-// .book-content {
-//   margin-left: $leftPadding;
-
-//   /deep/ * {
-//     // font-size: 1rem;
-//     color: #{hsl(var(--bookHue),100%,95%)};
-//     line-height: 1.5;
-//   }
-// }
 
 
 
