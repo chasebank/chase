@@ -1,6 +1,11 @@
 $smallScreen: 550px;
 $mediumScreen: 1024px;
 $largeScreen: 1600px;
+
+$largePadding: calc(4vw + 2rem);
+$mediumPadding: calc(2vw + 1.5rem);
+$smallPadding: calc(1% + 1rem);
+
 $transitionDurationForDebugging: .5s;
 
 

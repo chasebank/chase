@@ -12,7 +12,7 @@
       </transition>
     </div>
     
-    <TheFooter ref="footer"/>
+    <TheFooter class="footer" ref="footer"/>
   </div>
 </template>
 
@@ -221,9 +221,22 @@ main {
   padding-top: $navHeight;
   flex: 1 0;
   min-height: 100%;
-  padding-bottom: var(--footerHeight);
+  
   display: flex;
   flex-direction: column;
+}
+
+//
+// handle footer bg offset
+//
+// reference original footer padding
+$footerOffset: 5vmax;
+.footer {
+  padding-top: calc(#{$largePadding} + #{$footerOffset})!important;
+}
+
+main {
+  padding-bottom: calc(var(--footerHeight) - #{$footerOffset});
 }
 
 .content {

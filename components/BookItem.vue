@@ -57,7 +57,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$darkColor: #{hsl(var(--bookHue),100%,2%)};
+$darkColor: #{hsl(var(--bookHue),100%,5%)};
 $baseColor: #{hsl(var(--bookHue),100%,68%)};
 $lightColor: #{hsl(var(--bookHue),100%,95%)};
 
