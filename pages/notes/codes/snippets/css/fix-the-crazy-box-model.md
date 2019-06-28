@@ -2,7 +2,7 @@
 layout: code
 title: Fix the Crazy CSS Model
 description: Set everything to border-box, but let modular layouts easily overwrite it.
-created: 2015-12-10
+date: 12-10-2015
 category: css
 ---
 

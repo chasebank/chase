@@ -6,7 +6,7 @@ quoteImage: neil-degrasse-tyson.jpg
 about: https://en.wikipedia.org/wiki/Neil_deGrasse_Tyson
 backgroundColor: 'rgb(98,99,103)'
 textColor: '#d9e3f2'
-date: 2017-01-12
+date: 12-01-2017
 category: quotes
 ---
 

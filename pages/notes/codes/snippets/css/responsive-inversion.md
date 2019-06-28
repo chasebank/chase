@@ -2,7 +2,7 @@
 layout: code
 title: Responsive Inversion
 description: 
-created: 2015-12-10
+date: 12-10-2015
 category: css
 ---
 

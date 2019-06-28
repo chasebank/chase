@@ -32,6 +32,10 @@
 
 
 <script>
+import dayjs from 'dayjs'
+
+
+
 const quotes = {};
 const reqQuotes = require.context('@/pages/notes/quotes/', false, /\.md$/);
 reqQuotes.keys().forEach((key) => {
@@ -140,9 +144,7 @@ export default {
     allPosts() {
       let allPosts = [...this.quotes, ...this.books, ...this.codes]
 
-      let allPostsSortedByDate = allPosts.sort((a, b) => {
-        return a.date > b.date ? -1 : a.date < b.date ? 1 : 0
-      });
+      let allPostsSortedByDate = allPosts.sort((a, b) => (dayjs(a.date).isAfter(dayjs(b.date)) ? -1 : 1))
       
       return allPostsSortedByDate
     },
@@ -152,9 +154,7 @@ export default {
         this.visiblePostTypes.indexOf(post['category'].toString().toLowerCase()) > -1
       ))
       
-      let filteredPostsSortedByDate = filteredPosts.sort((a, b) => {
-        return a.date > b.date ? -1 : a.date < b.date ? 1 : 0
-      });
+      let filteredPostsSortedByDate = filteredPosts.sort((a, b) => (dayjs(a.date).isAfter(dayjs(b.date)) ? -1 : 1))
       
       return filteredPostsSortedByDate
     }
@@ -270,7 +270,7 @@ a {
 
 .transition--post-filter--enter-active,
 .transition--post-filter--leave-active {
-  transition: opacity .2s
+  transition: opacity .4s
 }
 
 .transition--post-filter--enter,

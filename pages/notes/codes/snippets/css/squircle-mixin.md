@@ -2,7 +2,7 @@
 layout: code
 title: Squircle Mixin
 description: 
-created: 2015-12-10
+date: 12-10-2018
 category: css
 ---
 

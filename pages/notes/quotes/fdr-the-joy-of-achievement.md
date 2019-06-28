@@ -5,7 +5,7 @@ authorInfo: 32<sup>nd</sup> President of the United States
 about: https://en.wikipedia.org/wiki/Franklin_D._Roosevelt
 backgroundColor: 'rgb(45,50,43)'
 textColor: '#f8ffe1'
-date: 2015-12-12
+date: 12-12-2015
 share-link: https://twitter.com/intent/tweet?text=FDR%20on%20happiness%20pic.twitter.com/P66tyku5VM
 category: quotes
 ---

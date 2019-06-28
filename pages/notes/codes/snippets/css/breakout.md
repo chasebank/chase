@@ -1,8 +1,8 @@
 ---
 title: Full Width Breakout
 description: Responsive Typography with a min/max contraint
-created: 2015-12-10
-category: css
+created: 10-12-2015
+date: css
 layout: code
 ---
 

@@ -6,10 +6,14 @@
       <h2 class="header--portfolio"><span><nuxt-link to="/portfolio" class="page-link">Portfolio</nuxt-link></span><span>Projects</span></h2>
 
       <PortfolioList/>
-      
-      <h2><span><nuxt-link to="/notes/codes" class="page-link">Code</nuxt-link></span><span><nuxt-link to="/notes/codes" class="page-link">Snippets</nuxt-link></span></h2>
 
-      <CodesList/>
+      <h2><span><nuxt-link to="/about" class="page-link">About</nuxt-link></span><span><nuxt-link to="/about" class="page-link">Me</nuxt-link></span></h2>
+
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi error nesciunt illum repudiandae, dolorum ex quam cum voluptates enim beatae maxime nisi quia, quo cupiditate iste adipisci dolores ullam magni.</p>
+      
+      <!-- <h2><span><nuxt-link to="/notes/codes" class="page-link">Code</nuxt-link></span><span><nuxt-link to="/notes/codes" class="page-link">Snippets</nuxt-link></span></h2> -->
+
+      <!-- <CodesList/> -->
 
       <h2><span>Notes</span><span>& Quotes</span></h2>
 
