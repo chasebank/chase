@@ -199,12 +199,12 @@ export default {
 @mixin projectStyles($dark,$light) {
   &:before {
     background-color: $dark;
-    // filter: drop-shadow(0 0 1rem saturate(lighten($dark,10%),10%));
+    filter: drop-shadow(0 0 1rem saturate(lighten($dark,10%),10%));
   }
 
   &:after {
     background-color: $dark;
-    // filter: drop-shadow(0 0 .5rem $light);
+    filter: drop-shadow(0 0 .5rem $light);
   }
   
   .portfolio--project-description { color: $light }
