@@ -97,18 +97,28 @@ export default {
   //   width: 10rem;
   // }
   
-  &:before {
+  &:before,
+  &:after {
     display: block;
     content: '';
     position: absolute;
-    left: 0;
-    width: 100%;
+    bottom: 0;
     height: 100%;
     border-radius: inherit;
     transform: rotateX(2deg);
     transform-origin: center bottom;
     z-index: -1;
-    opacity: .75;
+  }
+
+  &:before {
+    left: 0;
+    width: 100%;
+  }
+
+  &:after {
+    left: 5%;
+    width: 90%;
+    height: 50%;
   }
   
   @media (max-width: $smallScreen) {
@@ -187,11 +197,14 @@ export default {
 }
 
 @mixin projectStyles($dark,$light) {
-  box-shadow: 0 .25rem .75rem -.25rem $light;
-  
   &:before {
     background-color: $dark;
-    box-shadow: 0 .5rem 2.5rem 0rem saturate(lighten($dark,10%),10%)
+    // filter: drop-shadow(0 0 1rem saturate(lighten($dark,10%),10%));
+  }
+
+  &:after {
+    background-color: $dark;
+    // filter: drop-shadow(0 0 .5rem $light);
   }
   
   .portfolio--project-description { color: $light }

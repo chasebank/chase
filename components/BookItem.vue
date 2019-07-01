@@ -81,12 +81,16 @@ $padding: calc(1% + 1rem);
 
   &:before {
     top: 2px;
-    left: 2px;
-    width: calc(100% - 4px);
+    left: 4%;
+    width: 92%;
+    // left: 2px;
+    // width: calc(100% - 4px);
     height: calc(100% - 4px);
     background-color: $darkColor;
     border-radius: 40px;
-    box-shadow: 0 1rem 2rem -2rem $baseColor;
+    // box-shadow: 0 1rem 2rem -2rem $baseColor;
+    filter: drop-shadow(0 .4rem .5rem $baseColor);
+    opacity: .2;
   }
 
   &:after {

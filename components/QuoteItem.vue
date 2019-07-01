@@ -89,10 +89,24 @@ export default {
 .quote {
   position: relative;
   background-color: #020e0f;
-  box-shadow: 0 1rem 2rem -2rem color(highlight);
+  // box-shadow: 0 1rem 2rem -2rem color(highlight);
   border-radius: 2.75rem;
   // width: 80%;
   max-width: 50rem;
+
+  &:before {
+    display: block;
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 4%;
+    width: 92%;
+    height: calc(100% - 4px);
+    background-color: inherit;
+    border-radius: 40px;
+    filter: drop-shadow(0 .4rem .5rem color(highlight));
+    opacity: .2;
+  }
 }
 
 .quote--element {

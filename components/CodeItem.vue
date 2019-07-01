@@ -30,13 +30,17 @@ $padding: calc(1% + 1rem);
   }
 
   &:before {
+    display: block;
+    content: '';
+    position: absolute;
     top: 2px;
-    left: 2px;
-    width: calc(100% - 4px);
+    left: 4%;
+    width: 92%;
     height: calc(100% - 4px);
     background-color: #020e0f;
     border-radius: 40px;
-    box-shadow: 0 1rem 2rem -2rem color(highlight);
+    filter: drop-shadow(0 .4rem .5rem color(highlight));
+    opacity: .2;
   }
 
   &:after {
