@@ -96,7 +96,7 @@
 
 <style lang="scss" scoped>
 footer {
-  // background-color: magenta;
+  background-color: magenta;
   padding: $largePadding 0 $largePadding 0;
   position: absolute;
   bottom: 0;
@@ -106,7 +106,7 @@ footer {
   justify-content: center;
   align-items: center;
 
-  background-image: url(~assets/personal-site--footer.png);
+  // background-image: url(~assets/personal-site--footer.png);
   background-size: cover;
   background-position: top right;
 }

@@ -223,7 +223,7 @@ a {
   list-style: none;
   display: flex;
   justify-content: center;
-  margin-bottom: 5vw;
+  // margin-bottom: 5vw;
 }
 
 .notes-filter--option {

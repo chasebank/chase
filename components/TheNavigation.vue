@@ -18,9 +18,11 @@
         </transition-group>
       </a>
 
-      <nuxt-link to="/" style="color: white">Home</nuxt-link>
-      <nuxt-link to="/about" style="color: white">About</nuxt-link>
-      <nuxt-link to="/contact" style="color: white">Contact</nuxt-link>
+      <nuxt-link to="/" style="color: white; margin-left: 1rem">Home</nuxt-link>
+      <nuxt-link to="/about" style="color: white; margin-left: 1rem">About</nuxt-link>
+      <nuxt-link to="/contact" style="color: white; margin-left: 1rem">Contact</nuxt-link>
+      <nuxt-link to="/notes/codes/" style="color: white; margin-left: 1rem">Codes</nuxt-link>
+      <nuxt-link to="/portfolio" style="color: white; margin-left: 1rem">Portfolio</nuxt-link>
 
       <h2 class="nav--small-name"><span><nuxt-link :to="{ name: 'index'}" class="page-link">CHASE</nuxt-link></span><span><nuxt-link :to="{ name: 'index'}" class="page-link">WHITESIDE</nuxt-link></span></h2>
     </nav>
