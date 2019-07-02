@@ -73,6 +73,7 @@ export default {
   padding-left: 1.5vw;
   padding-right: 1.5vw;
   padding-bottom: 1rem;
+  margin-bottom: 0;
   
   @media (min-width: $smallScreen) {
     padding-right: 2vw;

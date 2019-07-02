@@ -57,7 +57,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$darkColor: #{hsl(var(--bookHue),100%,5%)};
+$darkColor: #{hsl(var(--bookHue),100%,3%)};
 $baseColor: #{hsl(var(--bookHue),100%,68%)};
 $lightColor: #{hsl(var(--bookHue),100%,95%)};
 
@@ -173,10 +173,11 @@ $padding: calc(1% + 1rem);
   margin-left: calc(-1 * #{$padding});
   box-sizing: initial;
   z-index: 1;
-  background-color: #{hsl(var(--bookHue),100%,2%)};
+  background-color: $darkColor;
   padding: 1.5rem 1rem 1rem 1rem;
-  color: #{hsl(var(--bookHue),100%,95%)};;
-  box-shadow: 0 1rem 2rem -2rem $baseColor;
+  color: $lightColor;
+  // box-shadow: 0 1rem 2rem -2rem $baseColor;
+  filter: drop-shadow(0 .4rem .5rem $baseColor);
   margin-top: -1rem;
 }
 
@@ -190,7 +191,7 @@ $padding: calc(1% + 1rem);
   }
 
   .rating-summary:before {
-    color: #{hsl(var(--bookHue),100%,95%)};
+    color: $lightColor;
     transform: translate3d(-.1em,0,0) rotate(90deg) 
   }
   

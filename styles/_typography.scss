@@ -40,12 +40,15 @@ h1 {
 }
 
 h2 {
+  margin-top: 8rem;
   font-size: 3.5rem;
+
+  + p { margin-top: 0 }
 }
 
-section + h2 {
-  margin-top: 8rem;
-}
+// section + h2 {
+//   margin-top: 8rem;
+// }
 
 h3 {
   font-size: 2rem;
