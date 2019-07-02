@@ -24,14 +24,17 @@ export default {
 
   mounted() {
     let Masonry = require('masonry-layout')
+
+    let grid = document.querySelector('.codes--masonry')
+    let msnry = new Masonry(grid, { itemSelector: '.codes--masonry-item' })
     
-    this.$nextTick(() => {
-      // grid right margin was wrong on first load
-      // think it has to do with delay setting the $fullwidth var
-      // $nextTick seems to fix
-      let grid = document.querySelector('.codes--masonry')
-      let msnry = new Masonry(grid, { itemSelector: '.codes--masonry-item' })
-    })
+    // this.$nextTick(() => {
+    //   // grid right margin was wrong on first load
+    //   // think it has to do with delay setting the $fullwidth var
+    //   // $nextTick seems to fix
+    //   let grid = document.querySelector('.codes--masonry')
+    //   let msnry = new Masonry(grid, { itemSelector: '.codes--masonry-item' })
+    // })
   },
 
   computed: {

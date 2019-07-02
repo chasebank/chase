@@ -97,21 +97,27 @@
 <style lang="scss" scoped>
 footer {
   background-color: magenta;
-  padding: $largePadding 0 $largePadding 0;
-  position: absolute;
-  bottom: 0;
+  padding-top: $largePadding;
+  padding-bottom: $largePadding;
+  // margin-top: calc(#{$mediumPadding } * -1);
+  // position: absolute;
+  // bottom: 0;
   width: var(--innerVW);
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  // background-image: url(~assets/personal-site--footer.png);
+  background-image: url(~assets/personal-site--footer.png);
   background-size: cover;
   background-position: top right;
 }
 
-
+.transition-footer {
+  position: fixed;
+  transition-property: transform, width;
+  transition-duration: $transitionDurationForDebugging;
+}
 
 #social-connect {
   width: 100%;

@@ -138,10 +138,12 @@ export default {
           
           if (leavingFooterTopCoord < enteringFooterTopCoord) {
             // translate down
+            // debugger
             footer.style.transform = `translate3d(0,${Math.min(enteringFooterTopCoord - leavingFooterTopCoord, footerHeight)}px,1px)`
           } else {
             // translate up
-            footer.style.transform = `translate3d(0,-${Math.min(leavingFooterTopCoord - enteringFooterTopCoord, footerHeight)}px,1px)`
+            // debugger
+            footer.style.transform = `translate3d(0,-${Math.min(leavingFooterTopCoord - enteringFooterTopCoord, viewportHeight - enteringFooterTopCoord)}px,1px)`
           }
         }
       // })
@@ -231,13 +233,15 @@ main {
 //
 // reference original footer padding
 $footerOffset: 5vmax;
-.footer {
-  padding-top: calc(#{$largePadding} + #{$footerOffset})!important;
-}
+// .footer {
+//   // padding-top: calc(#{$largePadding} + #{$footerOffset})!important;
+//   // padding: $largePadding 0 $largePadding 0;
+//   // margin-top: -$footerOffset
+// }
 
-main {
-  padding-bottom: calc(var(--footerHeight) - #{$footerOffset});
-}
+// main {
+//   // padding-bottom: calc(var(--footerHeight) - #{$footerOffset});
+// }
 
 .content {
   width: calc(100% - 3rem);
@@ -280,9 +284,5 @@ main {
   }
 }
 
-.transition-footer {
-  position: fixed;
-  transition-property: transform, width;
-  transition-duration: $transitionDurationForDebugging;
-}
+
 </style>
