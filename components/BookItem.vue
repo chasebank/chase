@@ -6,6 +6,7 @@
 
     <details class="rating-details" ref="review" v-if="book.rating">
       <summary class="rating-summary">
+        <svg class="expand-rating-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 51 50.9"><path d="M0 0l51 25.5L0 50.9V0z"/></svg>
         <svg class="rating-stars" viewBox="0 0 1000 200" xmlns="http://www.w3.org/2000/svg">
           <title>View my short review</title>
           <defs>
@@ -144,9 +145,16 @@ $padding: calc(1% + 1rem);
 
 .rating-summary {
   display: flex;
+  align-items: center;
   position: relative;
   left: -.1rem;
   cursor: pointer;
+
+  //increase hitbox
+  padding-top: .25rem;
+  padding-bottom: .25rem;
+  margin-top: -.25rem;
+  margin-bottom: -.25rem;
   
   // hide defualt arrow in chrome
   list-style-type: none;
@@ -155,16 +163,37 @@ $padding: calc(1% + 1rem);
     display: none;
   }
   
-  &:before {
-    position: relative;
-    top: 1px;
-    display: block;
-    content: '⯈';
-    color: $baseColor;
-    padding-right: .1em;
-    transform-origin: 50% 50%;
-    transition: transform .3s, color .3s;
-  }
+  // &:before {
+  //   position: relative;
+  //   top: 2px;
+  //   display: block;
+  //   content: '';
+  //   height: 1em;
+  //   width: 1em;
+  //   // background-color: yellow;
+  //   // background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 51 50.9'%3E%3Cpath d='M0 0l51 25.5L0 50.9V0z' fill='"$baseColor"'/%3E%3C/svg%3E");
+  //   background-repeat: no-repeat;
+  //   background-position: center center;
+  //   background-size: 65%;
+  //   color: $baseColor;
+  //   // padding-right: .1em;
+  //   transform-origin: 50% 50%;
+  //   transition: transform .3s, color .3s;
+  // }
+}
+
+.expand-rating-icon {
+  // display: inline-block;
+  position: relative;
+  top: 1px;
+  // background: yellow;
+  height: .7em;
+  width: 1em;
+  line-height: 1em;
+  fill: $baseColor;
+  transform: translate3d(0,0,1px);
+  transform-origin: 50% 50%;
+  transition: transform .3s, color .3s;
 }
 
 .rating-notes {
@@ -176,12 +205,37 @@ $padding: calc(1% + 1rem);
   background-color: $darkColor;
   padding: 1.5rem 1rem 1rem 1rem;
   color: $lightColor;
-  // box-shadow: 0 1rem 2rem -2rem $baseColor;
-  filter: drop-shadow(0 .4rem .5rem $baseColor);
   margin-top: -1rem;
+
+  &:before {
+    display: block;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 2%;
+    width: 96%;
+    height: calc(100% - 2rem);
+    background-color: inherit;
+    filter: drop-shadow(0 0 .75rem $baseColor);
+    z-index: -1;
+    opacity: .5
+  }
+
+  &:after {
+    display: block;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+    z-index: -1;
+  }
 }
 
 .rating-details[open] {
+  
   .rating-summary {
     z-index: 2;
   }
@@ -190,9 +244,10 @@ $padding: calc(1% + 1rem);
     z-index: 2;
   }
 
-  .rating-summary:before {
-    color: $lightColor;
-    transform: translate3d(-.1em,0,0) rotate(90deg) 
+  .expand-rating-icon  {
+    fill: $lightColor;
+    top: 2px;
+    transform: translate3d(0,0,1px) rotate(90deg) 
   }
   
   .rating-notes {

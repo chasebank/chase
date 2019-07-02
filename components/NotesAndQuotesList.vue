@@ -222,14 +222,25 @@ a {
 .notes-filter {
   list-style: none;
   display: flex;
+  // flex-wrap: wrap;
   justify-content: center;
   margin-bottom: $mediumPadding;;
 }
 
 .notes-filter--option {
+  margin-left: 5vw;
+  margin-right: 5vw;
+}
 
-  + li {
-    margin-left: 10vw;
+@media (max-width: $smallScreen) {
+  .notes-filter {
+    @include full-width;
+    justify-content: space-evenly;
+  }
+
+  .notes-filter--option {
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 

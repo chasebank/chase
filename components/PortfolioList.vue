@@ -91,12 +91,6 @@ export default {
   $width: 10rem;
   width: $width;
   height: calc(#{$width} * 1.8);
-
-  // display: flex;
-
-  // @media (max-width: $smallScreen) {
-  //   width: 10rem;
-  // }
   
   &:before,
   &:after {
@@ -123,8 +117,10 @@ export default {
   }
   
   @media (max-width: $smallScreen) {
+    margin-bottom: 2rem;
+    
     &:nth-child(2n) {
-      
+      margin-top: 4rem!important;
     }
   }
   
