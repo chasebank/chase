@@ -24,7 +24,7 @@ export default {
   }),
 
   mounted() {
-    this.createStarsHeader()
+    // this.createStarsHeader()
   },
 
   methods: {
