@@ -1,6 +1,6 @@
 <template>
-  <transition name="showNav-">
-    <nav :class="{'content-scrolled' : contentScrolled, 'show-nav' : contentScrolled || $route.name != 'index'}"
+  <transition name="transition--navigation-">
+    <nav :class="{'content-scrolled' : contentScrolled}"
           v-show="navVisible">
       <a href="#" id="back" @click.prevent="goBack">
         <svg id="icon--back" xmlns="http://www.w3.org/2000/svg" width="19" height="24.665" viewBox="0 0 19 24.665"><path d="M18.779 22.529L5.205 15.003l13.574-8.225V0L-.114 12.467v1.885l18.893 10.313z"/></svg>
@@ -34,15 +34,27 @@ import { mapState } from 'vuex'
 
 export default {
   data: () => ({
-    navVisible: true
+    navVisible: false
   }),
 
   watch: {
     'contentScrolled' () {
-      if (this.$route.name == 'index') {
-        // this.navVisible = this.contentScrolled ? true : false
-      }
+      this.navVisible = this.contentScrolled || this.$route.name !== 'index' ? true : false
+    },
+
+    '$route' () {
+      // need to use watchers and mounted hook rather than single computed prop
+      // fixes a flash that was happening when navigating back to scrolled index
+      // nav would hide from index but THEN get scroll and flash back into visible
+      // this holds the route based logic until page has already loaded (with scroll)
+      this.$nextTick(() => {
+        this.navVisible = this.contentScrolled || this.$route.name !== 'index' ? true : false
+      })
     }
+  },
+
+  mounted() {
+    this.navVisible = this.$route.name !== 'index' ? true : false
   },
 
   computed: {
@@ -50,7 +62,7 @@ export default {
       "contentScrolled",
       "routeHistory"
     ]),
-    
+
     navTransition() {
       if (this.$route.name == 'index') {
         return 'back-slide-down-'
@@ -62,7 +74,7 @@ export default {
     previousRoute() {
       let msg = 'Home'
 
-      if (this.routeHistory.length > 1) msg = this.routeHistory[this.routeHistory.length - 1]
+      if (this.routeHistory.length > 1) msg = this.routeHistory[this.routeHistory.length - 2]
 
       if (this.contentScrolled) msg = "top"
       
@@ -82,9 +94,10 @@ export default {
           this.$router.push({ name: 'index'})
 
         }
-      } else {
+        
+        this.$store.commit('removeRouteTitleFromHistory')
 
-        console.log('back to top')
+      } else {
         // https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
@@ -139,14 +152,17 @@ nav {
     opacity: .4;
   }
 }
-.showNav--enter-active,
-.showNav--leave-active {
+
+.transition--navigation--enter-active,
+.transition--navigation--leave-active {
   transition: transform $transition
 }
-.showNav--enter,
-.showNav--leave-to {
-  transform: translate3d(0,-100%,0)
+
+.transition--navigation--enter,
+.transition--navigation--leave-to {
+  transform: translate3d(0,-100%,1px)
 }
+
 #back {
   // background-color: yellow;
   font-family: TimesNewRoman, Times New Roman, Times, Baskerville, Georgia, serif;

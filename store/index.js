@@ -1,12 +1,15 @@
 export const state = () => ({
   contentScrolled: false,
-  currentRouteTitle: '',
-  routeHistory: '',
+  routeHistory: ['Home'],
   routeDepth: '1',
   routeTransitionDirection: 'transition--route-slide-left-'
 })
 
 export const mutations = {
+  setContentScrolledState(state,payload) {
+    state.contentScrolled = payload
+  },
+
   contentScrolled(state) {
     state.contentScrolled = true
     // console.log('set to true ')
@@ -17,29 +20,23 @@ export const mutations = {
     // console.log('set to false ')
   },
 
-  handleHistory(state, payload) {
-    if (typeof payload !== "undefined") {
-
-      if (state.routeHistory[state.routeHistory.length - 1] == payload) {
-        state.routeHistory.pop()
-        // console.log('popped')
-      }
-
-      else if (state.currentRouteTitle != '') {
-        state.routeHistory.push(state.currentRouteTitle)
-      }
-
-      state.currentRouteTitle = payload
-
-    } else {
-      state.currentRouteTitle = ''
-
-      state.routeHistory = ["Home"]
-    }
+  removeRouteTitleFromHistory(state) {
+    state.routeHistory.pop()
   },
 
-  removeHistory(state) {
-    state.routeHistory.pop()
+  handleHistory(state, payload) {
+    if (typeof payload !== "undefined") {
+      state.routeHistory.push(payload)
+    }
+
+    else {
+      state.routeHistory = ["Home"]
+    }
+
+    // if new page is second to last in history, w're going back, so remove last from history
+    if (state.routeHistory.length > 1 && state.routeHistory[state.routeHistory.length - 2] == payload) {
+      state.routeHistory.pop()
+    }
   },
 
   setRouteTransitionDirection(state, newRouteDepth) {

@@ -54,6 +54,8 @@ export default {
         this.transitionFooter()
         
         this.setCSSCustomProps()
+
+        this.setScrollState()
       })
     })
   },
@@ -61,19 +63,25 @@ export default {
   mounted() {
     this.setCSSCustomProps()
 
+    // DEV
+    // window.addEventListener('resize', () => {
+    //   this.setCSSCustomProps()
+
+    //   this.setScrollState()
+    // });
+
     this.setScrollState()
 
-    window.addEventListener('resize', () => {
-      this.setCSSCustomProps()
-
+    window.addEventListener("scroll", () => {
       this.setScrollState()
-    });
+    })
   },
 
   methods: {
     setCSSCustomProps() {
       // Stephen Shaw codepen.io/shshaw/pen/JqGmKx
       document.documentElement.style.setProperty('--innerVW', `${document.scrollingElement.clientWidth}px`)
+
       // Louis Hoebregts css-tricks.com/the-trick-to-viewport-units-on-mobile
       // https://css-tricks.com/the-trick-to-viewport-units-on-mobile/#comment-1651414
       // https://developers.google.com/web/updates/2017/09/visual-viewport-api
@@ -83,19 +91,11 @@ export default {
     },
 
     setScrollState() {
-      let checkState = () => {
-        if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
-          if (!this.$store.state.contentScrolled) this.$store.commit('contentScrolled')
-        } else {
-          if (this.$store.state.contentScrolled) this.$store.commit('contentNotScrolled')
-        }
+      if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
+        this.$store.commit('setContentScrolledState',true)
+      } else {
+        this.$store.commit('setContentScrolledState',false)
       }
-
-      checkState()
-      
-      window.addEventListener("scroll", function(){
-        checkState()
-      })
     },
 
     afterRouteEnter() {
@@ -113,10 +113,6 @@ export default {
     },
 
     transitionFooter() {
-      // TODO
-      // need to calculate from top of footer:before instead of footer
-      // is that possible?? 
-      
       // this.$nextTick(() => {
         let footer = this.$refs.footer.$el,
             footerHeight = footer.offsetHeight,
