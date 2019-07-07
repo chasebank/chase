@@ -28,9 +28,7 @@
           </svg>
         </svg>
       </summary>
-      <div class="rating-notes">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quaerat, optio voluptatibus deleniti ducimus rem non id adipisci ut. Illo consequatur quas at maxime accusamus, corporis ratione tempora quibusdam molestiae?
-      </div>
+      <div class="rating-notes" v-html="book.__content"></div>
     </details>
 
     <span class="book-authors">by {{ book.authors }}</span>
@@ -185,9 +183,9 @@ $padding: calc(1% + 1rem);
 .expand-rating-icon {
   // display: inline-block;
   position: relative;
-  top: 1px;
+  top: 2px;
   // background: yellow;
-  height: .7em;
+  height: .6em;
   width: 1em;
   line-height: 1em;
   fill: $baseColor;
@@ -206,6 +204,17 @@ $padding: calc(1% + 1rem);
   padding: 1.5rem 1rem 1rem 1rem;
   color: $lightColor;
   margin-top: -1rem;
+
+  font-size: 14px;
+  line-height: 1.8;
+
+  /deep/ p:first-of-type {
+    margin-top: 0;
+  }
+
+  /deep/ p:last-of-type {
+    margin-bottom: 0;
+  }
 
   &:before {
     display: block;

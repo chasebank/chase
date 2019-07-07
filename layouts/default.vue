@@ -64,11 +64,11 @@ export default {
     this.setCSSCustomProps()
 
     // DEV
-    // window.addEventListener('resize', () => {
-    //   this.setCSSCustomProps()
+    window.addEventListener('resize', () => {
+      this.setCSSCustomProps()
 
-    //   this.setScrollState()
-    // });
+      this.setScrollState()
+    });
 
     this.setScrollState()
 
@@ -222,6 +222,10 @@ main {
   
   display: flex;
   flex-direction: column;
+}
+
+main {
+  background-color: magenta;
 }
 
 //

@@ -96,7 +96,7 @@
 
 <style lang="scss" scoped>
 footer {
-  background-color: magenta;
+  // background-color: magenta;
   padding-top: $largePadding;
   padding-bottom: $largePadding;
   // margin-top: calc(#{$mediumPadding } * -1);
