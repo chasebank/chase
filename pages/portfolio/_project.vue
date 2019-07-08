@@ -1,5 +1,5 @@
 <template>
-  <main class="container" :style="styles" :class="this.$route.params.project">
+  <main class="container" :class="this.$route.params.project">
     <div class="content">
       <!-- <h1><span>{{ thisProject.title }}</span><span>{{ thisProject.description }}</span></h1> -->
       <!-- <ul>
@@ -110,10 +110,8 @@ export default {
   $background: #0b151d
 ) {
 
-  // &.container {
-    // background: $background;
-    // text-shadow: 1rem 1rem 1rem red;
-  // }
+  background: $background;
+  text-shadow: 1rem 1rem 1rem red;
 
   header:before {
     background: $background;

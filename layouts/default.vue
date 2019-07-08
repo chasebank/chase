@@ -113,36 +113,30 @@ export default {
     },
 
     transitionFooter() {
-      // this.$nextTick(() => {
-        let footer = this.$refs.footer.$el,
-            footerHeight = footer.offsetHeight,
-            viewportHeight = window.visualViewport.height || window.innerHeight,
-            leavingFooterTopCoord = this.leavingFooterTopCoord,
-            enteringFooterTopCoord = Math.round(footer.getBoundingClientRect().top),
-            leavingFooterVisible = leavingFooterTopCoord < viewportHeight,
-            enteringFooterVisible = enteringFooterTopCoord < viewportHeight
-
-        // debugger
+      let footer = this.$refs.footer.$el,
+          footerHeight = footer.offsetHeight,
+          viewportHeight = window.visualViewport.height || window.innerHeight,
+          leavingFooterTopCoord = this.leavingFooterTopCoord,
+          enteringFooterTopCoord = Math.round(footer.getBoundingClientRect().top),
+          leavingFooterVisible = leavingFooterTopCoord < viewportHeight,
+          enteringFooterVisible = enteringFooterTopCoord < viewportHeight
+      
+      if (leavingFooterTopCoord !== enteringFooterTopCoord && (leavingFooterVisible || enteringFooterVisible)) {
+        this.$el.style.height =`${this.$el.offsetHeight}px`
         
-        if (leavingFooterTopCoord !== enteringFooterTopCoord && (leavingFooterVisible || enteringFooterVisible)) {
-          // console.log('translate footer')
-          this.$el.style.height =`${this.$el.offsetHeight}px`
-          
-          footer.style.height = `${footerHeight}px`
-          footer.classList.add('transition-footer')
-          footer.style.top = `${Math.min(leavingFooterTopCoord, viewportHeight)}px`
-          
-          if (leavingFooterTopCoord < enteringFooterTopCoord) {
-            // translate down
-            // debugger
-            footer.style.transform = `translate3d(0,${Math.min(enteringFooterTopCoord - leavingFooterTopCoord, footerHeight)}px,1px)`
-          } else {
-            // translate up
-            // debugger
-            footer.style.transform = `translate3d(0,-${Math.min(leavingFooterTopCoord - enteringFooterTopCoord, viewportHeight - enteringFooterTopCoord)}px,1px)`
-          }
+        footer.style.height = `${footerHeight}px`
+        footer.classList.add('transition-footer')
+        footer.style.top = `${Math.min(leavingFooterTopCoord, viewportHeight)}px`
+        
+        // z translate must be zero to keep behind content during transition
+        if (leavingFooterTopCoord < enteringFooterTopCoord) {
+          // translate down
+          footer.style.transform = `translate3d(0,${Math.min(enteringFooterTopCoord - leavingFooterTopCoord, footerHeight)}px,0px)`
+        } else {
+          // translate up
+          footer.style.transform = `translate3d(0,-${Math.min(leavingFooterTopCoord - enteringFooterTopCoord, viewportHeight - enteringFooterTopCoord)}px,0px)`
         }
-      // })
+      }
     },
   },
 
@@ -169,8 +163,6 @@ html {
 
 body {
   background-color: #0b151d;
-  // padding-left: $smallPadding;
-  // padding-right: $smallPadding;
   overflow-x: hidden;
   // stop scrollbar jump
   // temporary...
@@ -178,8 +170,6 @@ body {
 }
 
 #__nuxt {
-  position: relative;
-  z-index: 1;
   background-image: url(~assets/personal-site--bg.jpg);
   background-attachment: fixed;
   background-repeat: repeat;
@@ -195,16 +185,23 @@ body {
 }
 
 #app {
-  // for footer absolute pos
-  position: relative;
   min-height: var(--innerVH);
   display: flex;
   flex-direction: column;
+
+  // stacking context
+  // keep negative layers in front of header.
+  // needed to fix strange conflict of
+  // same props on .content
+  position: relative;
+  z-index: 1;
+
+  // allow 3d stacking of footer bg durring transition
+  transform-style: preserve-3d;
 }
 
 #__layout {
   // background-color: cyan;
-  z-index: 1;
 }
 
 #main-wrap {
@@ -214,9 +211,9 @@ body {
 }
 
 main {
-  position: relative;
-  z-index: 1;
+  // background-color: magenta;
   padding-top: $navHeight;
+  padding-bottom: var(--footerHeight);
   flex: 1 0;
   min-height: 100%;
   
@@ -224,24 +221,6 @@ main {
   flex-direction: column;
 }
 
-main {
-  background-color: magenta;
-}
-
-//
-// handle footer bg offset
-//
-// reference original footer padding
-$footerOffset: 5vmax;
-// .footer {
-//   // padding-top: calc(#{$largePadding} + #{$footerOffset})!important;
-//   // padding: $largePadding 0 $largePadding 0;
-//   // margin-top: -$footerOffset
-// }
-
-// main {
-//   // padding-bottom: calc(var(--footerHeight) - #{$footerOffset});
-// }
 
 .content {
   width: calc(100% - 3rem);
@@ -251,6 +230,11 @@ $footerOffset: 5vmax;
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  // stacking context
+  // keep negative layers in front of header
+  position: relative;
+  z-index: 1;
 }
 
 

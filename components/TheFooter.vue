@@ -1,5 +1,5 @@
 <template>
-  <footer>
+  <footer :class="{'styled-page' : $route.name == 'portfolio-project'}">
     <ul id="social-connect">
       <li class="social-connect--option email">
         <div class="social-connect--icon">
@@ -10,8 +10,6 @@
         </div>
 
         <nuxt-link to="/contact" focusable="false" class="contact" title="Contact me"><span>Email&nbsp;me</span></nuxt-link>
-        
-        <!-- <a href="http://cha.se.net/contact/" target="_blank" class="contact" title="Contact me"><span>Email&nbsp;me</span></a> -->
       </li>
       
       <li class="social-connect--option codepen">
@@ -99,18 +97,35 @@ footer {
   // background-color: magenta;
   padding-top: $largePadding;
   padding-bottom: $largePadding;
-  // margin-top: calc(#{$mediumPadding } * -1);
-  // position: absolute;
-  // bottom: 0;
   width: var(--innerVW);
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  background-image: url(~assets/personal-site--footer.png);
-  background-size: cover;
-  background-position: top right;
+  position: absolute;
+  bottom: 0;
+
+  // allow 3d stacking of footer bg durring transition
+  transform-style: preserve-3d;
+
+  &:before {
+    display: block;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(~assets/personal-site--footer.png);
+    background-size: cover;
+    background-position: top right;
+
+    z-index: -1;
+
+    // keep behind content durring transition
+    transform: translate3d(0,0,-1px);
+  }
 }
 
 .transition-footer {
@@ -134,7 +149,7 @@ footer {
   position: relative;
   margin-top: 1rem;
   margin-bottom: 1rem;
-  @include responsive-property("font-size", 15px, 18px);
+  @include responsive-property("font-size", 15px, 16px);
 
   display: flex;
   align-items: center;
