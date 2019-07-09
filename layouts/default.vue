@@ -105,6 +105,7 @@ export default {
       footer.style.removeProperty('height')
       footer.style.removeProperty('transform')
       footer.style.removeProperty('top')
+      footer.style.removeProperty('bottom')
       
       this.$el.style.removeProperty('height')
 
@@ -127,6 +128,7 @@ export default {
         footer.style.height = `${footerHeight}px`
         footer.classList.add('transition-footer')
         footer.style.top = `${Math.min(leavingFooterTopCoord, viewportHeight)}px`
+        footer.style.bottom = `0px`
         
         // z translate must be zero to keep behind content during transition
         if (leavingFooterTopCoord < enteringFooterTopCoord) {
@@ -134,7 +136,8 @@ export default {
           footer.style.transform = `translate3d(0,${Math.min(enteringFooterTopCoord - leavingFooterTopCoord, footerHeight)}px,0px)`
         } else {
           // translate up
-          footer.style.transform = `translate3d(0,-${Math.min(leavingFooterTopCoord - enteringFooterTopCoord, viewportHeight - enteringFooterTopCoord)}px,0px)`
+          console.log('translate UP')
+          // footer.style.transform = `translate3d(0,-${Math.min(leavingFooterTopCoord - enteringFooterTopCoord, viewportHeight - enteringFooterTopCoord)}px,0px)`
         }
       }
     },
