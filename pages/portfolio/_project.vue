@@ -74,7 +74,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 // @import '../../styles/_bitsnpieces.scss';
 // .header--small-name span,
 // .back,
@@ -99,6 +99,10 @@ export default {
 //     display: none;
 //   }
 // }
+
+main {
+  background-color: lightseagreen;
+}
 
 @mixin projectColors(
   $text: #d2f8ff,
