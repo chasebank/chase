@@ -6,7 +6,7 @@ quoteImage: narnia.jpg
 about: https://en.wikipedia.org/wiki/C._S._Lewis
 backgroundColor: '#180a11'
 textColor: '#f1f6e8'
-date: 12-12-2015
+date: 12/12/2015
 share-link: https://twitter.com/intent/tweet?text=C.S.%20Lewis%20in%20letter%20to%20J.R.R.%20Tolkien%20pic.twitter.com/NhHa9qAxww
 category: quotes
 ---

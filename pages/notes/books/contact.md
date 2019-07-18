@@ -3,7 +3,7 @@ title: "Contact"
 authors: "Carl Sagan"
 hue: 185
 rating: 5
-date: 02-02-2019
+date: 02/02/2019
 category: books
 ---
 

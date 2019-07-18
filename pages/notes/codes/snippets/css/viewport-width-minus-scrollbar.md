@@ -2,7 +2,7 @@
 layout: code
 title: 100vw Minus Scrollbar Width
 description: 
-date: 12-10-2015
+date: 12/10/2015
 category: css
 ---
 

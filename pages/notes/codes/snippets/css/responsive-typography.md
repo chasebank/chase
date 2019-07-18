@@ -2,7 +2,7 @@
 layout: code
 title: Responsive Typography
 description: Responsive Typography with a min/max contraint
-date: 12-10-2015
+date: 12/10/2015
 category: css
 ---
 

@@ -3,7 +3,7 @@ title: "Foundation"
 authors: "Isaac Asimov"
 hue: 282
 rating: 4
-date: 01-02-2019
+date: 01/02/2019
 category: books
 ---
 

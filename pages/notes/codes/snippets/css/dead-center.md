@@ -2,7 +2,7 @@
 layout: code
 title: Dead Center
 description: Centers everything horizontaly & vertically.
-date: 12-10-2015
+date: 12/10/2015
 category: css
 ---
 
