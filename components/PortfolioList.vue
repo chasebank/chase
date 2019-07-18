@@ -84,7 +84,7 @@ export default {
   background-color: #000c16;
   position: relative;
   border-radius: 3.1rem;
-  perspective: 100;
+  perspective: 100px;
   margin-bottom: calc(#{$mainPadding} * 1.75);
   margin-left: 1.5vw;
   margin-right: 1.5vw;
