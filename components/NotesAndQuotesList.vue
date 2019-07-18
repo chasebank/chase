@@ -70,13 +70,8 @@ export default {
   mounted() {
     let Masonry = require('masonry-layout')
     
-    this.$nextTick(() => {
-      // grid right margin was wrong on first load
-      // think it has to do with delay setting the $fullwidth var
-      // $nextTick seems to fix
-      let grid = this.$el.querySelector('.masonry')
-      let msnry = new Masonry(grid, { itemSelector: '.masonry-item' })
-    })
+    let grid = this.$el.querySelector('.masonry')
+    let msnry = new Masonry(grid, { itemSelector: '.masonry-item' })
   },
 
   data: () => ({
