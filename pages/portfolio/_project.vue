@@ -177,7 +177,7 @@ main {
     $dark: #2d6b77,
     $darker: #1a4850,
     $background: #ede4df
-  )
+  );
 
   padding-top: 50%;
 
@@ -207,19 +207,19 @@ main {
   // }
 }
 
-// .pga {
-//   @include projectColors(
-//     $text: #e1ffd1,
-//     $highlight: #002e4e,
-//     $light: white,
-//     $mid: #bb9f67,
-//     $dark: #2d6b77,
-//     $darker: #1a4850,
-//     $background: #0b3229
-//   )
+.pga {
+  @include projectColors(
+    $text: #e1ffd1,
+    $highlight: #002e4e,
+    $light: white,
+    $mid: #bb9f67,
+    $dark: #2d6b77,
+    $darker: #1a4850,
+    $background: #0b3229
+  )
 
-//   padding-top: 35%;
-// }
+  padding-top: 35%;
+}
 
 // .project-header {
 //   position: absolute;
