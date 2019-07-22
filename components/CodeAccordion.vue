@@ -4,7 +4,8 @@
         :aria-expanded="`${expanded}`"
         :aria-controls="`definition-${item}`"
         :class="{'expanded' : expanded}"
-        ref="definitionTerm">
+        ref="definitionTerm"
+        :id="item.title.replace(/\W+/g, '-').toLowerCase()">
       {{ item.title }}
       <div class="toggle">
         <svg id="icon--back" xmlns="http://www.w3.org/2000/svg" width="19" height="24.665" viewBox="0 0 19 24.665">
@@ -36,12 +37,18 @@ export default {
   props: ['item'],
 
   data: () => ({
-    expanded: true,
+    expanded: false,
     transitionName: ''
     // transitionName: 'transition-accordion-'
   }),
 
   mounted() {
+    console.log('window.location.hash ', window.location.hash)
+
+    if (window.location.hash == `#${this.item.title.replace(/\W+/g, '-').toLowerCase()}`) {
+      // Fragment exists
+      this.expanded = true
+    }
 
     setTimeout(() => {
       this.expanded = false
@@ -53,7 +60,7 @@ export default {
       }, 200)
     }, 300)
 
-    // this.transitionName = 'transition-accordion-'
+    this.transitionName = 'transition-accordion-'
   },
   
   methods: {

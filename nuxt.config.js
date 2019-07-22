@@ -65,7 +65,37 @@ export default {
       if (savedPosition) {
         return savedPosition
       } else {
-        return to.meta.saveScrollPosition && savedScrollPositions.hasOwnProperty(to.name) ? savedScrollPositions[to.name] : { x: 0, y: 0 }
+        
+      }
+
+      if (savedPosition) {
+        // savedPosition is only available for popstate navigations.
+        return savedPosition
+      } else {
+        const position = {}
+
+        // scroll to anchor by returning the selector
+        if (to.hash) {
+          position.selector = to.hash
+
+          // specify offset of the element
+          if (to.hash === '#anchor2') {
+            position.offset = { y: 100 }
+          }
+
+          // bypass #1number check
+          if (/^#\d/.test(to.hash) || document.querySelector(to.hash)) {
+            return position
+          }
+
+          // if the returned position is falsy or an empty object,
+          // will retain current scroll position.
+          return false
+        }
+
+        else {
+          return to.meta.saveScrollPosition && savedScrollPositions.hasOwnProperty(to.name) ? savedScrollPositions[to.name] : { x: 0, y: 0 }
+        }
       }
     },
   },

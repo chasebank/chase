@@ -11,10 +11,10 @@
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
       </div> -->
 
-      <h1><span>{{ thisPost.title.split(' ')[0] }}</span><span>{{ thisPost.title.split(' ').pop() }}</span></h1>
+      <!-- <h1><span>{{ thisPost.title.split(' ')[0] }}</span><span>{{ thisPost.title.split(' ').pop() }}</span></h1> -->
     
-      <dl v-if="thisPost.type == 'cheatsheet'" class="code-snippets">
-        <CodeAccordion v-for="snippet in snippets" :key="snippet.slug" :item="snippet"/>
+      <dl v-if="thisPost.type && thisPost.type == 'cheatsheet'" class="code-snippets">
+        <CodeAccordion v-for="snippet in snippets" :key="snippet.title" :item="snippet"/>
       </dl>
     </div>
     <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
@@ -38,7 +38,7 @@ reqSnippets.keys().forEach((key) => {
   snippets[key] = reqSnippets(key)
 })
 
-import CodeSnippetAccordionComponent from '~/components/CodeAccordion.vue'
+import CodeAccordion from '~/components/CodeAccordion.vue'
 
 export default {
   mixins: [pageMixin],
@@ -143,20 +143,20 @@ export default {
     },
 
     thisPost() {
-      let thisCode = this.posts.find(code => code.title == this.$route.params.code)
+      let thisCode = this.posts.find(post => post.language.toLowerCase() == this.$route.params.code)
 
       return thisCode
     },
 
     title() {
-      return this.thisPost.title
+      return this.thisPost.language
     },
 
     snippets() { 
-      if (this.thisPost.type == 'cheatsheet') {
-        let category = this.thisPost.title.split(' ')[0].toLowerCase()
+      if (this.thisPost.type && this.thisPost.type == 'cheatsheet') {
+        let language = this.thisPost.language.split(' ')[0].toLowerCase()
 
-        return this.getPosts(snippets).filter(snippet => (snippet.category.toLowerCase() == category))
+        return this.getPosts(snippets).filter(snippet => (snippet.language.toLowerCase() == language))
       }
     }
   },

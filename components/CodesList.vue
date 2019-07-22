@@ -1,9 +1,9 @@
 <template>
   <section class="codes codes--masonry masonry">
-    <article v-for="post in codes" :key="post.title" class="code-post codes--masonry-item masonry-item">
-      <span class="post-title">{{ post.title }}</span>
+    <article v-for="post in codes" :key="post.language" class="code-post codes--masonry-item masonry-item">
+      <span class="post-title">{{ post.language }}</span>
       <p>Lorem this is an example of a post description.</p>
-      <nuxt-link :to="'/notes/codes/' + post.title"></nuxt-link>
+      <nuxt-link :to="'/notes/codes/' + post.language.toLowerCase()"></nuxt-link>
     </article>
   </section>
 </template>

@@ -1,7 +1,9 @@
 <template>
   <article class="code">
-    <h4 class="title">{{ code.title }}</h4>
-    <p class="description">{{ code.description }}</p>
+    <nuxt-link :to="`/notes/codes/${code.language}/#${code.title.replace(/\W+/g, '-').toLowerCase()}`">
+      <h4 class="title">{{ code.title }} {{ code.category }}</h4>
+      <p class="description">{{ code.description }}</p>
+    </nuxt-link>
   </article>
 </template>
 

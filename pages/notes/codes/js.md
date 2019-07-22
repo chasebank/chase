@@ -1,5 +1,5 @@
 ---
-title: JS
+language: JS
 description: 
 type: cheatsheet
 date: 01/02/2019
