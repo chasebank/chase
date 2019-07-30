@@ -9,6 +9,8 @@
 
       <h2><span><nuxt-link to="/about" class="page-link">About</nuxt-link></span><span><nuxt-link to="/about" class="page-link">Me</nuxt-link></span></h2>
 
+      <nuxt-link to="/about#test-anchor">Anchor test</nuxt-link>
+
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi error nesciunt illum repudiandae, dolorum ex quam cum voluptates enim beatae maxime nisi quia, quo cupiditate iste adipisci dolores ullam magni.</p>
       
       <!-- <h2><span><nuxt-link to="/notes/codes" class="page-link">Code</nuxt-link></span><span><nuxt-link to="/notes/codes" class="page-link">Snippets</nuxt-link></span></h2> -->

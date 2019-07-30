@@ -76,7 +76,7 @@ export default {
 
         // scroll to anchor by returning the selector
         if (to.hash) {
-          position.selector = to.hash
+          position.selector = `[id='${to.hash}']`
 
           // specify offset of the element
           if (to.hash === '#anchor2') {
@@ -84,7 +84,8 @@ export default {
           }
 
           // bypass #1number check
-          if (/^#\d/.test(to.hash) || document.querySelector(to.hash)) {
+          // if (/^#\d/.test(to.hash) || document.querySelector(to.hash)) {
+          if (document.querySelector(`[id='${to.hash}']`)) {
             return position
           }
 

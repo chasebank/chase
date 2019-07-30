@@ -204,9 +204,16 @@ export default {
   .cp_embed_wrapper {
     position: relative;
     overflow: hidden;
+    display: flex;
     
     + .cp_embed_wrapper {
       margin-top: 2rem;
+    }
+
+    p:last-of-type {
+      flex: 1 0 100%;
+      margin-top: 0;
+      margin-bottom: 0;
     }
   }
 
