@@ -17,11 +17,11 @@
         <img :src="project.image" alt="" class="portfolio--project-thumb">
 
         <div class="portfolio--project-info">
-          <h3 class="portfolio--project-title"><nuxt-link :to="{ name: 'portfolio-project', params: { project: project.slug }}">{{ project.title }}</nuxt-link></h3>
-          <h4 class="portfolio--project-description"><nuxt-link :to="{ name: 'portfolio-project', params: { project: project.slug }}">{{ project.description }}</nuxt-link></h4>
+          <h3 class="portfolio--project-title"><nuxt-link :to="{ name: 'portfolio-slug', params: { slug: project.slug }}">{{ project.title }}</nuxt-link></h3>
+          <h4 class="portfolio--project-description"><nuxt-link :to="{ name: 'portfolio-slug', params: { slug: project.slug }}">{{ project.description }}</nuxt-link></h4>
         </div>
 
-        <nuxt-link :to="{ name: 'portfolio-project', params: { project: project.slug }}" class="portfolio--project-link"></nuxt-link>
+        <nuxt-link :to="{ name: 'portfolio-slug', params: { slug: project.slug }}" class="portfolio--project-link"></nuxt-link>
       </li>
     </ul>
   </section>

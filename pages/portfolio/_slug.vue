@@ -1,5 +1,5 @@
 <template>
-  <main class="container" :class="this.$route.params.project">
+  <main class="container" :class="this.$route.params.slug">
     <div class="content">
       <!-- <h1><span>{{ thisProject.title }}</span><span>{{ thisProject.description }}</span></h1> -->
       <!-- <ul>
@@ -58,7 +58,7 @@ export default {
     },
 
     thisProject() {
-      return this.projects.find(project => project.slug == this.$route.params.project)
+      return this.projects.find(project => project.slug == this.$route.params.slug)
     },
     // thisProjectTitle() {
     //   return this.thisProject.toString()

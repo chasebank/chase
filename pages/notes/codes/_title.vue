@@ -143,9 +143,7 @@ export default {
     },
 
     thisPost() {
-      let thisCode = this.posts.find(post => post.language.toLowerCase() == this.$route.params.code)
-
-      return thisCode
+      return this.posts.find(post => post.language.toLowerCase() == this.$route.params.title)
     },
 
     title() {
