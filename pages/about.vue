@@ -31,7 +31,7 @@ export default {
   },
 
   data: () => ({
-    title: 'About',
+    pageTitle: 'About',
   })
 }
 </script>

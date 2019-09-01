@@ -1,6 +1,6 @@
 <template>
   <main class="container">
-    <div class="content">
+    <!-- <div class="content"> -->
       <!-- <button @click="test = !test">Toggle</button>
       <div v-show="test">
         <p class="codepen" data-height="300" data-theme-id="21051" data-default-tab="result,css" data-user="chasebank" data-slug-hash="aKMpeE" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;" data-pen-title="Inverse responsive">
@@ -13,165 +13,144 @@
 
       <!-- <h1><span>{{ thisPost.title.split(' ')[0] }}</span><span>{{ thisPost.title.split(' ').pop() }}</span></h1> -->
     
-      <dl v-if="thisPost.type && thisPost.type == 'cheatsheet'" class="code-snippets">
+
+
+
+    <!-- BEFORE REFACTOR -->
+      <!-- <dl v-if="thisPost.type && thisPost.type == 'cheatsheet'" class="code-snippets">
         <CodeAccordion v-for="snippet in snippets" :key="snippet.title" :item="snippet"/>
       </dl>
     </div>
-    <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+    <script async src="https://static.codepen.io/assets/embed/ei.js"></script> -->
   </main>
 </template>
 
 <script>
-import pageMixin from '~/mixins/page-mixin.vue'
+// import pageMixin from '~/mixins/page-mixin.vue'
 
-const posts = {};
-const reqPosts = require.context('@/pages/notes/codes/', false, /\.md$/);
+// const posts = {};
+// const reqPosts = require.context('@/pages/notes/codes/', false, /\.md$/);
 
-reqPosts.keys().forEach((key) => {
-  posts[key] = reqPosts(key)
-})
+// reqPosts.keys().forEach((key) => {
+//   posts[key] = reqPosts(key)
+// })
 
-const snippets = {};
-const reqSnippets = require.context('@/pages/notes/codes/snippets', true, /\.md$/);
+// const snippets = {};
+// const reqSnippets = require.context('@/pages/notes/codes/snippets', true, /\.md$/);
 
-reqSnippets.keys().forEach((key) => {
-  snippets[key] = reqSnippets(key)
-})
+// reqSnippets.keys().forEach((key) => {
+//   snippets[key] = reqSnippets(key)
+// })
 
-import CodeAccordion from '~/components/CodeAccordion.vue'
+// import CodeAccordion from '~/components/CodeAccordion.vue'
 
 export default {
-  mixins: [pageMixin],
+  // mixins: [pageMixin],
 
-  meta: {
-    depth: 3
-  },
+  // meta: {
+  //   depth: 3
+  // },
 
-  components: {
-    CodeAccordion
-  },
+  // components: {
+  //   CodeAccordion
+  // },
 
-  data: () => ({
-    test: false
-  }),
+  // data: () => ({
+  //   test: false
+  // }),
 
-  mounted() {
-    // console.clear();
-    // console.log('mounted')
+  // mounted() {
+  //   function makeResizable(pen) {
+  //     let handle = document.createElement('div'),
+  //         iframe = pen.getElementsByTagName('iframe')[0],
+  //         minimum_size = 50,
+  //         original_width,
+  //         original_height,
+  //         original_mouse_x,
+  //         original_mouse_y,
+  //         maximum_width      
 
-    function makeResizable(pen) {
-      let handle = document.createElement('div'),
-          iframe = pen.getElementsByTagName('iframe')[0],
-          minimum_size = 50,
-          original_width,
-          original_height,
-          original_mouse_x,
-          original_mouse_y,
-          maximum_width      
-
-      pen.style.height = iframe.height + 'px'
-      pen.appendChild(handle)
+  //     pen.style.height = iframe.height + 'px'
+  //     pen.appendChild(handle)
       
-      handle.className = 'handle'
-      handle.addEventListener('mousedown', function(e) {
-        e.preventDefault()
-        original_width = parseFloat(getComputedStyle(pen, null).getPropertyValue('width').replace('px', ''))
-        original_height = parseFloat(getComputedStyle(pen, null).getPropertyValue('height').replace('px', ''))
-        maximum_width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0) - pen.getBoundingClientRect().left
-        original_mouse_x = e.pageX
-        original_mouse_y = e.pageY
-        window.addEventListener('mousemove', resize)
-        window.addEventListener('mouseup', stopResize)
-      })
+  //     handle.className = 'handle'
+  //     handle.addEventListener('mousedown', function(e) {
+  //       e.preventDefault()
+  //       original_width = parseFloat(getComputedStyle(pen, null).getPropertyValue('width').replace('px', ''))
+  //       original_height = parseFloat(getComputedStyle(pen, null).getPropertyValue('height').replace('px', ''))
+  //       maximum_width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0) - pen.getBoundingClientRect().left
+  //       original_mouse_x = e.pageX
+  //       original_mouse_y = e.pageY
+  //       window.addEventListener('mousemove', resize)
+  //       window.addEventListener('mouseup', stopResize)
+  //     })
 
-      function resize(e) {
-        let width = original_width + (e.pageX - original_mouse_x),
-            height = original_height + (e.pageY - original_mouse_y)
+  //     function resize(e) {
+  //       let width = original_width + (e.pageX - original_mouse_x),
+  //           height = original_height + (e.pageY - original_mouse_y)
         
-        if (width > minimum_size && width < maximum_width) {
-          pen.style.width = width + 'px'
-        }
+  //       if (width > minimum_size && width < maximum_width) {
+  //         pen.style.width = width + 'px'
+  //       }
         
-        if (height > minimum_size) {
-          pen.style.height = height + 'px'
-        }
+  //       if (height > minimum_size) {
+  //         pen.style.height = height + 'px'
+  //       }
         
-        iframe.style.zIndex = '-1'
-      }
+  //       iframe.style.zIndex = '-1'
+  //     }
       
-      function stopResize() {
-        window.removeEventListener('mousemove', resize)
+  //     function stopResize() {
+  //       window.removeEventListener('mousemove', resize)
         
-        iframe.style.removeProperty("z-index")
-      }
-    }
+  //       iframe.style.removeProperty("z-index")
+  //     }
+  //   }
 
-    setTimeout(() => {
-      // let pens = this.$el.querySelectorAll('.cp_embed_wrapper')
-      let pens = this.$el.querySelectorAll('.cp_embed_wrapper')
+  //   setTimeout(() => {
+  //     let pens = this.$el.querySelectorAll('.cp_embed_wrapper')
 
-      // console.log('in timeout')
-      // console.log(pens)
+  //     for (let pen of pens) {
+  //       makeResizable(pen)
+  //     }
+  //   }, 300)
+  // },
 
-      for (let pen of pens) {
-        makeResizable(pen)
-        // console.log('inside loop');
-        
-        // console.log(pen)
-      }
-    }, 300)
+  // computed: {
+  //   posts() {
+  //     return this.getPosts(posts)
+  //   },
 
-    // this.$nextTick(() => {
-    
-    // })
+  //   thisPost() {
+  //     return this.posts.find(post => post.language.toLowerCase() == this.$route.params.title)
+  //   },
 
-    // function __CodePenIFrameAddedToPage() {
-    //   let pens = this.$el.querySelectorAll('.cp_embed_wrapper')
+  //   title() {
+  //     return this.thisPost.language
+  //   },
 
-    //   console.log('__CodePenIFrameAddedToPage')
-    //   console.log(pens)
+  //   snippets() { 
+  //     if (this.thisPost.type && this.thisPost.type == 'cheatsheet') {
+  //       let language = this.thisPost.language.split(' ')[0].toLowerCase()
 
-    //   // for (let pen of pens) {
-    //   //   makeResizable(pen)
-    //   // }
-    // }
-  },
+  //       return this.getPosts(snippets).filter(snippet => (snippet.language.toLowerCase() == language))
+  //     }
+  //   }
+  // },
 
-  computed: {
-    posts() {
-      return this.getPosts(posts)
-    },
+  // methods: {
+  //   getPosts(list) {
+  //     const postArray = [];
 
-    thisPost() {
-      return this.posts.find(post => post.language.toLowerCase() == this.$route.params.title)
-    },
+  //     Object.keys(list).forEach((key) => {
+  //       const post = list[key]
 
-    title() {
-      return this.thisPost.language
-    },
+  //       postArray.push(post);
+  //     });
 
-    snippets() { 
-      if (this.thisPost.type && this.thisPost.type == 'cheatsheet') {
-        let language = this.thisPost.language.split(' ')[0].toLowerCase()
-
-        return this.getPosts(snippets).filter(snippet => (snippet.language.toLowerCase() == language))
-      }
-    }
-  },
-
-  methods: {
-    getPosts(list) {
-      const postArray = [];
-
-      Object.keys(list).forEach((key) => {
-        const post = list[key]
-
-        postArray.push(post);
-      });
-
-      return postArray
-    }
-  }
+  //     return postArray
+  //   }
+  // }
 }
 </script>
 

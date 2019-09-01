@@ -1,4 +1,7 @@
 // const pkg = require('./package')
+import projects from './pages/portfolio/list.js'
+
+import Mode from "frontmatter-markdown-loader/mode"
 
 const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
   base: '/chase/'
@@ -101,6 +104,10 @@ export default {
     },
   },
 
+  generate: {
+
+  },
+
   // Global CSS
   css: ["~/styles/global.scss"],
 
@@ -116,16 +123,30 @@ export default {
 
   // Plugins to load before mounting the App
   plugins: [
-    { src: "~/plugins/TweenMax", ssr: false }
+    // { src: "~/plugins/TweenMax", ssr: false }
   ],
 
   // Build configuration
   build: {
-    extend(config, ctx) {
+    extend(config) {
       config.module.rules.push({
         test: /\.md$/,
-        loaders: "markdown-with-front-matter-loader"
-      });
+        loader: 'frontmatter-markdown-loader',
+        options: {
+          mode: [Mode.HTML, Mode.VUE_RENDER_FUNCTIONS],
+          vue: {
+            root: "DynamicMarkdown"
+          }
+        }
+      })
     }
+  },
+
+  generate: {
+    routes: [
+      // '/es', '404'
+    ]
+    .concat(projects.map(w => `/portfolio/${w}`))
+    // .concat(blogsEs.map(w => `es/blog/${w}`))
   }
 };

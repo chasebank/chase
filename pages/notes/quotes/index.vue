@@ -1,32 +1,32 @@
 <template>
   <main class="container">
-    <div class="content">
+    <!-- <div class="content">
       <h1><span>Notes</span><span>& Quotes</span></h1>
 
       <QuoteList/>
-    </div>
+    </div> -->
   </main>
 </template>
 
 <script>
-import QuoteList from '@/components/QuoteList.vue'
-import pageMixin from '@/mixins/page-mixin.vue'
+// import QuoteList from '@/components/QuoteList.vue'
+// import pageMixin from '@/mixins/page-mixin.vue'
 
 export default {
-  components: {
-    QuoteList
-  },
+  // components: {
+  //   QuoteList
+  // },
 
-  data() {
-    return {
-      title: 'Notes & Quotes',
-    }
-  },
+  // data() {
+  //   return {
+  //     title: 'Notes & Quotes',
+  //   }
+  // },
 
-  mixins: [pageMixin],
+  // mixins: [pageMixin],
 
-  meta: {
-    depth: 2
-  },
+  // meta: {
+  //   depth: 2
+  // },
 }
 </script>

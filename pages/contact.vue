@@ -27,7 +27,7 @@ export default {
   },
 
   data: () => ({
-    title: 'Contact',
+    pageTitle: 'Contact',
   })
 }
 </script>

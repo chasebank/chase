@@ -1,6 +1,6 @@
 <template>
   <section class="codes codes--masonry masonry">
-    <article v-for="post in codes" :key="post.language" class="code-post codes--masonry-item masonry-item">
+    <article v-for="post in posts" :key="post.language" class="code-post codes--masonry-item masonry-item">
       <span class="post-title">{{ post.language }}</span>
       <p>Lorem this is an example of a post description.</p>
       <nuxt-link :to="'/notes/codes/' + post.language.toLowerCase()"></nuxt-link>
@@ -9,17 +9,19 @@
 </template>
 
 <script>
-const codes = {};
-const codeSnippets = {};
-const req = require.context('@/pages/notes/codes/', false, /\.md$/);
+// const codes = {};
+// const codeSnippets = {};
+// const req = require.context('@/pages/notes/codes/', false, /\.md$/);
 
-req.keys().forEach((key) => {
-  codes[key] = req(key);
-});
+// req.keys().forEach((key) => {
+//   codes[key] = req(key);
+// });
 
 export default {
-  components: {
-    
+  props: {
+    posts: {
+      type: Array
+    }
   },
 
   mounted() {
@@ -30,21 +32,21 @@ export default {
   },
 
   computed: {
-    codes() {
-      const postArray = [];
+    // codes() {
+    //   const postArray = [];
 
-      let getPosts = (posts) => {
-        Object.keys(posts).forEach((key) => {
-          const post = posts[key]
+    //   let getPosts = (posts) => {
+    //     Object.keys(posts).forEach((key) => {
+    //       const post = posts[key]
 
-          postArray.push(post);
-        });
-      }
+    //       postArray.push(post);
+    //     });
+    //   }
 
-      getPosts(codes)
+    //   getPosts(codes)
 
-      return postArray
-    }
+    //   return postArray
+    // }
   }
 }
 </script>

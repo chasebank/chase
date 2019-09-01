@@ -2,18 +2,6 @@
   <section class="portfolio">
     <ul id="portfolio--projects">
       <li v-for="project in projects" :key="project.slug" class="portfolio--project" :class="'project--' + project.slug">
-        <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 378" class="portfolio--project-thumb" preserveAspectRatio="xMidYMax meet">
-          <defs>
-            <clipPath id="project-mask">
-              <path d="M133.329 0H66.667C14.862.703.704 14.861 0 66.667v244.669C.704 363.139 14.862 377.301 66.667 378h66.663c51.806-.699 65.967-14.861 66.671-66.664V66.667C199.296 14.861 185.135.703 133.329 0z"/>
-            </clipPath>
-          </defs>
-
-          <image class="portfolio--project-thumb--image" height="100%" x="-9%" preserveAspectRatio="none" clip-path="url(#project-mask)" :xlink:href="project.image"/>
-        </svg> -->
-        <!-- <div class="portfolio--project-thumb">
-          <img :src="project.image" alt="" class="">
-        </div> -->
         <img :src="project.image" alt="" class="portfolio--project-thumb">
 
         <div class="portfolio--project-info">
@@ -28,30 +16,58 @@
 </template>
 
 <script>
-const projects = {};
-const req = require.context('@/pages/portfolio/', false, /\.md$/);
+// const projects = {};
+// const req = require.context('@/pages/portfolio/', false, /\.md$/);
 
-req.keys().forEach((key) => {
-  projects[key] = req(key);
-});
+// req.keys().forEach((key) => {
+//   projects[key] = req(key);
+// });
+
+// import projects from '~/pages/portfolio/list.js'
 
 export default {
-  computed: {
-    projects() {
-      const projectArray = [];
-      
-      Object.keys(projects).forEach((key) => {
-        const project = projects[key],
-              slug = key.replace('./', '').replace('.md', '');
+  // async asyncData ({app}) {
+  //   console.log('testing async')
+  //   async function asyncImport (slug) {
+  //     const wholeMD = await import(`~/pages/portfolio/${slug}.md`)
+  //     // return {
+  //     //   ...wholeMD.attributes,
+  //     //   slug: slug,
+  //     //   image: 'test-iamge'
+  //     // }
+  //     return wholeMD.attributes
+  //   }
 
-        project.slug = slug
-        project.image = require('~/assets/portfolio-assets/' + slug + '/project-thumb.jpg')
-
-        projectArray.push(project);
-      });
+  //   return Promise.all(projects.map(project => asyncImport(project)))
+  //   .then((res) => {
       
-      return projectArray.sort( (firstProject, secondProject) => firstProject.created < secondProject.created ? 1 : -1 );
+  //     console.log(res)
+  //     return {
+  //       projects: res
+  //     }
+  //   })
+  // },
+  props: {
+    projects: {
+      type: Array
     }
+  },
+  computed: {
+    // projects() {
+    //   const projectArray = [];
+      
+    //   Object.keys(projects).forEach((key) => {
+    //     const project = projects[key],
+    //           slug = key.replace('./', '').replace('.md', '');
+
+    //     project.slug = slug
+    //     project.image = require('~/assets/portfolio-assets/' + slug + '/project-thumb.jpg')
+
+    //     projectArray.push(project);
+    //   });
+      
+    //   return projectArray.sort( (firstProject, secondProject) => firstProject.created < secondProject.created ? 1 : -1 );
+    // }
   },
   methods: {
 
