@@ -70,13 +70,8 @@ export default {
   mounted() {
     let Masonry = require('masonry-layout')
     
-    this.$nextTick(() => {
-      // grid right margin was wrong on first load
-      // think it has to do with delay setting the $fullwidth var
-      // $nextTick seems to fix
-      let grid = this.$el.querySelector('.masonry')
-      let msnry = new Masonry(grid, { itemSelector: '.masonry-item' })
-    })
+    let grid = this.$el.querySelector('.masonry')
+    let msnry = new Masonry(grid, { itemSelector: '.masonry-item' })
   },
 
   data: () => ({
@@ -144,7 +139,7 @@ export default {
     allPosts() {
       let allPosts = [...this.quotes, ...this.books, ...this.codes]
 
-      let allPostsSortedByDate = allPosts.sort((a, b) => (dayjs(a.date).isAfter(dayjs(b.date)) ? -1 : 1))
+      let allPostsSortedByDate = allPosts.sort((a, b) => (dayjs(a.date, 'MM/DD/YYYY').isAfter(dayjs(b.date, 'MM/DD/YYYY')) ? -1 : 1))
       
       return allPostsSortedByDate
     },
@@ -154,7 +149,7 @@ export default {
         this.visiblePostTypes.indexOf(post['category'].toString().toLowerCase()) > -1
       ))
       
-      let filteredPostsSortedByDate = filteredPosts.sort((a, b) => (dayjs(a.date).isAfter(dayjs(b.date)) ? -1 : 1))
+      let filteredPostsSortedByDate = filteredPosts.sort((a, b) => (dayjs(a.date, 'MM/DD/YYYY').isAfter(dayjs(b.date, 'MM/DD/YYYY')) ? -1 : 1))
       
       return filteredPostsSortedByDate
     }

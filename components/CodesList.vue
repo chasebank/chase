@@ -1,25 +1,27 @@
 <template>
   <section class="codes codes--masonry masonry">
-    <article v-for="post in codes" :key="post.title" class="code-post codes--masonry-item masonry-item">
-      <span class="post-title">{{ post.title }}</span>
+    <article v-for="post in posts" :key="post.language" class="code-post codes--masonry-item masonry-item">
+      <span class="post-title">{{ post.language }}</span>
       <p>Lorem this is an example of a post description.</p>
-      <nuxt-link :to="'/notes/codes/' + post.title"></nuxt-link>
+      <nuxt-link :to="'/notes/codes/' + post.language.toLowerCase()"></nuxt-link>
     </article>
   </section>
 </template>
 
 <script>
-const codes = {};
-const codeSnippets = {};
-const req = require.context('@/pages/notes/codes/', false, /\.md$/);
+// const codes = {};
+// const codeSnippets = {};
+// const req = require.context('@/pages/notes/codes/', false, /\.md$/);
 
-req.keys().forEach((key) => {
-  codes[key] = req(key);
-});
+// req.keys().forEach((key) => {
+//   codes[key] = req(key);
+// });
 
 export default {
-  components: {
-    
+  props: {
+    posts: {
+      type: Array
+    }
   },
 
   mounted() {
@@ -27,32 +29,24 @@ export default {
 
     let grid = document.querySelector('.codes--masonry')
     let msnry = new Masonry(grid, { itemSelector: '.codes--masonry-item' })
-    
-    // this.$nextTick(() => {
-    //   // grid right margin was wrong on first load
-    //   // think it has to do with delay setting the $fullwidth var
-    //   // $nextTick seems to fix
-    //   let grid = document.querySelector('.codes--masonry')
-    //   let msnry = new Masonry(grid, { itemSelector: '.codes--masonry-item' })
-    // })
   },
 
   computed: {
-    codes() {
-      const postArray = [];
+    // codes() {
+    //   const postArray = [];
 
-      let getPosts = (posts) => {
-        Object.keys(posts).forEach((key) => {
-          const post = posts[key]
+    //   let getPosts = (posts) => {
+    //     Object.keys(posts).forEach((key) => {
+    //       const post = posts[key]
 
-          postArray.push(post);
-        });
-      }
+    //       postArray.push(post);
+    //     });
+    //   }
 
-      getPosts(codes)
+    //   getPosts(codes)
 
-      return postArray
-    }
+    //   return postArray
+    // }
   }
 }
 </script>

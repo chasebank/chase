@@ -85,7 +85,7 @@ export default {
       // Louis Hoebregts css-tricks.com/the-trick-to-viewport-units-on-mobile
       // https://css-tricks.com/the-trick-to-viewport-units-on-mobile/#comment-1651414
       // https://developers.google.com/web/updates/2017/09/visual-viewport-api
-      document.documentElement.style.setProperty('--innerVH', `${window.visualViewport.height || window.innerHeight}px`);
+      document.documentElement.style.setProperty('--innerVH', `${window.visualViewport ? window.visualViewport.height : window.innerHeight}px`);
       
       document.documentElement.style.setProperty('--footerHeight', `${this.$refs.footer.$el.offsetHeight}px`);
     },
@@ -116,7 +116,7 @@ export default {
     transitionFooter() {
       let footer = this.$refs.footer.$el,
           footerHeight = footer.offsetHeight,
-          viewportHeight = window.visualViewport.height || window.innerHeight,
+          viewportHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight,
           leavingFooterTopCoord = this.leavingFooterTopCoord,
           enteringFooterTopCoord = Math.round(footer.getBoundingClientRect().top),
           leavingFooterVisible = leavingFooterTopCoord < viewportHeight,
@@ -130,14 +130,12 @@ export default {
         footer.style.top = `${Math.min(leavingFooterTopCoord, viewportHeight)}px`
         footer.style.bottom = `0px`
         
-        // z translate must be zero to keep behind content during transition
         if (leavingFooterTopCoord < enteringFooterTopCoord) {
           // translate down
-          footer.style.transform = `translate3d(0,${Math.min(enteringFooterTopCoord - leavingFooterTopCoord, footerHeight)}px,0px)`
+          footer.style.transform = `translate3d(0,${Math.min(enteringFooterTopCoord - leavingFooterTopCoord, footerHeight)}px,0)`
         } else {
           // translate up
-          console.log('translate UP')
-          // footer.style.transform = `translate3d(0,-${Math.min(leavingFooterTopCoord - enteringFooterTopCoord, viewportHeight - enteringFooterTopCoord)}px,0px)`
+          footer.style.transform = `translate3d(0,-${Math.min(leavingFooterTopCoord - enteringFooterTopCoord, viewportHeight - enteringFooterTopCoord)}px,0)`
         }
       }
     },
@@ -192,15 +190,8 @@ body {
   display: flex;
   flex-direction: column;
 
-  // stacking context
-  // keep negative layers in front of header.
-  // needed to fix strange conflict of
-  // same props on .content
   position: relative;
   z-index: 1;
-
-  // allow 3d stacking of footer bg durring transition
-  transform-style: preserve-3d;
 }
 
 #__layout {
@@ -234,8 +225,6 @@ main {
   flex-direction: column;
   justify-content: center;
 
-  // stacking context
-  // keep negative layers in front of header
   position: relative;
   z-index: 1;
 }
@@ -247,6 +236,10 @@ main {
 .transition--route-slide-right--enter-active,
 .transition--route-slide-right--leave-active {
   transition: opacity $transitionDurationForDebugging;
+
+  // keep above footer
+  position: relative;
+  z-index: 1;
   
   .content {
     transition: transform $transitionDurationForDebugging;
@@ -258,7 +251,7 @@ main {
   opacity: 0;
   
   .content {
-    transform: translate3d(20vmax,0,1px)
+    transform: translate3d(20vmax,0,0)
   }
 }
 
@@ -267,7 +260,7 @@ main {
   opacity: 0;
   
   .content {
-    transform: translate3d(-20vmax,0,1px)
+    transform: translate3d(-20vmax,0,0)
   }
 }
 

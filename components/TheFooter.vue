@@ -106,9 +106,6 @@ footer {
   position: absolute;
   bottom: 0;
 
-  // allow 3d stacking of footer bg durring transition
-  transform-style: preserve-3d;
-
   &:before {
     display: block;
     content: '';
@@ -122,9 +119,6 @@ footer {
     background-position: top right;
 
     z-index: -1;
-
-    // keep behind content durring transition
-    transform: translate3d(0,0,-1px);
   }
 }
 

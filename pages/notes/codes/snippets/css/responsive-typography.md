@@ -2,8 +2,8 @@
 layout: code
 title: Responsive Typography
 description: Responsive Typography with a min/max contraint
-date: 12-10-2015
-category: css
+date: 12/10/2015
+language: css
 ---
 
 This function lets us set two min/max breakpoints, and property values. The values smoothly transition between eachother as the viewport shrinks/grows, without the need for media queries or jump cuts.

@@ -2,8 +2,8 @@
 layout: code
 title: Color Variable Map
 description: Use SASS maps for managing color variables
-date: 11-21-2015
-category: css
+date: 11/21/2015
+language: css
 ---
 
 A useful mixin for listing color variables in a SASS Map. Helps keep color standardized and consistent.

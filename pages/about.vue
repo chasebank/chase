@@ -8,6 +8,8 @@
       <nuxt-link to="/contact">Contact</nuxt-link>
       
       <long-content></long-content>
+
+      <h3 id="test-anchor">This is an anchor test</h3>
     </div>
   </main>
 </template>
@@ -29,7 +31,7 @@ export default {
   },
 
   data: () => ({
-    title: 'About',
+    pageTitle: 'About',
   })
 }
 </script>

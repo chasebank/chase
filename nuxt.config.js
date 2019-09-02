@@ -1,4 +1,7 @@
 // const pkg = require('./package')
+import projects from './pages/portfolio/list.js'
+
+import Mode from "frontmatter-markdown-loader/mode"
 
 const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
   base: '/chase/'
@@ -65,9 +68,44 @@ export default {
       if (savedPosition) {
         return savedPosition
       } else {
-        return to.meta.saveScrollPosition && savedScrollPositions.hasOwnProperty(to.name) ? savedScrollPositions[to.name] : { x: 0, y: 0 }
+        
+      }
+
+      if (savedPosition) {
+        // savedPosition is only available for popstate navigations.
+        return savedPosition
+      } else {
+        const position = {}
+
+        // scroll to anchor by returning the selector
+        if (to.hash) {
+          position.selector = `[id='${to.hash}']`
+
+          // specify offset of the element
+          if (to.hash === '#anchor2') {
+            position.offset = { y: 100 }
+          }
+
+          // bypass #1number check
+          // if (/^#\d/.test(to.hash) || document.querySelector(to.hash)) {
+          if (document.querySelector(`[id='${to.hash}']`)) {
+            return position
+          }
+
+          // if the returned position is falsy or an empty object,
+          // will retain current scroll position.
+          return false
+        }
+
+        else {
+          return to.meta.saveScrollPosition && savedScrollPositions.hasOwnProperty(to.name) ? savedScrollPositions[to.name] : { x: 0, y: 0 }
+        }
       }
     },
+  },
+
+  generate: {
+
   },
 
   // Global CSS
@@ -85,16 +123,30 @@ export default {
 
   // Plugins to load before mounting the App
   plugins: [
-    { src: "~/plugins/TweenMax", ssr: false }
+    // { src: "~/plugins/TweenMax", ssr: false }
   ],
 
   // Build configuration
   build: {
-    extend(config, ctx) {
+    extend(config) {
       config.module.rules.push({
         test: /\.md$/,
-        loaders: "markdown-with-front-matter-loader"
-      });
+        loader: 'frontmatter-markdown-loader',
+        options: {
+          mode: [Mode.HTML, Mode.VUE_RENDER_FUNCTIONS],
+          vue: {
+            root: "DynamicMarkdown"
+          }
+        }
+      })
     }
+  },
+
+  generate: {
+    routes: [
+      // '/es', '404'
+    ]
+    .concat(projects.map(w => `/portfolio/${w}`))
+    // .concat(blogsEs.map(w => `es/blog/${w}`))
   }
 };

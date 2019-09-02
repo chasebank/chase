@@ -2,8 +2,8 @@
 layout: code
 title: Responsive Inversion
 description: 
-date: 12-10-2015
-category: css
+date: 12/10/2015
+language: css
 ---
 
 It's easy enough to make things grow/shrink relative to the viewport, but I've had many times I wanted a value to respond in the oposite direction. For example, pushing something closer to the edge as the viewport shrinks.

@@ -1,23 +1,26 @@
 <template>
   <main class="container">
     <div class="content">
+      <pre>{{ projects }}</pre>
+
       <h1 class="header--home"><span>CHASE</span><span>WHITESIDE</span><span>Designer</span><span>Developer</span></h1>
 
       <h2 class="header--portfolio"><span><nuxt-link to="/portfolio" class="page-link">Portfolio</nuxt-link></span><span>Projects</span></h2>
 
-      <PortfolioList/>
+      <!-- <PortfolioList :projects="projects"/> -->
 
       <h2><span><nuxt-link to="/about" class="page-link">About</nuxt-link></span><span><nuxt-link to="/about" class="page-link">Me</nuxt-link></span></h2>
 
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi error nesciunt illum repudiandae, dolorum ex quam cum voluptates enim beatae maxime nisi quia, quo cupiditate iste adipisci dolores ullam magni.</p>
       
-      <!-- <h2><span><nuxt-link to="/notes/codes" class="page-link">Code</nuxt-link></span><span><nuxt-link to="/notes/codes" class="page-link">Snippets</nuxt-link></span></h2> -->
+      <h2><span><nuxt-link to="/notes/codes" class="page-link">Code</nuxt-link></span><span><nuxt-link to="/notes/codes" class="page-link">Snippets</nuxt-link></span></h2>
 
-      <!-- <CodesList/> -->
+      <!-- <CodesList :posts="codeLanguages"/> -->
+      <!-- <CodesList :codes=""/> -->
 
-      <h2><span>Notes</span><span>& Quotes</span></h2>
+      <!-- <h2><span>Notes</span><span>& Quotes</span></h2>
 
-      <NotesAndQuotesList/>
+      <NotesAndQuotesList/> -->
     </div>
   </main>
 </template>
@@ -28,9 +31,49 @@ import pageMixin from '~/mixins/page-mixin.vue'
 import LongContent from '~/components/LongContent.vue'
 import PortfolioList from '~/components/PortfolioList.vue'
 import CodesList from '~/components/CodesList.vue'
-import NotesAndQuotesList from '~/components/NotesAndQuotesList.vue'
+// import NotesAndQuotesList from '~/components/NotesAndQuotesList.vue'
+
+import projects from '~/pages/portfolio/list.js'
+import codeLanguages from '~/pages/notes/codes/list.js'
 
 export default {
+  async asyncData ({app}) {
+    async function asyncImportProject(slug) {
+      const wholeMD = await import(`~/pages/portfolio/${slug}.md`)
+
+      return {
+        ...wholeMD.attributes,
+        slug: slug,
+        image: 'test-iamge'
+      }
+    }
+
+    async function asyncImportCodeLanguages(slug) {
+      const wholeMD = await import(`~/pages/notes/codes/${slug}.md`)
+
+      return {
+        ...wholeMD.attributes,
+        slug: slug
+      }
+    }
+
+    let projectsMapped = projects.map(project => asyncImportProject(project)),
+        codeLanguagesMapped = projects.map(post => asyncImportCodeLanguages(post));
+
+    return Promise.all([projectsMapped,codeLanguagesMapped]).then((projectsRes,codeLanguagesRes) => {
+      console.log('test',projectsRes)
+
+      return {
+        projects: projectsRes,
+        codeLanguages: codeLanguagesRes
+      }
+      // return {
+      //   projects: ...res[0],
+      //   codeLanguages: ...res[1]
+      // }
+    })
+  },
+
   mixins: [pageMixin],
 
   name: 'home',
@@ -38,12 +81,14 @@ export default {
   components: {
     LongContent,
     PortfolioList,
-    CodesList,
-    NotesAndQuotesList
+    // CodesList,
+    // NotesAndQuotesList
   },
 }
 </script>
 
 <style lang="scss">
-
+pre {
+  color: white;
+}
 </style>

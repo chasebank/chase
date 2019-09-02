@@ -2,8 +2,8 @@
 layout: code
 title: Squircle Mixin
 description: 
-date: 12-10-2018
-category: css
+date: 12/10/2018
+language: css
 ---
 
 There's a few different ways to do this. All envolve some form of using an SVG as a data URI. The squishy squircle corner shapes are positioned at the corners of the parent svg. What to dow ith it from there depends on style needs.

@@ -2,8 +2,8 @@
 layout: code
 title: 100vw Minus Scrollbar Width
 description: 
-date: 12-10-2015
-category: css
+date: 12/10/2015
+language: css
 ---
 
 Get 'true' viewport width by calculating the space the scrollbar takes up, and save it to a Custom Variable. Then use that in a `calc()` function. Great for situations like having a fixed position element that needs to be centered and/or full width.

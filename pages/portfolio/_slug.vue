@@ -1,37 +1,42 @@
 <template>
-  <main class="container" :class="this.$route.params.project">
+  <main class="container" :class="this.$route.params.slug">
     <div class="content">
-      <!-- <h1><span>{{ thisProject.title }}</span><span>{{ thisProject.description }}</span></h1> -->
-      <!-- <ul>
-        <li v-for="article in articles"><nuxt-link :to="{ name: 'posts-slug', params: { slug: article.slug }}">{{ article.slug }}</nuxt-link></li>
-      </ul> -->
-      <!-- <div class="post-body" v-html="thisProject.__content"></div> -->
+      <h1><span>{{ title }}</span><span>{{ description }}</span></h1>
+      <no-ssr>
+        <DynamicMarkdown
+          :render-func="renderFunc"
+          :static-render-funcs="staticRenderFuncs"
+          :extra-component="extraComponent" />
+      </no-ssr>
     </div>
-
-    <!-- <Footer/> -->
   </main>
 </template>
 
-<script>
+<script lang="js">
 import pageMixin from '~/mixins/page-mixin.vue'
 
-const projects = {};
-const req = require.context('./', false, /\.md$/);
-req.keys().forEach((key) => {
-  projects[key] = req(key);
-});
+import DynamicMarkdown from "~/components/DynamicMarkdown.vue"
 
 export default {
-  // components: {
-    // Header,
-  //   // Footer
-  // },
+  async asyncData ({params, app}) {
+    const fileContent = await import(`~/pages/portfolio/${params.slug}.md`),
+          attr = fileContent.attributes
 
-  data() {
     return {
-      // title: 'Project'
+      ...attr,
+      // name: params.slug,
+      renderFunc: fileContent.vue.render,
+      staticRenderFuncs: fileContent.vue.staticRenderFns,
     }
   },
+
+  // data() {
+  //   return {
+  //     // title: 'Project'
+  //   }
+  // },
+
+  components: { DynamicMarkdown },
 
   mixins: [pageMixin],
 
@@ -45,21 +50,21 @@ export default {
     //     // 'background-color': this.thisArticle.colorBackground
     //   }
     // },
-    projects() {
-      const projectArray = [];
+    // projects() {
+    //   const projectArray = [];
       
-      Object.keys(projects).forEach((key) => {
-        const project = projects[key];
-        project.slug = key.replace('./', '').replace('.md', '');
-        projectArray.push(project);
-      });
+    //   Object.keys(projects).forEach((key) => {
+    //     const project = projects[key];
+    //     project.slug = key.replace('./', '').replace('.md', '');
+    //     projectArray.push(project);
+    //   });
       
-      return projectArray;
-    },
+    //   return projectArray;
+    // },
 
-    thisProject() {
-      return this.projects.find(project => project.slug == this.$route.params.project)
-    },
+    // thisProject() {
+    //   return this.projects.find(project => project.slug == this.$route.params.slug)
+    // },
     // thisProjectTitle() {
     //   return this.thisProject.toString()
     // },
@@ -67,14 +72,21 @@ export default {
     //   return this.thisProject.colorBackground
     // },
 
-    title() {
-      return this.thisProject.title + ' Project'
+    pageTitle() {
+      return this.title + ' Project'
+    },
+
+    extraComponentLoader () {
+      if (!this.extraComponent) {
+        return null
+      }
+      return () => import(`~/components/${this.extraComponent}.vue`)
     }
   },
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 // @import '../../styles/_bitsnpieces.scss';
 // .header--small-name span,
 // .back,
@@ -99,6 +111,10 @@ export default {
 //     display: none;
 //   }
 // }
+
+main {
+  background-color: lightseagreen;
+}
 
 @mixin projectColors(
   $text: #d2f8ff,
@@ -173,7 +189,7 @@ export default {
     $dark: #2d6b77,
     $darker: #1a4850,
     $background: #ede4df
-  )
+  );
 
   padding-top: 50%;
 
@@ -203,19 +219,19 @@ export default {
   // }
 }
 
-// .pga {
-//   @include projectColors(
-//     $text: #e1ffd1,
-//     $highlight: #002e4e,
-//     $light: white,
-//     $mid: #bb9f67,
-//     $dark: #2d6b77,
-//     $darker: #1a4850,
-//     $background: #0b3229
-//   )
+.pga {
+  @include projectColors(
+    $text: #e1ffd1,
+    $highlight: #002e4e,
+    $light: white,
+    $mid: #bb9f67,
+    $dark: #2d6b77,
+    $darker: #1a4850,
+    $background: #0b3229
+  )
 
-//   padding-top: 35%;
-// }
+  padding-top: 35%;
+}
 
 // .project-header {
 //   position: absolute;

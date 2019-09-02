@@ -4,7 +4,7 @@ export default {
 
   head() {
     return {
-      title: this.title,
+      title: this.pageTitle,
     }
   },
 
@@ -13,7 +13,7 @@ export default {
   }),
 
   mounted() {
-    this.$store.commit('handleHistory', this.title)
+    this.$store.commit('handleHistory', this.pageTitle)
   },
 
   methods: {

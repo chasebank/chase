@@ -177,17 +177,30 @@ h2 {
 
 h2 span:last-child {
   display: flex;
-  align-items: flex-end;
+  align-items: baseline;
+  @include responsive-property("padding-left", 0vw, 4vw);
     
+  // &:after {
+  //   position: relative;
+  //   bottom: .23em;
+  //   flex-grow: 1;
+  //   margin-left: -.15em;
+  //   content: '';
+  //   height: 1px;
+  //   border-radius: .05em;
+  //   background: linear-gradient(to right, currentColor, color(darker), rgba(color(darker),0));
+  // }
   &:after {
-    position: relative;
+      // position: absolute;
     bottom: .23em;
     flex-grow: 1;
-    margin-left: -.15em;
+    margin-left: -.2em;
     content: '';
     height: 1px;
+    // width: 100px;
     border-radius: .05em;
-    background: linear-gradient(to right, currentColor, color(darker), rgba(color(darker),0));
+    background: linear-gradient(to right, rgba(color(darker),0), currentColor .2em, color(darker), rgba(color(darker),0));
+    align-self: baseline;
   }
 }
 

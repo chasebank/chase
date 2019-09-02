@@ -72,7 +72,7 @@ export default {
     },
 
     thisQuote() {
-      return this.quotes.find(quote => quote.slug == this.$route.params.slug)
+      return this.quotes.find(quote => quote.slug == this.$route.params.title)
     },
 
     quoteStyling() {

@@ -18,11 +18,11 @@
         </transition-group>
       </a>
 
-      <nuxt-link to="/" style="color: white; margin-left: 1rem">Home</nuxt-link>
+      <!-- <nuxt-link to="/" style="color: white; margin-left: 1rem">Home</nuxt-link>
       <nuxt-link to="/about" style="color: white; margin-left: 1rem">About</nuxt-link>
       <nuxt-link to="/contact" style="color: white; margin-left: 1rem">Contact</nuxt-link>
       <nuxt-link to="/notes/codes/" style="color: white; margin-left: 1rem">Codes</nuxt-link>
-      <nuxt-link to="/portfolio" style="color: white; margin-left: 1rem">Portfolio</nuxt-link>
+      <nuxt-link to="/portfolio" style="color: white; margin-left: 1rem">Portfolio</nuxt-link> -->
 
       <h2 class="nav--small-name"><span><nuxt-link :to="{ name: 'index'}" class="page-link">CHASE</nuxt-link></span><span><nuxt-link :to="{ name: 'index'}" class="page-link">WHITESIDE</nuxt-link></span></h2>
     </nav>
@@ -111,9 +111,7 @@ export default {
 <style lang="scss" scoped>
 
 nav {
-  background: linear-gradient(to top, #0b151d, rgba(black,.5) );
-  background: linear-gradient(to top, rgba(#0b151d,0), rgba(black,1) );
-  // background: red;
+  // background: linear-gradient(to top, rgba(#0b151d,0), rgba(black,1) );
   position: fixed;
   top: 0;
   width: 100vw;
@@ -125,31 +123,35 @@ nav {
   @include responsive-property("padding-left", 2vw, 20vw);
   @include responsive-property("padding-right", 2vw, 20vw);
   z-index: 999;
-  // transition: transform $transition;
-  // transition-delay: $transition;
-  // transform: translate3d(0,-100%,0);
     
   @media (max-width: 400px) {
-    display: block;
     padding-left: 1rem;
   }
-  // &.show-header {
-  //   transform: translate3d(0,0,0)
-  // }
+
+  &:before {
+    display: block;
+    content: '';
+    position: absolute;
+    top: -80%;
+    left: 0;
+    width: 100%;
+    height: 150%;
+    background-color: black;
+    border-radius: 40%;
+    z-index: -2;
+    transform: translateY(-25%);
+    filter: blur(1rem);
+    transition: top $transitionDurationForDebugging ease-in-out;
+  }
   
   &.content-scrolled {
     &:before {
-      opacity: .8;
+      top: -50%;
     }
     
     #icon--back {
       transform: rotateZ(90deg) rotateX(180deg);
     }
-  }
-  
-  &:before {
-    transition: opacity 1s;
-    opacity: .4;
   }
 }
 
@@ -160,7 +162,7 @@ nav {
 
 .transition--navigation--enter,
 .transition--navigation--leave-to {
-  transform: translate3d(0,-100%,1px)
+  transform: translate3d(0,-100%,0px)
 }
 
 #back {

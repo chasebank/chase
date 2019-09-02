@@ -2,9 +2,10 @@
   <div class="definition-item">
     <dt @click="expand"
         :aria-expanded="`${expanded}`"
-        :aria-controls="`definition-${item}`"
+        :aria-controls="`definition-${key}`"
         :class="{'expanded' : expanded}"
-        ref="definitionTerm">
+        ref="definitionTerm"
+        :id="key">
       {{ item.title }}
       <div class="toggle">
         <svg id="icon--back" xmlns="http://www.w3.org/2000/svg" width="19" height="24.665" viewBox="0 0 19 24.665">
@@ -12,6 +13,13 @@
         </svg>
       </div>
     </dt>
+
+    <!-- <dd
+        ref="post"
+        :id="`definition-${key}`"
+        >
+          <div v-html="item.__content"></div>
+        </dd> -->
     
     <transition
       :name="transitionName"
@@ -21,7 +29,7 @@
       @after-leave="afterTransition">
       <dd
         ref="post"
-        :id="`definition-${item}`"
+        :id="`definition-${key}`"
         :aria-hidden="`${!expanded}`"
         v-show="expanded"
         >
@@ -36,24 +44,38 @@ export default {
   props: ['item'],
 
   data: () => ({
-    expanded: true,
-    transitionName: ''
-    // transitionName: 'transition-accordion-'
+    expanded: false,
+    // transitionName: ''
+    transitionName: 'transition-accordion-'
   }),
 
   mounted() {
+    console.log('window.location.hash ', window.location.hash)
 
-    setTimeout(() => {
-      this.expanded = false
+    // if (window.location.hash == this.item.title.replace(/\W+/g, '-').toLowerCase())
+
+    if (window.location.hash == this.key) {
+      // Fragment exists
+      this.expanded = true
+    }
+
+    // setTimeout(() => {
+    //   this.expanded = false
       
-      setTimeout(() => {
-        this.$refs.post.style.position = 'relative'
-        this.$refs.post.style.visibility = 'visible'
-        this.transitionName = 'transition-accordion-'
-      }, 200)
-    }, 300)
+    //   setTimeout(() => {
+    //     this.$refs.post.style.position = 'relative'
+    //     this.$refs.post.style.visibility = 'visible'
+    //     this.transitionName = 'transition-accordion-'
+    //   }, 200)
+    // }, 300)
 
     // this.transitionName = 'transition-accordion-'
+  },
+
+  computed: {
+    key() {
+      return `#${this.item.title.replace(/\W+/g, '-').toLowerCase()}`
+    }
   },
   
   methods: {
@@ -62,7 +84,7 @@ export default {
     },
     
     transition(el) {
-      this.$el.classList.add('expanding')
+      // this.$el.classList.add('expanding')
       let firstHeight, endHeight
       
       if (this.expanded) {
@@ -88,7 +110,7 @@ export default {
     },
 
     afterTransition() {
-      this.$el.classList.remove('expanding')
+      // this.$el.classList.remove('expanding')
       this.$el.style.removeProperty('height')
     },
   }
@@ -106,11 +128,11 @@ $transitionDuration: .3s;
     margin-top: 1.5rem;
   }
 
-  dd {
-    position: absolute;
-    visibility: hidden;
-    width: 100%;
-  }
+  // dd {
+  //   position: absolute;
+  //   visibility: hidden;
+  //   width: 100%;
+  // }
 }
 
 .expanding {
@@ -157,6 +179,8 @@ dd {
   backface-visibility: hidden;
   font-smoothing: antialiased;
   transform: scale(.99999);
+
+  
 }
 
 .toggle {
@@ -206,6 +230,11 @@ dd {
       top: .5px;
       transform: rotate3d(1,1,0,-180deg) translateX(-1px);
     }
+  }
+
+  ~ dd {
+    position: relative;
+    visibility: visible;
   }
 }
 

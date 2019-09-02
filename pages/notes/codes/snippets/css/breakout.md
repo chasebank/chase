@@ -1,9 +1,9 @@
 ---
+layout: code
 title: Full Width Breakout
 description: Responsive Typography with a min/max contraint
-created: 10-12-2015
-date: css
-layout: code
+date: 11/21/2015
+language: css
 ---
 
 Break of the parent container to full width. For fancy important images and such, in the middle of articles.
@@ -15,4 +15,3 @@ Break of the parent container to full width. For fancy important images and such
   Full Width Breakout</a> by Chase (<a href="https://codepen.io/chasebank">@chasebank</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
