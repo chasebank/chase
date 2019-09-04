@@ -1,13 +1,13 @@
 <template>
   <main class="container">
     <div class="content">
-      <pre>{{ projects }}</pre>
+      <pre>{{ codeLanguages }}</pre>
 
       <h1 class="header--home"><span>CHASE</span><span>WHITESIDE</span><span>Designer</span><span>Developer</span></h1>
 
       <h2 class="header--portfolio"><span><nuxt-link to="/portfolio" class="page-link">Portfolio</nuxt-link></span><span>Projects</span></h2>
 
-      <!-- <PortfolioList :projects="projects"/> -->
+      <PortfolioList :projects="projects"/>
 
       <h2><span><nuxt-link to="/about" class="page-link">About</nuxt-link></span><span><nuxt-link to="/about" class="page-link">Me</nuxt-link></span></h2>
 
@@ -38,13 +38,12 @@ import codeLanguages from '~/pages/notes/codes/list.js'
 
 export default {
   async asyncData ({app}) {
-    async function asyncImportProject(slug) {
+    async function asyncImportProjects(slug) {
       const wholeMD = await import(`~/pages/portfolio/${slug}.md`)
 
       return {
         ...wholeMD.attributes,
         slug: slug,
-        image: 'test-iamge'
       }
     }
 
@@ -53,25 +52,32 @@ export default {
 
       return {
         ...wholeMD.attributes,
-        slug: slug
+        slug: slug,
       }
     }
 
-    let projectsMapped = projects.map(project => asyncImportProject(project)),
-        codeLanguagesMapped = projects.map(post => asyncImportCodeLanguages(post));
+    // return Promise.all([
+    //     ...codeLanguages.map(post => asyncImportCodeLanguages(post)),
+    //     ...projects.map(project => asyncImportProjects(project))
+    //   ]).then(results => {
+    //     console.log(results)
 
-    return Promise.all([projectsMapped,codeLanguagesMapped]).then((projectsRes,codeLanguagesRes) => {
-      console.log('test',projectsRes)
+    //     return {
+    //       projects: results[0],
+    //       codeLanguages: results[1]
+    //     }
+    //   })
 
+    return Promise.all([
+      Promise.all(projects.map(project => asyncImportProjects(project))),
+      Promise.all(codeLanguages.map(post => asyncImportCodeLanguages(post))),
+    ]).then(results => {
+      // console.log(res);
       return {
-        projects: projectsRes,
-        codeLanguages: codeLanguagesRes
-      }
-      // return {
-      //   projects: ...res[0],
-      //   codeLanguages: ...res[1]
-      // }
-    })
+        projects: results[0],
+        codeLanguages: results[1]
+      };
+    });
   },
 
   mixins: [pageMixin],

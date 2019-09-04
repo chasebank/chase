@@ -144,7 +144,7 @@ export default {
 
   generate: {
     routes: [
-      // '/es', '404'
+      '404'
     ]
     .concat(projects.map(w => `/portfolio/${w}`))
     // .concat(blogsEs.map(w => `es/blog/${w}`))
