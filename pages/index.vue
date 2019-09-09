@@ -1,6 +1,8 @@
 <template>
   <main class="container">
     <div class="content">
+      
+
       <h1 class="header--home"><span>CHASE</span><span>WHITESIDE</span><span>Designer</span><span>Developer</span></h1>
 
       <h2 class="header--portfolio"><span><nuxt-link to="/portfolio" class="page-link">Portfolio</nuxt-link></span><span>Projects</span></h2>
@@ -77,6 +79,10 @@ export default {
     // CodesList,
     // NotesAndQuotesList
   },
+
+  mounted() {
+    
+  }
 }
 </script>
 

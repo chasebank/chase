@@ -1,7 +1,10 @@
 <template>
-  <main class="container" :class="this.$route.params.slug">
+  <main class="container" :class="`${this.$route.params.slug}-project`">
+    <header></header>
+
     <div class="content">
       <h1><span>{{ title }}</span><span>{{ description }}</span></h1>
+      
       <no-ssr>
         <DynamicMarkdown
           :render-func="renderFunc"
@@ -36,7 +39,9 @@ export default {
   //   }
   // },
 
-  components: { DynamicMarkdown },
+  components: {
+    DynamicMarkdown,
+  },
 
   mixins: [pageMixin],
 
@@ -115,6 +120,41 @@ export default {
 main {
   background-color: lightseagreen;
 }
+
+h1 {
+  margin-bottom: 0;
+}
+
+
+.content ::v-deep {
+  .project-highlights {
+    font-family: 'Montserrat',Arial,Helvetica,sans-serif;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    max-width: calc(25rem + 10vw);
+    margin-bottom: 3.5rem;
+    //same as h2/h3
+    @include responsive-property("padding-left", calc(15% - #{$mainPadding}), calc(25% - #{$mainPadding}));
+
+    li + li {
+      margin-top: 1rem;
+    }
+  }
+
+  ul li::before {
+    content: "\2022";
+    font-size: 1.5em;
+    font-weight: bold;
+    display: inline-block;
+    width: .75em;
+    margin-left: -.75em;
+    position: relative;
+    top: .05em;
+  }
+}
+
+
+
 
 @mixin projectColors(
   $text: #d2f8ff,

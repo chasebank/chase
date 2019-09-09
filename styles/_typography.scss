@@ -7,17 +7,30 @@
   @include responsive-property("font-size", 14px, 20px);
 }
 
-p {
-  font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
-  @include responsive-property("font-size", 14px, 16px);
+
+p,
+ul {
+  font-family: 'Montserrat',Arial,Helvetica,sans-serif;
+  @include responsive-property("font-size", 15px, 18px);
   color: color(light);
   line-height: 2;
 }
 
 ul {
-  margin-top: 0;
-  padding-left: 0;
   list-style: none;
+  padding-left: 0;
+}
+
+ul:not([class]):not([id]),
+p + ul,
+h1 + ul {
+  margin-top: 3em;
+  margin-bottom: 3em;
+  max-width: calc(30rem + 10vw);
+
+  li + li {
+    margin-top: 1rem;
+  }
 }
 
 a,
@@ -53,10 +66,13 @@ h2 {
 h3 {
   font-size: 2rem;
   color: #70bfce;
+  margin-top: 4rem;
+  margin-bottom: 1rem;
 }
 
 h4 {
   color: #70bfce;
+  font-size: 1.5rem;
 }
 
 h1,
@@ -78,6 +94,7 @@ h4 {
 h2,
 h3 {
   padding-left: calc(25% - #{$mainPadding});
+  @include responsive-property("padding-left", calc(15% - #{$mainPadding}), calc(25% - #{$mainPadding}));
 }
 
 h1,

@@ -1,7 +1,8 @@
 // const pkg = require('./package')
-import projects from './pages/portfolio/list.js'
 
 import Mode from "frontmatter-markdown-loader/mode"
+
+import projects from './pages/portfolio/list.js'
 
 const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
   base: '/chase/'
@@ -117,7 +118,10 @@ export default {
 
   styleResources: {
     scss: [
-      "~/styles/_bitsnpieces.scss"
+      "~/styles/_bitsnpieces.scss",
+      "~/styles/projects/*.scss",
+      // "~/../node_modules/photoswipe/dist/photoswipe.css",
+      // "~/../node_modules/photoswipe/dist/default-skin/default-skin.css"
     ]
   },
 
@@ -129,6 +133,17 @@ export default {
   // Build configuration
   build: {
     extend(config) {
+      // config.module.rules.push({
+      //   test: /\.md$/,
+      //   loader: 'frontmatter-markdown-loader',
+      //   options: {
+      //     mode: [Mode.HTML, Mode.VUE_RENDER_FUNCTIONS, Mode.VUE_COMPONENT],
+      //     vue: {
+      //       root: "DynamicMarkdown"
+      //     }
+      //   }
+      // })
+
       config.module.rules.push({
         test: /\.md$/,
         loader: 'frontmatter-markdown-loader',
@@ -139,7 +154,7 @@ export default {
           }
         }
       })
-    }
+    },
   },
 
   generate: {

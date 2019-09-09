@@ -2,7 +2,7 @@
   <section class="portfolio">
     <ul id="portfolio--projects">
       <li v-for="project in projects" :key="project.slug" class="portfolio--project" :class="'project--' + project.slug">
-        <img :src="project.image" alt="" class="portfolio--project-thumb">
+        <img :src="require(`../assets/images/projects/${project.slug}/project-thumb.jpg`)" alt="" class="portfolio--project-thumb">
 
         <div class="portfolio--project-info">
           <h3 class="portfolio--project-title"><nuxt-link :to="{ name: 'portfolio-slug', params: { slug: project.slug }}">{{ project.title }}</nuxt-link></h3>
@@ -90,6 +90,7 @@ export default {
   padding-right: 1.5vw;
   padding-bottom: 1rem;
   margin-bottom: 0;
+  max-width: initial;
   
   @media (min-width: $smallScreen) {
     padding-right: 2vw;
@@ -206,7 +207,8 @@ export default {
   margin-left: 10%;
   text-align: right;
   font-size: 1rem;
-  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-family: 'Montserrat',Arial,Helvetica,sans-serif;
+  line-height: 1;
 }
 
 @mixin projectStyles($dark,$light) {

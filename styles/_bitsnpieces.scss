@@ -156,6 +156,10 @@ $transition: .6s;
   margin-right: calc(#{$fullWidth} * -.5);
 }
 
+.full-width {
+  @include full-width;
+}
+
 
 
 @function colWidth($columns, $gutterSize: $smallPadding, $span: 1) {
@@ -196,5 +200,92 @@ $transition: .6s;
 
   > * {
     flex: 1;
+  }
+}
+
+
+@mixin pageNavigationColors(
+  $backgroundColor: red,
+  $textColor: white,
+  $accentBright: cyan,
+  $accentDark: blue
+) {
+  &:before {
+    background-color: $backgroundColor;
+  }
+
+  #back,
+  .nav--small-name span:first-of-type a {
+    color: $textColor
+  }
+
+  .nav--small-name span:first-of-type:before {
+    background-color: rgba($accentDark,.2);
+  }
+
+  #icon--back {
+    fill: $accentBright
+  }
+
+  .nav--small-name span:nth-child(2) a {
+    color: $accentBright
+  }
+
+  .transition--character-enter,
+  .route-characters--leave-active {
+    color: $accentDark;
+    text-shadow: 0 0 1.5rem $accentDark;
+  }
+}
+
+@mixin portfolioProjectColors(
+  $backgroundColor: red,
+  $textColor: white,
+  $accentBright: cyan,
+  $accentDark: blue
+) {
+  background-color: $backgroundColor;
+
+  p,
+  ul {
+    color: $textColor;
+  }
+
+  h1 {
+    span:first-of-type {
+      color: $textColor;
+    }
+    span:first-of-type:before {
+      background-color: rgba($accentDark,.3);
+    }
+    span:not(:first-of-type) {
+      color: $accentBright;
+    }
+  }
+
+  h2, h3, h4 {
+    color: $accentBright;
+  }
+
+  p a {
+    border-bottom-color: $accentDark
+  }
+
+  .project-highlights {
+    color: $accentDark;
+
+    span {
+      color: $textColor;
+    }
+    
+  }
+
+  ul li::before {
+    color: red;
+  }
+
+  p,
+  ::v-deep .project-highlights {
+    text-shadow: 1px 1px 5px $backgroundColor;
   }
 }

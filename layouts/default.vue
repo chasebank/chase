@@ -219,7 +219,7 @@ main {
 .content {
   width: calc(100% - 3rem);
   align-self: center;
-  max-width: 60rem;
+  max-width: 50rem;
 
   display: flex;
   flex-direction: column;
@@ -262,6 +262,81 @@ main {
   .content {
     transform: translate3d(-20vmax,0,0)
   }
+}
+
+
+
+//
+// Photoswipe
+//
+.pswp__caption__center {
+  text-align: center;
+  padding-bottom: 5vh;
+  font-family: 'Montserrat',Arial,Helvetica,sans-serif;
+  @include responsive-property("font-size", 16px, 18px);
+  text-shadow:
+    0 0 0 black,
+    0rem .2rem .4rem black;
+  color: white;
+}
+
+.pswp__bg {
+  background: rgba(0,0,0,.75);
+  backdrop-filter: blur(0px);
+  transtiion-property: opacity, backdrop-filter;
+}
+
+.pswp--open {
+  backdrop-filter: blur(10px);
+}
+
+.pswp__ui--fit .pswp__top-bar, .pswp__ui--fit .pswp__caption,
+.pswp__top-bar, .pswp__caption {
+  background-color: transparent;
+}
+
+.pswp__top-bar {
+  top: $navHeight;
+  width: 100%;
+  height: 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  filter: drop-shadow(0px 1px 3px black) drop-shadow(0px 1px 3px black);
+  
+  button {
+    flaot: none;
+  }
+}
+
+.pswp__preloader {
+  // width: 100%;
+  display: none;
+}
+
+.pswp__button {
+  height: initial;
+}
+
+.pswp__share-modal--fade-in .pswp__share-tooltip {
+  transform: translateX(-50%) translateY(0);
+}
+
+.pswp__share-tooltip {
+  top: calc(#{$navHeight} + 56px);
+  right: initial;
+  left: 50%;
+  transform: translateX(-50%);
+
+  a {
+    font-family: 'Montserrat',Arial,Helvetica,sans-serif;
+  }
+}
+
+a.pswp__share--facebook:before {
+  right: initial;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 

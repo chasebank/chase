@@ -1,6 +1,7 @@
 <template>
   <transition name="transition--navigation-">
-    <nav :class="{'content-scrolled' : contentScrolled}"
+    <nav class=""
+          :class="[{'content-scrolled' : contentScrolled}, `${this.$route.params.slug}-navigation`]"
           v-show="navVisible">
       <a href="#" id="back" @click.prevent="goBack">
         <svg id="icon--back" xmlns="http://www.w3.org/2000/svg" width="19" height="24.665" viewBox="0 0 19 24.665"><path d="M18.779 22.529L5.205 15.003l13.574-8.225V0L-.114 12.467v1.885l18.893 10.313z"/></svg>
@@ -227,7 +228,7 @@ nav {
   text-shadow: 0 0 1.5rem cyan;
 }
 #previous-route {
-  background-color: magenta;
+  // background-color: magenta;
   position: relative;
   transition: all .5s;
 }
