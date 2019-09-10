@@ -85,7 +85,7 @@ The concept for the website was to build it with WordPress, and utilize a combin
  * A few different role and administration plugins, to hide most of the unnecessary admin interface to reduce the appearance of complexity to the client.
  * A calendar plugin that hooked in to a Facebook API and automatically imported Facebook events, allowing the client to keep their event management in one central location.
 
-Initial testing of all these features worked, but the truck was sold to a new out-of-state owner before the website was completed and the project was cancelled. A minimal design prototype is below, and can be [viewed full-screen here]().
+Initial testing of all these features worked, but the truck was sold to a new out-of-state owner before the website was completed and the project was cancelled. A minimal design prototype is below, and can be [viewed full-screen here](https://s.codepen.io/chasebank/debug/cb8cf80a7fe2208d6ca325e93b584e70).
 
 <p class="codepen full-width" data-height="300" data-theme-id="37749" data-default-tab="result" data-user="chasebank" data-slug-hash="cb8cf80a7fe2208d6ca325e93b584e70" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="FeastBeast website prototype">
   <span>See the Pen <a href="https://codepen.io/chasebank/pen/cb8cf80a7fe2208d6ca325e93b584e70/">

@@ -6,7 +6,7 @@
       <a href="#" id="back" @click.prevent="goBack">
         <svg id="icon--back" xmlns="http://www.w3.org/2000/svg" width="19" height="24.665" viewBox="0 0 19 24.665"><path d="M18.779 22.529L5.205 15.003l13.574-8.225V0L-.114 12.467v1.885l18.893 10.313z"/></svg>
         
-        <span>BACK to&nbsp;</span>
+        <span>BACK&nbsp;to&nbsp;</span>
 
         <transition-group name="route-characters-">
           <span
