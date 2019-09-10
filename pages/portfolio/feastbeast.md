@@ -128,6 +128,6 @@ Initial testing of all these features worked, but the truck was sold to a new ou
     :caption="'Some additional branded items; A paper bag for serving food, and a rewards card for repeat customers.'" />
     <photoswipe-image
     imageURL="projects/feastbeast/feastbeast--action-shot.jpg"
-    :classes="''"
+    :classes="'medium'"
     :caption="'The FeastBeast Food Truck in action'" />
 </photoswipe-gallery>

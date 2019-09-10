@@ -142,7 +142,7 @@ nav {
     z-index: -2;
     transform: translateY(-25%);
     filter: blur(1rem);
-    transition: top $transitionDurationForDebugging ease-in-out;
+    transition: top $transitionDurationForDebugging ease-in-out, background-color .3s;
   }
   
   &.content-scrolled {
@@ -177,6 +177,7 @@ nav {
   text-decoration: none;
   position: absolute;
   position: relative!important;
+  transition: color .2s;
 }
 .back-content--wrap {
   // background-color: green;
@@ -196,13 +197,14 @@ nav {
 #icon--back {
   margin-right: .4rem;
   fill: #70bfce;
-  transition: transform .8s cubic-bezier(0.72,-0.51, 0.25, 1)
+  transition: transform .8s cubic-bezier(0.72,-0.51, 0.25, 1), fill .2s;
 }
 .nav--small-name {
   font-size: 1.5rem;
   margin-top: .2rem;
   margin-bottom: 0;
   padding-left: 0;
+
   span:nth-child(2) {
     &:after {
       display: none;
@@ -213,6 +215,14 @@ nav {
     // span:nth-child(2) {
       display: none;
     // }
+  }
+
+  span:first-of-type:before {
+    transition: background-color .2s;
+  }
+
+  span a {
+    transition: color .2s;
   }
 }
 .transition--character-enter-active,

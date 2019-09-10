@@ -30,6 +30,8 @@
     height: 30rem;
     background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/106403/project--feastbeast--bg-highlight2.png);
     mix-blend-mode: hard-light;
+    // mobile chrome blend mode bug fix
+    will-change: opacity;
     mask-image: linear-gradient(to top, transparent, black 80%);
   }
 
