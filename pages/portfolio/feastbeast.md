@@ -24,7 +24,7 @@ For a food truck, the truck is the brand. When a person gazes across a fleet of 
 
 The client wanted to drill down into the essence of the “feast beast” name,  which mostly called to the fierce hunger of their customers, but we decided the truck itself could personify THE Feast Beast.
 
-<photoswipe-gallery singleImage="true">
+<photoswipe-gallery :singleImage="true">
   <photoswipe-image
     imageURL="projects/feastbeast/feastbeast--ref.jpg"
     :classes="'large'"
@@ -41,7 +41,7 @@ For the sign-companies that deal with this on a regular basis, there’s package
 
 The best option was to just get out there with a tape measure and go to work. I also had to account for additional modifications and mountings that would be added, like cut-out openings, generators and propane tanks. I then used this info to make my own template.
 
-<photoswipe-gallery gallery="true">
+<photoswipe-gallery :gallery="true">
   <photoswipe-image
     imageURL="projects/feastbeast/feastbeast--measurements.jpg"
     :classes="''"
@@ -58,7 +58,7 @@ Wiggle room is always a requirement in printing. Machines are calibrated as best
 
 In the case of vehicle wraps, they’re essentially printed as posters and applied in sheets, carefully aligned with each other. It was important to build in some strategic wiggle room and minimise the risk of having vital elements (like text) land in areas with dangerous protrusions or seams.
 
-<photoswipe-gallery singleImage="true">
+<photoswipe-gallery :singleImage="true">
   <div class="grid-item large">
     <iframe width="560" height="315" src="https://www.youtube.com/embed/lG0juIfuY_I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
@@ -96,7 +96,7 @@ Initial testing of all these features worked, but the truck was sold to a new ou
 
 ### Gallery
 
-<photoswipe-gallery gallery="true" fullWidth="true">
+<photoswipe-gallery :gallery="true" :fullWidth="true">
   <photoswipe-image
     imageURL="projects/feastbeast/feastbeast--logo.jpg"
     :classes="'long'"

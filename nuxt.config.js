@@ -110,7 +110,10 @@ export default {
   },
 
   // Global CSS
-  css: ["~/styles/global.scss"],
+  css: [
+    "~/styles/global.scss",
+    "~/styles/projects/projects.scss"
+  ],
 
   modules: [
     '@nuxtjs/style-resources',
@@ -119,7 +122,7 @@ export default {
   styleResources: {
     scss: [
       "~/styles/_bitsnpieces.scss",
-      "~/styles/projects/*.scss",
+      // "~/styles/projects/*.scss",
       // "~/../node_modules/photoswipe/dist/photoswipe.css",
       // "~/../node_modules/photoswipe/dist/default-skin/default-skin.css"
     ]

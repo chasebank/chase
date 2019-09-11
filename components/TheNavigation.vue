@@ -1,6 +1,7 @@
 <template>
   <transition name="transition--navigation-">
     <nav class=""
+          :id="`${this.$route.params.slug}-navigation`"
           :class="[{'content-scrolled' : contentScrolled}, `${this.$route.params.slug}-navigation`]"
           v-show="navVisible">
       <a href="#" id="back" @click.prevent="goBack">

@@ -9,7 +9,7 @@
         <DynamicMarkdown
           :render-func="renderFunc"
           :static-render-funcs="staticRenderFuncs"
-          :extra-component="extraComponent" />
+          :extra-component="extraComponentLoader" />
       </no-ssr>
     </div>
   </main>
@@ -218,6 +218,10 @@ h1 {
     color: $text;
     text-shadow: 0 0.05em 0.15em rgba(darken($text,40%),.5)
   }
+}
+
+::v-deep .project-highlights {
+  margin-top: 2.25rem;
 }
 
 .walk-on-water {
