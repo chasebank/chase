@@ -120,6 +120,14 @@ export default {
     'nuxt-responsive-loader'
   ],
 
+  responsiveLoader: {
+    min: 250,
+    max: 1000,
+    steps: 3,
+    adapter: require("responsive-loader/sharp"),
+    quality: 75
+  },
+
   styleResources: {
     scss: [
       "~/styles/_bitsnpieces.scss",
