@@ -267,6 +267,10 @@ $transition: .6s;
     color: $accentBright;
   }
 
+  h3:after {
+    background: linear-gradient(to right, rgba($accentBright,0), $accentBright .2em, $accentDark, rgba($accentDark,0));
+  }
+
   p a {
     border-bottom-color: $accentDark
   }

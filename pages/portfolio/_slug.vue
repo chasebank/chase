@@ -126,6 +126,8 @@ h1 {
 }
 
 
+
+
 .content ::v-deep {
   .project-highlights {
     font-family: 'Montserrat',Arial,Helvetica,sans-serif;
@@ -142,14 +144,29 @@ h1 {
   }
 
   ul li::before {
-    content: "\2022";
-    font-size: 1.5em;
+    content: "\25FC";
+    font-size: .75em;
     font-weight: bold;
     display: inline-block;
-    width: .75em;
-    margin-left: -.75em;
+        width: 2em;
+    margin-left: -2em;
     position: relative;
-    top: .05em;
+    top: -.1em;
+  }
+
+  h3 {
+    display: flex;
+    align-items: baseline;
+
+    &:after {
+      bottom: .23em;
+      flex-grow: 1;
+      margin-left: -.3em;
+      content: '';
+      height: 1px;
+      border-radius: .05em;
+      align-self: baseline;
+    }
   }
 }
 
@@ -183,11 +200,6 @@ h1 {
 
   .back-content--wrap {
     color: $mid
-  }
-
-  h1,
-  h2 {
-    
   }
 
   h1 span:first-child,
