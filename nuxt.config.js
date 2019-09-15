@@ -117,14 +117,12 @@ export default {
 
   modules: [
     '@nuxtjs/style-resources',
+    'nuxt-responsive-loader'
   ],
 
   styleResources: {
     scss: [
       "~/styles/_bitsnpieces.scss",
-      // "~/styles/projects/*.scss",
-      // "~/../node_modules/photoswipe/dist/photoswipe.css",
-      // "~/../node_modules/photoswipe/dist/default-skin/default-skin.css"
     ]
   },
 

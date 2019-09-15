@@ -2,7 +2,7 @@
   <section class="portfolio">
     <ul id="portfolio--projects">
       <li v-for="project in projects" :key="project.slug" class="portfolio--project" :class="'project--' + project.slug">
-        <img :src="require(`../assets/images/projects/${project.slug}/project-thumb.jpg`)" alt="" class="portfolio--project-thumb">
+        <img :src="require(`../assets/images/projects/${project.slug}/project-thumb.jpg?disabled`)" alt="" class="portfolio--project-thumb">
 
         <div class="portfolio--project-info">
           <h3 class="portfolio--project-title"><nuxt-link :to="{ name: 'portfolio-slug', params: { slug: project.slug }}">{{ project.title }}</nuxt-link></h3>

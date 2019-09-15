@@ -1,8 +1,8 @@
 <template>
   <figure :class="classes" class="grid-item gallery-image" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-    <a :href="imageRequired" itemprop="contentUrl" title="View larger image">
+    <a :href="require(`~/assets/images/${this.imageURL}?disable=true`)" itemprop="contentUrl" title="View larger image">
       <img
-        :src="imageRequired"
+        :srcset="require(`~/assets/images/${this.imageURL}`).srcSet"
         :alt="caption"
         itemprop="thumbnail" />
     </a>
@@ -42,8 +42,6 @@ export default {
   computed: {
     imageRequired () {
       return require(`../assets/images/${this.imageURL}`)
-      // return `/images/projects/feastbeast/feastbeast--ref.jpg`
-      // return 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/106403/feastbeast--measurements.jpg'
     }
   }
 }
