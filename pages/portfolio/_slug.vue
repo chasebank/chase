@@ -4,6 +4,10 @@
 
     <div class="content">
       <h1><span>{{ title }}</span><span>{{ description }}</span></h1>
+
+      <ul class="project-highlights">
+        <li v-for="(hl, index) in projectHighlights" :key="index">{{ hl }}</li>
+      </ul>
       
       <no-ssr>
         <DynamicMarkdown
@@ -139,7 +143,8 @@ h1 {
     font-size: 1.25rem;
     line-height: 1.5;
     max-width: calc(25rem + 10vw);
-    margin-bottom: 3.5rem;
+    margin-top: 3.5rem;
+    margin-bottom: 0rem;
     //same as h2/h3
     @include responsive-property("padding-left", calc(15% - #{$mainPadding}), calc(25% - #{$mainPadding}));
 

@@ -1,14 +1,17 @@
 ---
 title: PGA
 description: Holiday Card / Photo Composite
+projectHighlights: [
+  'Designed a holiday/golf themed greeting card.',
+  'Digitally combine multiple photo elements to create a seamless composite.'
+  ]
 created: 2017-10-01T08:01:50+02
-status: publish
 ---
 
-<ul class="project-highlights">
+<!-- <ul class="project-highlights">
   <li>Designed a holiday/golf themed greeting card.</li>
   <li>Digitally combine multiple photo elements to create a seamless composite.</li>
-</ul>
+</ul> -->
 
 ### About the PGA
 

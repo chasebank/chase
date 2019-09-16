@@ -1,14 +1,13 @@
 ---
 title: Feast Beast Food Truck
 description: Vehicle Wrap & Branding
+projectHighlights: [
+  'Designed all branding and marketing for a new food truck company.',
+  'Designed a large-format vehicle wrap.',
+  'Website to work in conjunction with social media, to host events and locations.'
+  ]
 created: 2017-10-01T08:01:50+02
 ---
-
-<ul class="project-highlights">
-  <li>Designed all branding and marketing for a new food truck company.</li>
-  <li>Designed a large-format vehicle wrap.</li>
-  <li>Website to work in conjunction with social media, to host events and locations.</li>
-</ul>
 
 ### About Feast Beast
 
