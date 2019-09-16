@@ -1,6 +1,6 @@
 <template>
   <main class="container" :class="`${this.$route.params.slug}-project`">
-    <header></header>
+    <div class="project-header"></div>
 
     <div class="content">
       <h1><span>{{ title }}</span><span>{{ description }}</span></h1>
@@ -117,12 +117,17 @@ export default {
 //   }
 // }
 
-main {
-  background-color: lightseagreen;
-}
+// main {
+//   background-color: lightseagreen;
+// }
 
 h1 {
   margin-bottom: 0;
+
+  span:nth-child(2) {
+    line-height: .9;
+    margin-top: -.5em;
+  }
 }
 
 
@@ -275,19 +280,19 @@ h1 {
   // }
 }
 
-.pga {
-  @include projectColors(
-    $text: #e1ffd1,
-    $highlight: #002e4e,
-    $light: white,
-    $mid: #bb9f67,
-    $dark: #2d6b77,
-    $darker: #1a4850,
-    $background: #0b3229
-  )
+// .pga {
+//   @include projectColors(
+//     $text: #e1ffd1,
+//     $highlight: #002e4e,
+//     $light: white,
+//     $mid: #bb9f67,
+//     $dark: #2d6b77,
+//     $darker: #1a4850,
+//     $background: #0b3229
+//   )
 
-  padding-top: 35%;
-}
+//   padding-top: 35%;
+// }
 
 // .project-header {
 //   position: absolute;

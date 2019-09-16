@@ -205,8 +205,10 @@ $transition: .6s;
 
 
 @mixin pageNavigationColors(
+  $dark: red,
   $backgroundColor: red,
-  $textColor: white,
+  $bright: white,
+  $textColor: yellow,
   $accentBright: cyan,
   $accentDark: blue
 ) {
@@ -216,7 +218,7 @@ $transition: .6s;
 
   #back,
   .nav--small-name span:first-of-type a {
-    color: $textColor
+    color: $bright
   }
 
   .nav--small-name span:first-of-type:before {
@@ -239,21 +241,18 @@ $transition: .6s;
 }
 
 @mixin portfolioProjectColors(
-  $backgroundColor: red,
-  $textColor: white,
+  $dark: black,
+  $backgroundColor: black,
+  $bright: white,
+  $textColor: yellow,
   $accentBright: cyan,
   $accentDark: blue
 ) {
   background-color: $backgroundColor;
 
-  p,
-  ul {
-    color: $textColor;
-  }
-
   h1 {
     span:first-of-type {
-      color: $textColor;
+      color: $bright;
     }
     span:first-of-type:before {
       background-color: rgba($accentDark,.3);
@@ -275,21 +274,15 @@ $transition: .6s;
     border-bottom-color: $accentDark
   }
 
-  .project-highlights {
-    color: $accentDark;
-
-    span {
-      color: $textColor;
-    }
-    
-  }
-
-  ul li::before {
-    color: red;
-  }
-
   p,
-  ::v-deep .project-highlights {
-    text-shadow: 1px 1px 5px $backgroundColor;
+  ul {
+    color: $textColor;
+    filter:
+      drop-shadow(0px 1px 1px $dark)
+      drop-shadow(0px 2px .5em rgba($dark,.4));
+  }
+
+  ul li:before {
+    color: $accentDark;
   }
 }

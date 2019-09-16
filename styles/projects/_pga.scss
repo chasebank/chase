@@ -1,0 +1,48 @@
+
+
+#pga-navigation {
+  @include pageNavigationColors(
+    $backgroundColor: #081d17,
+    $accentBright: #ffca71,
+    $accentDark: #003fde
+  )
+}
+
+.pga-project {
+  // position: relative;
+  // background: #3b0200 url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/106403/project--feastbeast--container-bg.jpg);
+
+  // p {
+  //   filter: drop-shadow(0px 2px 6px black) drop-shadow(0px 2px 6px black);
+  // }
+
+  @include portfolioProjectColors(
+    $backgroundColor: #081d17,
+    $textColor: #fffaeb,
+    $accentBright: #ffca71,
+    $accentDark: #003fde
+  );
+
+  padding-top: 26vw;
+
+  .project-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: url(~assets/images/projects/pga/pga--project-header--large.jpg?disable=true) top center no-repeat;
+    background-size: cover;
+    padding-top: calc(100% * 955 / 1920);
+    mask-image: linear-gradient(to top, transparent, black 30%);
+  }
+
+  @media (max-width: $smallScreen) {
+    padding-top: 26vw;
+
+    .project-header {
+      background: url(~assets/images/projects/pga/pga--project-header--small.jpg?disable=true) top center no-repeat;
+      background-size: cover;
+      padding-top: calc(100% * 955 / 1920);
+    }
+  }
+}

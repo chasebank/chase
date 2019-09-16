@@ -5,9 +5,9 @@ created: 2017-10-01T08:01:50+02
 ---
 
 <ul class="project-highlights">
-  <li><span>Designed all branding and marketing for a new food truck company.</span></li>
-  <li><span>Designed a large-format vehicle wrap.</span></li>
-  <li><span>Website to work in conjunction with social media, to host events and locations.</span></li>
+  <li>Designed all branding and marketing for a new food truck company.</li>
+  <li>Designed a large-format vehicle wrap.</li>
+  <li>Website to work in conjunction with social media, to host events and locations.</li>
 </ul>
 
 ### About Feast Beast
@@ -28,7 +28,7 @@ The client wanted to drill down into the essence of the “feast beast” name, 
   <photoswipe-image
     imageURL="projects/feastbeast/feastbeast--ref.jpg"
     :classes="'large'"
-    :caption="'The FeastBeast Food Truck in action'" />
+    :caption="'Some reference photos used to influence the mood and styling of the brand'" />
 </photoswipe-gallery>
 
 ### Some detailed challenges

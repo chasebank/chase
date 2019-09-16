@@ -1,6 +1,7 @@
 #feastbeast-navigation {
   @include pageNavigationColors(
     $backgroundColor: #0e0000,
+    $textColor: white,
     $accentBright: #ffe828,
     $accentDark: red
   )
@@ -16,6 +17,7 @@
 
   @include portfolioProjectColors(
     $backgroundColor: #0e0000,
+    $textColor: white,
     $accentBright: #ffe828,
     $accentDark: red
   );
@@ -35,7 +37,7 @@
     mask-image: linear-gradient(to top, transparent, black 80%);
   }
 
-  header {
+  .project-header {
     height: 20rem;
     display: flex;
     flex-wrap: wrap;
@@ -82,10 +84,10 @@
   }
 
   @media (max-width: $smallScreen) {
-    header {
+    .proejct-header {
       height: 50vmax
     }
-    header:before {
+    .proejct-header:before {
       flex: 1 0 100%;
       margin-left: 0;
     }

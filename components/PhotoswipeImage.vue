@@ -2,7 +2,13 @@
   <figure :class="classes" class="grid-item gallery-image" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
     <a :href="require(`~/assets/images/${this.imageURL}?disable=true`)" itemprop="contentUrl" title="View larger image">
       <img
+        v-if="!disableResponsive"
         :srcset="require(`~/assets/images/${this.imageURL}`).srcSet"
+        :alt="caption"
+        itemprop="thumbnail" />
+      <img
+        v-else
+        :srcset="require(`~/assets/images/${this.imageURL}?disable=true`).srcSet"
         :alt="caption"
         itemprop="thumbnail" />
     </a>
@@ -33,6 +39,10 @@ export default {
       type: Boolean,
       default: true
     },
+    disableResponsive: {
+      type: Boolean,
+      default: false
+    },
     imageURL: {
       type: String,
       required: true
@@ -42,7 +52,7 @@ export default {
   computed: {
     imageRequired () {
       return require(`../assets/images/${this.imageURL}`)
-    }
+    },
   }
 }
 </script>
