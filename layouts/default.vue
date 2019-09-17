@@ -171,7 +171,7 @@ body {
 }
 
 #__nuxt {
-  background-image: url(~assets/personal-site--bg.jpg);
+  background-image: url(~assets/personal-site--bg.jpg?disable=true);
   background-attachment: fixed;
   background-repeat: repeat;
   background-size: 14vmax;

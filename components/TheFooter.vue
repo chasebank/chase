@@ -114,7 +114,7 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url(~assets/personal-site--footer.png);
+    background-image: url(~assets/personal-site--footer.png?disable=true);
     background-size: cover;
     background-position: top right;
 

@@ -109,7 +109,7 @@ header {
   left: 0;
   // don't adjust for scrollbar
   width: 100vw;
-  background-image: url(~assets/personal-site--header.png);
+  background-image: url(~assets/personal-site--header.png?disable=true);
   // background: red;
   background-size: cover;
   background-position: top left;
