@@ -238,6 +238,13 @@ $transition: .6s;
     color: $accentDark;
     text-shadow: 0 0 1.5rem $accentDark;
   }
+
+  h2,
+  #back {
+    // reference typography styles
+    text-shadow: 0 .05em .15em $dark;
+    filter: drop-shadow(0 .1em .2em rgba($dark,.5));
+  }
 }
 
 @mixin portfolioProjectColors(
@@ -251,15 +258,16 @@ $transition: .6s;
   background-color: $backgroundColor;
 
   h1 {
-    span:first-of-type {
-      color: $bright;
-    }
-    span:first-of-type:before {
-      background-color: rgba($accentDark,.3);
-    }
-    span:not(:first-of-type) {
-      color: $accentBright;
-    }
+    // span:first-of-type {
+    //   color: $bright;
+    // }
+    // span:first-of-type:before {
+    //   background-color: rgba($accentDark,.3);
+    // }
+    // span:not(:first-of-type) {
+    //   color: $accentBright;
+    // }
+    color: $accentBright;
   }
 
   h2, h3, h4 {
@@ -277,12 +285,37 @@ $transition: .6s;
   p,
   ul {
     color: $textColor;
-    filter:
-      drop-shadow(0px 1px 1px $dark)
-      drop-shadow(0px 2px .5em rgba($dark,.4));
+  }
+
+  p,
+  .DynamicMarkdown ul {
+    // filter:
+    //   drop-shadow(0px 1px 1px $dark)
+    //   drop-shadow(0px 2px .5em rgba($dark,.4));
   }
 
   ul li:before {
     color: $accentDark;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  .project-highlights li,
+  .DynamicMarkdown ul {
+    // reference typography styles
+    text-shadow: 0 .05em .15em $dark;
+    filter: drop-shadow(0 .1em .2em rgba($dark,.5));
+  }
+
+  .project-highlights {
+    background-color: rgba($bright,.25);
+    box-shadow: 0.25rem 1rem 3rem -1.5rem $dark;
+
+    li:before {
+      text-shadow: none;
+    }
   }
 }

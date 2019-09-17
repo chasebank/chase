@@ -1,29 +1,35 @@
-
+$dark: black;
+$bright: white;
+$backgroundColor: #081d17;
+$textColor: #fffaeb;
+$accentBright: #ffca71;
+$accentDark: navy;
 
 #pga-navigation {
   @include pageNavigationColors(
-    $backgroundColor: #081d17,
-    $accentBright: #ffca71,
-    $accentDark: #003fde
+    $dark: $dark,
+    $bright: $bright,
+    $backgroundColor: $backgroundColor,
+    $accentBright: $accentBright,
+    $accentDark: $accentDark
   )
 }
 
 .pga-project {
-  // position: relative;
-  // background: #3b0200 url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/106403/project--feastbeast--container-bg.jpg);
-
-  // p {
-  //   filter: drop-shadow(0px 2px 6px black) drop-shadow(0px 2px 6px black);
-  // }
-
   @include portfolioProjectColors(
-    $backgroundColor: #081d17,
-    $textColor: #fffaeb,
-    $accentBright: #ffca71,
-    $accentDark: #003fde
+    $dark: $dark,
+    $bright: $bright,
+    $backgroundColor: $backgroundColor,
+    $textColor: $textColor,
+    $accentBright: $accentBright,
+    $accentDark: $accentDark
   );
 
   padding-top: 26vw;
+
+  .project-highlights {
+    background-color: rgba($accentBright,.2)
+  }
 
   .project-header {
     position: absolute;

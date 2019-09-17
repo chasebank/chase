@@ -1,0 +1,75 @@
+$dark: #8b5832;
+$bright: white;
+$backgroundColor: #ede4df;
+$textColor: #273235;
+$accentBright: #00a9c7;
+$accentDark: #f32045;
+
+#walk-on-water-navigation {
+  @include pageNavigationColors(
+    $dark: $dark,
+    $backgroundColor: $dark,
+    $accentBright: #00a9c7,
+    $accentDark: #f32045
+  )
+}
+
+.walk-on-water-project {
+  @include portfolioProjectColors(
+    $dark: $dark,
+    $backgroundColor: $backgroundColor,
+    $textColor: $textColor,
+    $accentBright: $accentBright,
+    $accentDark: $accentDark
+  );
+
+  
+  h1,
+  h3,
+  h4,
+  p,
+  .project-highlights li {
+    // reference typography styles
+    text-shadow: 0 .05em .15em white!important;
+    filter: drop-shadow(0 .1em .2em rgba(white,.5))!important;
+  }
+
+  h1 span:nth-child(1) {
+    text-shadow: none;
+    filter: drop-shadow(0);
+  }
+
+  h3:after {
+    background: linear-gradient(to right, rgba($accentBright,0), $accentBright .2em, rgba($accentBright,0));
+  }
+
+  padding-top: 34vw;
+
+  .project-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: url(~assets/images/projects/walk-on-water/wow--project-header--large.jpg?disable=true) top center no-repeat;
+    background-size: cover;
+    padding-top: calc(100% * 984 / 1800);
+    mask-image: linear-gradient(to top, transparent, black 30%);
+  }
+
+  @media (max-width: $smallScreen) {
+    .project-header {
+      background: url(~assets/images/projects/walk-on-water/wow--project-header--small.jpg?disable=true) top center no-repeat;
+      background-size: cover;
+      padding-top: calc(100% * 1027 / 1466);
+    }
+
+    h1 {
+      text-align: right;
+    }
+
+    .project-highlights {
+      width: 100%;
+      // margin-left: 0;
+    }
+  }
+}

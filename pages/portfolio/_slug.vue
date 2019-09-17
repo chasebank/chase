@@ -3,7 +3,9 @@
     <div class="project-header"></div>
 
     <div class="content">
-      <h1><span>{{ title }}</span><span>{{ description }}</span></h1>
+      <!-- <h1><span>{{ title }}</span><span>{{ description }}</span></h1> -->
+
+      <h1>{{ description }}</h1>
 
       <ul class="project-highlights">
         <li v-for="(hl, index) in projectHighlights" :key="index">{{ hl }}</li>
@@ -126,7 +128,9 @@ export default {
 // }
 
 h1 {
+  font-size: 3.75rem;
   margin-bottom: 0;
+  align-self: initial;
 
   span:nth-child(2) {
     line-height: .9;
@@ -142,11 +146,26 @@ h1 {
     font-family: 'Montserrat',Arial,Helvetica,sans-serif;
     font-size: 1.25rem;
     line-height: 1.5;
-    max-width: calc(25rem + 10vw);
-    margin-top: 3.5rem;
+    max-width: calc(20rem + 10vw);
+    // margin-top: 3.5rem;
     margin-bottom: 0rem;
     //same as h2/h3
-    @include responsive-property("padding-left", calc(15% - #{$mainPadding}), calc(25% - #{$mainPadding}));
+    // @include responsive-property("padding-left", calc(15% - #{$mainPadding}), calc(25% - #{$mainPadding}));
+
+
+    // background-color: rgba(255,255,255,.2);
+    // padding-top: 2.5rem;
+    // padding-right: 1.5rem;
+    // padding-bottom: 2.5rem;
+    padding: 2.5rem 1.5rem 2.5rem 3rem;
+    position: relative;
+    margin-top: 0;
+    top: -1.75rem;
+    z-index: -1;
+    // left: 4rem;
+    @include responsive-property("left", calc(15% - #{$mainPadding}), calc(25% - #{$mainPadding}));
+    // filter: drop-shadow(.5rem .5rem 1rem black) drop-shadow(.5rem .5rem 1rem black);
+
 
     li + li {
       margin-top: 1rem;
@@ -158,7 +177,7 @@ h1 {
     font-size: .75em;
     font-weight: bold;
     display: inline-block;
-        width: 2em;
+    width: 2em;
     margin-left: -2em;
     position: relative;
     top: -.1em;
