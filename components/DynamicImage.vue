@@ -1,13 +1,22 @@
 <template>
-  <div>
+  <figure>
     <img
-      :src="imageRequired"
+      v-if="!disableResponsive"
+      :srcset="require(`~/assets/images/${this.imageURL}`).srcSet"
       :width="width"
       :height="height"
       :class="classes"
       :alt="alt"
     />
-  </div>
+    <img
+      v-else
+      :srcset="require(`~/assets/images/${this.imageURL}?disable=true`).srcSet"
+      :width="width"
+      :height="height"
+      :class="classes"
+      :alt="alt"
+    />
+  </figure>
 </template>
 
 <script>
@@ -28,16 +37,24 @@ export default {
     alt: {
       type: String
     },
+    disableResponsive: {
+      type: Boolean,
+      default: false
+    },
   },
-
-  computed: {
-    imageRequired () {
-      return require(`../assets/images/${this.imageURL}`)
-    }
-  }
 }
 </script>
 
 <style lang="scss" scoped>
+figure {
+  display: flex;
+  justify-content: center;
+  margin-left: 0;
+  margin-right: 0;
+}
 
+img {
+  max-width: 100%;
+  height: auto;
+}
 </style>

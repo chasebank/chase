@@ -121,6 +121,7 @@ export default {
   ],
 
   responsiveLoader: {
+    format: 'jpg',
     min: 250,
     max: 1000,
     steps: 3,
@@ -142,17 +143,6 @@ export default {
   // Build configuration
   build: {
     extend(config) {
-      // config.module.rules.push({
-      //   test: /\.md$/,
-      //   loader: 'frontmatter-markdown-loader',
-      //   options: {
-      //     mode: [Mode.HTML, Mode.VUE_RENDER_FUNCTIONS, Mode.VUE_COMPONENT],
-      //     vue: {
-      //       root: "DynamicMarkdown"
-      //     }
-      //   }
-      // })
-
       config.module.rules.push({
         test: /\.md$/,
         loader: 'frontmatter-markdown-loader',

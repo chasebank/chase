@@ -1,6 +1,6 @@
 $dark: #8b5832;
 $bright: white;
-$backgroundColor: #ede4df;
+$backgroundColor: #fff1ea;
 $textColor: #273235;
 $accentBright: #00a9c7;
 $accentDark: #f32045;
@@ -32,6 +32,10 @@ $accentDark: #f32045;
     // reference typography styles
     text-shadow: 0 .05em .15em white!important;
     filter: drop-shadow(0 .1em .2em rgba(white,.5))!important;
+  }
+
+  .project-highlights {
+    background-color: rgba($bright,.75)
   }
 
   h1 span:nth-child(1) {

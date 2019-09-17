@@ -1,5 +1,6 @@
 <script lang="js">
 // TODO map extraComponents prop in computed to auto import these
+import DynamicImage from "~/components/DynamicImage.vue"
 import PhotoswipeImage from "~/components/PhotoswipeImage.vue"
 import PhotoswipeGallery from "~/components/PhotoswipeGallery.vue"
 
@@ -16,6 +17,7 @@ export default {
   },
 
   components: {
+    DynamicImage,
     PhotoswipeImage,
     PhotoswipeGallery
   },

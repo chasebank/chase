@@ -19,14 +19,6 @@
 <script>
 export default {
   props: {
-    // lowRes: {
-    //   type: String,
-    //   required: true
-    // },
-    // highRes: {
-    //   type: String,
-    //   required: true
-    // },
     classes: {
       type: String,
       required: false
