@@ -28,7 +28,11 @@ $accentDark: navy;
   padding-top: 26vw;
 
   .project-highlights {
-    background-color: rgba($accentBright,.2)
+    background-color: rgba(cyan,.15)
+  }
+
+  h3:after {
+    background: linear-gradient(to right, rgba($accentBright,0), $accentBright .2em, rgba($textColor,0));
   }
 
   .project-header {
