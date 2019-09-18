@@ -1,0 +1,58 @@
+$dark: #000e22;
+$bright: white;
+$backgroundColor: #0b152e;
+$textColor: #fcfeff;
+$accentBright: #53fffd;
+$accentDark: #ff0066;
+
+#aau-navigation {
+  @include pageNavigationColors(
+    $dark: $dark,
+    $backgroundColor: $dark,
+    $accentBright: $accentBright,
+    $accentDark: $accentDark
+  )
+}
+
+.aau-project {
+  @include portfolioProjectColors(
+    $dark: $dark,
+    $backgroundColor: $backgroundColor,
+    $textColor: $textColor,
+    $accentBright: $accentBright,
+    $accentDark: $accentDark
+  );
+
+  padding-top: 24vw;
+
+  .project-highlights {
+    background-color: rgba($accentBright,.15)
+  }
+
+  .project-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: url(~assets/images/projects/aau/aau--project-header--large.jpg?disable=true) top center no-repeat;
+    background-size: cover;
+    padding-top: calc(100% * 799 / 1800);
+    mask-image: linear-gradient(to top, transparent, black 30%);
+  }
+
+  @media (max-width: $smallScreen) {
+    .project-header {
+      background: url(~assets/images/projects/aau/aau--project-header--small.jpg?disable=true) top center no-repeat;
+      background-size: cover;
+      padding-top: calc(100% * 551 / 800);
+    }
+
+    h1 {
+      text-align: right;
+    }
+
+    .project-highlights {
+      width: 100%;
+    }
+  }
+}
