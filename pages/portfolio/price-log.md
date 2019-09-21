@@ -2,8 +2,10 @@
 title: Price Log
 description: Product Design & Development
 created: 2017-10-01T08:01:50+02
-updated:
-status: publish
+projectHighlights: [
+  'Designed a holiday/golf themed greeting card.',
+  'Digitally combine multiple photo elements to create a seamless composite.'
+  ]
 ---
 
 <h1><span>Walk on Water</span><span>Graphic Design & Brand Development</span></h1>
