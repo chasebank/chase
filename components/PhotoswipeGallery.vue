@@ -325,6 +325,10 @@ $gridGap: 20px;
     margin-left: calc(#{$gridGap} * -1);
     margin-right: calc(#{$gridGap} * -1);
   }
+
+  a {
+    border-bottom: none;
+  }
 }
 
 .gallery-single-image {
@@ -373,6 +377,16 @@ $gridGap: 20px;
 .long {
   grid-column: span 2;
   grid-row: span 1;
+}
+
+.square {
+  grid-column: span 2;
+  grid-row: span 1;
+
+  &::v-deep img {
+    object-fit: contain;
+    object-position: 100% 100%;
+  }
 }
 
 @mixin maxColumnsMediaQuery($columns) {

@@ -61,6 +61,10 @@ export default {
   }
 }
 
+.img-align-left img {
+  object-position: 0 0;
+}
+
 figcaption {
   display: none;
 }
