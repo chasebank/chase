@@ -6,7 +6,7 @@ description: Branding & Marketing
 created: 2017-10-01T08:01:50+02
 projectHighlights: [
   'Worked with sales & support team to design customizable marketing items.',
-  'Designed for both print and digital.'
+  'Designed for both print & digital.'
   ]
 ---
 
@@ -18,7 +18,12 @@ With nearly 700,000 members and 150,000 volunteers, they support sports organiza
 ### What I worked on
 Visual styles associated with common sports brands (Nike, Gatorade, ESPN) have a dramatic, extreme aesthetic. This fits the competitive nature of sports, pushing through boundaries to achieve greatness.
 
-EXAMPLE STYLES REF
+<photoswipe-gallery :singleImage="true">
+  <photoswipe-image
+    imageURL="projects/aau/aau-moodboard.jpg"
+    :classes="''"
+    :caption="'Moodboard to draw style inspiration from'" />
+</photoswipe-gallery>
 
 AAU is an "amateur" league, but I wanted to create designs that share that recognizable “big league” style.
 
@@ -28,7 +33,7 @@ I started with working to modernize the main AAU brand, representing the central
   <photoswipe-image
     imageURL="projects/aau/aau-logo-progression.jpg"
     :classes="'large'"
-    :caption="''" />
+    :caption="'Progression of creating a stylized version of the AAU “shield” logo'" />
 </photoswipe-gallery>
 
 I also created "hero images" to represent each of the many different sports. Those images were originally designed as large posters, but were then adapted as a sort of theme to apply in other formats, such as fliers, tri-fold brochures and booklets. Each matching a consistent design for that individual sport.
@@ -60,15 +65,19 @@ This included things with simple headings and personal contact info, like is fou
   <photoswipe-image
     imageURL="projects/aau/aau-booklets.jpg"
     :classes="'square'"
-    :caption="''" />
+    :caption="'Assortment of some booklets'" />
   <photoswipe-image
     imageURL="projects/aau/aau-stationary.jpg"
     :classes="'small'"
-    :caption="''" />
+    :caption="'AAU branded stationary including business cards, envelopes and letterhead'" />
+    <photoswipe-image
+    imageURL="projects/aau/aau-tri-folds.jpg"
+    :classes="'square'"
+    :caption="'Assortment of some tri-fold brochures'" />
     <photoswipe-image
     imageURL="projects/aau/aau-poster-aquatics.jpg"
     :classes="'medium'"
-    :caption="''" />
+    :caption="'Poster designed for the AAU Aquatics division'" />
     <photoswipe-image
     imageURL="projects/aau/aau-poster-aquatics-assets.jpg"
     :classes="'img-align-left'"
@@ -76,33 +85,33 @@ This included things with simple headings and personal contact info, like is fou
     <photoswipe-image
     imageURL="projects/aau/aau-webportal.jpg"
     :classes="'small'"
-    :caption="''" />
+    :caption="'Landing page for online ordering portal'" />
     <photoswipe-image
     imageURL="projects/aau/aau-emailblast.jpg"
     :classes="'small'"
-    :caption="''" />
+    :caption="'Design of email marketing blasts'" />
     <photoswipe-image
     imageURL="projects/aau/aau-poster-shield-print.jpg"
     :classes="''"
-    :caption="''" />
+    :caption="'AAU Shield poster printing'" />
     <photoswipe-image
     imageURL="projects/aau/aau-poster-shield.jpg"
     :classes="'medium'"
-    :caption="''" />
+    :caption="'AAU Shield poster design'" />
     <photoswipe-image
     imageURL="projects/aau/aau-poster-shield-assets.jpg"
     :classes="'img-align-left'"
-    :caption="''" />
+    :caption="'Some of the stock photo assets used to create the AAU Shield poster'" />
     <photoswipe-image
     imageURL="projects/aau/aau-poster-basketball.jpg"
     :classes="'medium'"
-    :caption="''" />
+    :caption="'AAU Basketball poster design'" />
     <photoswipe-image
     imageURL="projects/aau/aau-poster-basketball-assets.jpg"
     :classes="'tall img-align-left'"
-    :caption="'medium'" />
+    :caption="'Some of the stock photo assets used to create the AAU Basketball poster'" />
     <photoswipe-image
     imageURL="projects/aau/aau-poster-basketball-closeup.jpg"
     :classes="''"
-    :caption="''" />
+    :caption="'A closeup look at compositing the AAU Shield logo onto the contours of the jersey'" />
 </photoswipe-gallery>

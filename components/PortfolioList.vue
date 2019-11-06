@@ -124,7 +124,7 @@ export default {
 
   &:before {
     left: 0;
-    width: 100%;
+    width: $width;
   }
 
   &:after {

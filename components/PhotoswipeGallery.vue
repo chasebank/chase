@@ -1,9 +1,12 @@
 <template>
   <div>
-    <div class="gallery" :class="{
-      'gallery-grid' : gallery, 
-      'full-width' : fullWidth,
-      'gallery-single-image' : singleImage}" itemscope itemtype="http://schema.org/ImageGallery">
+    <div class="gallery"
+      :class="[classes, {
+        'gallery-grid' : gallery, 
+        'full-width' : fullWidth,
+        'gallery-single-image' : singleImage
+      }]"
+      itemscope itemtype="http://schema.org/ImageGallery">
       <slot></slot>
     </div>
     
@@ -297,19 +300,30 @@ export default {
     singleImage: {
       type: Boolean,
       default: false
-    }
+    },
+    classes: {
+      type: String,
+      required: false
+    },
   },
 }
 </script>
 
 <style lang="scss" scoped>
 $minGridColumn: 300px;
-$gridGap: 20px;
+$gridGap: $smallPadding;
+
+.gallery {
+  margin-top: $smallPadding;
+  margin-bottom: $smallPadding;
+}
 
 .gallery:not(.gallery-grid) {
   // background-color: magenta;
   // border: 4px solid magenta;
   display: flex;
+  padding-top: $smallPadding;
+  padding-bottom: $smallPadding;
 }
 
 .gallery-grid {
@@ -329,6 +343,10 @@ $gridGap: 20px;
   a {
     border-bottom: none;
   }
+}
+
+.gallery-thirds {
+  grid-template-columns: repeat(3, 1fr)!important;
 }
 
 .gallery-single-image {
@@ -377,6 +395,10 @@ $gridGap: 20px;
 .long {
   grid-column: span 2;
   grid-row: span 1;
+}
+
+.third {
+  grid-column: span 1;
 }
 
 .square {

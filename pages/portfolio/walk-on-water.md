@@ -37,7 +37,7 @@ Guests take photos, apply the filter and share them on social media, creating fu
 
 Once I understood how the system worked, I had to review the specifications and file requirements to make sure the filter worked on all devices and screen sizes. It was a fun and unique project.
 
-<photoswipe-gallery :gallery="true">
+<photoswipe-gallery :gallery="true" :classes="'gallery-thirds'">
   <photoswipe-image
     imageURL="projects/walk-on-water/wow--5k-geofilter.jpg"
     :classes="''"

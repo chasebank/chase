@@ -21,22 +21,56 @@ ul {
   padding-left: 0;
 }
 
-ul:not([class]):not([id]),
-p + ul,
-h1 + ul {
-  margin-top: 3em;
-  margin-bottom: 3em;
-  max-width: calc(30rem + 10vw);
 
-  li + li {
+.DynamicMarkdown {
+  ul {
+    margin-top: 2.25em;
+    margin-bottom: 2.25em;
+    max-width: calc(30rem + 10vw);
+
+    li + li {
+      margin-top: 1rem;
+    }
+  }
+
+  h4 + ul,
+  h5 + ul {
     margin-top: 1rem;
   }
+
+  // ul li::before,
+  // .project-highlights li::before {
+  //   content: "\25FC";
+  //   font-size: .75em;
+  //   font-weight: bold;
+  //   display: inline-block;
+  //   width: 2em;
+  //   margin-left: -2em;
+  //   position: relative;
+  //   top: -.1em;
+  // }
 }
+
+// ul:not([class]):not([id]) li::before {
+//   content: "\25FC";
+//   font-size: .75em;
+//   font-weight: bold;
+//   display: inline-block;
+//   width: 2em;
+//   margin-left: -2em;
+//   position: relative;
+//   top: -.1em;
+// }
 
 a,
 a:visited {
   color: currentColor;
   text-decoration: none;
+}
+
+p {
+  margin-top: 1.2em;
+  margin-bottom: 1.2em;
 }
 
 p a {
@@ -55,8 +89,6 @@ h1 {
 h2 {
   margin-top: 8rem;
   font-size: 3.5rem;
-
-  + p { margin-top: 0 }
 }
 
 // section + h2 {
@@ -65,14 +97,22 @@ h2 {
 
 h3 {
   font-size: 2.25rem;
-  color: #70bfce;
+  color: color(mid);
   margin-top: 4rem;
   margin-bottom: 1rem;
 }
 
 h4 {
-  color: #70bfce;
+  color: color(mid);
   font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+h5 {
+  color: color(mid);
+  font-size: 1.2rem;
+  margin-top: 2em;
+  margin-bottom: 0;
 }
 
 h1,
@@ -81,16 +121,29 @@ h3,
 h4,
 p,
 #back {
-  text-shadow: 0 .05em .15em black;
+  // text-shadow: 0 .05em .15em black;
   filter: drop-shadow(0 .1em .2em rgba(black,.5));
 }
 
 h1,
 h2,
 h3,
-h4 {
+h4,
+h5 {
   font-family: TimesNewRoman, Times New Roman, Times, Baskerville, Georgia, serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
   letter-spacing: -.05em;
+}
+
+h2,
+h3,
+h4 {
+  + p { margin-top: 0 }
 }
 
 h2,

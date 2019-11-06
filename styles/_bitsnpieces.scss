@@ -270,7 +270,7 @@ $transition: .6s;
     color: $accentBright;
   }
 
-  h2, h3, h4 {
+  h2, h3, h4, h5 {
     color: $accentBright;
   }
 
@@ -306,8 +306,8 @@ $transition: .6s;
   .project-highlights li,
   .DynamicMarkdown ul {
     // reference typography styles
-    text-shadow: 0 .05em .15em $dark;
-    filter: drop-shadow(0 .1em .2em rgba($dark,.5));
+    // text-shadow: 0 .05em .15em $dark;
+    filter: drop-shadow(0 .1em .1em rgba($dark,.5));
   }
 
   .project-highlights {

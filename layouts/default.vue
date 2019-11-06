@@ -219,7 +219,7 @@ main {
 .content {
   width: calc(100% - 3rem);
   align-self: center;
-  max-width: 50rem;
+  max-width: 40rem;
 
   display: flex;
   flex-direction: column;
@@ -283,7 +283,7 @@ main {
 .pswp__bg {
   background: rgba(0,0,0,.75);
   backdrop-filter: blur(0px);
-  transtiion-property: opacity, backdrop-filter;
+  transition-property: opacity, backdrop-filter;
 }
 
 .pswp--open {

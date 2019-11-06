@@ -1,0 +1,69 @@
+$dark: #000e22;
+$bright: white;
+$backgroundColor: #e4e4e4;
+$textColor: black;
+$accentBright: #ff1c24;
+$accentDark: #ccc;
+
+#officemax-office-depot-navigation {
+  @include pageNavigationColors(
+    $dark: $dark,
+    $backgroundColor: $dark,
+    $accentBright: $accentBright,
+    $accentDark: $accentDark
+  )
+}
+
+.officemax-office-depot-project {
+  @include portfolioProjectColors(
+    $dark: $dark,
+    $backgroundColor: $backgroundColor,
+    $textColor: $textColor,
+    $accentBright: $accentBright,
+    $accentDark: $accentDark
+  );
+
+  h3, h4, h5,
+  ul, li, p {
+    filter: unset!important;
+  }
+
+  .project-highlights {
+    background-color: white;
+  }
+
+  ul li:before {
+    color: $accentBright;
+  }
+
+  padding-top: 020vw;
+
+  .project-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: white url(~assets/images/projects/officemax-office-depot/project-hero.png?disable=true) top center no-repeat;
+    background-size: contain;
+    background-position: bottom center;
+    padding-top: calc(110% * 405 / 1800);
+  }
+
+  @media (max-width: $smallScreen) {
+    .project-header {
+      background: url(~assets/images/projects/officemax-office-depot/project-hero-narrow.png?disable=true) top center no-repeat;
+      background-size: cover;
+      padding-top: calc(100% * 619 / 1161);
+    }
+
+    h2 {
+      text-align: right;
+      margin-top: 3em;
+    }
+
+    .project-highlights {
+      width: 100%;
+      // margin-left: 0;
+    }
+  }
+}

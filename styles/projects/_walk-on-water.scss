@@ -24,13 +24,12 @@ $accentDark: #f32045;
   );
 
   
-  h1,
   h3,
   h4,
   p,
   .project-highlights li {
     // reference typography styles
-    text-shadow: 0 .05em .15em white!important;
+    // text-shadow: 0 .05em .15em white!important;
     filter: drop-shadow(0 .1em .2em rgba(white,.5))!important;
   }
 
@@ -38,10 +37,10 @@ $accentDark: #f32045;
     background-color: rgba($bright,.75)
   }
 
-  h1 span:nth-child(1) {
-    text-shadow: none;
-    filter: drop-shadow(0);
-  }
+  // h1 span:nth-child(1) {
+  //   text-shadow: none;
+  //   filter: drop-shadow(0);
+  // }
 
   h3:after {
     background: linear-gradient(to right, rgba($accentBright,0), $accentBright .2em, rgba($accentBright,0));
@@ -67,8 +66,9 @@ $accentDark: #f32045;
       padding-top: calc(100% * 1027 / 1466);
     }
 
-    h1 {
+    h2 {
       text-align: right;
+      margin-top: 1em;
     }
 
     .project-highlights {

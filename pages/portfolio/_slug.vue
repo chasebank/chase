@@ -3,9 +3,9 @@
     <div class="project-header"></div>
 
     <div class="content">
-      <!-- <h1><span>{{ title }}</span><span>{{ description }}</span></h1> -->
+      <h1>{{ pageTitle }}</h1>
 
-      <h1>{{ description }}</h1>
+      <h2>{{ description }}</h2>
 
       <ul class="project-highlights">
         <li v-for="(hl, index) in projectHighlights" :key="index">{{ hl }}</li>
@@ -128,14 +128,20 @@ export default {
 // }
 
 h1 {
-  font-size: 3.75rem;
-  margin-bottom: 0;
-  align-self: initial;
+  position: absolute;
+  left: -999em;
+}
 
-  span:nth-child(2) {
-    line-height: .9;
-    margin-top: -.5em;
-  }
+h2 {
+  font-size: 3.75rem;
+  line-height: 1;
+  padding-left: unset;
+  margin-bottom: .2rem;
+  align-self: initial;
+}
+
+p {
+  // text-shadow: unset;
 }
 
 
@@ -181,7 +187,7 @@ h1 {
     margin-left: -2em;
     position: relative;
     top: -.1em;
-  }
+  }  
 
   h3 {
     display: flex;
@@ -231,23 +237,23 @@ h1 {
     color: $mid
   }
 
-  h1 span:first-child,
-  h2 span:first-child {
-    color: $light;
-    text-shadow: 0.02em 0.05em 0.08em rgba(darken($light,25%),.5);
+  // h2 span:first-child,
+  // h2 span:first-child {
+  //   color: $light;
+  //   text-shadow: 0.02em 0.05em 0.08em rgba(darken($light,25%),.5);
 
-    &:before {
-      background-color: $highlight;
-      opacity: .8
-    }
-  }
+  //   &:before {
+  //     background-color: $highlight;
+  //     opacity: .8
+  //   }
+  // }
 
-  h1 span:nth-child(2),
-  h2 span:nth-child(2) {
-    color: $mid;
-    // text-shadow: 0 0.05em 0.15em rgba(darken($mid,40%),.5);
-    text-shadow: none;
-  }
+  // h2 span:nth-child(2),
+  // h2 span:nth-child(2) {
+  //   color: $mid;
+  //   // text-shadow: 0 0.05em 0.15em rgba(darken($mid,40%),.5);
+  //   text-shadow: none;
+  // }
 
   h3,
   h4 {
@@ -265,44 +271,44 @@ h1 {
   margin-top: 2.25rem;
 }
 
-.walk-on-water {
-  @include projectColors(
-    $text: #547171,
-    $highlight: white,
-    $light: #f82945,
-    $mid: #00b3b5,
-    $dark: #2d6b77,
-    $darker: #1a4850,
-    $background: #ede4df
-  );
+// .walk-on-water {
+//   @include projectColors(
+//     $text: #547171,
+//     $highlight: white,
+//     $light: #f82945,
+//     $mid: #00b3b5,
+//     $dark: #2d6b77,
+//     $darker: #1a4850,
+//     $background: #ede4df
+//   );
 
-  padding-top: 50%;
+//   padding-top: 50%;
 
-  h1 {
-    text-align: right;
-  }
+//   h2 {
+//     text-align: right;
+//   }
 
-  @media (min-width: $smallScreen) {
-    padding-top: 38%;
+//   @media (min-width: $smallScreen) {
+//     padding-top: 38%;
 
-    h1 {
-      text-align: initial;
-    }
-  }
+//     h2 {
+//       text-align: initial;
+//     }
+//   }
 
-  h3,
-  h4,
-  p {
-    text-shadow: none;
-  }
+//   h3,
+//   h4,
+//   p {
+//     text-shadow: none;
+//   }
 
-  // &.container {
-  //   background: white url(http://cha.se.net/portfolio/walk-on-water/project-hero-new.jpg);
-  //   background-size: 100% auto;
-  //   background-repeat: no-repeat;
-  //   padding-top: 30%;
-  // }
-}
+//   // &.container {
+//   //   background: white url(http://cha.se.net/portfolio/walk-on-water/project-hero-new.jpg);
+//   //   background-size: 100% auto;
+//   //   background-repeat: no-repeat;
+//   //   padding-top: 30%;
+//   // }
+// }
 
 // .pga {
 //   @include projectColors(
