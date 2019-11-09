@@ -54,11 +54,20 @@ I also created "hero images" to represent each of the many different sports. Tho
 </photoswipe-gallery>
 
 ### Some more details
-While AAU is a central support organization, independent teams and leagues spread throughout the entire United States. These affiliates have a wide variety of marketing needs ranging from events and tournaments, fundraising, recruitment, and community building.
 
-My task was to design items that could be uniformly adapted for all use cases. Rather than limit usefulness with generic “one size fits all” designs and verbiage, we developed variable text fields that could be customized, through an online ordering platform, for each unique need.
+#### Meeting all the needs
+AAU is a central organization, but individual teams and leagues span the entire United States. They each have a wide variety of marketing needs ranging from events and tournaments, fundraising, recruitment, and community building.
 
-This included things with simple headings and personal contact info, like is found on business cards, stationary, or large text on posters. Items with entire bodies of text could also be custom ordered, like flyers, brochures and rule books. test
+My task was to design items that could uniformly adapt to all use cases. Rather than constrain usefulness with generic “one size fits all” designs/verbiage, we created items with text that could be fully customized, through an online ordering platform, meeting each unique need.
+
+This included designs with simple headings and personal contact info, like business cards, stationary, or large text on posters. We also offered items with entire bodies of custom text, like brochures, flyers, and booklets.
+
+#### The perfect photo
+Most of these designs feature people playing sports. Ideally, a project may budget for custom photography, which not only lends useful design assets, but also opens opportunities for a more personal touch, featuring *actual* AAU members. Maybe name them brand ambassadors and publish their stories...
+
+Unfortunately this wasn't an option, which required sourcing stock photos. This presents new concerns of proper licensing and costs, but finding quality sports-themed photos of amateur athletes proved surprisingly most challenging.
+
+For design elements without people, like textures and backgrounds, sourcing photos is easier. The stylized AAU shield logo, for instance, has texture within the blue and red parts, taken from the reflective patterns in a car tail light. And the blue background of the basketball poster is mostly [royalty-free NASA photos](https://images.nasa.gov/), taken by the Hubble Space Telescope. [Public domain photos](https://en.wikipedia.org/wiki/Wikipedia:Public_domain_image_resources), like many published by governments, can offer great solutions. Staying aware of these resources has always been useful.
 
 ### Gallery
 <photoswipe-gallery :gallery="true" :fullWidth="true">

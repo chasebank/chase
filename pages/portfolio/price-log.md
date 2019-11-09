@@ -1,7 +1,7 @@
 ---
 title: Price Log
 description: Product Design & Development
-created: 2017-10-01T08:01:50+02
+created: 2019-10-01T08:01:50+02
 projectHighlights: [
   'Designed a holiday/golf themed greeting card.',
   'Digitally combine multiple photo elements to create a seamless composite.'

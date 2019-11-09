@@ -62,6 +62,10 @@ export default {
     ]).then(results => {
       const [projectRes,codeLanguageRes] = results
 
+      projectRes.sort(function(a,b){
+        return new Date(b.created) - new Date(a.created);
+      });
+
       return {
         projects: projectRes,
         codeLanguages: codeLanguageRes

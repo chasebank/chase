@@ -39,15 +39,15 @@ Once I understood how the system worked, I had to review the specifications and 
 
 <photoswipe-gallery :gallery="true" :classes="'gallery-thirds'">
   <photoswipe-image
-    imageURL="projects/walk-on-water/wow--5k-geofilter.jpg"
+    imageURL="projects/walk-on-water/wow-5k-geofilter.jpg"
     :classes="''"
     :caption="'The final geo-filter filter design, with transparency, provided to Snapchat'" />
     <photoswipe-image
-    imageURL="projects/walk-on-water/wow--5k-geofilter-example.jpg"
+    imageURL="projects/walk-on-water/wow-5k-geofilter-example.jpg"
     :classes="''"
     :caption="'The geo-filter applied to a photograph'" />
     <photoswipe-image
-    imageURL="projects/walk-on-water/wow--5k-geofilter-poster.jpg"
+    imageURL="projects/walk-on-water/wow-5k-geofilter-poster.jpg"
     :classes="''"
     :caption="'A poster at the event, encouraging participants'" />
 </photoswipe-gallery>
@@ -58,7 +58,7 @@ I wanted cards that stood out but were cheap to produce. I used unique foil acce
 
 A masking image is provided to indicate where the foil should be applied (white areas get foil and black areas do not), as well as the full color design to be printed over top. I used gold foil to be printed under red ink, which made for a nice bright fiery red color.
 
-<dynamic-image imageURL="projects/walk-on-water/wow--business-card-animated.gif" :disableResponsive="true" :alt="'Business card'" />
+<dynamic-image imageURL="projects/walk-on-water/wow-businesscard-animated.gif" :disableResponsive="true" :alt="'Business card'" />
 
 We created personalized business cards for all members of management, as well as a generic card with space for sales associates to write in their name as they assist customers. Matte paper stock was used to make sure pen ink didn’t smear.
 
@@ -66,43 +66,67 @@ We created personalized business cards for all members of management, as well as
 
 <photoswipe-gallery :gallery="true" :fullWidth="true">
   <photoswipe-image
-    imageURL="projects/walk-on-water/wow--couponcard-back.jpg"
+    imageURL="projects/walk-on-water/wow-couponcard-closeup.jpg"
     :classes="''"
     :caption="'In-store coupon postcard for use as a bag-stuffers - back'" />
   <photoswipe-image
-    imageURL="projects/walk-on-water/wow--couponcard-front.jpg"
+    imageURL="projects/walk-on-water/wow-couponcard-front.jpg"
     :classes="''"
     :caption="'In-store coupon postcard for use as a bag-stuffers - front'" />
   <photoswipe-image
-    imageURL="projects/walk-on-water/wow--powerofpink-poster.jpg"
+    imageURL="projects/walk-on-water/wow-powerofpink-shirt-poster.jpg"
     :classes="'tall'"
     :caption="'Poster advertising limited edition Brighton bracelet, in support of breast cancer awareness'" />
   <photoswipe-image
-    imageURL="projects/walk-on-water/wow--5k-postcard.jpg"
+    imageURL="projects/walk-on-water/wow-5k-postcard.jpg"
     :classes="''"
     :caption="'Postcard advertising an annual charity 5k'" />
+    <photoswipe-image
+    imageURL="projects/walk-on-water/wow-5k-ad-landscape.jpg"
+    :classes="'medium'"
+    :caption="'Postcard advertising an annual charity 5k'" />
   <photoswipe-image
-    imageURL="projects/walk-on-water/wow--pandora-ad.jpg"
+    imageURL="projects/walk-on-water/wow-pandora-bracelet.jpg"
     :classes="''"
     :caption="'Postcard advertising a promotional Panadora bracelet'" />
   <photoswipe-image
-    imageURL="projects/walk-on-water/wow--merchandise-tags.jpg"
+    imageURL="projects/walk-on-water/wow-merchandise-tags.jpg"
     :classes="''"
     :caption="'In-store product tags used to draw attention to items'" />
+    <photoswipe-image
+    imageURL="projects/walk-on-water/wow-notecard.jpg"
+    :classes="'medium'"
+    :caption="'Postcard advertising an annual charity 5k'" />
   <photoswipe-image
-    imageURL="projects/walk-on-water/wow--lmhs-magazine.jpg"
+    imageURL="projects/walk-on-water/wow-lmhs-magazine.jpg"
     :classes="''"
     :caption="'Full-page magazine advertisement marketed toward a local high school, featuring a student'" />
   <photoswipe-image
-    imageURL="projects/walk-on-water/wow--valentines-shirt-poster.jpg"
+    imageURL="projects/walk-on-water/wow-valentines-shirt-poster.jpg"
+    :classes="'tall'"
+    :caption="'Poster advertising a charity t-shirt sale'" />
+    <photoswipe-image
+    imageURL="projects/walk-on-water/wow-banner.jpg"
     :classes="'tall'"
     :caption="'Poster advertising a charity t-shirt sale'" />
   <photoswipe-image
-    imageURL="projects/walk-on-water/wow--ad.jpg"
+    imageURL="projects/walk-on-water/wow-westin-ad.jpg"
     :classes="''"
     :caption="'Postcard advertisement'" />
   <photoswipe-image
-    imageURL="projects/walk-on-water/wow--winterpark.jpg"
+    imageURL="projects/walk-on-water/wow-winterpark-poster.jpg"
+    :classes="''"
+    :caption="'Large poster advertising a store location'" />
+    <photoswipe-image
+    imageURL="projects/walk-on-water/wow-trifold.jpg"
     :classes="'medium'"
+    :caption="'Large poster advertising a store location'" />
+    <photoswipe-image
+    imageURL="projects/walk-on-water/wow-notecard-landscape.jpg"
+    :classes="'medium'"
+    :caption="'Large poster advertising a store location'" />
+    <photoswipe-image
+    imageURL="projects/walk-on-water/wow-eventad.jpg"
+    :classes="''"
     :caption="'Large poster advertising a store location'" />
 </photoswipe-gallery>
